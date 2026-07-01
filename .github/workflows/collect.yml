@@ -1,0 +1,90 @@
+# .github/workflows/collect.yml  (CineBOTrends/datacollector)
+#
+# IST schedule (GitHub cron is UTC; IST = UTC+5:30):
+#   ADVANCE  IST 09,12,15,18,21 -> UTC :30 past 03,06,09,12,15  |  IST 23:30 -> UTC 18:00
+#   DAILY    IST 03,05,06..22   -> UTC :30 past the matching hours
+#
+# R2 keeps history across the ephemeral runners:
+#   restore (before build) pulls all past dates back; save (after scrape) persists this run.
+#
+# Secrets required (Settings -> Secrets and variables -> Actions):
+#   DISTRICT_WORKER_URL, DISTRICT_UA, DISTRICT_KEY
+#   GH_PAT            (Contents:write on CineBOTrends/dashboard)
+#   R2_ENDPOINT       (https://<accountid>.r2.cloudflarestorage.com)
+#   R2_ACCESS_KEY, R2_SECRET_KEY
+#   R2_BUCKET_NAME    (your bucket, e.g. cinebotrends-data)
+
+name: collect-and-publish
+
+on:
+  schedule:
+    - cron: "30 3,6,9,12,15 * * *"     # ADVANCE  (IST 09,12,15,18,21)
+    - cron: "0 18 * * *"               # ADVANCE  (IST 23:30)
+    - cron: "30 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,21,23 * * *"  # DAILY
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Mode to run manually"
+        default: "both"
+        type: choice
+        options: ["both", "daily", "advance"]
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+env:
+  DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
+  DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
+  DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+  R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+  R2_ACCESS_KEY: ${{ secrets.R2_ACCESS_KEY }}
+  R2_SECRET_KEY: ${{ secrets.R2_SECRET_KEY }}
+  R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Pick mode from schedule
+        id: pick
+        run: |
+          case "${{ github.event.schedule }}" in
+            "30 3,6,9,12,15 * * *") echo "mode=advance" >> "$GITHUB_OUTPUT" ;;
+            "0 18 * * *")           echo "mode=advance" >> "$GITHUB_OUTPUT" ;;
+            "30 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,21,23 * * *") echo "mode=daily" >> "$GITHUB_OUTPUT" ;;
+            *) echo "mode=${{ github.event.inputs.mode || 'both' }}" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - name: Restore history from R2
+        run: python ci_persist.py restore
+
+      - name: Collect (${{ steps.pick.outputs.mode }})
+        run: python cli.py run --mode ${{ steps.pick.outputs.mode }}
+
+      - name: Save this run's raw data to R2
+        run: python ci_persist.py save ${{ steps.pick.outputs.mode }}
+
+      - name: Build data tree (full, all dates)
+        run: python build_data.py .
+
+      - name: Publish data/ -> dashboard repo
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
+          rm -rf out/data
+          cp -r data out/data
+          cd out
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f data
+          git commit -m "data(${{ steps.pick.outputs.mode }}): $(date -u +%FT%TZ)" || echo "no changes"
+          git push

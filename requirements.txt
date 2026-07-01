@@ -1,0 +1,11 @@
+cloudscraper
+aiohttp
+pytz
+flask
+flask-cors
+gunicorn
+boto3
+blinker==1.6.2
+apscheduler
+pyyaml
+requests
