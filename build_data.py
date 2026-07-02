@@ -587,6 +587,31 @@ def build_date(mode, date, src_dir, out_dir, posters, metadata, pub_dir=None):
         pub_m_dir = os.path.join(pub_dir, "m")
         os.makedirs(pub_m_dir, exist_ok=True)
 
+    # Global District poster index: collect every poster the District worker
+    # provided (across ALL movies), keyed by canonical + first-word title.
+    # Lets a District poster apply to the BMS-titled version of the same film.
+    global_dposters = {}
+    for _r in rows:
+        _mi = _r.get("movieInfo")
+        if not _mi:
+            continue
+        _pu = (_mi.get("poster") or _mi.get("thumbnail") or _mi.get("cover") or "").strip()
+        if not _pu:
+            continue
+        _p = {"thumb": _pu, "bg": (_mi.get("cover") or _pu).strip() or _pu}
+        _nm = _mi.get("name") or ""
+        if _nm:
+            global_dposters.setdefault("canon:" + canonical_title(_nm).casefold(), _p)
+            _fw = _first_word_key(_nm)
+            if _fw:
+                global_dposters.setdefault("fw:" + _fw, _p)
+
+    def _global_district_poster(title):
+        return (
+            global_dposters.get("canon:" + canonical_title(title).casefold())
+            or global_dposters.get("fw:" + _first_word_key(title))
+        )
+
     index = []
     movies_for_history = {}
     used_slugs = set()
@@ -602,7 +627,11 @@ def build_date(mode, date, src_dir, out_dir, posters, metadata, pub_dir=None):
             movie["slug"] = slug
         used_slugs.add(slug)
         dm = district_meta_from_rows(mrows)
-        movie["poster"] = resolve_poster(title, movie["slug"], posters) or dm["poster"]
+        movie["poster"] = (
+            resolve_poster(title, movie["slug"], posters)
+            or dm["poster"]
+            or _global_district_poster(title)
+        )
         movie["meta"] = _merge_meta(resolve_meta(title, movie["slug"], metadata), dm["meta"])
         movie["last_updated"] = last_updated
         movies_for_history[movie["slug"]] = movie
