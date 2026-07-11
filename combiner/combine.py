@@ -135,9 +135,16 @@ def combine_shards(mode: str, date_code: str = None, upload_r2: bool = True):
     # Normalize all rows
     all_rows = [normalize_row(r, dc) for r in all_rows]
 
-    # Dedupe
+    # Dedupe (same-source exact repeats)
     final_rows, dupes = dedupe(all_rows)
     print(f"\U0001f9f9 Duplicates removed: {dupes}")
+
+    # Dedupe across sources: the same theatre is listed under different names by
+    # BMS and District, so the same show was being counted twice (inflating
+    # shows / tickets / gross). Keep BMS (real per-seat prices), drop District's copy.
+    from combiner.venue_map import cross_source_dedupe
+    final_rows, cross = cross_source_dedupe(final_rows)
+    print(f"\U0001f501 Cross-source duplicates removed (District/BMS): {cross}")
     print(f"\U0001f3af Final detailed rows: {len(final_rows)}")
 
     # Sort
