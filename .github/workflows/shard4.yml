@@ -1,0 +1,74 @@
+# .github/workflows/shard4.yml
+# MANUAL ONLY - for testing/debugging shard 4 on its own runner (its own IP).
+# The scheduled production run is run-all.yml (which runs all 9 + combine).
+
+name: Shard 4 (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Mode"
+        default: "daily"
+        type: choice
+        options: ["daily", "advance"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shard-4
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Decide date (IST)
+        id: d
+        run: |
+          MODE="${{ inputs.mode }}"
+          if [ "$MODE" = "advance" ]; then
+            DATE_CODE=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d)
+          else
+            DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d)
+          fi
+          echo "date_code=$DATE_CODE" >> "$GITHUB_OUTPUT"
+          echo "MODE=$MODE DATE=$DATE_CODE"
+
+      - name: Scrape shard 4
+        env:
+          DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
+          DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
+          DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+        run: |
+          python cli.py scrape --mode ${{ inputs.mode }} \
+                               --shard 4 \
+                               --date ${{ steps.d.outputs.date_code }}
+
+      - name: Commit shard 4 output (retry-safe)
+        run: |
+          MODE="${{ inputs.mode }}"
+          DATE="${{ steps.d.outputs.date_code }}"
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f "$MODE/data/$DATE/detailed4.json" "$MODE/data/$DATE/movie_summary4.json" 2>/dev/null || true
+          git diff --cached --quiet && { echo "shard 4: nothing collected"; exit 0; }
+          git commit -m "shard 4 ($MODE $DATE)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main || true
+            git push origin main && exit 0
+            echo "push retry $i..."
+            sleep 4
+          done
+          git push --force-with-lease origin main || true

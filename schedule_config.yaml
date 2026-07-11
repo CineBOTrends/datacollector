@@ -1,0 +1,39 @@
+timezone: "Asia/Kolkata"
+
+advance:
+  - "09:00"
+  - "12:00"
+  - "15:00"
+  - "18:00"
+  - "21:00"
+  - "23:30"
+
+daily:
+  - "03:00"
+  - "05:00"
+  - "07:00"
+  - "07:29"
+  - "08:00"
+  - "09:00"
+  - "10:00"
+  - "11:00"
+  - "12:00"
+  - "13:00"
+  - "14:00"
+  - "15:00"
+  - "16:00"
+  - "17:00"
+  - "18:00"
+  - "19:00"
+  - "20:00"
+  - "21:00"
+  - "22:00"
+
+cleanup:
+  time: "02:00"
+  retain_days: 10
+
+# Where the scheduler pushes the built data/ (drives cinebotrends.com).
+publish:
+  dashboard_repo: "https://github.com/CineBOTrends/dashboard.git"
+  dashboard_dir: "../dashboard-publish"   # local clone, created automatically

@@ -1,0 +1,15 @@
+# secrets - NEVER commit
+.env
+.env.*
+
+# generated data (pushed to dashboard repo by the workflow, not stored here)
+data/
+data-public/
+
+# collector run outputs / caches
+daily/
+advance/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
