@@ -1,0 +1,155 @@
+# .github/workflows/manual-run.yml
+#
+# MANUAL ONLY - click "Run workflow" and pick the mode.
+# Identical pipeline to scheduled-run.yml; it just never fires on its own.
+
+name: Manual run
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Mode"
+        default: "daily"
+        type: choice
+        options: ["daily", "advance"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect          # shared, so scheduled + manual never overlap
+  cancel-in-progress: false
+
+jobs:
+  decide-day:
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.set.outputs.mode }}
+      date_code: ${{ steps.set.outputs.date_code }}
+    steps:
+      - id: set
+        run: |
+          case "${{ github.event.schedule }}" in
+            "23 3,6,9,12,15,16 * * *"|"53 17 * * *") MODE=advance ;;
+            "23 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *") MODE=daily ;;
+            *) MODE="${{ github.event.inputs.mode || 'daily' }}" ;;
+          esac
+          if [ "$MODE" = "advance" ]; then
+            DATE_CODE=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d)
+          else
+            DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d)
+          fi
+          echo "mode=$MODE"           >> "$GITHUB_OUTPUT"
+          echo "date_code=$DATE_CODE" >> "$GITHUB_OUTPUT"
+          echo "MODE=$MODE  DATE_CODE=$DATE_CODE"
+
+  shards:
+    name: Shard ${{ matrix.shard }}
+    needs: decide-day
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Scrape shard ${{ matrix.shard }}
+        env:
+          DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
+          DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
+          DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+        run: |
+          python cli.py scrape --mode ${{ needs.decide-day.outputs.mode }} \
+                               --shard ${{ matrix.shard }} \
+                               --date ${{ needs.decide-day.outputs.date_code }}
+
+      - name: Commit shard ${{ matrix.shard }} output (retry-safe)
+        run: |
+          MODE="${{ needs.decide-day.outputs.mode }}"
+          DATE="${{ needs.decide-day.outputs.date_code }}"
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f "$MODE/data/$DATE/detailed${{ matrix.shard }}.json" \
+                     "$MODE/data/$DATE/movie_summary${{ matrix.shard }}.json" 2>/dev/null || true
+          git diff --cached --quiet && { echo "shard ${{ matrix.shard }}: nothing collected (blocked?)"; exit 0; }
+          git commit -m "shard ${{ matrix.shard }} ($MODE $DATE)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main || true
+            git push origin main && exit 0
+            echo "push retry $i..."
+            sleep 4
+          done
+          git push --force-with-lease origin main || true
+
+  combine:
+    name: Combine + publish
+    needs: [decide-day, shards]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      MODE: ${{ needs.decide-day.outputs.mode }}
+      DATE_CODE: ${{ needs.decide-day.outputs.date_code }}
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_ACCESS_KEY: ${{ secrets.R2_ACCESS_KEY }}
+      R2_SECRET_KEY: ${{ secrets.R2_SECRET_KEY }}
+      R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Pull the shard commits
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: How many shards made it?
+        run: |
+          COUNT=$(ls "$MODE/data/$DATE_CODE"/detailed*.json 2>/dev/null | wc -l)
+          echo "shards collected: $COUNT / 9"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "::error::All 9 shards blocked - refusing to publish (protects existing dashboard data)"
+            exit 1
+          fi
+
+      - name: Restore history from R2
+        run: python ci_persist.py restore || true
+
+      - name: Combine shards
+        run: python cli.py combine --mode "$MODE" --date "$DATE_CODE"
+
+      - name: Save raw data to R2
+        run: python ci_persist.py save "$MODE" || true
+
+      - name: Build data tree
+        run: python build_data.py .
+
+      - name: Publish data/ -> dashboard repo
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
+          rm -rf out/data
+          cp -r data out/data
+          cd out
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f data
+          git commit -m "data($MODE): $(date -u +%FT%TZ)" || echo "no changes"
+          git push

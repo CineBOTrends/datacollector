@@ -1,51 +1,37 @@
-# .github/workflows/run-all.yml   <-- THE SCHEDULED PRODUCTION WORKFLOW
+# .github/workflows/scheduled-run.yml
 #
-# Runs all 9 shards IN PARALLEL (each on its own runner => its own IP),
-# then combines + publishes. `needs:` guarantees combine waits for the shards
-# (no fragile time-based delay).
+# SCHEDULE ONLY - the workflow GitHub's cron fires automatically.
+# No manual trigger here, so nothing can interfere with the schedule.
+# To run by hand, use manual-run.yml.
 #
-# The shard1..shard9.yml files are MANUAL-ONLY debug helpers - they do not run on a schedule,
-# so nothing double-runs.
-#
-# SECRETS: DISTRICT_WORKER_URL, DISTRICT_UA, DISTRICT_KEY, GH_PAT,
-#          R2_ENDPOINT, R2_ACCESS_KEY, R2_SECRET_KEY, R2_BUCKET_NAME
+# Minutes are deliberately ODD (:37 / :07). GitHub's scheduler is busiest at
+# :00 and :30, and free/public repos are lowest priority there - runs get
+# delayed or skipped. Effect: everything fires ~7 min past the IST time.
 
-name: Run all shards + publish
+name: Scheduled run (auto)
 
 on:
-  workflow_dispatch:
-    inputs:
-      mode:
-        description: "Mode"
-        default: "daily"
-        type: choice
-        options: ["daily", "advance"]
   schedule:
-    # NOTE: minutes are deliberately ODD (37 / 07), not :00 or :30.
-    # GitHub's scheduler is busiest on the hour and half-hour, and free/public
-    # repos are lowest priority there - runs get delayed or skipped. Odd minutes
-    # fire far more reliably. Effect: everything runs ~7 min past the IST time.
+    # Each slot fires 7 minutes BEFORE the hour (IST :53 / :23), so data is ready
+    # by the top of the hour. Odd minutes also dodge GitHub's :00/:30 queue rush.
     #
-    # ADVANCE - IST 09:07,12:07,15:07,18:07,21:07,22:07  (UTC :37 past 03,06,09,12,15,16)
-    - cron: "37 3,6,9,12,15,16 * * *"
-    # ADVANCE - IST 23:37                                (UTC 18:07)
-    - cron: "7 18 * * *"
-    # DAILY   - IST 03:07,05:07,07:07,08:07,10:07,11:07,13:07,14:07,16:07,17:07,19:07,20:07,22:07
-    - cron: "37 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *"
-    # DAILY   - IST 05:37  (UTC 00:07)
-    # NB: IST 05:30 would be UTC 00:00 - the single most congested cron minute on
-    # GitHub (runs there are routinely delayed or dropped), so it fires at :37.
-    - cron: "7 0 * * *"
+    # ADVANCE - IST 08:53, 11:53, 14:53, 17:53, 20:53, 21:53
+    - cron: "23 3,6,9,12,15,16 * * *"
+    # ADVANCE - IST 23:23
+    - cron: "53 17 * * *"
+    # DAILY   - IST 02:53, 04:53, 06:53, 07:53, 09:53, 10:53, 12:53, 13:53,
+    #                15:53, 16:53, 18:53, 19:53, 21:53
+    - cron: "23 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *"
+
 
 permissions:
   contents: write
 
 concurrency:
-  group: run-all
+  group: collect          # shared, so scheduled + manual never overlap
   cancel-in-progress: false
 
 jobs:
-  # ----- 1) freeze mode + date so all 9 shards agree -----
   decide-day:
     runs-on: ubuntu-latest
     outputs:
@@ -55,8 +41,8 @@ jobs:
       - id: set
         run: |
           case "${{ github.event.schedule }}" in
-            "37 3,6,9,12,15,16 * * *"|"7 18 * * *") MODE=advance ;;
-            "37 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *"|"7 0 * * *") MODE=daily ;;
+            "23 3,6,9,12,15,16 * * *"|"53 17 * * *") MODE=advance ;;
+            "23 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *") MODE=daily ;;
             *) MODE="${{ github.event.inputs.mode || 'daily' }}" ;;
           esac
           if [ "$MODE" = "advance" ]; then
@@ -68,14 +54,13 @@ jobs:
           echo "date_code=$DATE_CODE" >> "$GITHUB_OUTPUT"
           echo "MODE=$MODE  DATE_CODE=$DATE_CODE"
 
-  # ----- 2) all 9 shards in parallel: 9 runners => 9 IPs -----
   shards:
     name: Shard ${{ matrix.shard }}
     needs: decide-day
     runs-on: ubuntu-latest
     timeout-minutes: 40
     strategy:
-      fail-fast: false        # a blocked shard must not kill the rest
+      fail-fast: false
       matrix:
         shard: [1, 2, 3, 4, 5, 6, 7, 8, 9]
     steps:
@@ -116,11 +101,10 @@ jobs:
           done
           git push --force-with-lease origin main || true
 
-  # ----- 3) combine everything that made it through, then publish -----
   combine:
     name: Combine + publish
     needs: [decide-day, shards]
-    if: always()                       # run even if some shards failed
+    if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
