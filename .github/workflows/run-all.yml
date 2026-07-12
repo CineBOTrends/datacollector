@@ -21,12 +21,21 @@ on:
         type: choice
         options: ["daily", "advance"]
   schedule:
-    # ADVANCE - IST 09,12,15,18,21,22  (UTC :30 past 03,06,09,12,15,16)
-    - cron: "30 3,6,9,12,15,16 * * *"
-    # ADVANCE - IST 23:30              (UTC 18:00)
-    - cron: "0 18 * * *"
-    # DAILY   - IST 03,05,07,08,10,11,13,14,16,17,19,20,22
-    - cron: "30 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *"
+    # NOTE: minutes are deliberately ODD (37 / 07), not :00 or :30.
+    # GitHub's scheduler is busiest on the hour and half-hour, and free/public
+    # repos are lowest priority there - runs get delayed or skipped. Odd minutes
+    # fire far more reliably. Effect: everything runs ~7 min past the IST time.
+    #
+    # ADVANCE - IST 09:07,12:07,15:07,18:07,21:07,22:07  (UTC :37 past 03,06,09,12,15,16)
+    - cron: "37 3,6,9,12,15,16 * * *"
+    # ADVANCE - IST 23:37                                (UTC 18:07)
+    - cron: "7 18 * * *"
+    # DAILY   - IST 03:07,05:07,07:07,08:07,10:07,11:07,13:07,14:07,16:07,17:07,19:07,20:07,22:07
+    - cron: "37 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *"
+    # DAILY   - IST 05:37  (UTC 00:07)
+    # NB: IST 05:30 would be UTC 00:00 - the single most congested cron minute on
+    # GitHub (runs there are routinely delayed or dropped), so it fires at :37.
+    - cron: "7 0 * * *"
 
 permissions:
   contents: write
@@ -46,8 +55,8 @@ jobs:
       - id: set
         run: |
           case "${{ github.event.schedule }}" in
-            "30 3,6,9,12,15,16 * * *"|"0 18 * * *") MODE=advance ;;
-            "30 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *") MODE=daily ;;
+            "37 3,6,9,12,15,16 * * *"|"7 18 * * *") MODE=advance ;;
+            "37 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *"|"7 0 * * *") MODE=daily ;;
             *) MODE="${{ github.event.inputs.mode || 'daily' }}" ;;
           esac
           if [ "$MODE" = "advance" ]; then
