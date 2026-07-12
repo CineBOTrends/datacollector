@@ -638,10 +638,35 @@ def build_history(mode, per_date, out_dir):
 
     for slug, entries in by_slug.items():
         days = []
+        prev = None
         for i, (date, movie) in enumerate(entries, 1):
             k = movie["kpi"]
-            days.append({"day": i, "date": date, "gross": k["gross"],
-                         "sold": k["sold"], "shows": k["shows"], "occupancy": k["occupancy"]})
+            row = {"day": i, "date": date, "gross": k["gross"],
+                   "sold": k["sold"], "shows": k["shows"], "occupancy": k["occupancy"]}
+            # day-over-day comparison vs the previous tracked day
+            if prev:
+                row["grossChange"] = round(k["gross"] - prev["gross"], 2)
+                row["soldChange"] = k["sold"] - prev["sold"]
+                row["showsChange"] = k["shows"] - prev["shows"]
+                row["occupancyChange"] = round(k["occupancy"] - prev["occupancy"], 2)
+                row["grossChangePct"] = (
+                    round((k["gross"] - prev["gross"]) / prev["gross"] * 100, 1)
+                    if prev["gross"] else None
+                )
+                row["soldChangePct"] = (
+                    round((k["sold"] - prev["sold"]) / prev["sold"] * 100, 1)
+                    if prev["sold"] else None
+                )
+            else:
+                row["grossChange"] = row["soldChange"] = row["showsChange"] = None
+                row["occupancyChange"] = row["grossChangePct"] = row["soldChangePct"] = None
+            days.append(row)
+            prev = k
+        # running total across tracked days (cumulative box office)
+        run = 0.0
+        for d in days:
+            run += d["gross"]
+            d["cumulativeGross"] = round(run, 2)
         latest = entries[-1][1]
         # city-wise (flatten latest)
         cities = []
@@ -774,6 +799,7 @@ def main(collector):
         print(f"  posters: {len(set(id(v) for v in posters.values()))} mapped")
 
     all_titles = {}                                      # title -> has_poster
+    history_source = {}                                  # mode -> per_date (for history)
     for mode, meta in MODES.items():
         data_root = os.path.join(collector, mode, "data")
         dates = []
@@ -793,11 +819,28 @@ def main(collector):
                         all_titles[mv["title"]] = bool(mv.get("poster"))
         if per_date:
             build_history(mode, per_date, os.path.join(OUT, mode))
+            history_source[mode] = per_date
         manifest["modes"][mode] = {
             "label": meta["label"], "runsPerDay": meta["runsPerDay"],
             "runTimes": meta["runTimes"], "dates": dates,
         }
         print(f"  {mode}: {len(dates)} date(s)")
+
+    # The "Historical" tab must always show what we ACTUALLY tracked day by day
+    # (i.e. DAILY actuals), never the advance/pre-sales snapshot. Advance numbers
+    # are a forward-looking booking state, not a day's real box office, so a
+    # day-over-day comparison across them is meaningless.
+    # So: rebuild history from the DAILY dates and write it into every mode
+    # folder, which makes data/<mode>/history/<slug>.json identical and correct
+    # whichever tab the dashboard is on.
+    daily_per_date = history_source.get("daily")
+    if daily_per_date:
+        for mode in MODES:
+            build_history("daily", daily_per_date, os.path.join(OUT, mode))
+        print(f"  history: built from DAILY actuals ({len(daily_per_date)} day(s)), "
+              f"with day-over-day comparison")
+    else:
+        print("  history: no daily data yet - skipped")
 
     with open(os.path.join(OUT, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
