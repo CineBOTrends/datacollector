@@ -1,0 +1,174 @@
+# .github/workflows/upcoming-run.yml
+#
+# UPCOMING RELEASES — advance bookings for films that haven't released yet.
+#
+# Same scraper and same advance/ tree as the normal advance run; the only
+# differences are the dates (D+3 / D+5 / D+7 instead of D+1) and the filter
+# that drops already-running films after combining. Without that filter this
+# would just be a duplicate of the advance feed: a currently-running film sells
+# tickets 3-7 days out too.
+
+name: Upcoming releases (D+3/5/7)
+
+on:
+  workflow_dispatch:
+    inputs:
+      offsets:
+        description: "Day offsets to scrape (comma-separated)"
+        default: "3,5,7"
+        type: string
+  schedule:
+    # IST is UTC+5:30 -> 10:00 / 16:00 / 21:30 IST
+    - cron: "30 4 * * *"
+    - cron: "30 10 * * *"
+    - cron: "0 16 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect          # shared with the daily/advance runs: never overlap
+  cancel-in-progress: false
+
+jobs:
+  decide-dates:
+    runs-on: ubuntu-latest
+    outputs:
+      offsets: ${{ steps.set.outputs.offsets }}      # JSON array, drives the matrix
+      dates: ${{ steps.set.outputs.dates }}          # space-separated YYYYMMDD
+    steps:
+      - id: set
+        run: |
+          RAW="${{ github.event.inputs.offsets || '3,5,7' }}"
+          OFFSETS=$(echo "$RAW" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -sc 'map(tonumber)')
+          DATES=""
+          for OFF in $(echo "$RAW" | tr ',' ' '); do
+            D=$(TZ=Asia/Kolkata date -d "+${OFF} day" +%Y%m%d)
+            DATES="$DATES $D"
+          done
+          echo "offsets=$OFFSETS"        >> "$GITHUB_OUTPUT"
+          echo "dates=${DATES# }"        >> "$GITHUB_OUTPUT"
+          echo "offsets=$OFFSETS  dates=${DATES# }"
+
+  shards:
+    name: Shard ${{ matrix.shard }} (D+${{ matrix.offset }})
+    needs: decide-dates
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      # 9 shards x 3 dates = 27 jobs. Capped so we don't eat the whole runner
+      # allowance in one burst and starve the daily run.
+      max-parallel: 9
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        offset: ${{ fromJson(needs.decide-dates.outputs.offsets) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - id: date
+        run: echo "code=$(TZ=Asia/Kolkata date -d '+${{ matrix.offset }} day' +%Y%m%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Scrape shard ${{ matrix.shard }} for ${{ steps.date.outputs.code }}
+        env:
+          DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
+          DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
+          DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+        run: |
+          python cli.py scrape --mode advance \
+                               --shard ${{ matrix.shard }} \
+                               --date ${{ steps.date.outputs.code }}
+
+      - name: Commit shard output (retry-safe)
+        run: |
+          DATE="${{ steps.date.outputs.code }}"
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f "advance/data/$DATE/detailed${{ matrix.shard }}.json" \
+                     "advance/data/$DATE/movie_summary${{ matrix.shard }}.json" 2>/dev/null || true
+          git diff --cached --quiet && { echo "shard ${{ matrix.shard }} @ $DATE: nothing collected (blocked?)"; exit 0; }
+          git commit -m "upcoming shard ${{ matrix.shard }} (advance $DATE)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main || true
+            git push origin main && exit 0
+            echo "push retry $i..."
+            sleep 4
+          done
+          git push --force-with-lease origin main || true
+
+  combine:
+    name: Combine + filter + publish
+    needs: [decide-dates, shards]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DATES: ${{ needs.decide-dates.outputs.dates }}
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_ACCESS_KEY: ${{ secrets.R2_ACCESS_KEY }}
+      R2_SECRET_KEY: ${{ secrets.R2_SECRET_KEY }}
+      R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Pull the shard commits
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Restore history from R2
+        run: python ci_persist.py restore || true
+
+      - name: Combine + drop already-running films
+        run: |
+          ANY=0
+          for DATE in $DATES; do
+            COUNT=$(ls "advance/data/$DATE"/detailed*.json 2>/dev/null | wc -l)
+            echo "--- $DATE: $COUNT / 9 shards ---"
+            if [ "$COUNT" -eq 0 ]; then
+              echo "::warning::no shards for $DATE, skipping"
+              continue
+            fi
+            python cli.py combine --mode advance --date "$DATE"
+            # keep only films whose release date is still in the future
+            python -c "from upcoming import filter_to_upcoming; filter_to_upcoming('$DATE')"
+            ANY=1
+          done
+          if [ "$ANY" -eq 0 ]; then
+            echo "::error::Every date came back empty - refusing to publish (protects existing dashboard data)"
+            exit 1
+          fi
+
+      - name: Save raw data to R2
+        run: python ci_persist.py save advance || true
+
+      - name: Build data tree
+        run: python build_data.py .
+
+      - name: Publish data/ -> dashboard repo
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
+          rm -rf out/data
+          cp -r data out/data
+          cd out
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f data
+          git commit -m "data(upcoming): $(date -u +%FT%TZ)" || echo "no changes"
+          git push
