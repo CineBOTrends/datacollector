@@ -30,123 +30,20 @@ from collections import defaultdict
 
 MODES = {
     "advance": {"label": "Advance", "runsPerDay": 6,
-                "runTimes": ["08:45", "11:45", "14:45", "17:45", "20:45", "23:30"]},
+                "runTimes": ["08:53", "11:53", "14:53", "17:53", "20:53", "23:20"]},
     "daily":   {"label": "Daily", "runsPerDay": 13,
-                "runTimes": ["03:00", "05:00", "07:00", "08:00", "10:00", "11:00",
-                             "13:00", "14:00", "16:00", "17:00", "19:00", "20:00", "22:00"]},
+                "runTimes": ["02:53", "03:53", "04:53", "05:53", "06:53", "07:53",
+                             "08:53", "09:53", "10:53", "11:53", "12:53", "13:53", "14:53","15:53","16:53","17:53","18:53","19:53","20:53","21:53","22:53"]},
 }
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data")              # FULL tree (admin)
+POSTER_DIR = os.path.join(HERE, "assets", "posters")   # self-hosted poster art
 
 KEY_RE = re.compile(r"^(.*)\s\(([^)]*?)\s-\s([^)]*)\)\s*$")
 
 # BookMyShow image CDN pattern.
 #   id = "<title-slug>-<event-code>-<timestamp>"  e.g. balaramana-dinagalu-et00478884-1782106150
-BMS = "https://assets-in.bmscdn.com/iedb/movies/images/mobile"
-def bms_thumb(bms_id):  return f"{BMS}/thumbnail/xlarge/{bms_id}.jpg"
-def bms_bg(bms_id):     return f"{BMS}/listing/xxlarge/{bms_id}.jpg"
-
-
-def load_posters(collector):
-    """
-    Optional poster map. Looked for in the dashboard root first, then the collector
-    root (dashboard wins). Keys may be a movie title or its slug. A value can be:
-        "balaramana-dinagalu-et00478884-1782106150"      (a BMS id)
-        {"id": "<bms-id>"}                                 (same)
-        {"thumb": "<url>", "bg": "<url>"}                  (explicit URLs)
-    Returns a dict keyed by lowercased title AND slug -> {"thumb":..., "bg":...}.
-    """
-    out = {}
-    for root in (collector, HERE):                       # HERE overrides collector
-        fp = os.path.join(root, "posters.json")
-        if not os.path.exists(fp):
-            continue
-        try:
-            raw = json.load(open(fp, encoding="utf-8"))
-        except Exception as e:
-            print(f"    ! posters.json in {root} ignored ({e})")
-            continue
-        for k, v in raw.items():
-            if k.startswith("_"):
-                continue
-            if isinstance(v, str):
-                p = {"thumb": bms_thumb(v), "bg": bms_bg(v)}
-            elif isinstance(v, dict) and v.get("id"):
-                p = {"thumb": bms_thumb(v["id"]), "bg": bms_bg(v["id"])}
-            elif isinstance(v, dict):
-                thumb = v.get("thumb") or v.get("bg")
-                p = {"thumb": thumb, "bg": v.get("bg") or thumb}
-            else:
-                continue
-            key = k.strip().lower()
-            out[key] = p
-            out[slugify(k)] = p
-            out["canon:" + canonical_title(k).casefold()] = p
-            fw = _first_word_key(k)
-            if fw:
-                out["fw:" + fw] = p
-    return out
-
-
-def resolve_poster(title, slug, posters):
-    return (
-        posters.get(title.strip().lower())
-        or posters.get(slug)
-        or posters.get("canon:" + canonical_title(title).casefold())
-        or posters.get("fw:" + _first_word_key(title))
-    )
-
-
-def load_metadata(collector):
-    """Load metadata.json (title -> {genres, runTime, certification, ...}) if present.
-    Keyed by lowercase title and slug. dashboard root overrides collector."""
-    out = {}
-    for root in (collector, HERE):
-        fp = os.path.join(root, "metadata.json")
-        if not os.path.exists(fp):
-            continue
-        try:
-            raw = json.load(open(fp, encoding="utf-8"))
-        except Exception as e:
-            print(f"    ! metadata.json in {root} ignored ({e})")
-            continue
-        for k, v in raw.items():
-            if k.startswith("_") or not isinstance(v, dict):
-                continue
-            out[k.strip().lower()] = v
-            out[slugify(k)] = v
-            out.setdefault("canon:" + canonical_title(k).casefold(), v)
-            fw = _first_word_key(k)
-            if fw:
-                out.setdefault("fw:" + fw, v)
-    return out
-
-
-def resolve_meta(title, slug, metadata):
-    m = (
-        metadata.get(title.strip().lower())
-        or metadata.get(slug)
-        or metadata.get("canon:" + canonical_title(title).casefold())
-        or metadata.get("fw:" + _first_word_key(title))
-    )
-    if not m:
-        return None
-    rt = (m.get("runTime") or "").strip()
-    if rt in ("", "0h 0m", "0h 00m"):
-        rt = None
-    return {
-        "genres": m.get("genres") or [],
-        "runTime": rt,
-        "certification": (m.get("certification") or "").strip() or None,
-        "languages": m.get("languages") or [],
-        "likes": m.get("likes"),
-        "eventCode": (m.get("eventCode") or "").strip() or None,
-        "releaseDate": (m.get("releaseDate") or "").strip() or None,
-        "cast": m.get("cast") or [],
-        "trailer": (m.get("trailer") or "").strip() or None,
-    }
-
 
 def _fmt_runtime(mins):
     try:
@@ -215,6 +112,60 @@ def _extract_cast(info):
     return []
 
 
+def _poster_ext(url):
+    m = re.search(r"\.(jpe?g|png|webp)(?:\?|$)", url or "", re.I)
+    return "." + m.group(1).lower().replace("jpeg", "jpg") if m else ".jpg"
+
+
+def localize_poster(slug, poster):
+    """Mirror District's poster art into assets/posters/ and return local paths.
+
+    Hotlinking the CDN forced every PNG export to pull the image cross-origin,
+    which is where Safari's CORS cache, canvas tainting and dom-to-image's
+    cold-cache misses all came from. A same-origin file has none of those
+    problems. Downloads once; later runs reuse the file on disk.
+    """
+    if not poster:
+        return None
+
+    import urllib.request
+
+    os.makedirs(POSTER_DIR, exist_ok=True)
+    out = {}
+    for kind in ("thumb", "bg"):
+        url = (poster.get(kind) or "").strip()
+        if not url:
+            continue
+        if url.startswith("assets/"):          # already local
+            out[kind] = url
+            continue
+        name = f"{slug}-{kind}{_poster_ext(url)}"
+        dest = os.path.join(POSTER_DIR, name)
+        rel = f"assets/posters/{name}"
+        if not os.path.exists(dest) or os.path.getsize(dest) == 0:
+            try:
+                req = urllib.request.Request(
+                    url, headers={"User-Agent": "Mozilla/5.0 (CineBOTrends collector)"}
+                )
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    data = r.read()
+                if not data:
+                    raise ValueError("empty body")
+                with open(dest, "wb") as f:
+                    f.write(data)
+                print(f"    poster: {rel} ({len(data)//1024} KB)")
+            except Exception as e:
+                print(f"    ! poster {url} failed ({e}); hotlinking instead")
+                out[kind] = url                # fall back to the remote URL
+                continue
+        out[kind] = rel
+
+    if not out:
+        return None
+    return {"thumb": out.get("thumb") or out.get("bg"),
+            "bg": out.get("bg") or out.get("thumb")}
+
+
 def district_meta_from_rows(rows):
     """Derive {poster, meta} from the District worker's movieInfo embedded in rows."""
     best = None
@@ -259,22 +210,6 @@ def district_meta_from_rows(rows):
         "trailer": (info.get("trailer") or "").strip() or None,
     }
     return {"poster": poster, "meta": meta}
-
-
-def _merge_meta(primary, fallback):
-    """Curated metadata wins per-field; District movieInfo fills the gaps."""
-    if not primary:
-        return fallback
-    if not fallback:
-        return primary
-    out = dict(primary)
-    for k, v in fallback.items():
-        if out.get(k) in (None, "", [], 0):
-            out[k] = v
-    return out
-
-
-_TITLE_TAG_RE = re.compile(r"\s*[\(\[][^\)\]]*[\)\]]\s*$")
 
 
 def canonical_title(base):
@@ -511,7 +446,7 @@ PUBLIC_TOP_CITIES = 20
 
 
 
-def build_date(mode, date, src_dir, out_dir, posters, metadata):
+def build_date(mode, date, src_dir, out_dir):
     detailed = os.path.join(src_dir, "finaldetailed.json")
     if not os.path.exists(detailed):
         print(f"    ! {mode}/{date}: finaldetailed.json missing, skipping")
@@ -575,12 +510,13 @@ def build_date(mode, date, src_dir, out_dir, posters, metadata):
             movie["slug"] = slug
         used_slugs.add(slug)
         dm = district_meta_from_rows(mrows)
-        movie["poster"] = (
-            resolve_poster(title, movie["slug"], posters)
-            or dm["poster"]
-            or _global_district_poster(title)
+        # District is the only source now: no posters.json map, no metadata.json
+        # override layer. Poster art is mirrored locally so it is served
+        # same-origin (see localize_poster).
+        movie["poster"] = localize_poster(
+            movie["slug"], dm["poster"] or _global_district_poster(title)
         )
-        movie["meta"] = _merge_meta(resolve_meta(title, movie["slug"], metadata), dm["meta"])
+        movie["meta"] = dm["meta"]
         movie["last_updated"] = last_updated
         movies_for_history[movie["slug"]] = movie
         # FULL tree (admin)
@@ -636,13 +572,25 @@ def build_history(mode, per_date, out_dir):
         for slug, movie in d["movies"].items():
             by_slug[slug].append((d["date"], movie))
 
+    # A day only counts toward the tracked TOTAL once it has actually ended.
+    # "Today" is still filling up, so it stays complete=False and is excluded
+    # from the totals (the UI shows it as a live row).
+    _ist = _dt.timezone(_dt.timedelta(hours=5, minutes=30))
+    today_ymd = _dt.datetime.now(_ist).strftime("%Y%m%d")
+
     for slug, entries in by_slug.items():
         days = []
         prev = None
         for i, (date, movie) in enumerate(entries, 1):
             k = movie["kpi"]
-            row = {"day": i, "date": date, "gross": k["gross"],
-                   "sold": k["sold"], "shows": k["shows"], "occupancy": k["occupancy"]}
+            row = {"day": i, "date": date,
+                   "complete": str(date).replace("-", "") < today_ymd,
+                   "gross": k["gross"], "sold": k["sold"],
+                   "seats": k.get("seats", 0), "shows": k["shows"],
+                   "theatres": k.get("theatres", 0), "cities": k.get("cities", 0),
+                   "housefull": k.get("housefull", 0),
+                   "fastfilling": k.get("fastfilling", 0),
+                   "occupancy": k["occupancy"]}
             # day-over-day comparison vs the previous tracked day
             if prev:
                 row["grossChange"] = round(k["gross"] - prev["gross"], 2)
@@ -668,19 +616,69 @@ def build_history(mode, per_date, out_dir):
             run += d["gross"]
             d["cumulativeGross"] = round(run, 2)
         latest = entries[-1][1]
-        # city-wise (flatten latest)
-        cities = []
-        for st in latest["states"]:
-            for c in st["cityList"]:
-                cities.append({"city": c["city"], "state": st["state"], "gross": c["gross"],
-                               "sold": c["sold"], "shows": c["shows"], "occupancy": c["occupancy"]})
-        cities.sort(key=lambda x: x["gross"], reverse=True)
-        states = [{"state": s["state"], "gross": s["gross"], "sold": s["sold"],
-                   "shows": s["shows"], "theatres": s["theatres"], "occupancy": s["occupancy"]}
-                  for s in latest["states"]]
-        formats = latest["formatSummary"]
+
+        # ---- tracked totals across CLOSED days ----
+        done = [d for d in days if d["complete"]]
+        tot = {
+            "days": len(done),
+            "gross": round(sum(d["gross"] for d in done), 2),
+            "sold": sum(d["sold"] for d in done),
+            "seats": sum(d["seats"] for d in done),
+            "shows": sum(d["shows"] for d in done),
+            "housefull": sum(d["housefull"] for d in done),
+            "fastfilling": sum(d["fastfilling"] for d in done),
+            # theatres/cities repeat every day -> peak footprint, never a sum
+            "theatres": max([d["theatres"] for d in done], default=0),
+            "cities": max([d["cities"] for d in done], default=0),
+            "bestDay": max(done, key=lambda d: d["gross"])["day"] if done else None,
+        }
+        tot["occupancy"] = occ(tot["sold"], tot["seats"])
+
+        # ---- city / state / format: accumulate across closed days ----
+        # These used to be a copy of the LATEST day's snapshot, which made a
+        # "historical" table really a "today so far" table. If no day has closed
+        # yet, fall back to the live snapshot and flag it (cumulative=False).
+        done_entries = [e for e in entries
+                        if str(e[0]).replace("-", "") < today_ymd]
+        src_entries = done_entries or entries
+        cumulative = bool(done_entries)
+
+        SUM = ("gross", "sold", "seats", "shows", "housefull", "fastfilling")
+
+        def _acc(dst, src):
+            for key in SUM:
+                dst[key] = dst.get(key, 0) + (src.get(key) or 0)
+
+        st_acc, ct_acc, fm_acc = {}, {}, {}
+        for _date, mv in src_entries:
+            for st in mv.get("states", []):
+                a = st_acc.setdefault(st["state"],
+                                      {"state": st["state"], "theatres": 0, "cities": 0})
+                _acc(a, st)
+                a["theatres"] = max(a["theatres"], st.get("theatres") or 0)
+                a["cities"] = max(a["cities"], st.get("cities") or 0)
+                for c in st.get("cityList", []):
+                    b = ct_acc.setdefault((st["state"], c["city"]),
+                                          {"city": c["city"], "state": st["state"],
+                                           "theatres": 0})
+                    _acc(b, c)
+                    b["theatres"] = max(b["theatres"], c.get("theatres") or 0)
+            for f in mv.get("formatSummary", []):
+                g = fm_acc.setdefault(f["format"], {"format": f["format"]})
+                _acc(g, f)
+
+        for rec in list(st_acc.values()) + list(ct_acc.values()) + list(fm_acc.values()):
+            rec["gross"] = round(rec.get("gross", 0), 2)
+            rec["occupancy"] = occ(rec.get("sold", 0), rec.get("seats", 0))
+
+        by_gross = lambda x: x["gross"]
+        states = sorted(st_acc.values(), key=by_gross, reverse=True)
+        cities = sorted(ct_acc.values(), key=by_gross, reverse=True)
+        formats = sorted(fm_acc.values(), key=by_gross, reverse=True)
+
         hist_obj = {"title": latest["title"], "last_updated": latest.get("last_updated"),
-                    "days": days, "cities": cities[:50],
+                    "cumulative": cumulative, "daysCounted": len(done_entries),
+                    "totals": tot, "days": days, "cities": cities[:50],
                     "states": states, "formats": formats}
         with open(os.path.join(h_dir, slug + ".json"), "w", encoding="utf-8") as f:
             json.dump(hist_obj, f, ensure_ascii=False, separators=(",", ":"))
@@ -791,8 +789,6 @@ def main(collector):
     import datetime
     manifest["generated"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    posters = load_posters(collector)
-    metadata = load_metadata(collector)
     if metadata:
         print(f"  metadata: {len({k for k in metadata})//2 or len(metadata)} movies")
     if posters:
@@ -811,7 +807,7 @@ def main(collector):
                     continue
                 out_dir = os.path.join(OUT, mode, date)
                 os.makedirs(out_dir, exist_ok=True)
-                res = build_date(mode, date, src, out_dir, posters, metadata)
+                res = build_date(mode, date, src, out_dir)
                 if res:
                     dates.append(date)
                     per_date.append(res)
