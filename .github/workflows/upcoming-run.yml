@@ -1,82 +1,105 @@
 # .github/workflows/upcoming-run.yml
 #
-# UPCOMING RELEASES — advance bookings for films that haven't released yet.
+# OPENING-DAY ADVANCE for upcoming releases.
 #
-# Same scraper and same advance/ tree as the normal advance run; the only
-# differences are the dates (D+3 / D+5 / D+7 instead of D+1) and the filter
-# that drops already-running films after combining. Without that filter this
-# would just be a duplicate of the advance feed: a currently-running film sells
-# tickets 3-7 days out too.
+# Not a D+3/5/7 sweep — those offsets say nothing about a film. This finds each
+# unreleased film's RELEASE DATE (District's movieInfo) and scrapes advance
+# bookings for exactly that day: the opening-day number.
+#
+# Triggered from cron-job.org (no `schedule:` here — GitHub's scheduler failed to
+# acquire runners, and a second trigger would double-run every slot):
+#   POST /repos/CineBOTrends/datacollector/actions/workflows/upcoming-run.yml/dispatches
+#   {"ref":"main"}
 
-name: Upcoming releases (D+3/5/7)
+name: Upcoming releases (opening day)
 
 on:
   workflow_dispatch:
     inputs:
-      offsets:
-        description: "Day offsets to scrape (comma-separated)"
-        default: "3,5,7"
+      window_days:
+        description: "How many days ahead to look for new releases"
+        default: "21"
         type: string
-  schedule:
-    # IST is UTC+5:30 -> 10:00 / 16:00 / 21:30 IST
-    - cron: "30 4 * * *"
-    - cron: "30 10 * * *"
-    - cron: "0 16 * * *"
+      force_probe:
+        description: "Re-probe release dates even if already cached today"
+        default: false
+        type: boolean
 
 permissions:
   contents: write
 
 concurrency:
-  group: collect          # shared with the daily/advance runs: never overlap
+  group: collect          # shared with daily/advance: never overlap
   cancel-in-progress: false
 
 jobs:
-  decide-dates:
+  # ---------------------------------------------------------------- discover
+  discover:
+    name: Find opening days
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     outputs:
-      offsets: ${{ steps.set.outputs.offsets }}      # JSON array, drives the matrix
-      dates: ${{ steps.set.outputs.dates }}          # space-separated YYYYMMDD
+      dates: ${{ steps.probe.outputs.dates }}        # JSON array -> matrix
+      any: ${{ steps.probe.outputs.any }}
     steps:
-      - id: set
-        run: |
-          RAW="${{ github.event.inputs.offsets || '3,5,7' }}"
-          OFFSETS=$(echo "$RAW" | tr ',' '\n' | sed '/^$/d' | jq -R . | jq -sc 'map(tonumber)')
-          DATES=""
-          for OFF in $(echo "$RAW" | tr ',' ' '); do
-            D=$(TZ=Asia/Kolkata date -d "+${OFF} day" +%Y%m%d)
-            DATES="$DATES $D"
-          done
-          echo "offsets=$OFFSETS"        >> "$GITHUB_OUTPUT"
-          echo "dates=${DATES# }"        >> "$GITHUB_OUTPUT"
-          echo "offsets=$OFFSETS  dates=${DATES# }"
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, persist-credentials: true }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
 
+      - id: probe
+        name: Probe upcoming release dates
+        run: |
+          python - <<'PY'
+          import json, os
+          from upcoming import discover_opening_days
+          force = os.environ.get("FORCE", "false") == "true"
+          win = int(os.environ.get("WINDOW") or 21)
+          opening = discover_opening_days(window_days=win, force=force)
+          dates = sorted(opening.keys())
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"dates={json.dumps(dates)}\n")
+              f.write(f"any={'1' if dates else '0'}\n")
+          print("opening days:", dates)
+          PY
+        env:
+          WINDOW: ${{ github.event.inputs.window_days || '21' }}
+          FORCE: ${{ github.event.inputs.force_probe || 'false' }}
+          DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
+          DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
+          DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+
+      - name: Commit the release-date cache
+        run: |
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f upcoming/release_dates.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "upcoming: release-date cache"
+          git pull --rebase origin main || true
+          git push origin main || true
+
+  # ----------------------------------------------------------------- collect
   shards:
-    name: Shard ${{ matrix.shard }} (D+${{ matrix.offset }})
-    needs: decide-dates
+    name: Shard ${{ matrix.shard }} (${{ matrix.date }})
+    needs: discover
+    if: needs.discover.outputs.any == '1'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     strategy:
       fail-fast: false
-      # 9 shards x 3 dates = 27 jobs. Capped so we don't eat the whole runner
-      # allowance in one burst and starve the daily run.
       max-parallel: 9
       matrix:
         shard: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        offset: ${{ fromJson(needs.decide-dates.outputs.offsets) }}
+        date: ${{ fromJson(needs.discover.outputs.dates) }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true
+        with: { fetch-depth: 0, persist-credentials: true }
       - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+        with: { python-version: "3.12" }
       - run: pip install -r requirements.txt
 
-      - id: date
-        run: echo "code=$(TZ=Asia/Kolkata date -d '+${{ matrix.offset }} day' +%Y%m%d)" >> "$GITHUB_OUTPUT"
-
-      - name: Scrape shard ${{ matrix.shard }} for ${{ steps.date.outputs.code }}
+      - name: Scrape shard ${{ matrix.shard }} for ${{ matrix.date }}
         env:
           DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
           DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
@@ -84,17 +107,17 @@ jobs:
         run: |
           python cli.py scrape --mode advance \
                                --shard ${{ matrix.shard }} \
-                               --date ${{ steps.date.outputs.code }}
+                               --date ${{ matrix.date }}
 
       - name: Commit shard output (retry-safe)
         run: |
-          DATE="${{ steps.date.outputs.code }}"
+          DATE="${{ matrix.date }}"
           git config user.name "cbt-bot"
           git config user.email "cinebotrends@users.noreply.github.com"
           git add -f "advance/data/$DATE/detailed${{ matrix.shard }}.json" \
                      "advance/data/$DATE/movie_summary${{ matrix.shard }}.json" 2>/dev/null || true
-          git diff --cached --quiet && { echo "shard ${{ matrix.shard }} @ $DATE: nothing collected (blocked?)"; exit 0; }
-          git commit -m "upcoming shard ${{ matrix.shard }} (advance $DATE)"
+          git diff --cached --quiet && { echo "shard ${{ matrix.shard }} @ $DATE: nothing collected"; exit 0; }
+          git commit -m "opening-day shard ${{ matrix.shard }} (advance $DATE)"
           for i in 1 2 3 4 5; do
             git pull --rebase origin main || true
             git push origin main && exit 0
@@ -103,26 +126,24 @@ jobs:
           done
           git push --force-with-lease origin main || true
 
+  # ----------------------------------------------------------------- publish
   combine:
-    name: Combine + filter + publish
-    needs: [decide-dates, shards]
-    if: always()
+    name: Combine + publish
+    needs: [discover, shards]
+    if: always() && needs.discover.outputs.any == '1'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      DATES: ${{ needs.decide-dates.outputs.dates }}
+      DATES_JSON: ${{ needs.discover.outputs.dates }}
       R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
       R2_ACCESS_KEY: ${{ secrets.R2_ACCESS_KEY }}
       R2_SECRET_KEY: ${{ secrets.R2_SECRET_KEY }}
       R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true
+        with: { fetch-depth: 0, persist-credentials: true }
       - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+        with: { python-version: "3.12" }
       - run: pip install -r requirements.txt
 
       - name: Pull the shard commits
@@ -133,25 +154,30 @@ jobs:
       - name: Restore history from R2
         run: python ci_persist.py restore || true
 
-      - name: Combine + drop already-running films
+      - name: Combine + keep only the films opening that day
         run: |
-          ANY=0
-          for DATE in $DATES; do
-            COUNT=$(ls "advance/data/$DATE"/detailed*.json 2>/dev/null | wc -l)
-            echo "--- $DATE: $COUNT / 9 shards ---"
-            if [ "$COUNT" -eq 0 ]; then
-              echo "::warning::no shards for $DATE, skipping"
-              continue
-            fi
-            python cli.py combine --mode advance --date "$DATE"
-            # keep only films whose release date is still in the future
-            python -c "from upcoming import filter_to_upcoming; filter_to_upcoming('$DATE')"
-            ANY=1
-          done
-          if [ "$ANY" -eq 0 ]; then
-            echo "::error::Every date came back empty - refusing to publish (protects existing dashboard data)"
-            exit 1
-          fi
+          python - <<'PY'
+          import json, os, subprocess, sys
+          from upcoming import _load, filter_to_opening, CACHE
+
+          dates = json.loads(os.environ["DATES_JSON"])
+          opening = (_load(CACHE) or {}).get("opening_days", {})
+          any_ok = False
+          for d in dates:
+              n = len([f for f in os.listdir(f"advance/data/{d}")
+                       if f.startswith("detailed")]) if os.path.isdir(f"advance/data/{d}") else 0
+              print(f"--- {d}: {n}/9 shards ---")
+              if not n:
+                  print(f"::warning::no shards for {d}, skipping")
+                  continue
+              subprocess.run([sys.executable, "cli.py", "combine",
+                              "--mode", "advance", "--date", d], check=True)
+              filter_to_opening(d, opening.get(d, []))
+              any_ok = True
+          if not any_ok:
+              print("::error::Every opening day came back empty - refusing to publish")
+              sys.exit(1)
+          PY
 
       - name: Save raw data to R2
         run: python ci_persist.py save advance || true
@@ -159,16 +185,18 @@ jobs:
       - name: Build data tree
         run: python build_data.py .
 
-      - name: Publish data/ -> dashboard repo
+      - name: Publish data/ + posters -> dashboard repo
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
           rm -rf out/data
           cp -r data out/data
+          mkdir -p out/assets
+          [ -d assets/posters ] && cp -r assets/posters out/assets/posters || true
           cd out
           git config user.name "cbt-bot"
           git config user.email "cinebotrends@users.noreply.github.com"
-          git add -f data
-          git commit -m "data(upcoming): $(date -u +%FT%TZ)" || echo "no changes"
+          git add -f data assets 2>/dev/null || git add -f data
+          git commit -m "data(opening-day): $(date -u +%FT%TZ)" || echo "no changes"
           git push

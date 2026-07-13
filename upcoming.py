@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
 """
-Upcoming-release tracking.
+Opening-day advance tracking for upcoming releases.
 
-The regular advance scrape only looks at D+1. Bookings for a NEW film, though,
-open days before it lands — so this module runs the same advance scrape at
-D+3 / D+5 / D+7 and then throws away everything that is already running.
+What this is NOT: a D+3/D+5/D+7 sweep. Those offsets are arbitrary — they say
+nothing about a film. What matters for a new release is its OPENING DAY: the
+advance bookings piled up for the day it actually lands.
 
-Why the filter matters: a D+3 scrape returns shows for currently-running films
-too (people book those 3 days out as well). Without filtering, the "upcoming"
-feed would just be a duplicate of advance. A film counts as UPCOMING when its
-release date is still in the future.
+Two phases:
 
-Output lands in the normal advance tree (advance/data/<date_code>/), so the
-dashboard picks the dates up as advance chips with no changes at all.
+  1. DISCOVER - probe the next `window_days` with a SINGLE shard and read
+                District's movieInfo. A film whose releaseDate equals the date
+                it's playing on, and which isn't already running today, is an
+                upcoming release; that date is its opening day. Cached per day —
+                the probe is the expensive part, and a release date doesn't
+                change hour to hour.
+
+  2. COLLECT  - full 9-shard advance scrape on each discovered opening day, then
+                drop every film that isn't opening that day. (Running films sell
+                tickets days ahead too and would otherwise swamp it.)
+
+Output lands in the normal advance tree (advance/data/<release_date>/).
 """
 import json
 import os
@@ -26,9 +33,10 @@ if PROJECT_ROOT not in sys.path:
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
-DEFAULT_OFFSETS = [3, 5, 7]
+DEFAULT_WINDOW_DAYS = 21      # how far ahead bookings realistically open
+DEFAULT_PROBE_SHARD = 1       # one shard is plenty to spot a nationwide release
+CACHE = os.path.join("upcoming", "release_dates.json")
 
-# Same aliases build_data.py probes — District's movieInfo is inconsistent.
 _RELEASE_KEYS = ("releaseDate", "releasedate", "release_date", "releaseDateText",
                  "release", "releaseOn", "releasedOn")
 
@@ -37,12 +45,11 @@ def today_ist():
     return datetime.now(IST).date()
 
 
-def date_code_for(offset):
-    return (datetime.now(IST) + timedelta(days=offset)).strftime("%Y%m%d")
+def ymd(d):
+    return d.strftime("%Y%m%d")
 
 
 def _parse_release(info):
-    """Return a date object from a movieInfo block, or None."""
     for k in _RELEASE_KEYS:
         v = info.get(k)
         if v in (None, "", 0):
@@ -50,117 +57,130 @@ def _parse_release(info):
         if isinstance(v, (int, float)):
             try:
                 ts = float(v)
-                if ts > 1e12:                     # milliseconds
+                if ts > 1e12:
                     ts /= 1000.0
-                return datetime.utcfromtimestamp(ts).date()
+                return datetime.fromtimestamp(ts, tz=timezone.utc).date()
             except (ValueError, OverflowError, OSError):
                 continue
-        s = str(v).strip()
-        m = re.match(r"(\d{4})-(\d{2})-(\d{2})", s)
+        m = re.match(r"(\d{4})-(\d{2})-(\d{2})", str(v).strip())
         if m:
             try:
-                return datetime(int(m.group(1)), int(m.group(2)), int(m.group(3))).date()
+                return datetime(int(m[1]), int(m[2]), int(m[3])).date()
             except ValueError:
                 continue
     return None
 
 
-def release_dates_by_movie(rows):
-    """movie title -> release date (first non-empty movieInfo we see)."""
-    out = {}
-    for r in rows:
-        title = r.get("movie")
-        if not title or title in out:
-            continue
-        mi = r.get("movieInfo")
-        if not mi:
-            continue
-        d = _parse_release(mi)
-        if d:
-            out[title] = d
-    return out
-
-
 def _load(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        return data if isinstance(data, list) else []
+            return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
-        return []
+        return None
 
 
 def _save(path, data):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
-def filter_to_upcoming(date_code, running_titles=None):
-    """Trim a combined advance date down to not-yet-released films.
+def _rows(path):
+    d = _load(path)
+    return d if isinstance(d, list) else []
 
-    A title is kept when its release date is in the future. Titles with no
-    release date are kept only if they are NOT playing today (i.e. absent from
-    today's daily feed) — an unknown release date on a film that's already
-    running means it is not upcoming.
-    """
+
+def titles_playing_today():
+    """Films in today's daily feed — already released, so never 'upcoming'."""
+    dc = ymd(today_ist())
+    rows = _rows(os.path.join("daily", "data", dc, "finalsummary.json")) or \
+        _rows(os.path.join("daily", "data", dc, "finaldetailed.json"))
+    return {r.get("movie") for r in rows if r.get("movie")}
+
+
+def config():
+    try:
+        import yaml
+        with open(os.path.join(PROJECT_ROOT, "schedule_config.yaml"), "r") as f:
+            cfg = (yaml.safe_load(f) or {}).get("upcoming") or {}
+    except Exception:
+        cfg = {}
+    return {
+        "window_days": int(cfg.get("window_days", DEFAULT_WINDOW_DAYS)),
+        "probe_shard": int(cfg.get("probe_shard", DEFAULT_PROBE_SHARD)),
+    }
+
+
+# ------------------------------------------------------------------ discover
+def discover_opening_days(window_days=None, probe_shard=None, force=False):
+    """Return {release_date(YYYYMMDD): [titles opening that day]}."""
+    cfg = config()
+    window_days = window_days or cfg["window_days"]
+    probe_shard = probe_shard or cfg["probe_shard"]
+
+    cached = _load(CACHE)
+    if cached and not force and cached.get("probed_on") == str(today_ist()):
+        print(f"  using cached opening days (probed {cached['probed_on']})")
+        return cached.get("opening_days", {})
+
+    from scraper.scrape import run_shard
+
+    today = today_ist()
+    running = titles_playing_today()
+    opening = {}
+
+    print(f"  probing D+1..D+{window_days} with shard {probe_shard}")
+    for off in range(1, window_days + 1):
+        d = today + timedelta(days=off)
+        dc = ymd(d)
+        try:
+            run_shard(mode="advance", shard_id=probe_shard, date_code=dc)
+        except Exception as e:
+            print(f"    ! probe {dc} failed ({e})")
+            continue
+
+        rows = _rows(os.path.join("advance", "data", dc, f"detailed{probe_shard}.json"))
+        found = set()
+        for r in rows:
+            title = r.get("movie")
+            mi = r.get("movieInfo")
+            if not title or not mi or title in running:
+                continue
+            rel = _parse_release(mi)
+            if rel and rel == d:          # the film OPENS on this date
+                found.add(title)
+        if found:
+            opening[dc] = sorted(found)
+            print(f"    {dc}: {', '.join(sorted(found))}")
+
+    if not opening:
+        print("    no upcoming releases with open bookings in the window")
+
+    _save(CACHE, {"probed_on": str(today), "opening_days": opening})
+    return opening
+
+
+# -------------------------------------------------------------------- filter
+def filter_to_opening(date_code, titles):
+    """Keep only the films actually opening on `date_code`."""
     base = os.path.join("advance", "data", date_code)
     detailed_p = os.path.join(base, "finaldetailed.json")
     summary_p = os.path.join(base, "finalsummary.json")
 
-    detailed = _load(detailed_p)
+    detailed = _rows(detailed_p)
     if not detailed:
-        print(f"  ! nothing combined for {date_code}, skipping filter")
-        return 0, 0
+        print(f"  ! nothing combined for {date_code}")
+        return 0
 
-    today = today_ist()
-    releases = release_dates_by_movie(detailed)
-    running = running_titles if running_titles is not None else titles_playing_today()
+    keep = set(titles)
+    kept = [r for r in detailed if r.get("movie") in keep]
+    _save(detailed_p, kept)
 
-    keep, drop = set(), set()
-    for title in {r.get("movie") for r in detailed if r.get("movie")}:
-        rel = releases.get(title)
-        if rel is not None:
-            (keep if rel > today else drop).add(title)
-        else:
-            (drop if title in running else keep).add(title)
-
-    kept_rows = [r for r in detailed if r.get("movie") in keep]
-    _save(detailed_p, kept_rows)
-
-    summary = _load(summary_p)
+    summary = _rows(summary_p)
     if summary:
         _save(summary_p, [r for r in summary if r.get("movie") in keep])
 
-    _save(os.path.join(base, "upcoming_movies.json"), sorted(
-        [{"movie": t, "releaseDate": releases[t].isoformat() if t in releases else None}
-         for t in keep],
-        key=lambda x: (x["releaseDate"] or "9999-99-99", x["movie"]),
-    ))
-
-    print(f"  upcoming {date_code}: kept {len(keep)} film(s), dropped {len(drop)} already-running")
-    for t in sorted(keep):
-        rel = releases.get(t)
-        print(f"      + {t}" + (f"  (releases {rel})" if rel else "  (release date unknown)"))
-    return len(keep), len(kept_rows)
-
-
-def titles_playing_today():
-    """Titles in today's daily feed — these are already released."""
-    dc = datetime.now(IST).strftime("%Y%m%d")
-    rows = _load(os.path.join("daily", "data", dc, "finalsummary.json"))
-    if not rows:
-        rows = _load(os.path.join("daily", "data", dc, "finaldetailed.json"))
-    return {r.get("movie") for r in rows if r.get("movie")}
-
-
-def offsets_from_config():
-    """Read `upcoming.offsets` from schedule_config.yaml, else the default."""
-    try:
-        import yaml
-        with open(os.path.join(PROJECT_ROOT, "schedule_config.yaml"), "r") as f:
-            cfg = yaml.safe_load(f) or {}
-        offs = ((cfg.get("upcoming") or {}).get("offsets")) or DEFAULT_OFFSETS
-        return [int(o) for o in offs]
-    except Exception:
-        return list(DEFAULT_OFFSETS)
+    dropped = len({r.get("movie") for r in detailed}) - len(keep)
+    print(f"  opening day {date_code}: kept {len(keep)} film(s) "
+          f"({', '.join(sorted(keep))}), dropped {dropped} other title(s)")
+    return len(kept)

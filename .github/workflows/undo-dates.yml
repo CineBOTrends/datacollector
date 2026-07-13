@@ -1,0 +1,94 @@
+# .github/workflows/undo-dates.yml
+#
+# ONE-OFF CLEANUP — remove scraped date(s) everywhere and republish.
+#
+# Run this from the Actions tab; it has the R2 secrets, which your local .env
+# does not. Deleting the folders alone is NOT enough: ci_persist.restore() pulls
+# every key under raw/<mode>/ back down at the start of the next combine job, so
+# any date left in R2 resurrects itself and gets republished.
+
+name: Undo dates (cleanup)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Which tree"
+        default: "advance"
+        type: choice
+        options: ["advance", "daily"]
+      dates:
+        description: "Space-separated YYYYMMDD (e.g. 20260717 20260719 20260721)"
+        required: true
+        type: string
+      dry_run:
+        description: "List what would be deleted, delete nothing"
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect          # never run while a scrape is mid-flight
+  cancel-in-progress: false
+
+jobs:
+  undo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_ACCESS_KEY: ${{ secrets.R2_ACCESS_KEY }}
+      R2_SECRET_KEY: ${{ secrets.R2_SECRET_KEY }}
+      R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      - name: Purge from R2 + working tree
+        run: |
+          FLAG=""
+          [ "${{ inputs.dry_run }}" = "true" ] && FLAG="--dry-run"
+          python undo_dates.py "${{ inputs.mode }}" ${{ inputs.dates }} $FLAG
+
+      - name: Commit the removal
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "nothing to commit"; exit 0; }
+          git commit -m "undo: drop ${{ inputs.dates }} (${{ inputs.mode }})"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main || true
+            git push origin main && break
+            echo "push retry $i..."; sleep 4
+          done
+
+      - name: Rebuild data tree (now without those dates)
+        if: ${{ inputs.dry_run == false }}
+        run: python build_data.py .
+
+      - name: Republish data/ -> dashboard repo
+        if: ${{ inputs.dry_run == false }}
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
+          rm -rf out/data
+          cp -r data out/data
+          mkdir -p out/assets
+          [ -d assets/posters ] && cp -r assets/posters out/assets/posters || true
+          cd out
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f data assets 2>/dev/null || git add -f data
+          git commit -m "data(undo ${{ inputs.dates }}): $(date -u +%FT%TZ)" || echo "no changes"
+          git push

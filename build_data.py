@@ -30,10 +30,10 @@ from collections import defaultdict
 
 MODES = {
     "advance": {"label": "Advance", "runsPerDay": 6,
-                "runTimes": ["08:53", "11:53", "14:53", "17:53", "20:53", "23:20"]},
+                "runTimes": ["08:45", "11:45", "14:45", "17:45", "20:45", "23:30"]},
     "daily":   {"label": "Daily", "runsPerDay": 13,
-                "runTimes": ["02:53", "03:53", "04:53", "05:53", "06:53", "07:53",
-                             "08:53", "09:53", "10:53", "11:53", "12:53", "13:53", "14:53","15:53","16:53","17:53","18:53","19:53","20:53","21:53","22:53"]},
+                "runTimes": ["03:00", "05:00", "07:00", "08:00", "10:00", "11:00",
+                             "13:00", "14:00", "16:00", "17:00", "19:00", "20:00", "22:00"]},
 }
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -210,6 +210,10 @@ def district_meta_from_rows(rows):
         "trailer": (info.get("trailer") or "").strip() or None,
     }
     return {"poster": poster, "meta": meta}
+
+
+# Trailing "(2003)" / "[3D]" style tags, stripped so title variants merge.
+_TITLE_TAG_RE = re.compile(r"\s*[\(\[][^\)\]]*[\)\]]\s*$")
 
 
 def canonical_title(base):
@@ -789,11 +793,6 @@ def main(collector):
     import datetime
     manifest["generated"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    if metadata:
-        print(f"  metadata: {len({k for k in metadata})//2 or len(metadata)} movies")
-    if posters:
-        print(f"  posters: {len(set(id(v) for v in posters.values()))} mapped")
-
     all_titles = {}                                      # title -> has_poster
     history_source = {}                                  # mode -> per_date (for history)
     for mode, meta in MODES.items():
@@ -840,19 +839,6 @@ def main(collector):
 
     with open(os.path.join(OUT, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
-
-    # Fill-in template: every tracked title -> "" (paste the BMS id to add a poster).
-    # Refreshed each run; never overwrites your real posters.json.
-    if all_titles:
-        tmpl = {"_comment": "Map a movie title to its BookMyShow image id "
-                            "(the filename without .jpg, e.g. 'balaramana-dinagalu-et00478884-1782106150'). "
-                            "Rename this file to posters.json to use it."}
-        for t in sorted(all_titles):
-            tmpl[t] = ""
-        with open(os.path.join(HERE, "posters.template.json"), "w", encoding="utf-8") as f:
-            json.dump(tmpl, f, ensure_ascii=False, indent=2)
-        have = sum(1 for v in all_titles.values() if v)
-        print(f"  posters.template.json: {len(all_titles)} titles ({have} with posters)")
 
     # editorial content (admin-posted news / reviews / box office) -> both trees
     build_editorial()
