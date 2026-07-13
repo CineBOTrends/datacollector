@@ -1,0 +1,156 @@
+{
+  "The Odyssey (2D - English)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 1864,
+    "ticketsSold": 428,
+    "occupancy": 22.96,
+    "grossRevenue": 58680.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1864,
+        "ticketsSold": 428,
+        "occupancy": 22.96,
+        "grossRevenue": 58680.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Varavu (2D - Malayalam)": {
+    "shows": 8,
+    "venues": 2,
+    "cities": 1,
+    "totalSeats": 3824,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Trivandrum",
+        "state": "Kerala",
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 3824,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (2D - Telugu)": {
+    "shows": 16,
+    "venues": 4,
+    "cities": 3,
+    "totalSeats": 6348,
+    "ticketsSold": 168,
+    "occupancy": 2.65,
+    "grossRevenue": 24580.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Rajahmundry",
+        "state": "Andhra Pradesh",
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 2692,
+        "ticketsSold": 80,
+        "occupancy": 2.97,
+        "grossRevenue": 11600.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Madanapalle",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2080,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Guntur",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1576,
+        "ticketsSold": 88,
+        "occupancy": 5.58,
+        "grossRevenue": 12980.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (4DX - English)": {
+    "shows": 25,
+    "venues": 5,
+    "cities": 1,
+    "totalSeats": 2330,
+    "ticketsSold": 24,
+    "occupancy": 1.03,
+    "grossRevenue": 17160.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 25,
+        "venues": 5,
+        "totalSeats": 2330,
+        "ticketsSold": 24,
+        "occupancy": 1.03,
+        "grossRevenue": 17160.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 25,
+    "venues": 5,
+    "cities": 1,
+    "totalSeats": 7410,
+    "ticketsSold": 231,
+    "occupancy": 3.12,
+    "grossRevenue": 363600.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 25,
+        "venues": 5,
+        "totalSeats": 7410,
+        "ticketsSold": 231,
+        "occupancy": 3.12,
+        "grossRevenue": 363600.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  }
+}
