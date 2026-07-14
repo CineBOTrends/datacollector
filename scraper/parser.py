@@ -89,7 +89,7 @@ def _movie_info(movie):
     """Full movie-card details carried from the District worker's meta.movies."""
     if not movie:
         return {}
-    return {
+    info = {
         "contentId": movie.get("contentId") or movie.get("id"),
         "name": movie.get("name"),
         "lang": movie.get("lang"),
@@ -106,6 +106,21 @@ def _movie_info(movie):
         "isNew": movie.get("isNew"),
         "totalSessionCount": movie.get("totalSessionCount"),
     }
+
+    # Release date: this whitelist never captured it, so movieInfo has always
+    # arrived without one — which is why build_data's meta.releaseDate is null
+    # and why upcoming-release detection found nothing. District spells the key
+    # differently across payloads, so pass through anything release-ish rather
+    # than guessing a single name, and normalise it to "releaseDate".
+    for k, v in movie.items():
+        if v in (None, "", 0):
+            continue
+        kl = k.lower()
+        if "releas" in kl or kl in ("rd", "opendate", "openingdate"):
+            info.setdefault("releaseDate", v)
+            info[k] = v                      # keep the original key too
+
+    return info
 
 
 # =====================================================

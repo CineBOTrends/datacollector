@@ -159,7 +159,7 @@ def probe_venues():
     return picked
 
 
-def probe_date(date_code, venues, logger):
+def probe_date(date_code, venues, logger, with_raw=False):
     """District rows (with movieInfo) for one date, from a few venues only."""
     import asyncio
     from scraper.fetcher_async import fetch_all_async
@@ -171,7 +171,32 @@ def probe_date(date_code, venues, logger):
         results, _err, _failed = await fetch_all_async(venues, dd, "advance", logger)
         return results
 
-    return parse_district_advance(asyncio.run(_go()), date_code)
+    raw = asyncio.run(_go())
+    rows = parse_district_advance(raw, date_code)
+    return (rows, raw) if with_raw else rows
+
+
+def dump_movie_keys(raw, limit=2):
+    """Print the RAW District movie objects, keys and all.
+
+    We keep guessing what District calls the release date and keep being wrong.
+    This prints what it actually sends, so we stop guessing.
+    """
+    print("  --- raw District movie objects (diagnostic) ---")
+    shown = 0
+    for res in raw:
+        movies = ((res.get("data") or {}).get("meta") or {}).get("movies") or []
+        for m in movies:
+            print(f"    keys: {sorted(m.keys())}")
+            rel_ish = {k: v for k, v in m.items() if "releas" in k.lower()
+                       or k.lower() in ("rd", "opendate", "openingdate")}
+            print(f"    release-ish fields: {rel_ish or 'NONE FOUND'}")
+            print(f"    name={m.get('name')!r}  isNew={m.get('isNew')!r}")
+            shown += 1
+            if shown >= limit:
+                print("  --- end diagnostic ---")
+                return
+    print("  (no movie objects in the sample)")
 
 
 def discover_opening_days(window_days=None, probe_shard=None, force=False,
@@ -249,6 +274,15 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
             print(f"    {dc}: {', '.join(titles)}")
     else:
         print("    no upcoming releases with open bookings in the window")
+        # Nothing found usually means District isn't sending a release date at
+        # all (its showtime payload may only carry the movie card). Show what it
+        # actually sends so we can stop guessing at key names.
+        try:
+            probe_dc = ymd(today + timedelta(days=3))
+            _rows, raw = probe_date(probe_dc, venues, logger, with_raw=True)
+            dump_movie_keys(raw)
+        except Exception as e:
+            print(f"  (diagnostic dump failed: {e})")
 
     _save(CACHE, {"probed_on": str(today), "opening_days": opening})
     return opening
