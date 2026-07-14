@@ -13,6 +13,14 @@ on:
         default: "daily"
         type: choice
         options: ["daily", "advance"]
+      days_ahead:
+        description: "Advance only: how many days ahead (1 = tomorrow). Ignored for daily."
+        default: "1"
+        type: string
+      date:
+        description: "Advance only: exact date YYYYMMDD (overrides days_ahead)"
+        default: ""
+        type: string
 
 permissions:
   contents: write
@@ -35,14 +43,31 @@ jobs:
             "23 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *") MODE=daily ;;
             *) MODE="${{ github.event.inputs.mode || 'daily' }}" ;;
           esac
-          # NOTE: no 'upcoming' here on purpose. Opening-day tracking is a
-          # multi-date, filtered pipeline and lives in upcoming-run.yml. Running
-          # it as a plain advance scrape (as an earlier version did) publishes an
-          # unfiltered future date full of already-running films.
-          case "$MODE" in
-            advance) DATE_CODE=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d) ;;
-            *)       DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d) ;;
-          esac
+          # Advance can target ANY future day, not just D+1: an explicit date
+          # wins, else days_ahead (default 1). Daily is always today — a "daily"
+          # figure for a future date is meaningless.
+          IN_DATE="${{ github.event.inputs.date }}"
+          DAYS="${{ github.event.inputs.days_ahead || '1' }}"
+          if [ "$MODE" = "advance" ]; then
+            if [ -n "$IN_DATE" ]; then
+              case "$IN_DATE" in
+                [0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]) ;;
+                *) echo "::error::date must be YYYYMMDD, got '$IN_DATE'"; exit 1 ;;
+              esac
+              TODAY=$(TZ=Asia/Kolkata date +%Y%m%d)
+              if [ "$IN_DATE" -lt "$TODAY" ]; then
+                echo "::error::$IN_DATE is in the past - advance only makes sense forward"; exit 1
+              fi
+              DATE_CODE="$IN_DATE"
+            else
+              case "$DAYS" in
+                ''|*[!0-9]*) echo "::error::days_ahead must be a number, got '$DAYS'"; exit 1 ;;
+              esac
+              DATE_CODE=$(TZ=Asia/Kolkata date -d "+${DAYS} day" +%Y%m%d)
+            fi
+          else
+            DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d)
+          fi
           echo "mode=$MODE"           >> "$GITHUB_OUTPUT"
           echo "date_code=$DATE_CODE" >> "$GITHUB_OUTPUT"
           echo "MODE=$MODE  DATE_CODE=$DATE_CODE"
