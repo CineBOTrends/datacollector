@@ -72,9 +72,41 @@ jobs:
             echo "push retry $i..."; sleep 4
           done
 
+      # CRITICAL: the combined finaldetailed/finalsummary files are NEVER committed
+      # to git — only raw shard files are. They live in R2. Without this restore,
+      # build_data.py sees an empty tree, builds nothing, and the publish step
+      # wipes the dashboard. (It did exactly that. Don't remove this step.)
+      - name: Restore everything else from R2
+        if: ${{ inputs.dry_run == false }}
+        run: python ci_persist.py restore
+
+      - name: Sanity check — is there anything to build?
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          COUNT=$(ls -d daily/data/*/ advance/data/*/ 2>/dev/null | wc -l)
+          echo "date folders present: $COUNT"
+          if [ "$COUNT" -lt 2 ]; then
+            echo "::error::Restore produced almost nothing - refusing to rebuild/publish (this would wipe the dashboard)"
+            exit 1
+          fi
+
       - name: Rebuild data tree (now without those dates)
         if: ${{ inputs.dry_run == false }}
         run: python build_data.py .
+
+      - name: Sanity check — did the build produce movies?
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          if [ ! -s data/manifest.json ]; then
+            echo "::error::No manifest built - refusing to publish"
+            exit 1
+          fi
+          MOVIES=$(python -c "import json;m=json.load(open('data/manifest.json'));print(sum(len(v.get('dates',[])) for v in m['modes'].values()))")
+          echo "dates in manifest: $MOVIES"
+          if [ "$MOVIES" -lt 1 ]; then
+            echo "::error::Manifest is empty - refusing to publish"
+            exit 1
+          fi
 
       - name: Republish data/ -> dashboard repo
         if: ${{ inputs.dry_run == false }}

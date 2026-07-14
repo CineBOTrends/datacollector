@@ -152,7 +152,7 @@ jobs:
           git reset --hard origin/main
 
       - name: Restore history from R2
-        run: python ci_persist.py restore || true
+        run: python ci_persist.py restore
 
       - name: Combine + keep only the films opening that day
         run: |
@@ -184,6 +184,19 @@ jobs:
 
       - name: Build data tree
         run: python build_data.py .
+
+      - name: Sanity check — refuse to publish an empty build
+        run: |
+          if [ ! -s data/manifest.json ]; then
+            echo "::error::No manifest built - refusing to publish (this would wipe the dashboard)"
+            exit 1
+          fi
+          DATES=$(python -c "import json;m=json.load(open('data/manifest.json'));print(sum(len(v.get('dates',[])) for v in m['modes'].values()))")
+          echo "dates in manifest: $DATES"
+          if [ "$DATES" -lt 2 ]; then
+            echo "::error::Manifest has almost nothing in it - refusing to publish"
+            exit 1
+          fi
 
       - name: Publish data/ + posters -> dashboard repo
         env:
