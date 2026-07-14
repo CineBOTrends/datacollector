@@ -856,7 +856,12 @@ def main(collector):
             try:
                 with open(fp, encoding="utf-8") as f:
                     mj = json.load(f)
-                mj.setdefault("meta", {})
+                # NB: "meta" is often present but NULL (District gives no meta
+                # for these films). setdefault() then returns None and the next
+                # assignment blows up -> "'NoneType' does not support item
+                # assignment". Coerce to a dict instead of assuming.
+                if not isinstance(mj.get("meta"), dict):
+                    mj["meta"] = {}
                 mj["meta"]["upcoming"] = True
                 mj["meta"]["openingDay"] = open_day
                 # only fill releaseDate if District never gave us one
