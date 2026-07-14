@@ -795,6 +795,7 @@ def main(collector):
 
     all_titles = {}                                      # title -> has_poster
     history_source = {}                                  # mode -> per_date (for history)
+    slug_dates = {"daily": {}, "advance": {}}            # mode -> slug -> [dates]
     for mode, meta in MODES.items():
         data_root = os.path.join(collector, mode, "data")
         dates = []
@@ -810,8 +811,9 @@ def main(collector):
                 if res:
                     dates.append(date)
                     per_date.append(res)
-                    for mv in res["movies"].values():
+                    for slug, mv in res["movies"].items():
                         all_titles[mv["title"]] = bool(mv.get("poster"))
+                        slug_dates.setdefault(mode, {}).setdefault(slug, []).append(date)
         if per_date:
             build_history(mode, per_date, os.path.join(OUT, mode))
             history_source[mode] = per_date
@@ -820,6 +822,50 @@ def main(collector):
             "runTimes": meta["runTimes"], "dates": dates,
         }
         print(f"  {mode}: {len(dates)} date(s)")
+
+    # ---- upcoming releases -------------------------------------------------
+    # District's showtime API carries NO release date (its payload has name,
+    # genres, censor, isNew... and nothing release-ish), so we infer:
+    #
+    #     has advance bookings + has NEVER appeared in daily => not released yet
+    #     -> its OPENING DAY is the earliest advance date it appears on
+    #
+    # A running film is in daily every day, so it can never be flagged. This is
+    # what lets the dashboard show "Opening Day Advance" instead of a row of
+    # meaningless advance date chips.
+    released = set(slug_dates.get("daily", {}))
+    upcoming = {}
+    for slug, dts in slug_dates.get("advance", {}).items():
+        if slug in released or not dts:
+            continue
+        upcoming[slug] = min(dts)                        # opening day (YYYYMMDD)
+
+    manifest["upcoming"] = upcoming
+    if upcoming:
+        print(f"  upcoming: {len(upcoming)} unreleased film(s)")
+        for slug, d in sorted(upcoming.items(), key=lambda x: x[1]):
+            print(f"    {d}  {slug}")
+
+    # stamp it onto the movie files so the dashboard doesn't need the manifest
+    for slug, open_day in upcoming.items():
+        iso = f"{open_day[:4]}-{open_day[4:6]}-{open_day[6:8]}"
+        for date in slug_dates["advance"][slug]:
+            fp = os.path.join(OUT, "advance", date, "m", slug + ".json")
+            if not os.path.exists(fp):
+                continue
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    mj = json.load(f)
+                mj.setdefault("meta", {})
+                mj["meta"]["upcoming"] = True
+                mj["meta"]["openingDay"] = open_day
+                # only fill releaseDate if District never gave us one
+                if not mj["meta"].get("releaseDate"):
+                    mj["meta"]["releaseDate"] = iso
+                with open(fp, "w", encoding="utf-8") as f:
+                    json.dump(mj, f, ensure_ascii=False, separators=(",", ":"))
+            except Exception as e:
+                print(f"    ! could not flag {slug} ({e})")
 
     # The "Historical" tab must always show what we ACTUALLY tracked day by day
     # (i.e. DAILY actuals), never the advance/pre-sales snapshot. Advance numbers

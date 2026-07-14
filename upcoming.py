@@ -144,17 +144,28 @@ PROBE_CITIES = ("Hyderabad", "Bengaluru", "Chennai", "Mumbai", "New Delhi")
 PROBE_PER_CITY = 3          # 15 venues total — plenty to see a wide release
 
 
-def probe_venues():
-    """A few District venues in each major city."""
+def _base_title(t):
+    """'The Odyssey (2D - English)' -> 'the odyssey'.
+
+    District reports one row per format, so the same film arrives as several
+    titles. Compare on the base name or the exclusion set leaks.
+    """
+    return re.sub(r"\s*\([^)]*\)\s*$", "", (t or "")).strip().casefold()
+
+
+def probe_venues(cities=None, per_city=None):
+    """A few District venues in each of the given cities."""
+    cities = cities or PROBE_CITIES
+    per_city = per_city or PROBE_PER_CITY
     with open(os.path.join("venues", "districtvenues.json"), encoding="utf-8") as f:
         allv = json.load(f)
-    picked, seen = [], {c: 0 for c in PROBE_CITIES}
+    picked, seen = [], {c: 0 for c in cities}
     for v in allv:
         city = v.get("city")
-        if city in seen and seen[city] < PROBE_PER_CITY:
+        if city in seen and seen[city] < per_city:
             picked.append(v)
             seen[city] += 1
-        if all(n >= PROBE_PER_CITY for n in seen.values()):
+        if all(n >= per_city for n in seen.values()):
             break
     return picked
 
@@ -199,23 +210,28 @@ def dump_movie_keys(raw, limit=2):
     print("  (no movie objects in the sample)")
 
 
+# A bigger sample for TODAY: a false "not playing today" is the one error that
+# matters (it would tag a running film as upcoming), so cast a wider net there.
+TODAY_CITIES = ("Hyderabad", "Bengaluru", "Chennai", "Mumbai", "New Delhi",
+                "Ahmedabad", "Surat", "Gurgaon")
+TODAY_PER_CITY = 6          # ~48 venues
+
+
 def discover_opening_days(window_days=None, probe_shard=None, force=False,
                           verbose=False):
     """Return {release_date(YYYYMMDD): [titles opening that day]}.
 
-    THE RULE: District's own releaseDate must be in the FUTURE. That is the only
-    thing that makes a film "upcoming" — District states it plainly on the movie
-    page ("Releasing 17 July 2026") and carries it in movieInfo.
+    District's showtime payload carries NO release date — the diagnostic dump
+    proved it (keys: censor, contentId, cover, duration, genres, id, isNew,
+    label, lang, movieId, name, poster, rating, scrnFmt, sndFmt, thumbnail,
+    totalSessionCount, trailer). The date lives only on the movie page, a
+    different endpoint. So we infer it from bookings, which is sound:
 
-    What this deliberately does NOT do:
-      * infer from "first date we saw it playing" — every running film sells
-        tickets days ahead, so that swept up Lenin, Dhamaal 4 and everything else.
-      * depend on today's daily feed to know what's already running — that file
-        lives in R2, is absent from a CI checkout, and silently excluded nothing
-        (the log said "0 title(s) already running today"). A film with a past
-        release date is already out; we don't need a second source to say so.
-      * guess when releaseDate is missing — no date, not upcoming. Re-releases
-        (Rakta Charitra, Manmadha [2005]) carry old dates and drop out here.
+        not playing TODAY, but has shows on a future date
+            => hasn't released yet
+            => its opening day is the EARLIEST date it has shows
+
+    A currently-running film always has shows today, so it never qualifies.
     """
     cfg = config()
     window_days = window_days or cfg["window_days"]
@@ -229,12 +245,28 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
     logger = get_logger(shard_id=None, log_file=None)
 
     today = today_ist()
-    venues = probe_venues()
-    print(f"  probing D+1..D+{window_days} across {len(venues)} District venues")
-    print(f"  rule: District releaseDate > {today}")
 
-    upcoming = {}          # title -> release date
-    seen_titles = set()
+    # --- what is playing TODAY (the exclusion set) ---
+    today_venues = probe_venues(TODAY_CITIES, TODAY_PER_CITY)
+    print(f"  probing TODAY across {len(today_venues)} venues (exclusion set)")
+    try:
+        rows_today = probe_date(ymd(today), today_venues, logger)
+    except Exception as e:
+        raise RuntimeError(f"today's probe failed ({e}) — refusing to guess "
+                           "what is already running") from e
+
+    running = {r.get("movie") for r in rows_today if r.get("movie")}
+    running_bases = {_base_title(t) for t in running}
+    print(f"  {len(running)} title(s) playing today -> excluded")
+    if verbose:
+        for t in sorted(running_bases):
+            print(f"      running: {t}")
+
+    # --- future dates ---
+    venues = probe_venues()
+    print(f"  probing D+1..D+{window_days} across {len(venues)} venues")
+
+    first_seen = {}          # title -> earliest future date with shows
     for off in range(1, window_days + 1):
         d = today + timedelta(days=off)
         dc = ymd(d)
@@ -247,24 +279,19 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
         hits = []
         for r in rows:
             title = r.get("movie")
-            if not title or title in upcoming:
+            if not title or title in first_seen:
                 continue
-            seen_titles.add(title)
-            rel = _parse_release(r.get("movieInfo") or {})
-            if rel and rel > today:            # not out yet -> upcoming
-                upcoming[title] = rel
-                hits.append(f"{title} (releases {rel})")
+            if title in running or _base_title(title) in running_bases:
+                continue                      # already out
+            first_seen[title] = d
+            hits.append(title)
 
-        if verbose:
-            print(f"    {dc}: {len(rows)} rows"
-                  + (f" | NEW: " + "; ".join(hits) if hits else ""))
-
-    print(f"  {len(seen_titles)} distinct title(s) seen, "
-          f"{len(upcoming)} not yet released")
+        if verbose and hits:
+            print(f"    {dc}: NEW -> {', '.join(sorted(hits))}")
 
     opening = {}
-    for title, rel in upcoming.items():
-        opening.setdefault(ymd(rel), []).append(title)
+    for title, d in first_seen.items():
+        opening.setdefault(ymd(d), []).append(title)
     for k in opening:
         opening[k] = sorted(opening[k])
 
@@ -274,15 +301,6 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
             print(f"    {dc}: {', '.join(titles)}")
     else:
         print("    no upcoming releases with open bookings in the window")
-        # Nothing found usually means District isn't sending a release date at
-        # all (its showtime payload may only carry the movie card). Show what it
-        # actually sends so we can stop guessing at key names.
-        try:
-            probe_dc = ymd(today + timedelta(days=3))
-            _rows, raw = probe_date(probe_dc, venues, logger, with_raw=True)
-            dump_movie_keys(raw)
-        except Exception as e:
-            print(f"  (diagnostic dump failed: {e})")
 
     _save(CACHE, {"probed_on": str(today), "opening_days": opening})
     return opening
@@ -301,12 +319,18 @@ def filter_to_opening(date_code, titles):
         return 0
 
     keep = set(titles)
-    kept = [r for r in detailed if r.get("movie") in keep]
+    keep_bases = {_base_title(t) for t in titles}
+    # match on the base name: District emits one title per format
+    # ("The Odyssey (2D - English)", "(4DX-2D - Hindi)", ...)
+    kept = [r for r in detailed
+            if r.get("movie") in keep or _base_title(r.get("movie")) in keep_bases]
     _save(detailed_p, kept)
 
     summary = _rows(summary_p)
     if summary:
-        _save(summary_p, [r for r in summary if r.get("movie") in keep])
+        _save(summary_p, [r for r in summary
+                          if r.get("movie") in keep
+                          or _base_title(r.get("movie")) in keep_bases])
 
     dropped = len({r.get("movie") for r in detailed}) - len(keep)
     print(f"  opening day {date_code}: kept {len(keep)} film(s) "

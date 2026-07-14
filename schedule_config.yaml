@@ -30,7 +30,8 @@ daily:
 # exactly those days and drops every film not opening that day.
 upcoming:
   window_days: 21      # how far ahead to look for films with bookings open
-  probe_shard: 1       # discovery uses one shard; the real collect uses all 9
+  # discovery hits ~15 District venues in the biggest cities (cheap, and only
+  # District rows carry movieInfo/releaseDate); the real collect uses all 9 shards
   # Bookings for new films open/refresh in bursts; a few passes a day is plenty.
   times:
     - "10:00"
