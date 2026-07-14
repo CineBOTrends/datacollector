@@ -12,7 +12,7 @@ on:
         description: "Mode"
         default: "daily"
         type: choice
-        options: ["daily", "advance", "upcoming"]
+        options: ["daily", "advance"]
 
 permissions:
   contents: write
@@ -35,17 +35,14 @@ jobs:
             "23 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *") MODE=daily ;;
             *) MODE="${{ github.event.inputs.mode || 'daily' }}" ;;
           esac
+          # NOTE: no 'upcoming' here on purpose. Opening-day tracking is a
+          # multi-date, filtered pipeline and lives in upcoming-run.yml. Running
+          # it as a plain advance scrape (as an earlier version did) publishes an
+          # unfiltered future date full of already-running films.
           case "$MODE" in
-            advance)  DATE_CODE=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d) ;;
-            # 'upcoming' is a multi-date run (D+3/5/7) and has its own workflow;
-            # picking it here just hands off, so the shards below stay single-date.
-            upcoming) DATE_CODE=$(TZ=Asia/Kolkata date -d "+3 day" +%Y%m%d) ;;
-            *)        DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d) ;;
+            advance) DATE_CODE=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d) ;;
+            *)       DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d) ;;
           esac
-          if [ "$MODE" = "upcoming" ]; then
-            echo "::notice::For the full D+3/5/7 sweep use the 'Upcoming releases' workflow; this run covers D+3 only."
-            MODE=advance
-          fi
           echo "mode=$MODE"           >> "$GITHUB_OUTPUT"
           echo "date_code=$DATE_CODE" >> "$GITHUB_OUTPUT"
           echo "MODE=$MODE  DATE_CODE=$DATE_CODE"
