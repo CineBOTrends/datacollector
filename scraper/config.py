@@ -50,7 +50,7 @@ def get_config(mode: str, date_code: str = None) -> dict:
         base_dir = os.path.join("advance", "data", date_code)
 
     # Cutoff only applies to daily mode
-    cutoff_minutes = 150 if mode == "daily" else None
+    cutoff_minutes = 180 if mode == "daily" else None
 
     return {
         "mode": mode,
