@@ -40,6 +40,30 @@ _RELEASE_KEYS = ("releaseDate", "releasedate", "release_date", "releaseDateText"
                  "release", "releaseOn", "releasedOn")
 
 
+def _load_env_file(path=".env"):
+    """Minimal .env reader (no python-dotenv dependency)."""
+    if not os.path.exists(path):
+        print(f"  ! {path} not found — DISTRICT_* must be in the environment")
+        return
+    loaded = []
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            k, v = k.strip(), v.strip().strip('"').strip("'")
+            if k and k not in os.environ:
+                os.environ[k] = v
+                loaded.append(k)
+    if loaded:
+        print(f"  loaded from {path}: {', '.join(loaded)}")
+    missing = [k for k in ("DISTRICT_WORKER_URL", "DISTRICT_UA", "DISTRICT_KEY")
+               if not os.environ.get(k)]
+    if missing:
+        print(f"  ! MISSING: {', '.join(missing)} -> District will return 401")
+
+
 def today_ist():
     return datetime.now(IST).date()
 
@@ -150,8 +174,19 @@ def probe_date(date_code, venues, logger):
     return parse_district_advance(asyncio.run(_go()), date_code)
 
 
-def discover_opening_days(window_days=None, probe_shard=None, force=False):
-    """Return {release_date(YYYYMMDD): [titles opening that day]}."""
+def discover_opening_days(window_days=None, probe_shard=None, force=False,
+                          verbose=False):
+    """Return {release_date(YYYYMMDD): [titles opening that day]}.
+
+    The rule is NOT "the film is playing on its release date" — that was too
+    strict and found nothing. A film can have bookings open on later days, or
+    District's releaseDate can disagree with the first bookable day. So:
+
+      * see a film on ANY probed date
+      * it is not playing today (not already released)
+      * -> it is upcoming. Its opening day is its releaseDate if District gives
+           one, otherwise the EARLIEST future date we saw it playing on.
+    """
     cfg = config()
     window_days = window_days or cfg["window_days"]
 
@@ -166,33 +201,55 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False):
     today = today_ist()
     running = titles_playing_today()
     venues = probe_venues()
-    print(f"  probing D+1..D+{window_days} across {len(venues)} District venues "
-          f"in {', '.join(PROBE_CITIES)}")
+    print(f"  probing D+1..D+{window_days} across {len(venues)} District venues")
+    print(f"  {len(running)} title(s) already running today (excluded)")
 
-    opening = {}
+    # title -> {"rel": date|None, "first_seen": date}
+    cand = {}
     for off in range(1, window_days + 1):
         d = today + timedelta(days=off)
         dc = ymd(d)
         try:
             rows = probe_date(dc, venues, logger)
         except Exception as e:
-            print(f"    ! probe {dc} failed ({e})")
+            print(f"    ! probe {dc} FAILED ({type(e).__name__}: {e})")
             continue
 
-        found = set()
+        titles = {r.get("movie") for r in rows if r.get("movie")}
+        new_here = []
         for r in rows:
             title = r.get("movie")
-            mi = r.get("movieInfo")
-            if not title or not mi or title in running:
+            mi = r.get("movieInfo") or {}
+            if not title or title in running:
                 continue
             rel = _parse_release(mi)
-            if rel and rel == d:          # the film OPENS on this date
-                found.add(title)
-        if found:
-            opening[dc] = sorted(found)
-            print(f"    {dc}: {', '.join(sorted(found))}")
+            c = cand.setdefault(title, {"rel": None, "first_seen": d})
+            if rel and not c["rel"]:
+                c["rel"] = rel
+            if d < c["first_seen"]:
+                c["first_seen"] = d
+            if title not in [x[0] for x in new_here]:
+                new_here.append((title, rel))
 
-    if not opening:
+        if verbose:
+            print(f"    {dc}: {len(rows)} rows, {len(titles)} title(s)"
+                  + (f" | not-yet-released: "
+                     + ", ".join(f"{t} (rel={r or '?'})" for t, r in new_here)
+                     if new_here else ""))
+
+    opening = {}
+    for title, c in cand.items():
+        # opening day = District's release date, else the first day we saw it
+        day = c["rel"] if (c["rel"] and c["rel"] > today) else c["first_seen"]
+        opening.setdefault(ymd(day), []).append(title)
+    for k in opening:
+        opening[k] = sorted(opening[k])
+
+    if opening:
+        print("  opening days found:")
+        for dc, titles in sorted(opening.items()):
+            print(f"    {dc}: {', '.join(titles)}")
+    else:
         print("    no upcoming releases with open bookings in the window")
 
     _save(CACHE, {"probed_on": str(today), "opening_days": opening})
@@ -223,3 +280,25 @@ def filter_to_opening(date_code, titles):
     print(f"  opening day {date_code}: kept {len(keep)} film(s) "
           f"({', '.join(sorted(keep))}), dropped {dropped} other title(s)")
     return len(kept)
+
+
+# ---------------------------------------------------------------- debug entry
+if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser(
+        description="Probe District for upcoming releases (no scrape, no publish)."
+    )
+    ap.add_argument("--window", type=int, default=None, help="days ahead (default 21)")
+    ap.add_argument("--quiet", action="store_true", help="less per-date detail")
+    a = ap.parse_args()
+
+    # Load .env by hand: python-dotenv is NOT in requirements.txt, so importing
+    # it silently failed and every District call went out unauthenticated (401).
+    # This must happen BEFORE scraper.fetcher_async is imported — that module
+    # reads DISTRICT_* into constants at import time.
+    _load_env_file()
+
+    out = discover_opening_days(window_days=a.window, force=True,
+                                verbose=not a.quiet)
+    print()
+    print(json.dumps(out, indent=2))
