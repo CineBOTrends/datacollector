@@ -55,6 +55,12 @@ def cmd_combine(args):
 
 def cmd_run(args):
     """Full pipeline: scrape all shards in parallel + combine + cleanup."""
+    if args.mode == "upcoming":
+        from runner import run_upcoming
+        run_upcoming(window_days=getattr(args, "window", None),
+                     force_probe=getattr(args, "force_probe", False))
+        return
+
     from runner import run_pipeline
 
     run_pipeline(mode=args.mode, date_code=args.date)
@@ -183,10 +189,15 @@ def main():
 
     # run (full pipeline)
     p_run = subparsers.add_parser("run", help="Full pipeline: scrape all + combine + cleanup")
-    p_run.add_argument("--mode", required=True, choices=["advance", "daily", "both"],
-                       help="Pipeline mode")
+    p_run.add_argument("--mode", required=True,
+                       choices=["advance", "daily", "both", "upcoming", "all"],
+                       help="Pipeline mode ('upcoming' = D+3/5/7 new releases)")
     p_run.add_argument("--date", default=None,
                        help="Date override (YYYYMMDD)")
+    p_run.add_argument("--window", type=int, default=None,
+                       help="Upcoming: how many days ahead to look for new releases")
+    p_run.add_argument("--force-probe", action="store_true",
+                       help="Upcoming: re-probe release dates even if cached today")
     p_run.set_defaults(func=cmd_run)
 
     # serve

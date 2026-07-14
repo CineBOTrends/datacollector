@@ -12,7 +12,7 @@ on:
         description: "Mode"
         default: "daily"
         type: choice
-        options: ["daily", "advance"]
+        options: ["daily", "advance", "upcoming"]
 
 permissions:
   contents: write
@@ -35,10 +35,16 @@ jobs:
             "23 1,2,4,5,7,8,10,11,13,14,16,21,23 * * *") MODE=daily ;;
             *) MODE="${{ github.event.inputs.mode || 'daily' }}" ;;
           esac
-          if [ "$MODE" = "advance" ]; then
-            DATE_CODE=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d)
-          else
-            DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d)
+          case "$MODE" in
+            advance)  DATE_CODE=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d) ;;
+            # 'upcoming' is a multi-date run (D+3/5/7) and has its own workflow;
+            # picking it here just hands off, so the shards below stay single-date.
+            upcoming) DATE_CODE=$(TZ=Asia/Kolkata date -d "+3 day" +%Y%m%d) ;;
+            *)        DATE_CODE=$(TZ=Asia/Kolkata date +%Y%m%d) ;;
+          esac
+          if [ "$MODE" = "upcoming" ]; then
+            echo "::notice::For the full D+3/5/7 sweep use the 'Upcoming releases' workflow; this run covers D+3 only."
+            MODE=advance
           fi
           echo "mode=$MODE"           >> "$GITHUB_OUTPUT"
           echo "date_code=$DATE_CODE" >> "$GITHUB_OUTPUT"

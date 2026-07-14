@@ -104,6 +104,40 @@ def run_daily():
     return results
 
 
+def run_upcoming(window_days=None, force_probe=False):
+    """Opening-day advance for films that haven't released yet.
+
+    Discovers each upcoming film's RELEASE DATE (from District's movieInfo) and
+    scrapes advance bookings for that exact day — the opening-day figure — rather
+    than arbitrary D+3/5/7 snapshots.
+    """
+    from upcoming import discover_opening_days, filter_to_opening
+
+    logger.separator("=")
+    logger.info("UPCOMING RELEASES — OPENING DAY ADVANCE")
+    logger.separator("=")
+
+    opening = discover_opening_days(window_days=window_days, force=force_probe)
+    if not opening:
+        logger.info("No upcoming releases with open bookings. Nothing to do.")
+        return []
+
+    logger.info(f"{len(opening)} opening day(s) to collect:")
+    for dc, titles in sorted(opening.items()):
+        logger.info(f"  {dc}: {', '.join(titles)}")
+
+    results = []
+    for dc, titles in sorted(opening.items()):
+        logger.info(f"--- opening day {dc} ---")
+        try:
+            results.extend(run_advance(dc))
+            filter_to_opening(dc, titles)
+        except Exception as e:
+            logger.error(f"opening day {dc} failed: {e}")
+
+    return results
+
+
 def _cleanup():
     """Run shard file cleanup."""
     from datetime import datetime
@@ -154,6 +188,13 @@ def run_pipeline(mode: str = "both", date_code: str = None):
             run_advance(date_code)
 
         if mode in ["daily", "both"]:
+            run_daily()
+
+        if mode in ["upcoming", "all"]:
+            run_upcoming()
+
+        if mode == "all":
+            run_advance(date_code)
             run_daily()
 
         duration = time.time() - overall_start

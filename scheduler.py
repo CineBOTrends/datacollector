@@ -47,6 +47,22 @@ def run_advance_job():
         traceback.print_exc()
 
 
+def run_upcoming_job():
+    """Triggered by scheduler: D+3 / D+5 / D+7 advance for unreleased films."""
+    import time
+    logger.separator("=")
+    logger.start("SCHEDULED: Upcoming-releases scrape triggered")
+    logger.separator("=")
+    start = time.time()
+    try:
+        from runner import run_upcoming
+        run_upcoming()
+        logger.success(f"Upcoming job completed in {(time.time() - start) / 60:.1f} min")
+        publish("advance")          # same tree as advance
+    except Exception as e:
+        logger.error(f"Upcoming job failed after {(time.time() - start) / 60:.1f} min: {e}")
+
+
 def run_daily_job():
     """Triggered by scheduler for daily mode."""
     import time
@@ -172,6 +188,22 @@ def start_scheduler(config_path=None):
             misfire_grace_time=300,
         )
 
+    # Schedule upcoming-release jobs (D+3 / D+5 / D+7)
+    upcoming_cfg = config.get("upcoming", {}) or {}
+    upcoming_times = upcoming_cfg.get("times", []) or []
+    upcoming_offsets = upcoming_cfg.get("offsets", [3, 5, 7])
+    for time_str in upcoming_times:
+        hour, minute = time_str.strip().split(":")
+        scheduler.add_job(
+            run_upcoming_job,
+            CronTrigger(hour=int(hour), minute=int(minute), timezone=tz),
+            id=f"upcoming_{time_str}",
+            name=f"Upcoming @ {time_str} IST",
+            max_instances=1,
+            coalesce=True,
+            misfire_grace_time=300,
+        )
+
     # Schedule cleanup job
     cleanup_config = config.get("cleanup", {})
     cleanup_time = cleanup_config.get("time")
@@ -202,6 +234,14 @@ def start_scheduler(config_path=None):
     logger.info(f"Daily jobs ({len(daily_times)}):")
     for t in daily_times:
         logger.info(f"  {t} IST")
+
+    if upcoming_times:
+        logger.info(
+            f"Upcoming jobs ({len(upcoming_times)}) "
+            f"[D+{', D+'.join(str(o) for o in upcoming_offsets)}]:"
+        )
+        for t in upcoming_times:
+            logger.info(f"  {t} IST")
 
     if cleanup_time:
         logger.info(f"Cleanup: {cleanup_time} IST (retain {retain_days} days)")
