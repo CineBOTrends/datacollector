@@ -34,7 +34,6 @@ if PROJECT_ROOT not in sys.path:
 IST = timezone(timedelta(hours=5, minutes=30))
 
 DEFAULT_WINDOW_DAYS = 21      # how far ahead bookings realistically open
-DEFAULT_PROBE_SHARD = 1       # one shard is plenty to spot a nationwide release
 CACHE = os.path.join("upcoming", "release_dates.json")
 
 _RELEASE_KEYS = ("releaseDate", "releasedate", "release_date", "releaseDateText",
@@ -105,41 +104,81 @@ def config():
             cfg = (yaml.safe_load(f) or {}).get("upcoming") or {}
     except Exception:
         cfg = {}
-    return {
-        "window_days": int(cfg.get("window_days", DEFAULT_WINDOW_DAYS)),
-        "probe_shard": int(cfg.get("probe_shard", DEFAULT_PROBE_SHARD)),
-    }
+    return {"window_days": int(cfg.get("window_days", DEFAULT_WINDOW_DAYS))}
 
 
 # ------------------------------------------------------------------ discover
+# The probe must be CHEAP and must see movieInfo.
+#
+#  - Cheap: a "shard" is a slice of ~445 venues, not a slice of work. Probing 21
+#    dates with a whole shard took ~4.5 min PER DATE (~95 min) and blew the job
+#    timeout. We only need enough venues to spot a nationwide release, so we hit
+#    a handful in the biggest cities instead.
+#  - movieInfo: only the DISTRICT parser emits it (shards 1-8 are BMS and carry
+#    none). Probing a BMS shard could never have found a release date at all.
+PROBE_CITIES = ("Hyderabad", "Bengaluru", "Chennai", "Mumbai", "New Delhi")
+PROBE_PER_CITY = 3          # 15 venues total — plenty to see a wide release
+
+
+def probe_venues():
+    """A few District venues in each major city."""
+    with open(os.path.join("venues", "districtvenues.json"), encoding="utf-8") as f:
+        allv = json.load(f)
+    picked, seen = [], {c: 0 for c in PROBE_CITIES}
+    for v in allv:
+        city = v.get("city")
+        if city in seen and seen[city] < PROBE_PER_CITY:
+            picked.append(v)
+            seen[city] += 1
+        if all(n >= PROBE_PER_CITY for n in seen.values()):
+            break
+    return picked
+
+
+def probe_date(date_code, venues, logger):
+    """District rows (with movieInfo) for one date, from a few venues only."""
+    import asyncio
+    from scraper.fetcher_async import fetch_all_async
+    from scraper.parser import parse_district_advance
+
+    dd = f"{date_code[:4]}-{date_code[4:6]}-{date_code[6:8]}"
+
+    async def _go():
+        results, _err, _failed = await fetch_all_async(venues, dd, "advance", logger)
+        return results
+
+    return parse_district_advance(asyncio.run(_go()), date_code)
+
+
 def discover_opening_days(window_days=None, probe_shard=None, force=False):
     """Return {release_date(YYYYMMDD): [titles opening that day]}."""
     cfg = config()
     window_days = window_days or cfg["window_days"]
-    probe_shard = probe_shard or cfg["probe_shard"]
 
     cached = _load(CACHE)
     if cached and not force and cached.get("probed_on") == str(today_ist()):
         print(f"  using cached opening days (probed {cached['probed_on']})")
         return cached.get("opening_days", {})
 
-    from scraper.scrape import run_shard
+    from services.logger import get_logger
+    logger = get_logger(shard_id=None, log_file=None)
 
     today = today_ist()
     running = titles_playing_today()
-    opening = {}
+    venues = probe_venues()
+    print(f"  probing D+1..D+{window_days} across {len(venues)} District venues "
+          f"in {', '.join(PROBE_CITIES)}")
 
-    print(f"  probing D+1..D+{window_days} with shard {probe_shard}")
+    opening = {}
     for off in range(1, window_days + 1):
         d = today + timedelta(days=off)
         dc = ymd(d)
         try:
-            run_shard(mode="advance", shard_id=probe_shard, date_code=dc)
+            rows = probe_date(dc, venues, logger)
         except Exception as e:
             print(f"    ! probe {dc} failed ({e})")
             continue
 
-        rows = _rows(os.path.join("advance", "data", dc, f"detailed{probe_shard}.json"))
         found = set()
         for r in rows:
             title = r.get("movie")
