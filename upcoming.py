@@ -178,14 +178,19 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
                           verbose=False):
     """Return {release_date(YYYYMMDD): [titles opening that day]}.
 
-    The rule is NOT "the film is playing on its release date" — that was too
-    strict and found nothing. A film can have bookings open on later days, or
-    District's releaseDate can disagree with the first bookable day. So:
+    THE RULE: District's own releaseDate must be in the FUTURE. That is the only
+    thing that makes a film "upcoming" — District states it plainly on the movie
+    page ("Releasing 17 July 2026") and carries it in movieInfo.
 
-      * see a film on ANY probed date
-      * it is not playing today (not already released)
-      * -> it is upcoming. Its opening day is its releaseDate if District gives
-           one, otherwise the EARLIEST future date we saw it playing on.
+    What this deliberately does NOT do:
+      * infer from "first date we saw it playing" — every running film sells
+        tickets days ahead, so that swept up Lenin, Dhamaal 4 and everything else.
+      * depend on today's daily feed to know what's already running — that file
+        lives in R2, is absent from a CI checkout, and silently excluded nothing
+        (the log said "0 title(s) already running today"). A film with a past
+        release date is already out; we don't need a second source to say so.
+      * guess when releaseDate is missing — no date, not upcoming. Re-releases
+        (Rakta Charitra, Manmadha [2005]) carry old dates and drop out here.
     """
     cfg = config()
     window_days = window_days or cfg["window_days"]
@@ -199,13 +204,12 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
     logger = get_logger(shard_id=None, log_file=None)
 
     today = today_ist()
-    running = titles_playing_today()
     venues = probe_venues()
     print(f"  probing D+1..D+{window_days} across {len(venues)} District venues")
-    print(f"  {len(running)} title(s) already running today (excluded)")
+    print(f"  rule: District releaseDate > {today}")
 
-    # title -> {"rel": date|None, "first_seen": date}
-    cand = {}
+    upcoming = {}          # title -> release date
+    seen_titles = set()
     for off in range(1, window_days + 1):
         d = today + timedelta(days=off)
         dc = ymd(d)
@@ -215,33 +219,27 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
             print(f"    ! probe {dc} FAILED ({type(e).__name__}: {e})")
             continue
 
-        titles = {r.get("movie") for r in rows if r.get("movie")}
-        new_here = []
+        hits = []
         for r in rows:
             title = r.get("movie")
-            mi = r.get("movieInfo") or {}
-            if not title or title in running:
+            if not title or title in upcoming:
                 continue
-            rel = _parse_release(mi)
-            c = cand.setdefault(title, {"rel": None, "first_seen": d})
-            if rel and not c["rel"]:
-                c["rel"] = rel
-            if d < c["first_seen"]:
-                c["first_seen"] = d
-            if title not in [x[0] for x in new_here]:
-                new_here.append((title, rel))
+            seen_titles.add(title)
+            rel = _parse_release(r.get("movieInfo") or {})
+            if rel and rel > today:            # not out yet -> upcoming
+                upcoming[title] = rel
+                hits.append(f"{title} (releases {rel})")
 
         if verbose:
-            print(f"    {dc}: {len(rows)} rows, {len(titles)} title(s)"
-                  + (f" | not-yet-released: "
-                     + ", ".join(f"{t} (rel={r or '?'})" for t, r in new_here)
-                     if new_here else ""))
+            print(f"    {dc}: {len(rows)} rows"
+                  + (f" | NEW: " + "; ".join(hits) if hits else ""))
+
+    print(f"  {len(seen_titles)} distinct title(s) seen, "
+          f"{len(upcoming)} not yet released")
 
     opening = {}
-    for title, c in cand.items():
-        # opening day = District's release date, else the first day we saw it
-        day = c["rel"] if (c["rel"] and c["rel"] > today) else c["first_seen"]
-        opening.setdefault(ymd(day), []).append(title)
+    for title, rel in upcoming.items():
+        opening.setdefault(ymd(rel), []).append(title)
     for k in opening:
         opening[k] = sorted(opening[k])
 
