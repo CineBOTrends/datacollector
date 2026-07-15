@@ -1,14 +1,14 @@
 {
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 3,
-    "gross": 0.0,
-    "sold": 0,
-    "totalSeats": 927,
-    "venues": 3,
-    "cities": 1,
+    "shows": 11,
+    "gross": 57470.0,
+    "sold": 265,
+    "totalSeats": 2292,
+    "venues": 8,
+    "cities": 5,
     "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 0.0,
+    "housefull": 1,
+    "occupancy": 11.56,
     "movieInfo": {
       "contentId": 206457,
       "name": "Dhamaal 4",
@@ -31,7 +31,113 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 23
+      "totalSessionCount": 13
+    }
+  },
+  "Cocktail 2 (2D - Hindi)": {
+    "shows": 2,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 60,
+    "venues": 2,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 213788,
+      "name": "Cocktail 2",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 149,
+      "genres": [
+        "Drama",
+        "Romance",
+        "Comedy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Cocktail-2-0feaab20-6753-11f1-9e97-2d0de83fe7ee.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Welcome To The Jungle (2D - Hindi)": {
+    "shows": 1,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 255,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 165834,
+      "name": "Welcome To The Jungle",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 165,
+      "genres": [
+        "Action",
+        "Drama",
+        "Comedy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Welcome-To-The-Jungle-(Welcome-3)-73dfe610-d7c0-11ee-a5bd-f9e918a2ec60.jpg",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=L0L3GGgRMn0&ab_channel=JioStudios",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Evil Dead Burn (2D - Hindi)": {
+    "shows": 1,
+    "gross": 894.0,
+    "sold": 6,
+    "totalSeats": 114,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.26,
+    "movieInfo": {
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 112,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-bcec1460-5e7c-11f1-bb0a-07766384fec6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
     }
   },
   "Evil Dead Burn (2D - English)": {
