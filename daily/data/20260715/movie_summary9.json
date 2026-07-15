@@ -1,14 +1,14 @@
 {
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 243,
-    "gross": 395062.0,
-    "sold": 2065,
-    "totalSeats": 53774,
-    "venues": 236,
-    "cities": 82,
-    "fastfilling": 0,
-    "housefull": 1,
-    "occupancy": 3.84,
+    "shows": 820,
+    "gross": 1645141.0,
+    "sold": 9233,
+    "totalSeats": 179316,
+    "venues": 655,
+    "cities": 209,
+    "fastfilling": 14,
+    "housefull": 3,
+    "occupancy": 5.15,
     "movieInfo": {
       "contentId": 206457,
       "name": "Dhamaal 4",
@@ -31,19 +31,262 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 10
+      "totalSessionCount": 5
+    }
+  },
+  "Hrudayam Murali (2D - Telugu)": {
+    "shows": 4,
+    "gross": 5664.0,
+    "sold": 30,
+    "totalSeats": 1096,
+    "venues": 4,
+    "cities": 3,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 2.74,
+    "movieInfo": {
+      "contentId": 227619,
+      "name": "Hrudayam Murali",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 166,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17834126551867212.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Evil Dead Burn (2D - English)": {
+    "shows": 150,
+    "gross": 247627.0,
+    "sold": 1234,
+    "totalSeats": 26960,
+    "venues": 147,
+    "cities": 46,
+    "fastfilling": 2,
+    "housefull": 0,
+    "occupancy": 4.58,
+    "movieInfo": {
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 112,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833362123847753.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Moana (2026) (3D - English)": {
+    "shows": 62,
+    "gross": 31359.0,
+    "sold": 118,
+    "totalSeats": 9682,
+    "venues": 62,
+    "cities": 29,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 1.22,
+    "movieInfo": {
+      "contentId": 210019,
+      "name": "Moana (2026)",
+      "lang": "English",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA7+",
+      "duration": 115,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=QFm8f-iVaWc",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Lenin (2D - Telugu)": {
+    "shows": 73,
+    "gross": 188099.0,
+    "sold": 921,
+    "totalSeats": 16561,
+    "venues": 70,
+    "cities": 15,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.56,
+    "movieInfo": {
+      "contentId": 195286,
+      "name": "Lenin",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 158,
+      "genres": [
+        "Action"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/poster_0004_Lenini-73309e00-1548-11f0-afe9-91710f201788-ba35f350-f769-11f0-9ad0-97f643f4852c.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=w2ZbnBobkuQ&t=2s",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 7
+    }
+  },
+  "Main Vaapas Aaunga (2D - Hindi)": {
+    "shows": 27,
+    "gross": 43935.0,
+    "sold": 258,
+    "totalSeats": 4289,
+    "venues": 27,
+    "cities": 19,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 6.02,
+    "movieInfo": {
+      "contentId": 217074,
+      "name": "Main Vaapas Aaunga",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 166,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/2_Poster%20(1)-2e3b7180-6551-11f1-bfcd-593dd3bd3d89.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=dvQgE-8noLs&list=RDdvQgE-8noLs&start_radio=1",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "Alpha (2D - Hindi)": {
+    "shows": 228,
+    "gross": 308483.0,
+    "sold": 1835,
+    "totalSeats": 40465,
+    "venues": 226,
+    "cities": 85,
+    "fastfilling": 5,
+    "housefull": 1,
+    "occupancy": 4.53,
+    "movieInfo": {
+      "contentId": 175697,
+      "name": "Alpha",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 141,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Spy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Alpha-062ca980-6ef1-11f1-b0b5-2f04c00aa32d.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Alpha%20app-e0bcfb80-8254-11ef-98bc-d76cb3461e46.jpg",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Moana (3D - Hindi)": {
+    "shows": 1,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 10,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 178231,
+      "name": "Moana",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "None",
+      "censor": "U",
+      "duration": 108,
+      "genres": [
+        "Animation"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17835773643265249.jpg",
+      "cover": "http://cdn.district.in/movies-assets/images/cinema/AppCoverImages/Mouna-app.jpg",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
     }
   },
   "Evil Dead Burn (2D - Hindi)": {
-    "shows": 56,
-    "gross": 68062.0,
-    "sold": 395,
-    "totalSeats": 10738,
-    "venues": 56,
-    "cities": 34,
-    "fastfilling": 0,
+    "shows": 161,
+    "gross": 274494.0,
+    "sold": 1723,
+    "totalSeats": 31442,
+    "venues": 159,
+    "cities": 77,
+    "fastfilling": 2,
     "housefull": 0,
-    "occupancy": 3.68,
+    "occupancy": 5.48,
     "movieInfo": {
       "contentId": 207239,
       "name": "Evil Dead Burn",
@@ -68,52 +311,88 @@
       "totalSessionCount": 5
     }
   },
-  "Alpha (2D - Hindi)": {
-    "shows": 68,
-    "gross": 77187.0,
-    "sold": 471,
-    "totalSeats": 12555,
-    "venues": 68,
-    "cities": 36,
-    "fastfilling": 1,
-    "housefull": 1,
-    "occupancy": 3.75,
+  "Moana (2026) (3D - Hindi)": {
+    "shows": 75,
+    "gross": 57272.0,
+    "sold": 283,
+    "totalSeats": 13459,
+    "venues": 75,
+    "cities": 39,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 2.1,
     "movieInfo": {
-      "contentId": 175697,
-      "name": "Alpha",
+      "contentId": 210019,
+      "name": "Moana (2026)",
       "lang": "Hindi",
-      "scrnFmt": "2D",
+      "scrnFmt": "3D",
       "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 141,
+      "censor": "UA7+",
+      "duration": 115,
       "genres": [
-        "Action",
-        "Thriller",
-        "Spy"
+        "Adventure",
+        "Fantasy",
+        "Animation"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Alpha-062ca980-6ef1-11f1-b0b5-2f04c00aa32d.jpg",
-      "cover": "https://cdn.district.in/movies-assets/images/cinema/Alpha%20app-e0bcfb80-8254-11ef-98bc-d76cb3461e46.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2-42f58110-76e5-11f1-ab46-555dea0765ba.jpg",
+      "cover": "",
       "thumbnail": "",
-      "trailer": "",
+      "trailer": "https://www.youtube.com/watch?v=1aSrLbWg-ZQ",
       "rating": {
-        "hasUReview": 1,
+        "hasUReview": 0,
         "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 5
+      "totalSessionCount": 1
+    }
+  },
+  "Welcome To The Jungle (2D - Hindi)": {
+    "shows": 174,
+    "gross": 244746.0,
+    "sold": 1820,
+    "totalSeats": 29434,
+    "venues": 173,
+    "cities": 64,
+    "fastfilling": 3,
+    "housefull": 2,
+    "occupancy": 6.18,
+    "movieInfo": {
+      "contentId": 165834,
+      "name": "Welcome To The Jungle",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 165,
+      "genres": [
+        "Action",
+        "Drama",
+        "Comedy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Welcome-To-The-Jungle-(Welcome-3)-73dfe610-d7c0-11ee-a5bd-f9e918a2ec60.jpg",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=L0L3GGgRMn0&ab_channel=JioStudios",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
     }
   },
   "Cocktail 2 (2D - Hindi)": {
-    "shows": 11,
-    "gross": 22505.0,
-    "sold": 125,
-    "totalSeats": 1233,
-    "venues": 11,
-    "cities": 6,
+    "shows": 24,
+    "gross": 52033.0,
+    "sold": 249,
+    "totalSeats": 2589,
+    "venues": 24,
+    "cities": 14,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 10.14,
+    "occupancy": 9.62,
     "movieInfo": {
       "contentId": 213788,
       "name": "Cocktail 2",
@@ -140,87 +419,16 @@
       "totalSessionCount": 1
     }
   },
-  "Welcome To The Jungle (2D - Hindi)": {
-    "shows": 42,
-    "gross": 35427.0,
-    "sold": 246,
-    "totalSeats": 6802,
-    "venues": 42,
-    "cities": 26,
-    "fastfilling": 0,
-    "housefull": 1,
-    "occupancy": 3.62,
-    "movieInfo": {
-      "contentId": 165834,
-      "name": "Welcome To The Jungle",
-      "lang": "Hindi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 165,
-      "genres": [
-        "Action",
-        "Drama",
-        "Comedy"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
-      "cover": "https://cdn.district.in/movies-assets/images/cinema/Welcome-To-The-Jungle-(Welcome-3)-73dfe610-d7c0-11ee-a5bd-f9e918a2ec60.jpg",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=L0L3GGgRMn0&ab_channel=JioStudios",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 5
-    }
-  },
-  "Main Vaapas Aaunga (2D - Hindi)": {
-    "shows": 8,
-    "gross": 9307.0,
-    "sold": 67,
-    "totalSeats": 1335,
-    "venues": 8,
-    "cities": 7,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 5.02,
-    "movieInfo": {
-      "contentId": 217074,
-      "name": "Main Vaapas Aaunga",
-      "lang": "Hindi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 166,
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/2_Poster%20(1)-2e3b7180-6551-11f1-bfcd-593dd3bd3d89.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=dvQgE-8noLs&list=RDdvQgE-8noLs&start_radio=1",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 2
-    }
-  },
   "Baby Do Die Do (2D - Hindi)": {
-    "shows": 4,
-    "gross": 2610.0,
-    "sold": 8,
-    "totalSeats": 310,
-    "venues": 4,
-    "cities": 3,
+    "shows": 9,
+    "gross": 6030.0,
+    "sold": 20,
+    "totalSeats": 939,
+    "venues": 8,
+    "cities": 4,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 2.58,
+    "occupancy": 2.13,
     "movieInfo": {
       "contentId": 223402,
       "name": "Baby Do Die Do",
@@ -247,28 +455,30 @@
       "totalSessionCount": 4
     }
   },
-  "Evil Dead Burn (2D - English)": {
-    "shows": 53,
-    "gross": 94212.0,
-    "sold": 508,
-    "totalSeats": 10151,
-    "venues": 53,
-    "cities": 18,
-    "fastfilling": 1,
+  "Nagabandham: The Secret Treasure (4DX-2D - Hindi)": {
+    "shows": 1,
+    "gross": 3800.0,
+    "sold": 15,
+    "totalSeats": 68,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 5.0,
+    "occupancy": 22.06,
     "movieInfo": {
-      "contentId": 207239,
-      "name": "Evil Dead Burn",
+      "contentId": 172301,
+      "name": "Nagabandham: The Secret Treasure",
       "lang": "Hindi",
-      "scrnFmt": "2D",
+      "scrnFmt": "4DX-2D",
       "sndFmt": "",
-      "censor": "A",
-      "duration": 112,
+      "censor": "UA16+",
+      "duration": 196,
       "genres": [
-        "Horror"
+        "Adventure",
+        "Epic",
+        "Mythlogical"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-bcec1460-5e7c-11f1-bb0a-07766384fec6.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17827105633891930-b29e9820-73bc-11f1-bd7e-83344b30d289.jpg",
       "cover": "",
       "thumbnail": "",
       "trailer": "",
@@ -278,19 +488,55 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 2
+      "totalSessionCount": 1
+    }
+  },
+  "Moana (2026) (IMAX 3D - English)": {
+    "shows": 14,
+    "gross": 79753.0,
+    "sold": 233,
+    "totalSeats": 4126,
+    "venues": 14,
+    "cities": 8,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.65,
+    "movieInfo": {
+      "contentId": 210019,
+      "name": "Moana (2026)",
+      "lang": "English",
+      "scrnFmt": "IMAX 3D",
+      "sndFmt": "",
+      "censor": "UA7+",
+      "duration": 115,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2-05bc28a0-76ed-11f1-9fd6-07887d7280f8.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=QFm8f-iVaWc",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
     }
   },
   "Bhamardo (2D - Gujarati)": {
-    "shows": 2,
-    "gross": 23040.0,
-    "sold": 288,
-    "totalSeats": 361,
-    "venues": 1,
-    "cities": 1,
-    "fastfilling": 2,
+    "shows": 3,
+    "gross": 80.0,
+    "sold": 1,
+    "totalSeats": 543,
+    "venues": 2,
+    "cities": 2,
+    "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 79.78,
+    "occupancy": 0.18,
     "movieInfo": {
       "contentId": 222400,
       "name": "Bhamardo",
@@ -315,15 +561,15 @@
     }
   },
   "Carry On Jatta 4 (2D - Punjabi)": {
-    "shows": 5,
-    "gross": 360.0,
-    "sold": 2,
-    "totalSeats": 943,
-    "venues": 5,
-    "cities": 4,
-    "fastfilling": 0,
+    "shows": 41,
+    "gross": 113158.0,
+    "sold": 602,
+    "totalSeats": 7366,
+    "venues": 41,
+    "cities": 33,
+    "fastfilling": 2,
     "housefull": 0,
-    "occupancy": 0.21,
+    "occupancy": 8.17,
     "movieInfo": {
       "contentId": 208122,
       "name": "Carry On Jatta 4",
@@ -348,16 +594,51 @@
       "totalSessionCount": 2
     }
   },
+  "Sarpanch (2D - Punjabi)": {
+    "shows": 66,
+    "gross": 133684.0,
+    "sold": 768,
+    "totalSeats": 11394,
+    "venues": 65,
+    "cities": 45,
+    "fastfilling": 2,
+    "housefull": 1,
+    "occupancy": 6.74,
+    "movieInfo": {
+      "contentId": 203559,
+      "name": "Sarpanch",
+      "lang": "Punjabi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833400433692715.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=DXCrblVs43k",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
   "Toy Story 5 (2D - Hindi)": {
-    "shows": 1,
+    "shows": 2,
     "gross": 8000.0,
     "sold": 40,
-    "totalSeats": 260,
-    "venues": 1,
-    "cities": 1,
+    "totalSeats": 315,
+    "venues": 2,
+    "cities": 2,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 15.38,
+    "occupancy": 12.7,
     "movieInfo": {
       "contentId": 178238,
       "name": "Toy Story 5",
@@ -385,121 +666,16 @@
       "totalSessionCount": 1
     }
   },
-  "Moana (2026) (3D - English)": {
-    "shows": 16,
-    "gross": 9024.0,
-    "sold": 26,
-    "totalSeats": 2757,
-    "venues": 16,
-    "cities": 10,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 0.94,
-    "movieInfo": {
-      "contentId": 210019,
-      "name": "Moana (2026)",
-      "lang": "English",
-      "scrnFmt": "3D",
-      "sndFmt": "",
-      "censor": "UA7+",
-      "duration": 115,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Animation"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=QFm8f-iVaWc",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    }
-  },
-  "Idhayam Murali (2D - Tamil)": {
-    "shows": 10,
-    "gross": 18876.95,
-    "sold": 137,
-    "totalSeats": 2620,
-    "venues": 9,
-    "cities": 3,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 5.23,
-    "movieInfo": {
-      "contentId": 190425,
-      "name": "Idhayam Murali",
-      "lang": "Tamil",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 166,
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Idhayam-Murali-6637f280-5f24-11f1-b98c-2f82e8f1e34c.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=TLFPhWGEhKA&list=RDTLFPhWGEhKA&start_radio=1",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 2
-    }
-  },
-  "Lenin (2D - Telugu)": {
-    "shows": 8,
-    "gross": 3634.0,
-    "sold": 18,
-    "totalSeats": 1540,
-    "venues": 8,
-    "cities": 3,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 1.17,
-    "movieInfo": {
-      "contentId": 195286,
-      "name": "Lenin",
-      "lang": "Telugu",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 158,
-      "genres": [
-        "Action"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/poster_0004_Lenini-73309e00-1548-11f0-afe9-91710f201788-ba35f350-f769-11f0-9ad0-97f643f4852c.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=w2ZbnBobkuQ&t=2s",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 4
-    }
-  },
   "Nagabandham: The Secret Treasure (2D - Telugu)": {
-    "shows": 1,
-    "gross": 2000.0,
-    "sold": 10,
-    "totalSeats": 129,
-    "venues": 1,
-    "cities": 1,
-    "fastfilling": 0,
+    "shows": 6,
+    "gross": 108480.0,
+    "sold": 814,
+    "totalSeats": 1751,
+    "venues": 6,
+    "cities": 4,
+    "fastfilling": 1,
     "housefull": 0,
-    "occupancy": 7.75,
+    "occupancy": 46.49,
     "movieInfo": {
       "contentId": 172301,
       "name": "Nagabandham: The Secret Treasure",
@@ -523,19 +699,194 @@
         "hasContent": 1
       },
       "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Idhayam Murali (2D - Tamil)": {
+    "shows": 44,
+    "gross": 122332.3,
+    "sold": 890,
+    "totalSeats": 9259,
+    "venues": 39,
+    "cities": 10,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 9.61,
+    "movieInfo": {
+      "contentId": 190425,
+      "name": "Idhayam Murali",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 166,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Idhayam-Murali-6637f280-5f24-11f1-b98c-2f82e8f1e34c.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=TLFPhWGEhKA&list=RDTLFPhWGEhKA&start_radio=1",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Mother Promise (2D - Kannada)": {
+    "shows": 19,
+    "gross": 81560.0,
+    "sold": 627,
+    "totalSeats": 4242,
+    "venues": 19,
+    "cities": 7,
+    "fastfilling": 1,
+    "housefull": 0,
+    "occupancy": 14.78,
+    "movieInfo": {
+      "contentId": 226573,
+      "name": "Mother Promise",
+      "lang": "Kannada",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 166,
+      "genres": [
+        "Drama",
+        "Thriller",
+        "Family"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17831493223658852.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Obsession (2D - English)": {
+    "shows": 11,
+    "gross": 9604.0,
+    "sold": 40,
+    "totalSeats": 1244,
+    "venues": 11,
+    "cities": 8,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 3.22,
+    "movieInfo": {
+      "contentId": 212841,
+      "name": "Obsession",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 110,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/_OBSESSION--491df8f0-eafa-11f0-bce8-23b56867606a.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Maa Inti Bangaaram (2D - Telugu)": {
+    "shows": 2,
+    "gross": 3680.0,
+    "sold": 20,
+    "totalSeats": 213,
+    "venues": 2,
+    "cities": 2,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 9.39,
+    "movieInfo": {
+      "contentId": 213146,
+      "name": "Maa Inti Bangaaram",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 154,
+      "genres": [
+        "Action"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Maa-Inti-Bangaaram-poster-31398050-3cc2-11f1-a79d-915297966e20.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=vdTawCMwiQs",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Moana (2026) (4DX-3D - English)": {
+    "shows": 5,
+    "gross": 3350.0,
+    "sold": 9,
+    "totalSeats": 378,
+    "venues": 5,
+    "cities": 5,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 2.38,
+    "movieInfo": {
+      "contentId": 210019,
+      "name": "Moana (2026)",
+      "lang": "English",
+      "scrnFmt": "4DX-3D",
+      "sndFmt": "",
+      "censor": "UA7+",
+      "duration": 115,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2-4ddb67a0-76ec-11f1-bc32-65f65400ead7.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=QFm8f-iVaWc",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
       "totalSessionCount": 2
     }
   },
   "Gatta Kusthi 2 (2D - Tamil)": {
-    "shows": 4,
-    "gross": 2350.0,
-    "sold": 11,
-    "totalSeats": 663,
-    "venues": 4,
-    "cities": 2,
+    "shows": 13,
+    "gross": 71510.0,
+    "sold": 545,
+    "totalSeats": 3014,
+    "venues": 13,
+    "cities": 7,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 1.66,
+    "occupancy": 18.08,
     "movieInfo": {
       "contentId": 205464,
       "name": "Gatta Kusthi 2",
@@ -556,6 +907,209 @@
       "trailer": "https://www.youtube.com/watch?v=cc8FDOConV0",
       "rating": {
         "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Nocturnes (2D - Hindi)": {
+    "shows": 3,
+    "gross": 138768.0,
+    "sold": 784,
+    "totalSeats": 784,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 3,
+    "occupancy": 100.0,
+    "movieInfo": {
+      "contentId": 218925,
+      "name": "Nocturnes",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "U",
+      "duration": 83,
+      "genres": [
+        "Documentary"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Nocturnes--17417500-37da-11f1-9cc8-b7bc338ededd.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=u7M7hsfqjQg",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Minions & Monsters (3D - English)": {
+    "shows": 21,
+    "gross": 15998.0,
+    "sold": 60,
+    "totalSeats": 3479,
+    "venues": 21,
+    "cities": 11,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 1.72,
+    "movieInfo": {
+      "contentId": 189476,
+      "name": "Minions & Monsters",
+      "lang": "English",
+      "scrnFmt": "3D",
+      "sndFmt": "None",
+      "censor": "UA7+",
+      "duration": 90,
+      "genres": [
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Minions-%26-Monsters-65870ab0-6ba9-11f1-84fa-05ff8282b7b2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=ZSdOwt-G49w",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Balan: The Boy (2D - Malayalam)": {
+    "shows": 4,
+    "gross": 4117.0,
+    "sold": 18,
+    "totalSeats": 721,
+    "venues": 4,
+    "cities": 4,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 2.5,
+    "movieInfo": {
+      "contentId": 221714,
+      "name": "Balan: The Boy",
+      "lang": "Malayalam",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 147,
+      "genres": [
+        "Drama"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/BalanB-6f311eb0-68b7-11f1-b1ab-454e14ec3db3.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "Evil Dead Burn (4DX-2D - English)": {
+    "shows": 9,
+    "gross": 16120.0,
+    "sold": 43,
+    "totalSeats": 794,
+    "venues": 9,
+    "cities": 5,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.42,
+    "movieInfo": {
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 112,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833362123847753.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  "Graamaayana (2D - Kannada)": {
+    "shows": 2,
+    "gross": 69420.0,
+    "sold": 565,
+    "totalSeats": 725,
+    "venues": 2,
+    "cities": 2,
+    "fastfilling": 1,
+    "housefull": 0,
+    "occupancy": 77.93,
+    "movieInfo": {
+      "contentId": 223907,
+      "name": "Graamaayana",
+      "lang": "Kannada",
+      "scrnFmt": "2D",
+      "sndFmt": "None",
+      "censor": "UA",
+      "duration": 120,
+      "genres": [
+        "Drama"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17828241080459982.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Graamaayana-app-11f8b010-775c-11ec-a864-953fc3a3b21e.jpg",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "I, Nobody (2D - Malayalam)": {
+    "shows": 17,
+    "gross": 96536.0,
+    "sold": 491,
+    "totalSeats": 3480,
+    "venues": 17,
+    "cities": 10,
+    "fastfilling": 1,
+    "housefull": 0,
+    "occupancy": 14.11,
+    "movieInfo": {
+      "contentId": 205165,
+      "name": "I, Nobody",
+      "lang": "Malayalam",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 168,
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833434878007523.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
         "imageUrl": "",
         "hasContent": 1
       },
@@ -597,246 +1151,33 @@
       "totalSessionCount": 2
     }
   },
-  "I, Nobody (2D - Malayalam)": {
-    "shows": 4,
-    "gross": 400.0,
-    "sold": 2,
-    "totalSeats": 609,
-    "venues": 4,
-    "cities": 3,
+  "The Sheep Detectives (2D - English)": {
+    "shows": 1,
+    "gross": 2370.0,
+    "sold": 10,
+    "totalSeats": 148,
+    "venues": 1,
+    "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 0.33,
+    "occupancy": 6.76,
     "movieInfo": {
-      "contentId": 205165,
-      "name": "I, Nobody",
-      "lang": "Malayalam",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 168,
-      "genres": [
-        "Drama",
-        "Thriller"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17833434878007523.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 3
-    }
-  },
-  "Evil Dead Burn (4DX-2D - English)": {
-    "shows": 2,
-    "gross": 1020.0,
-    "sold": 2,
-    "totalSeats": 154,
-    "venues": 2,
-    "cities": 2,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 1.3,
-    "movieInfo": {
-      "contentId": 207239,
-      "name": "Evil Dead Burn",
+      "contentId": 212070,
+      "name": "The Sheep Detectives",
       "lang": "English",
       "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 112,
-      "genres": [
-        "Horror"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17833362123847753.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 2
-    }
-  },
-  "Moana (2026) (3D - Hindi)": {
-    "shows": 27,
-    "gross": 10286.0,
-    "sold": 56,
-    "totalSeats": 5410,
-    "venues": 27,
-    "cities": 17,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 1.04,
-    "movieInfo": {
-      "contentId": 210019,
-      "name": "Moana (2026)",
-      "lang": "Hindi",
-      "scrnFmt": "3D",
-      "sndFmt": "",
-      "censor": "UA7+",
-      "duration": 115,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Animation"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2-42f58110-76e5-11f1-ab46-555dea0765ba.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=1aSrLbWg-ZQ",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 2
-    }
-  },
-  "Moana (2026) (2D - Hindi)": {
-    "shows": 7,
-    "gross": 1534.0,
-    "sold": 11,
-    "totalSeats": 1297,
-    "venues": 7,
-    "cities": 7,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 0.85,
-    "movieInfo": {
-      "contentId": 210019,
-      "name": "Moana (2026)",
-      "lang": "Hindi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA7+",
-      "duration": 115,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Animation"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-e7764880-277d-11f1-bbd6-b922f1a8f2b0.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=1aSrLbWg-ZQ",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 2
-    }
-  },
-  "Nagabandham: The Secret Treasure (2D - Hindi)": {
-    "shows": 4,
-    "gross": 15290.0,
-    "sold": 149,
-    "totalSeats": 886,
-    "venues": 4,
-    "cities": 4,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 16.82,
-    "movieInfo": {
-      "contentId": 172301,
-      "name": "Nagabandham: The Secret Treasure",
-      "lang": "Hindi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 196,
-      "genres": [
-        "Adventure",
-        "Epic",
-        "Mythlogical"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17827105633891930.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://youtu.be/I3AfwSUSdRU?si=1ME5V5gJRLOutWYZ",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 3
-    }
-  },
-  "Minions & Monsters (3D - English)": {
-    "shows": 7,
-    "gross": 3098.0,
-    "sold": 17,
-    "totalSeats": 1449,
-    "venues": 7,
-    "cities": 4,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 1.17,
-    "movieInfo": {
-      "contentId": 189476,
-      "name": "Minions & Monsters",
-      "lang": "English",
-      "scrnFmt": "3D",
       "sndFmt": "None",
       "censor": "UA7+",
-      "duration": 90,
+      "duration": 109,
       "genres": [
-        "Animation"
+        "Comedy"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Minions-%26-Monsters-65870ab0-6ba9-11f1-84fa-05ff8282b7b2.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/The-Sheep-Detective_Poster-16334a70-4b90-11f1-820f-6bdf11568134.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=ZSdOwt-G49w",
+      "trailer": "https://www.youtube.com/watch?v=-0hZA-Uq4bs",
       "rating": {
         "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 4
-    }
-  },
-  "Moana (2026) (IMAX 3D - English)": {
-    "shows": 4,
-    "gross": 0.0,
-    "sold": 0,
-    "totalSeats": 1041,
-    "venues": 4,
-    "cities": 4,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 0.0,
-    "movieInfo": {
-      "contentId": 210019,
-      "name": "Moana (2026)",
-      "lang": "Hindi",
-      "scrnFmt": "3D",
-      "sndFmt": "",
-      "censor": "UA7+",
-      "duration": 115,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Animation"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2-42f58110-76e5-11f1-ab46-555dea0765ba.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=1aSrLbWg-ZQ",
-      "rating": {
-        "hasUReview": 0,
         "imageUrl": "",
         "hasContent": 1
       },
@@ -845,12 +1186,12 @@
     }
   },
   "Moana (2026) (ICE 3D - English)": {
-    "shows": 2,
+    "shows": 3,
     "gross": 0.0,
     "sold": 0,
-    "totalSeats": 330,
-    "venues": 2,
-    "cities": 2,
+    "totalSeats": 557,
+    "venues": 3,
+    "cities": 3,
     "fastfilling": 0,
     "housefull": 0,
     "occupancy": 0.0,
@@ -880,51 +1221,191 @@
       "totalSessionCount": 3
     }
   },
-  "Sarpanch (2D - Punjabi)": {
-    "shows": 6,
-    "gross": 44700.0,
-    "sold": 217,
-    "totalSeats": 991,
-    "venues": 6,
-    "cities": 5,
+  "Chinna Chinna Aasai (2D - Malayalam)": {
+    "shows": 2,
+    "gross": 1782.0,
+    "sold": 18,
+    "totalSeats": 271,
+    "venues": 2,
+    "cities": 2,
     "fastfilling": 0,
-    "housefull": 1,
-    "occupancy": 21.9,
+    "housefull": 0,
+    "occupancy": 6.64,
     "movieInfo": {
-      "contentId": 203559,
-      "name": "Sarpanch",
-      "lang": "Punjabi",
+      "contentId": 225085,
+      "name": "Chinna Chinna Aasai",
+      "lang": "Malayalam",
       "scrnFmt": "2D",
       "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 145,
+      "censor": "U",
+      "duration": 136,
       "genres": [
-        "Action",
         "Drama"
       ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17833400433692715.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Chinna%20Chinna-35838b30-6bd7-11f1-8542-bfe51f54638f.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=DXCrblVs43k",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Moana (2026) (2D - Hindi)": {
+    "shows": 17,
+    "gross": 4634.0,
+    "sold": 30,
+    "totalSeats": 3028,
+    "venues": 16,
+    "cities": 14,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.99,
+    "movieInfo": {
+      "contentId": 210019,
+      "name": "Moana (2026)",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA7+",
+      "duration": 115,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-e7764880-277d-11f1-bbd6-b922f1a8f2b0.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=1aSrLbWg-ZQ",
       "rating": {
         "hasUReview": 0,
         "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 6
+      "totalSessionCount": 1
     }
   },
-  "Moana (2026) (4DX-3D - Hindi)": {
+  "Nagabandham: The Secret Treasure (2D - Hindi)": {
+    "shows": 17,
+    "gross": 27721.0,
+    "sold": 221,
+    "totalSeats": 2830,
+    "venues": 17,
+    "cities": 12,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 7.81,
+    "movieInfo": {
+      "contentId": 172301,
+      "name": "Nagabandham: The Secret Treasure",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 196,
+      "genres": [
+        "Adventure",
+        "Epic",
+        "Mythlogical"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17827105633891930.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://youtu.be/I3AfwSUSdRU?si=1ME5V5gJRLOutWYZ",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "Moana (2026) (3D MX4D - Hindi)": {
     "shows": 1,
     "gross": 0.0,
     "sold": 0,
-    "totalSeats": 108,
+    "totalSeats": 68,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
     "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 210019,
+      "name": "Moana (2026)",
+      "lang": "English",
+      "scrnFmt": "3D MX4D",
+      "sndFmt": "",
+      "censor": "UA7+",
+      "duration": 115,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Moana%20(1)-f886dfb0-2758-11f1-bce5-d1833420b0ab-4b1ad7e0-7506-11f1-9c29-037cae64f1b2-052ce520-76e6-11f1-9cf5-41a290488401.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=QFm8f-iVaWc",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Evil Dead Burn (4DX-2D - Hindi)": {
+    "shows": 2,
+    "gross": 16170.0,
+    "sold": 42,
+    "totalSeats": 204,
+    "venues": 2,
+    "cities": 2,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 20.59,
+    "movieInfo": {
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 112,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-bcec1460-5e7c-11f1-bb0a-07766384fec6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Moana (2026) (4DX-3D - Hindi)": {
+    "shows": 5,
+    "gross": 19959.0,
+    "sold": 51,
+    "totalSeats": 496,
+    "venues": 5,
+    "cities": 5,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 10.28,
     "movieInfo": {
       "contentId": 210019,
       "name": "Moana (2026)",
@@ -951,16 +1432,463 @@
       "totalSessionCount": 1
     }
   },
-  "Koka Deuta Nati Aru Hati 2 (2D - Assamese)": {
+  "Toy Story 5 (3D - English)": {
+    "shows": 4,
+    "gross": 4330.0,
+    "sold": 18,
+    "totalSeats": 522,
+    "venues": 4,
+    "cities": 3,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 3.45,
+    "movieInfo": {
+      "contentId": 178238,
+      "name": "Toy Story 5",
+      "lang": "English",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "U",
+      "duration": 107,
+      "genres": [
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17801165227319230-f86ec150-65b5-11f1-802d-095c9ae2eb3b.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=c51ND9Hdbw0",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Love Oh Love (2D - Tamil)": {
+    "shows": 3,
+    "gross": 2837.05,
+    "sold": 26,
+    "totalSeats": 556,
+    "venues": 3,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 4.68,
+    "movieInfo": {
+      "contentId": 217842,
+      "name": "Love Oh Love",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 130,
+      "genres": [
+        "Romance"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/_Poster-487bc9f0-6948-11f1-892d-31a4aaf4f526-20a1da80-70ac-11f1-b52b-1bc4d96eb197.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=dcJVC-b78oQ",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Evil Dead Burn (2D - Tamil)": {
+    "shows": 10,
+    "gross": 36543.45,
+    "sold": 346,
+    "totalSeats": 2495,
+    "venues": 10,
+    "cities": 4,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 13.87,
+    "movieInfo": {
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 112,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-05720f00-5e7d-11f1-abbc-57776f320c87.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "I, Nobody (2D - Tamil)": {
     "shows": 1,
     "gross": 0.0,
     "sold": 0,
-    "totalSeats": 257,
+    "totalSeats": 205,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
     "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 205165,
+      "name": "I, Nobody",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 168,
+      "genres": [
+        "Thriller"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/I-nobody-posgter-0b4c7790-45f9-11f1-9e72-b3859bd2479f-61433920-6bee-11f1-9ce4-e73c1aac4749.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=a8IaRFVwlbU",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "Parimala and Co (2D - Tamil)": {
+    "shows": 1,
+    "gross": 1380.0,
+    "sold": 23,
+    "totalSeats": 172,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 13.37,
+    "movieInfo": {
+      "contentId": 221055,
+      "name": "Parimala and Co",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 138,
+      "genres": [
+        "Thriller",
+        "Crime",
+        "Comedy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Parimala-and-Co_Poster-82cec260-5caa-11f1-92a5-af19d93366c6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Lakshmikanthan Kolai Vazhakku (2D - Tamil)": {
+    "shows": 1,
+    "gross": 3490.0,
+    "sold": 25,
+    "totalSeats": 121,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 20.66,
+    "movieInfo": {
+      "contentId": 220370,
+      "name": "Lakshmikanthan Kolai Vazhakku",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 107,
+      "genres": [
+        "Drama",
+        "Crime",
+        "Political"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17834218614567132.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "I, Nobody (2D - Telugu)": {
+    "shows": 1,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 287,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 205165,
+      "name": "I, Nobody",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 168,
+      "genres": [
+        "Thriller"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/I-nobody-posgter-0b4c7790-45f9-11f1-9e72-b3859bd2479f-9f6bb2e0-6bee-11f1-b1f6-7368625ce5ed.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=fDfMxrOjJBw",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "Rao Bahadur (2D - Telugu)": {
+    "shows": 1,
+    "gross": 400.0,
+    "sold": 2,
+    "totalSeats": 111,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 1.8,
+    "movieInfo": {
+      "contentId": 204022,
+      "name": "Rao Bahadur",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 170,
+      "genres": [
+        "Psychological",
+        "Drama"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Rao-Bahadur-f8d8cfc0-5e4c-11f1-8bfa-cf89508f50e7.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Moana (2026) (2D - English)": {
+    "shows": 5,
+    "gross": 680.0,
+    "sold": 2,
+    "totalSeats": 599,
+    "venues": 5,
+    "cities": 5,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.33,
+    "movieInfo": {
+      "contentId": 210019,
+      "name": "Moana (2026)",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA7+",
+      "duration": 115,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Animation"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17830859416392122.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=QKYFfYLe5rs",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Aajo Ardhangini (2D - Bengali)": {
+    "shows": 1,
+    "gross": 2224.0,
+    "sold": 16,
+    "totalSeats": 124,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 12.9,
+    "movieInfo": {
+      "contentId": 225804,
+      "name": "Aajo Ardhangini",
+      "lang": "Bengali",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 144,
+      "genres": [
+        "Drama",
+        "Family"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Aajo%20Ardhangini-4378e230-7311-11f1-860f-6f63548fb04f.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  "Jindagi Once More (2D - Gujarati)": {
+    "shows": 1,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 84,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 222582,
+      "name": "Jindagi Once More",
+      "lang": "Gujarati",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "U",
+      "duration": 143,
+      "genres": [
+        "Drama",
+        "Family"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Jindgi-once-more%20(1)-344c2750-62fd-11f1-88b6-4769d594dd86.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Toy Story 5 (2D - English)": {
+    "shows": 5,
+    "gross": 45897.0,
+    "sold": 447,
+    "totalSeats": 598,
+    "venues": 3,
+    "cities": 3,
+    "fastfilling": 0,
+    "housefull": 3,
+    "occupancy": 74.75,
+    "movieInfo": {
+      "contentId": 178238,
+      "name": "Toy Story 5",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "U",
+      "duration": 107,
+      "genres": [
+        "Animation"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17801165227319230-f86ec150-65b5-11f1-802d-095c9ae2eb3b-79adce40-6670-11f1-9820-b16f6ec49a54.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "The Invite (2D - English)": {
+    "shows": 4,
+    "gross": 5870.0,
+    "sold": 14,
+    "totalSeats": 306,
+    "venues": 4,
+    "cities": 3,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 4.58,
+    "movieInfo": {
+      "contentId": 219655,
+      "name": "The Invite",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 109,
+      "genres": [
+        "Drama",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833401355471873.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=akeVALLMWTo",
+      "rating": {
+        "hasUReview": 1,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Koka Deuta Nati Aru Hati 2 (2D - Assamese)": {
+    "shows": 3,
+    "gross": 8360.0,
+    "sold": 48,
+    "totalSeats": 652,
+    "venues": 3,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 7.36,
     "movieInfo": {
       "contentId": 226786,
       "name": "Koka Deuta Nati Aru Hati 2",
@@ -982,53 +1910,19 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 6
-    }
-  },
-  "Obsession (2D - English)": {
-    "shows": 7,
-    "gross": 4090.0,
-    "sold": 19,
-    "totalSeats": 725,
-    "venues": 7,
-    "cities": 5,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 2.62,
-    "movieInfo": {
-      "contentId": 212841,
-      "name": "Obsession",
-      "lang": "English",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 110,
-      "genres": [
-        "Horror"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/_OBSESSION--491df8f0-eafa-11f0-bce8-23b56867606a.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
+      "totalSessionCount": 4
     }
   },
   "Minions & Monsters (3D - Hindi)": {
-    "shows": 2,
-    "gross": 2358.0,
-    "sold": 15,
-    "totalSeats": 383,
-    "venues": 2,
-    "cities": 2,
+    "shows": 3,
+    "gross": 3414.0,
+    "sold": 23,
+    "totalSeats": 419,
+    "venues": 3,
+    "cities": 3,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 3.92,
+    "occupancy": 5.49,
     "movieInfo": {
       "contentId": 189476,
       "name": "Minions & Monsters",
@@ -1051,6 +1945,41 @@
       },
       "isNew": false,
       "totalSessionCount": 1
+    }
+  },
+  "Tumbadchi Manjula (2D - Marathi)": {
+    "shows": 1,
+    "gross": 120.0,
+    "sold": 1,
+    "totalSeats": 133,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.75,
+    "movieInfo": {
+      "contentId": 217521,
+      "name": "Tumbadchi Manjula",
+      "lang": "Marathi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 152,
+      "genres": [
+        "Horror",
+        "Mystery"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Tumbadchi-Manjula-93530360-5356-11f1-aa6c-1be757dca935-6b66ee20-5f31-11f1-8478-756e8c654ed8.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "MA",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
     }
   },
   "Toy Story 5 (3D - Hindi)": {
@@ -1090,38 +2019,72 @@
       "totalSessionCount": 2
     }
   },
-  "The Invite (2D - English)": {
+  "Minions & Monsters (3D MX4D - Hindi)": {
     "shows": 1,
-    "gross": 4320.0,
-    "sold": 9,
-    "totalSeats": 46,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 119,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 19.57,
+    "occupancy": 0.0,
     "movieInfo": {
-      "contentId": 219655,
-      "name": "The Invite",
+      "contentId": 189476,
+      "name": "Minions & Monsters",
       "lang": "English",
-      "scrnFmt": "2D",
+      "scrnFmt": "3D MX4D",
       "sndFmt": "",
-      "censor": "A",
-      "duration": 109,
+      "censor": "UA7+",
+      "duration": 90,
       "genres": [
-        "Drama",
-        "Comedy"
+        "Animation"
       ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17833401355471873.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Minions-%26-Monsters_Poster-f30274d0-0590-11f1-9599-09406b282501-db15ba80-7151-11f1-a18d-0f530c7c046a.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=akeVALLMWTo",
+      "trailer": "https://www.youtube.com/watch?v=ZSdOwt-G49w",
       "rating": {
         "hasUReview": 1,
+        "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 4
+      "totalSessionCount": 1
+    }
+  },
+  "Dhamaal 4 (4DX-2D - Hindi)": {
+    "shows": 1,
+    "gross": 1000.0,
+    "sold": 4,
+    "totalSeats": 76,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.26,
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "4DX-2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742868727108.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
     }
   },
   "Minions & Monsters (3D MX4D - English)": {
@@ -1158,69 +2121,33 @@
       "totalSessionCount": 4
     }
   },
-  "Toy Story 5 (2D - English)": {
-    "shows": 3,
-    "gross": 44400.0,
-    "sold": 444,
-    "totalSeats": 444,
+  "Toy Story 5 (4DX-2D - English)": {
+    "shows": 1,
+    "gross": 310.0,
+    "sold": 1,
+    "totalSeats": 80,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
-    "housefull": 3,
-    "occupancy": 100.0,
+    "housefull": 0,
+    "occupancy": 1.25,
     "movieInfo": {
       "contentId": 178238,
       "name": "Toy Story 5",
       "lang": "English",
-      "scrnFmt": "2D",
+      "scrnFmt": "4DX-2D",
       "sndFmt": "",
       "censor": "U",
       "duration": 107,
       "genres": [
         "Animation"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/17801165227319230-f86ec150-65b5-11f1-802d-095c9ae2eb3b-79adce40-6670-11f1-9820-b16f6ec49a54.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17801165227319230-f86ec150-65b5-11f1-802d-095c9ae2eb3b-cfa62ae0-6670-11f1-b608-87cdc8cf0901.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "",
+      "trailer": "https://www.youtube.com/watch?v=c51ND9Hdbw0",
       "rating": {
         "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 3
-    }
-  },
-  "Moana (2026) (2D - English)": {
-    "shows": 1,
-    "gross": 680.0,
-    "sold": 2,
-    "totalSeats": 56,
-    "venues": 1,
-    "cities": 1,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 3.57,
-    "movieInfo": {
-      "contentId": 210019,
-      "name": "Moana (2026)",
-      "lang": "English",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA7+",
-      "duration": 115,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Animation"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17830859416392122.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=QKYFfYLe5rs",
-      "rating": {
-        "hasUReview": 0,
         "imageUrl": "",
         "hasContent": 1
       },
@@ -1228,56 +2155,56 @@
       "totalSessionCount": 1
     }
   },
-  "Mother Promise (2D - Kannada)": {
+  "Colony (2D - Korean)": {
     "shows": 1,
     "gross": 0.0,
     "sold": 0,
-    "totalSeats": 256,
+    "totalSeats": 172,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
     "occupancy": 0.0,
     "movieInfo": {
-      "contentId": 226573,
-      "name": "Mother Promise",
-      "lang": "Kannada",
+      "contentId": 220262,
+      "name": "Colony",
+      "lang": "Korean",
       "scrnFmt": "2D",
       "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 166,
+      "censor": "A",
+      "duration": 120,
       "genres": [
-        "Drama",
-        "Thriller",
-        "Family"
+        "Action",
+        "Sci-Fi",
+        "Horror",
+        "Thriller"
       ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17831493223658852.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Colony-poster-d037f740-6968-11f1-afdc-c5d760d0482b.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "",
+      "trailer": "https://www.youtube.com/watch?v=WhvImRXQ1g8",
       "rating": {
         "hasUReview": 1,
-        "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 4
+      "totalSessionCount": 1
     }
   },
-  "Evil Dead Burn (4DX-2D - Hindi)": {
+  "Evil Dead Burn (2D - Telugu)": {
     "shows": 1,
-    "gross": 14490.0,
-    "sold": 36,
-    "totalSeats": 108,
+    "gross": 4640.0,
+    "sold": 56,
+    "totalSeats": 295,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 33.33,
+    "occupancy": 18.98,
     "movieInfo": {
       "contentId": 207239,
       "name": "Evil Dead Burn",
-      "lang": "English",
+      "lang": "Telugu",
       "scrnFmt": "2D",
       "sndFmt": "",
       "censor": "A",
@@ -1285,7 +2212,7 @@
       "genres": [
         "Horror"
       ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17833362123847753.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-25d05810-5e7d-11f1-af8d-3fa9ffcddf9e.jpg",
       "cover": "",
       "thumbnail": "",
       "trailer": "",
@@ -1295,7 +2222,42 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 3
+      "totalSessionCount": 2
+    }
+  },
+  "The Furious (2D - English)": {
+    "shows": 1,
+    "gross": 199.0,
+    "sold": 1,
+    "totalSeats": 78,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 1.28,
+    "movieInfo": {
+      "contentId": 221228,
+      "name": "The Furious",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 117,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Crime"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/The-Furious_Poster-a39baac0-5080-11f1-a315-4189e2451f4a.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://youtu.be/TbNwrZgQzr8?si=oiIyBblTbE8xakkl",
+      "rating": {
+        "hasUReview": 1,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
     }
   }
 }
