@@ -1,13 +1,13 @@
 {
   "The Odyssey (2D - Telugu)": {
-    "shows": 205,
-    "venues": 55,
-    "cities": 44,
-    "totalSeats": 107213,
-    "ticketsSold": 25084,
-    "occupancy": 23.4,
-    "grossRevenue": 3076730.0,
-    "fastfilling": 41,
+    "shows": 210,
+    "venues": 56,
+    "cities": 45,
+    "totalSeats": 109474,
+    "ticketsSold": 27052,
+    "occupancy": 24.71,
+    "grossRevenue": 3378080.0,
+    "fastfilling": 46,
     "housefull": 0,
     "movieInfo": {
       "contentId": 187151,
@@ -277,13 +277,13 @@
       {
         "city": "Bengaluru",
         "state": "Karnataka",
-        "shows": 3,
+        "shows": 4,
         "venues": 1,
-        "totalSeats": 1515,
-        "ticketsSold": 1212,
+        "totalSeats": 2020,
+        "ticketsSold": 1616,
         "occupancy": 80.0,
-        "grossRevenue": 200250.0,
-        "fastfilling": 3,
+        "grossRevenue": 267000.0,
+        "fastfilling": 4,
         "housefull": 0
       },
       {
@@ -467,6 +467,18 @@
         "housefull": 0
       },
       {
+        "city": "Jangareddygudem",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1756,
+        "ticketsSold": 1564,
+        "occupancy": 89.07,
+        "grossRevenue": 234600.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Kothapeta",
         "state": "Unknown",
         "shows": 4,
@@ -568,10 +580,10 @@
     "shows": 83,
     "venues": 23,
     "cities": 21,
-    "totalSeats": 28354,
-    "ticketsSold": 6481,
-    "occupancy": 22.86,
-    "grossRevenue": 741402.0,
+    "totalSeats": 30086,
+    "ticketsSold": 7513,
+    "occupancy": 24.97,
+    "grossRevenue": 820922.0,
     "fastfilling": 5,
     "housefull": 0,
     "movieInfo": {
@@ -591,6 +603,7 @@
       "trailer": "",
       "rating": {
         "hasUReview": 0,
+        "imageUrl": "\"\"",
         "hasContent": 1
       },
       "isNew": false,
@@ -642,18 +655,6 @@
         "ticketsSold": 464,
         "occupancy": 36.02,
         "grossRevenue": 46400.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Chimakurthy",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 796,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -787,6 +788,18 @@
         "occupancy": 75.09,
         "grossRevenue": 467860.0,
         "fastfilling": 5,
+        "housefull": 0
+      },
+      {
+        "city": "Godavarikhani",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2528,
+        "ticketsSold": 1032,
+        "occupancy": 40.82,
+        "grossRevenue": 79520.0,
+        "fastfilling": 0,
         "housefull": 0
       },
       {
@@ -926,14 +939,14 @@
     ]
   },
   "Oka Court Case (2D - Telugu)": {
-    "shows": 10,
-    "venues": 3,
-    "cities": 3,
-    "totalSeats": 4704,
-    "ticketsSold": 1250,
-    "occupancy": 26.57,
-    "grossRevenue": 113962.0,
-    "fastfilling": 0,
+    "shows": 14,
+    "venues": 4,
+    "cities": 4,
+    "totalSeats": 5504,
+    "ticketsSold": 1730,
+    "occupancy": 31.43,
+    "grossRevenue": 161962.0,
+    "fastfilling": 4,
     "housefull": 0,
     "movieInfo": {
       "contentId": 225857,
@@ -972,6 +985,18 @@
         "housefull": 0
       },
       {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 800,
+        "ticketsSold": 480,
+        "occupancy": 60.0,
+        "grossRevenue": 48000.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Nakrekal",
         "state": "Unknown",
         "shows": 4,
@@ -998,13 +1023,13 @@
     ]
   },
   "Oh..! Sukumari (2D - Telugu)": {
-    "shows": 119,
-    "venues": 33,
-    "cities": 31,
-    "totalSeats": 58419,
-    "ticketsSold": 21979,
-    "occupancy": 37.62,
-    "grossRevenue": 2268103.0,
+    "shows": 123,
+    "venues": 34,
+    "cities": 32,
+    "totalSeats": 60183,
+    "ticketsSold": 22523,
+    "occupancy": 37.42,
+    "grossRevenue": 2322503.0,
     "fastfilling": 33,
     "housefull": 0,
     "movieInfo": {
@@ -1211,6 +1236,18 @@
         "housefull": 0
       },
       {
+        "city": "Tadipatri",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1764,
+        "ticketsSold": 544,
+        "occupancy": 30.84,
+        "grossRevenue": 54400.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Vizianagaram",
         "state": "Andhra Pradesh",
         "shows": 2,
@@ -1405,14 +1442,14 @@
     ]
   },
   "Lenin (2D - Telugu)": {
-    "shows": 267,
-    "venues": 68,
-    "cities": 57,
-    "totalSeats": 133353,
-    "ticketsSold": 33224,
-    "occupancy": 24.91,
-    "grossRevenue": 3333695.0,
-    "fastfilling": 47,
+    "shows": 319,
+    "venues": 81,
+    "cities": 69,
+    "totalSeats": 155174,
+    "ticketsSold": 46933,
+    "occupancy": 30.25,
+    "grossRevenue": 5135112.0,
+    "fastfilling": 88,
     "housefull": 0,
     "movieInfo": {
       "contentId": 195286,
@@ -1511,6 +1548,18 @@
         "housefull": 0
       },
       {
+        "city": "Kota Nellore",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1212,
+        "ticketsSold": 464,
+        "occupancy": 38.28,
+        "grossRevenue": 51040.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Kothacheruvu",
         "state": "Andhra Pradesh",
         "shows": 4,
@@ -1599,11 +1648,11 @@
         "state": "Andhra Pradesh",
         "shows": 4,
         "venues": 1,
-        "totalSeats": 1639,
-        "ticketsSold": 1395,
-        "occupancy": 85.11,
-        "grossRevenue": 182223.0,
-        "fastfilling": 3,
+        "totalSeats": 2132,
+        "ticketsSold": 1888,
+        "occupancy": 88.56,
+        "grossRevenue": 247080.0,
+        "fastfilling": 4,
         "housefull": 0
       },
       {
@@ -1676,6 +1725,18 @@
         "occupancy": 33.56,
         "grossRevenue": 54600.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 3140,
+        "ticketsSold": 2560,
+        "occupancy": 81.53,
+        "grossRevenue": 363840.0,
+        "fastfilling": 8,
         "housefull": 0
       },
       {
@@ -1847,6 +1908,18 @@
         "housefull": 0
       },
       {
+        "city": "Nekkonda",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1340,
+        "ticketsSold": 1204,
+        "occupancy": 89.85,
+        "grossRevenue": 166200.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Nirmal",
         "state": "Telangana",
         "shows": 4,
@@ -1868,6 +1941,18 @@
         "occupancy": 20.61,
         "grossRevenue": 72800.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Parkal",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1428,
+        "ticketsSold": 1028,
+        "occupancy": 71.99,
+        "grossRevenue": 102800.0,
+        "fastfilling": 4,
         "housefull": 0
       },
       {
@@ -1919,6 +2004,18 @@
         "housefull": 0
       },
       {
+        "city": "Sirpur Kagaznagar",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 3328,
+        "ticketsSold": 860,
+        "occupancy": 25.84,
+        "grossRevenue": 75000.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Tandur",
         "state": "Telangana",
         "shows": 4,
@@ -1928,6 +2025,18 @@
         "occupancy": 0.0,
         "grossRevenue": 0.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Wanaparthy",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1684,
+        "ticketsSold": 1328,
+        "occupancy": 78.86,
+        "grossRevenue": 199200.0,
+        "fastfilling": 4,
         "housefull": 0
       },
       {
@@ -1955,6 +2064,30 @@
         "housefull": 0
       },
       {
+        "city": "Husnabad",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1812,
+        "ticketsSold": 1012,
+        "occupancy": 55.85,
+        "grossRevenue": 101200.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Jangareddygudem",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1780,
+        "ticketsSold": 1588,
+        "occupancy": 89.21,
+        "grossRevenue": 238200.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Kandukur",
         "state": "Unknown",
         "shows": 4,
@@ -1963,6 +2096,18 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Khajipet",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1024,
+        "ticketsSold": 72,
+        "occupancy": 7.03,
+        "grossRevenue": 7200.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1988,6 +2133,18 @@
         "occupancy": 24.9,
         "grossRevenue": 31600.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Manthani",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 584,
+        "ticketsSold": 456,
+        "occupancy": 78.08,
+        "grossRevenue": 58800.0,
+        "fastfilling": 4,
         "housefull": 0
       },
       {
@@ -2099,6 +2256,30 @@
         "housefull": 0
       },
       {
+        "city": "Vizag",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2012,
+        "ticketsSold": 1644,
+        "occupancy": 81.71,
+        "grossRevenue": 223080.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Warangal",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1984,
+        "ticketsSold": 1000,
+        "occupancy": 50.4,
+        "grossRevenue": 150000.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Yellandu",
         "state": "Unknown",
         "shows": 4,
@@ -2125,14 +2306,14 @@
     ]
   },
   "Operation Aruna Reddy (2D - Telugu)": {
-    "shows": 8,
-    "venues": 3,
-    "cities": 3,
-    "totalSeats": 2430,
-    "ticketsSold": 402,
-    "occupancy": 16.54,
-    "grossRevenue": 48366.0,
-    "fastfilling": 0,
+    "shows": 28,
+    "venues": 9,
+    "cities": 9,
+    "totalSeats": 11788,
+    "ticketsSold": 7960,
+    "occupancy": 67.53,
+    "grossRevenue": 801616.0,
+    "fastfilling": 18,
     "housefull": 0,
     "movieInfo": {
       "contentId": 228059,
@@ -2170,6 +2351,18 @@
         "housefull": 0
       },
       {
+        "city": "Nandigama",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 850,
+        "ticketsSold": 342,
+        "occupancy": 40.24,
+        "grossRevenue": 27210.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Vissannapeta",
         "state": "Andhra Pradesh",
         "shows": 2,
@@ -2192,18 +2385,78 @@
         "grossRevenue": 11970.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Bichkunda",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2016,
+        "ticketsSold": 1900,
+        "occupancy": 94.25,
+        "grossRevenue": 190000.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Nagireddypet",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2740,
+        "ticketsSold": 1952,
+        "occupancy": 71.24,
+        "grossRevenue": 195200.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Toopran",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1240,
+        "ticketsSold": 1140,
+        "occupancy": 91.94,
+        "grossRevenue": 114000.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Valigonda",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1528,
+        "ticketsSold": 1336,
+        "occupancy": 87.43,
+        "grossRevenue": 133600.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Yellandu",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 984,
+        "ticketsSold": 888,
+        "occupancy": 90.24,
+        "grossRevenue": 93240.0,
+        "fastfilling": 2,
+        "housefull": 0
       }
     ]
   },
   "Vadala (2D - Telugu)": {
-    "shows": 37,
-    "venues": 11,
-    "cities": 11,
-    "totalSeats": 14620,
-    "ticketsSold": 4041,
-    "occupancy": 27.64,
-    "grossRevenue": 489802.0,
-    "fastfilling": 3,
+    "shows": 43,
+    "venues": 13,
+    "cities": 13,
+    "totalSeats": 19188,
+    "ticketsSold": 6809,
+    "occupancy": 35.49,
+    "grossRevenue": 843082.0,
+    "fastfilling": 7,
     "housefull": 0,
     "movieInfo": {
       "contentId": 227473,
@@ -2237,6 +2490,18 @@
         "ticketsSold": 264,
         "occupancy": 13.36,
         "grossRevenue": 39072.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Guntakal",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1244,
+        "ticketsSold": 96,
+        "occupancy": 7.72,
+        "grossRevenue": 10080.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -2313,6 +2578,18 @@
         "housefull": 0
       },
       {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 3324,
+        "ticketsSold": 2672,
+        "occupancy": 80.39,
+        "grossRevenue": 343200.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Medak",
         "state": "Unknown",
         "shows": 4,
@@ -2363,14 +2640,14 @@
     ]
   },
   "Raja The Raja (2D - Telugu)": {
-    "shows": 42,
-    "venues": 11,
-    "cities": 11,
-    "totalSeats": 24362,
-    "ticketsSold": 1828,
-    "occupancy": 7.5,
-    "grossRevenue": 100780.0,
-    "fastfilling": 0,
+    "shows": 54,
+    "venues": 14,
+    "cities": 14,
+    "totalSeats": 29026,
+    "ticketsSold": 3748,
+    "occupancy": 12.91,
+    "grossRevenue": 298640.0,
+    "fastfilling": 4,
     "housefull": 0,
     "movieInfo": {
       "contentId": 227210,
@@ -2418,6 +2695,18 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Pithapuram",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1156,
+        "ticketsSold": 136,
+        "occupancy": 11.76,
+        "grossRevenue": 13600.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -2518,6 +2807,18 @@
         "housefull": 0
       },
       {
+        "city": "Choutuppal",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2104,
+        "ticketsSold": 612,
+        "occupancy": 29.09,
+        "grossRevenue": 61200.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Jadcherla",
         "state": "Unknown",
         "shows": 4,
@@ -2526,6 +2827,78 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Koratla",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1404,
+        "ticketsSold": 1172,
+        "occupancy": 83.48,
+        "grossRevenue": 123060.0,
+        "fastfilling": 4,
+        "housefull": 0
+      }
+    ]
+  },
+  "Rakta Charitra (2D - Telugu)": {
+    "shows": 4,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 2448,
+    "ticketsSold": 140,
+    "occupancy": 5.72,
+    "grossRevenue": 18880.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 227944,
+      "name": "Rakta Charitra",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 133,
+      "genres": [
+        "Action",
+        "Crime"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17837634905347915.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    },
+    "cityDetails": [
+      {
+        "city": "Guntakal",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1244,
+        "ticketsSold": 96,
+        "occupancy": 7.72,
+        "grossRevenue": 10080.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kadapa",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1204,
+        "ticketsSold": 44,
+        "occupancy": 3.65,
+        "grossRevenue": 8800.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -2722,61 +3095,13 @@
       }
     ]
   },
-  "Rakta Charitra (2D - Telugu)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 1204,
-    "ticketsSold": 44,
-    "occupancy": 3.65,
-    "grossRevenue": 8800.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {
-      "contentId": 227944,
-      "name": "Rakta Charitra",
-      "lang": "Telugu",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 133,
-      "genres": [
-        "Action",
-        "Crime"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17837634905347915.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 0,
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 2
-    },
-    "cityDetails": [
-      {
-        "city": "Kadapa",
-        "state": "Andhra Pradesh",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 1204,
-        "ticketsSold": 44,
-        "occupancy": 3.65,
-        "grossRevenue": 8800.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Peddi (2D - Telugu)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 2268,
+    "shows": 8,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 4284,
     "ticketsSold": 676,
-    "occupancy": 29.81,
+    "occupancy": 15.78,
     "grossRevenue": 93920.0,
     "fastfilling": 0,
     "housefull": 0,
@@ -2807,6 +3132,18 @@
     },
     "cityDetails": [
       {
+        "city": "Kurnool",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2016,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Srikakulam",
         "state": "Andhra Pradesh",
         "shows": 4,
@@ -2821,14 +3158,14 @@
     ]
   },
   "Venkatramaiah Gari Taluka (2D - Telugu)": {
-    "shows": 8,
-    "venues": 3,
-    "cities": 3,
-    "totalSeats": 3546,
-    "ticketsSold": 210,
-    "occupancy": 5.92,
-    "grossRevenue": 19950.0,
-    "fastfilling": 0,
+    "shows": 12,
+    "venues": 5,
+    "cities": 5,
+    "totalSeats": 5380,
+    "ticketsSold": 1440,
+    "occupancy": 26.77,
+    "grossRevenue": 140400.0,
+    "fastfilling": 2,
     "housefull": 0,
     "movieInfo": {
       "contentId": 228271,
@@ -2854,6 +3191,18 @@
       "totalSessionCount": 2
     },
     "cityDetails": [
+      {
+        "city": "Nandigama",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 850,
+        "ticketsSold": 342,
+        "occupancy": 40.24,
+        "grossRevenue": 27210.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
       {
         "city": "Vissannapeta",
         "state": "Andhra Pradesh",
@@ -2889,19 +3238,31 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Yellandu",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 984,
+        "ticketsSold": 888,
+        "occupancy": 90.24,
+        "grossRevenue": 93240.0,
+        "fastfilling": 2,
+        "housefull": 0
       }
     ]
   },
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 290,
-    "venues": 70,
-    "cities": 60,
-    "totalSeats": 78862,
-    "ticketsSold": 17791,
-    "occupancy": 22.56,
-    "grossRevenue": 2068600.0,
-    "fastfilling": 39,
-    "housefull": 7,
+    "shows": 405,
+    "venues": 99,
+    "cities": 88,
+    "totalSeats": 101006,
+    "ticketsSold": 25686,
+    "occupancy": 25.43,
+    "grossRevenue": 3182016.0,
+    "fastfilling": 58,
+    "housefull": 10,
     "movieInfo": {
       "contentId": 206457,
       "name": "Dhamaal 4",
@@ -2924,9 +3285,21 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 3
+      "totalSessionCount": 4
     },
     "cityDetails": [
+      {
+        "city": "Ekma Chapra",
+        "state": "Bihar",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 508,
+        "ticketsSold": 408,
+        "occupancy": 80.31,
+        "grossRevenue": 39920.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
       {
         "city": "Raxaul",
         "state": "Bihar",
@@ -3012,6 +3385,18 @@
         "housefull": 0
       },
       {
+        "city": "Hamirpur",
+        "state": "Himachal Pradesh",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 465,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Giridih",
         "state": "Jharkhand",
         "shows": 3,
@@ -3021,6 +3406,30 @@
         "occupancy": 0.0,
         "grossRevenue": 0.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jamtara",
+        "state": "Jharkhand",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 387,
+        "ticketsSold": 207,
+        "occupancy": 53.49,
+        "grossRevenue": 28980.0,
+        "fastfilling": 3,
+        "housefull": 0
+      },
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 4975,
+        "ticketsSold": 4410,
+        "occupancy": 88.64,
+        "grossRevenue": 583300.0,
+        "fastfilling": 5,
         "housefull": 0
       },
       {
@@ -3044,6 +3453,30 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Loni",
+        "state": "Maharashtra",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 816,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Pune",
+        "state": "Maharashtra",
+        "shows": 6,
+        "venues": 2,
+        "totalSeats": 912,
+        "ticketsSold": 36,
+        "occupancy": 3.95,
+        "grossRevenue": 4320.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -3132,11 +3565,47 @@
         "housefull": 0
       },
       {
+        "city": "Baddi",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 390,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bavla",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 616,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Beawar",
         "state": "Unknown",
         "shows": 4,
         "venues": 1,
         "totalSeats": 1384,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Betul",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 848,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -3168,6 +3637,18 @@
         "housefull": 0
       },
       {
+        "city": "Burhar",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 696,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Chandrapur",
         "state": "Unknown",
         "shows": 4,
@@ -3180,11 +3661,35 @@
         "housefull": 0
       },
       {
+        "city": "Chaygaon",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 144,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Chhibramau",
         "state": "Unknown",
         "shows": 4,
         "venues": 1,
         "totalSeats": 304,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Dantewada",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 448,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -3228,18 +3733,6 @@
         "housefull": 0
       },
       {
-        "city": "Doraha",
-        "state": "Unknown",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 425,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
         "city": "Durgapur",
         "state": "Unknown",
         "shows": 3,
@@ -3252,11 +3745,71 @@
         "housefull": 3
       },
       {
+        "city": "Farrukhabad",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 690,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Fatehpur",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 392,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Firozabad",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 950,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Gadarwara",
         "state": "Unknown",
         "shows": 4,
         "venues": 1,
         "totalSeats": 2804,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Gauriganj",
+        "state": "Unknown",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 562,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Goa",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 460,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -3300,6 +3853,18 @@
         "housefull": 0
       },
       {
+        "city": "Jaipur",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1876,
+        "ticketsSold": 1384,
+        "occupancy": 73.77,
+        "grossRevenue": 179920.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Jajpur Road",
         "state": "Unknown",
         "shows": 4,
@@ -3321,6 +3886,54 @@
         "occupancy": 0.0,
         "grossRevenue": 0.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jawalamukhi",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 288,
+        "ticketsSold": 104,
+        "occupancy": 36.11,
+        "grossRevenue": 19736.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jhansi",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 908,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Junagadh",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 1440,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kalyanpur",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 318,
+        "ticketsSold": 264,
+        "occupancy": 83.02,
+        "grossRevenue": 52800.0,
+        "fastfilling": 3,
         "housefull": 0
       },
       {
@@ -3396,6 +4009,18 @@
         "housefull": 0
       },
       {
+        "city": "Kokrajhar",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 372,
+        "ticketsSold": 372,
+        "occupancy": 100.0,
+        "grossRevenue": 60120.0,
+        "fastfilling": 0,
+        "housefull": 2
+      },
+      {
         "city": "Kotputli",
         "state": "Unknown",
         "shows": 4,
@@ -3418,6 +4043,30 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Lakhimpur Assam",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 158,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ludhiana",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 186,
+        "ticketsSold": 186,
+        "occupancy": 100.0,
+        "grossRevenue": 39000.0,
+        "fastfilling": 0,
+        "housefull": 1
       },
       {
         "city": "Mau",
@@ -3480,6 +4129,18 @@
         "housefull": 0
       },
       {
+        "city": "Nadaun",
+        "state": "Unknown",
+        "shows": 8,
+        "venues": 1,
+        "totalSeats": 500,
+        "ticketsSold": 144,
+        "occupancy": 28.8,
+        "grossRevenue": 28800.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Nadiad",
         "state": "Unknown",
         "shows": 4,
@@ -3513,6 +4174,18 @@
         "occupancy": 88.01,
         "grossRevenue": 157700.0,
         "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Nichlaul",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 320,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
         "housefull": 0
       },
       {
@@ -3588,11 +4261,35 @@
         "housefull": 0
       },
       {
+        "city": "Singrauli",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1264,
+        "ticketsSold": 380,
+        "occupancy": 30.06,
+        "grossRevenue": 76520.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Sonari",
         "state": "Unknown",
         "shows": 1,
         "venues": 1,
         "totalSeats": 180,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Sujangarh",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 680,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -3650,14 +4347,14 @@
     ]
   },
   "The Odyssey (2D - Hindi)": {
-    "shows": 47,
-    "venues": 13,
-    "cities": 10,
-    "totalSeats": 11515,
-    "ticketsSold": 1272,
-    "occupancy": 11.05,
-    "grossRevenue": 146790.0,
-    "fastfilling": 4,
+    "shows": 67,
+    "venues": 18,
+    "cities": 15,
+    "totalSeats": 18554,
+    "ticketsSold": 4880,
+    "occupancy": 26.3,
+    "grossRevenue": 609510.0,
+    "fastfilling": 8,
     "housefull": 0,
     "movieInfo": {
       "contentId": 187151,
@@ -3697,6 +4394,18 @@
         "housefull": 0
       },
       {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 4100,
+        "ticketsSold": 3608,
+        "occupancy": 88.0,
+        "grossRevenue": 462720.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Hyderabad",
         "state": "Telangana",
         "shows": 4,
@@ -3733,6 +4442,18 @@
         "housefull": 0
       },
       {
+        "city": "Goa",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 291,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Guna",
         "state": "Unknown",
         "shows": 4,
@@ -3757,6 +4478,30 @@
         "housefull": 0
       },
       {
+        "city": "Jhansi",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 902,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Junagadh",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 988,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Khariar Road",
         "state": "Unknown",
         "shows": 4,
@@ -3774,6 +4519,18 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 792,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ludhiana",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 758,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -3806,13 +4563,195 @@
       }
     ]
   },
+  "Alpha (2D - Hindi)": {
+    "shows": 41,
+    "venues": 15,
+    "cities": 12,
+    "totalSeats": 8189,
+    "ticketsSold": 3849,
+    "occupancy": 47.0,
+    "grossRevenue": 362600.0,
+    "fastfilling": 11,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 175697,
+      "name": "Alpha",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 141,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Spy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Alpha-062ca980-6ef1-11f1-b0b5-2f04c00aa32d.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Alpha%20app-e0bcfb80-8254-11ef-98bc-d76cb3461e46.jpg",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    },
+    "cityDetails": [
+      {
+        "city": "Saharsa",
+        "state": "Bihar",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 156,
+        "ticketsSold": 48,
+        "occupancy": 30.77,
+        "grossRevenue": 8280.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Narayanpur",
+        "state": "Chhattisgarh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1148,
+        "ticketsSold": 160,
+        "occupancy": 13.94,
+        "grossRevenue": 32000.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ghaziabad",
+        "state": "Uttar Pradesh",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 823,
+        "ticketsSold": 50,
+        "occupancy": 6.08,
+        "grossRevenue": 5600.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Agra",
+        "state": "Unknown",
+        "shows": 7,
+        "venues": 2,
+        "totalSeats": 2156,
+        "ticketsSold": 1820,
+        "occupancy": 84.42,
+        "grossRevenue": 97000.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Ahmedabad",
+        "state": "Unknown",
+        "shows": 6,
+        "venues": 3,
+        "totalSeats": 597,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Anand",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 608,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Farrukhabad",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 144,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Firozabad",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 186,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Khariar Road",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 228,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mau",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 192,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Patna",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 627,
+        "ticketsSold": 567,
+        "occupancy": 90.43,
+        "grossRevenue": 68040.0,
+        "fastfilling": 3,
+        "housefull": 0
+      },
+      {
+        "city": "Wani",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1324,
+        "ticketsSold": 1204,
+        "occupancy": 90.94,
+        "grossRevenue": 151680.0,
+        "fastfilling": 4,
+        "housefull": 0
+      }
+    ]
+  },
   "Evil Dead Burn (2D - Hindi)": {
-    "shows": 3,
-    "venues": 3,
-    "cities": 2,
-    "totalSeats": 617,
+    "shows": 4,
+    "venues": 4,
+    "cities": 3,
+    "totalSeats": 817,
     "ticketsSold": 186,
-    "occupancy": 30.15,
+    "occupancy": 22.77,
     "grossRevenue": 30580.0,
     "fastfilling": 0,
     "housefull": 0,
@@ -3863,14 +4802,26 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Ludhiana",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 200,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
       }
     ]
   },
   "Mein To Palavade Bandhi Preet (2D - Gujarati)": {
-    "shows": 6,
-    "venues": 3,
-    "cities": 2,
-    "totalSeats": 1304,
+    "shows": 9,
+    "venues": 4,
+    "cities": 3,
+    "totalSeats": 1574,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -3922,17 +4873,29 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Junagadh",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 270,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
       }
     ]
   },
   "Dastaar (2D - Punjabi)": {
-    "shows": 28,
-    "venues": 4,
-    "cities": 4,
-    "totalSeats": 3872,
-    "ticketsSold": 308,
-    "occupancy": 7.95,
-    "grossRevenue": 66340.0,
+    "shows": 63,
+    "venues": 10,
+    "cities": 10,
+    "totalSeats": 8620,
+    "ticketsSold": 313,
+    "occupancy": 3.63,
+    "grossRevenue": 67740.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {
@@ -3972,14 +4935,50 @@
         "housefull": 0
       },
       {
-        "city": "Doraha",
-        "state": "Unknown",
-        "shows": 7,
+        "city": "Hamirpur",
+        "state": "Himachal Pradesh",
+        "shows": 2,
         "venues": 1,
-        "totalSeats": 875,
+        "totalSeats": 186,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Baddi",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 312,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Dasuya",
+        "state": "Unknown",
+        "shows": 8,
+        "venues": 1,
+        "totalSeats": 1448,
+        "ticketsSold": 2,
+        "occupancy": 0.14,
+        "grossRevenue": 550.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Doraha",
+        "state": "Unknown",
+        "shows": 8,
+        "venues": 1,
+        "totalSeats": 1000,
+        "ticketsSold": 3,
+        "occupancy": 0.3,
+        "grossRevenue": 850.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -3988,10 +4987,34 @@
         "state": "Unknown",
         "shows": 8,
         "venues": 1,
-        "totalSeats": 1370,
+        "totalSeats": 810,
         "ticketsSold": 3,
-        "occupancy": 0.22,
+        "occupancy": 0.37,
         "grossRevenue": 900.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ludhiana",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 820,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Nakodar",
+        "state": "Unknown",
+        "shows": 8,
+        "venues": 1,
+        "totalSeats": 1200,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -4006,6 +5029,528 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Tanda",
+        "state": "Unknown",
+        "shows": 8,
+        "venues": 1,
+        "totalSeats": 1217,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Nagabandham: The Secret Treasure (2D - Hindi)": {
+    "shows": 43,
+    "venues": 15,
+    "cities": 14,
+    "totalSeats": 14049,
+    "ticketsSold": 4145,
+    "occupancy": 29.5,
+    "grossRevenue": 348380.0,
+    "fastfilling": 12,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 172301,
+      "name": "Nagabandham: The Secret Treasure",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 196,
+      "genres": [
+        "Adventure",
+        "Epic",
+        "Mythlogical"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17827105633891930.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://youtu.be/I3AfwSUSdRU?si=1ME5V5gJRLOutWYZ",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    },
+    "cityDetails": [
+      {
+        "city": "Hamirpur",
+        "state": "Himachal Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 186,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 15,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Pune",
+        "state": "Maharashtra",
+        "shows": 6,
+        "venues": 2,
+        "totalSeats": 852,
+        "ticketsSold": 36,
+        "occupancy": 4.23,
+        "grossRevenue": 4320.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 1134,
+        "ticketsSold": 513,
+        "occupancy": 45.24,
+        "grossRevenue": 55380.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ahmedabad",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 96,
+        "ticketsSold": 10,
+        "occupancy": 10.42,
+        "grossRevenue": 1460.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Betul",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 364,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Dantewada",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 448,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Dongargarh",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 544,
+        "ticketsSold": 448,
+        "occupancy": 82.35,
+        "grossRevenue": 56640.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Durg",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2980,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Itarsi",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2448,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jamkhed",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 684,
+        "ticketsSold": 18,
+        "occupancy": 2.63,
+        "grossRevenue": 2340.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ludhiana",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 3544,
+        "ticketsSold": 2800,
+        "occupancy": 79.01,
+        "grossRevenue": 186640.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Pithampur",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 416,
+        "ticketsSold": 320,
+        "occupancy": 76.92,
+        "grossRevenue": 41600.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Sukma",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 338,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Welcome To The Jungle (2D - Hindi)": {
+    "shows": 39,
+    "venues": 14,
+    "cities": 13,
+    "totalSeats": 7319,
+    "ticketsSold": 203,
+    "occupancy": 2.77,
+    "grossRevenue": 17050.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 165834,
+      "name": "Welcome To The Jungle",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 165,
+      "genres": [
+        "Action",
+        "Drama",
+        "Comedy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Welcome-To-The-Jungle-(Welcome-3)-73dfe610-d7c0-11ee-a5bd-f9e918a2ec60.jpg",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=L0L3GGgRMn0&ab_channel=JioStudios",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    },
+    "cityDetails": [
+      {
+        "city": "Hamirpur",
+        "state": "Himachal Pradesh",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 93,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ahmedabad",
+        "state": "Unknown",
+        "shows": 7,
+        "venues": 2,
+        "totalSeats": 712,
+        "ticketsSold": 11,
+        "occupancy": 1.54,
+        "grossRevenue": 1690.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Alwar",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 114,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Anand",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 448,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bhiwandi",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2212,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Burhar",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 348,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Farrukhabad",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 288,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Firozabad",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 372,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Gauriganj",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 214,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Junagadh",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1152,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mau",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 384,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Vijapur",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 418,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "West Champaran",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 564,
+        "ticketsSold": 192,
+        "occupancy": 34.04,
+        "grossRevenue": 15360.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Rahun Main Tere Rubaru (2D - Hindi)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 328,
+    "ticketsSold": 69,
+    "occupancy": 21.04,
+    "grossRevenue": 9660.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 226180,
+      "name": "Rahun Main Tere Rubaru",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 119,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17840219344117410.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    },
+    "cityDetails": [
+      {
+        "city": "Jamtara",
+        "state": "Jharkhand",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 129,
+        "ticketsSold": 69,
+        "occupancy": 53.49,
+        "grossRevenue": 9660.0,
+        "fastfilling": 1,
+        "housefull": 0
+      },
+      {
+        "city": "Mumbai",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 199,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Jana Nayagan (2D - Tamil)": {
+    "shows": 5,
+    "venues": 5,
+    "cities": 1,
+    "totalSeats": 2989,
+    "ticketsSold": 2701,
+    "occupancy": 90.36,
+    "grossRevenue": 2273600.0,
+    "fastfilling": 1,
+    "housefull": 3,
+    "movieInfo": {
+      "contentId": 188681,
+      "name": "Jana Nayagan",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 183,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Political"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17841775950832736.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    },
+    "cityDetails": [
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 5,
+        "venues": 5,
+        "totalSeats": 2989,
+        "ticketsSold": 2701,
+        "occupancy": 90.36,
+        "grossRevenue": 2273600.0,
+        "fastfilling": 1,
+        "housefull": 3
       }
     ]
   },
@@ -4075,9 +5620,9 @@
     "venues": 15,
     "cities": 7,
     "totalSeats": 18984,
-    "ticketsSold": 1472,
-    "occupancy": 7.75,
-    "grossRevenue": 1618186.0,
+    "ticketsSold": 1652,
+    "occupancy": 8.7,
+    "grossRevenue": 1841684.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {
@@ -4111,9 +5656,9 @@
         "shows": 20,
         "venues": 4,
         "totalSeats": 5705,
-        "ticketsSold": 385,
-        "occupancy": 6.75,
-        "grossRevenue": 575680.0,
+        "ticketsSold": 449,
+        "occupancy": 7.87,
+        "grossRevenue": 660430.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -4123,9 +5668,9 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 1204,
-        "ticketsSold": 432,
-        "occupancy": 35.88,
-        "grossRevenue": 338150.0,
+        "ticketsSold": 463,
+        "occupancy": 38.46,
+        "grossRevenue": 367190.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -4135,9 +5680,9 @@
         "shows": 2,
         "venues": 1,
         "totalSeats": 458,
-        "ticketsSold": 116,
-        "occupancy": 25.33,
-        "grossRevenue": 114600.0,
+        "ticketsSold": 118,
+        "occupancy": 25.76,
+        "grossRevenue": 116600.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -4159,9 +5704,9 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 1316,
-        "ticketsSold": 46,
-        "occupancy": 3.5,
-        "grossRevenue": 34700.0,
+        "ticketsSold": 52,
+        "occupancy": 3.95,
+        "grossRevenue": 38900.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -4171,9 +5716,9 @@
         "shows": 22,
         "venues": 5,
         "totalSeats": 6586,
-        "ticketsSold": 449,
-        "occupancy": 6.82,
-        "grossRevenue": 515710.0,
+        "ticketsSold": 522,
+        "occupancy": 7.93,
+        "grossRevenue": 615210.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -4183,23 +5728,23 @@
         "shows": 9,
         "venues": 2,
         "totalSeats": 2527,
-        "ticketsSold": 35,
-        "occupancy": 1.39,
-        "grossRevenue": 33206.0,
+        "ticketsSold": 39,
+        "occupancy": 1.54,
+        "grossRevenue": 37214.0,
         "fastfilling": 0,
         "housefull": 0
       }
     ]
   },
   "Graamaayana (2D - Kannada)": {
-    "shows": 9,
-    "venues": 3,
-    "cities": 2,
-    "totalSeats": 3643,
-    "ticketsSold": 2713,
-    "occupancy": 74.47,
-    "grossRevenue": 320190.0,
-    "fastfilling": 5,
+    "shows": 19,
+    "venues": 6,
+    "cities": 5,
+    "totalSeats": 9843,
+    "ticketsSold": 7335,
+    "occupancy": 74.52,
+    "grossRevenue": 845350.0,
+    "fastfilling": 13,
     "housefull": 0,
     "movieInfo": {
       "contentId": 223907,
@@ -4237,6 +5782,42 @@
         "housefull": 0
       },
       {
+        "city": "Gundlupet",
+        "state": "Karnataka",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2728,
+        "ticketsSold": 2068,
+        "occupancy": 75.81,
+        "grossRevenue": 206800.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Bhadravati",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1016,
+        "ticketsSold": 294,
+        "occupancy": 28.94,
+        "grossRevenue": 40680.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Chamarajanagara",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2456,
+        "ticketsSold": 2260,
+        "occupancy": 92.02,
+        "grossRevenue": 277680.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
         "city": "Mudhol",
         "state": "Unknown",
         "shows": 4,
@@ -4245,214 +5826,6 @@
         "ticketsSold": 144,
         "occupancy": 22.22,
         "grossRevenue": 21600.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Jana Nayagan (2D - Tamil)": {
-    "shows": 4,
-    "venues": 4,
-    "cities": 1,
-    "totalSeats": 2660,
-    "ticketsSold": 2545,
-    "occupancy": 95.68,
-    "grossRevenue": 2136000.0,
-    "fastfilling": 2,
-    "housefull": 2,
-    "movieInfo": {
-      "contentId": 188681,
-      "name": "Jana Nayagan",
-      "lang": "Tamil",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 183,
-      "genres": [
-        "Action",
-        "Thriller",
-        "Political"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17841775950832736.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    },
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 4,
-        "totalSeats": 2660,
-        "ticketsSold": 2545,
-        "occupancy": 95.68,
-        "grossRevenue": 2136000.0,
-        "fastfilling": 2,
-        "housefull": 2
-      }
-    ]
-  },
-  "Nagabandham: The Secret Treasure (2D - Hindi)": {
-    "shows": 29,
-    "venues": 10,
-    "cities": 10,
-    "totalSeats": 9507,
-    "ticketsSold": 4109,
-    "occupancy": 43.22,
-    "grossRevenue": 344060.0,
-    "fastfilling": 12,
-    "housefull": 0,
-    "movieInfo": {
-      "contentId": 172301,
-      "name": "Nagabandham: The Secret Treasure",
-      "lang": "Hindi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 196,
-      "genres": [
-        "Adventure",
-        "Epic",
-        "Mythlogical"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17827105633891930.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://youtu.be/I3AfwSUSdRU?si=1ME5V5gJRLOutWYZ",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    },
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 15,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Pune",
-        "state": "Maharashtra",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 288,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Kolkata",
-        "state": "West Bengal",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 1134,
-        "ticketsSold": 513,
-        "occupancy": 45.24,
-        "grossRevenue": 55380.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Ahmedabad",
-        "state": "Unknown",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 96,
-        "ticketsSold": 10,
-        "occupancy": 10.42,
-        "grossRevenue": 1460.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Dongargarh",
-        "state": "Unknown",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 544,
-        "ticketsSold": 448,
-        "occupancy": 82.35,
-        "grossRevenue": 56640.0,
-        "fastfilling": 4,
-        "housefull": 0
-      },
-      {
-        "city": "Itarsi",
-        "state": "Unknown",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 2448,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Jamkhed",
-        "state": "Unknown",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 684,
-        "ticketsSold": 18,
-        "occupancy": 2.63,
-        "grossRevenue": 2340.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Ludhiana",
-        "state": "Unknown",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 3544,
-        "ticketsSold": 2800,
-        "occupancy": 79.01,
-        "grossRevenue": 186640.0,
-        "fastfilling": 4,
-        "housefull": 0
-      },
-      {
-        "city": "Pithampur",
-        "state": "Unknown",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 416,
-        "ticketsSold": 320,
-        "occupancy": 76.92,
-        "grossRevenue": 41600.0,
-        "fastfilling": 4,
-        "housefull": 0
-      },
-      {
-        "city": "Sukma",
-        "state": "Unknown",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 338,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -4508,13 +5881,13 @@
     ]
   },
   "Arulvaan (2D - Tamil)": {
-    "shows": 14,
-    "venues": 4,
-    "cities": 4,
-    "totalSeats": 6577,
-    "ticketsSold": 1619,
-    "occupancy": 24.62,
-    "grossRevenue": 248300.0,
+    "shows": 18,
+    "venues": 5,
+    "cities": 5,
+    "totalSeats": 8653,
+    "ticketsSold": 2343,
+    "occupancy": 27.08,
+    "grossRevenue": 320700.0,
     "fastfilling": 2,
     "housefull": 0,
     "movieInfo": {
@@ -4578,6 +5951,18 @@
         "housefull": 0
       },
       {
+        "city": "Sankarankovil",
+        "state": "Tamil Nadu",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2076,
+        "ticketsSold": 724,
+        "occupancy": 34.87,
+        "grossRevenue": 72400.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Thirunageswaram",
         "state": "Unknown",
         "shows": 4,
@@ -4586,115 +5971,6 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "The Odyssey (2D - English)": {
-    "shows": 52,
-    "venues": 14,
-    "cities": 6,
-    "totalSeats": 19011,
-    "ticketsSold": 3574,
-    "occupancy": 18.8,
-    "grossRevenue": 735787.0,
-    "fastfilling": 3,
-    "housefull": 0,
-    "movieInfo": {
-      "contentId": 187151,
-      "name": "The Odyssey",
-      "lang": "English",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 175,
-      "genres": [
-        "Adventure",
-        "Epic"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    },
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 505,
-        "ticketsSold": 404,
-        "occupancy": 80.0,
-        "grossRevenue": 66750.0,
-        "fastfilling": 1,
-        "housefull": 0
-      },
-      {
-        "city": "Hyderabad",
-        "state": "Telangana",
-        "shows": 39,
-        "venues": 9,
-        "totalSeats": 13847,
-        "ticketsSold": 3005,
-        "occupancy": 21.7,
-        "grossRevenue": 643072.0,
-        "fastfilling": 2,
-        "housefull": 0
-      },
-      {
-        "city": "Khammam",
-        "state": "Telangana",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 2524,
-        "ticketsSold": 120,
-        "occupancy": 4.75,
-        "grossRevenue": 18000.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Mahbubnagar",
-        "state": "Telangana",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 636,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Ahmedabad",
-        "state": "Unknown",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 124,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Vijayawada",
-        "state": "Unknown",
-        "shows": 5,
-        "venues": 1,
-        "totalSeats": 1375,
-        "ticketsSold": 45,
-        "occupancy": 3.27,
-        "grossRevenue": 7965.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -4800,13 +6076,13 @@
     ]
   },
   "Idhayam Murali (2D - Tamil)": {
-    "shows": 8,
+    "shows": 7,
     "venues": 3,
     "cities": 3,
-    "totalSeats": 1633,
-    "ticketsSold": 176,
-    "occupancy": 10.78,
-    "grossRevenue": 21840.0,
+    "totalSeats": 2228,
+    "ticketsSold": 164,
+    "occupancy": 7.36,
+    "grossRevenue": 20040.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {
@@ -4839,9 +6115,9 @@
         "state": "Tamil Nadu",
         "shows": 4,
         "venues": 1,
-        "totalSeats": 841,
+        "totalSeats": 1672,
         "ticketsSold": 152,
-        "occupancy": 18.07,
+        "occupancy": 9.09,
         "grossRevenue": 18240.0,
         "fastfilling": 0,
         "housefull": 0
@@ -4849,12 +6125,12 @@
       {
         "city": "Palani",
         "state": "Tamil Nadu",
-        "shows": 2,
+        "shows": 1,
         "venues": 1,
-        "totalSeats": 472,
-        "ticketsSold": 24,
+        "totalSeats": 236,
+        "ticketsSold": 12,
         "occupancy": 5.08,
-        "grossRevenue": 3600.0,
+        "grossRevenue": 1800.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -4924,14 +6200,14 @@
     ]
   },
   "Anbe Diana (2D - Tamil)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 552,
-    "ticketsSold": 20,
-    "occupancy": 3.62,
-    "grossRevenue": 2000.0,
-    "fastfilling": 0,
+    "shows": 6,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 1796,
+    "ticketsSold": 780,
+    "occupancy": 43.43,
+    "grossRevenue": 99680.0,
+    "fastfilling": 4,
     "housefull": 0,
     "movieInfo": {
       "contentId": 225935,
@@ -4967,6 +6243,18 @@
         "occupancy": 3.62,
         "grossRevenue": 2000.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bhadravati",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1244,
+        "ticketsSold": 760,
+        "occupancy": 61.09,
+        "grossRevenue": 97680.0,
+        "fastfilling": 4,
         "housefull": 0
       }
     ]
@@ -5068,35 +6356,34 @@
       }
     ]
   },
-  "Alpha (2D - Hindi)": {
-    "shows": 27,
-    "venues": 8,
+  "The Odyssey (2D - English)": {
+    "shows": 53,
+    "venues": 14,
     "cities": 6,
-    "totalSeats": 5611,
-    "ticketsSold": 3074,
-    "occupancy": 54.79,
-    "grossRevenue": 254280.0,
-    "fastfilling": 8,
+    "totalSeats": 18700,
+    "ticketsSold": 3170,
+    "occupancy": 16.95,
+    "grossRevenue": 669037.0,
+    "fastfilling": 2,
     "housefull": 0,
     "movieInfo": {
-      "contentId": 175697,
-      "name": "Alpha",
-      "lang": "Hindi",
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
       "scrnFmt": "2D",
       "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 141,
+      "censor": "A",
+      "duration": 175,
       "genres": [
-        "Action",
-        "Thriller",
-        "Spy"
+        "Adventure",
+        "Epic"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Alpha-062ca980-6ef1-11f1-b0b5-2f04c00aa32d.jpg",
-      "cover": "https://cdn.district.in/movies-assets/images/cinema/Alpha%20app-e0bcfb80-8254-11ef-98bc-d76cb3461e46.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "cover": "",
       "thumbnail": "",
       "trailer": "",
       "rating": {
-        "hasUReview": 1,
+        "hasUReview": 0,
         "imageUrl": "",
         "hasContent": 1
       },
@@ -5105,47 +6392,47 @@
     },
     "cityDetails": [
       {
-        "city": "Ghaziabad",
-        "state": "Uttar Pradesh",
-        "shows": 5,
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 39,
+        "venues": 9,
+        "totalSeats": 13847,
+        "ticketsSold": 3005,
+        "occupancy": 21.7,
+        "grossRevenue": 643072.0,
+        "fastfilling": 2,
+        "housefull": 0
+      },
+      {
+        "city": "Khammam",
+        "state": "Telangana",
+        "shows": 4,
         "venues": 1,
-        "totalSeats": 823,
-        "ticketsSold": 50,
-        "occupancy": 6.08,
-        "grossRevenue": 5600.0,
+        "totalSeats": 2524,
+        "ticketsSold": 120,
+        "occupancy": 4.75,
+        "grossRevenue": 18000.0,
         "fastfilling": 0,
         "housefull": 0
       },
       {
-        "city": "Agra",
-        "state": "Unknown",
-        "shows": 7,
-        "venues": 2,
-        "totalSeats": 2156,
-        "ticketsSold": 1820,
-        "occupancy": 84.42,
-        "grossRevenue": 97000.0,
-        "fastfilling": 4,
+        "city": "Mahbubnagar",
+        "state": "Telangana",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 636,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
         "housefull": 0
       },
       {
         "city": "Ahmedabad",
         "state": "Unknown",
-        "shows": 5,
-        "venues": 2,
-        "totalSeats": 472,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Anand",
-        "state": "Unknown",
-        "shows": 4,
+        "shows": 1,
         "venues": 1,
-        "totalSeats": 608,
+        "totalSeats": 124,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -5153,11 +6440,11 @@
         "housefull": 0
       },
       {
-        "city": "Khariar Road",
+        "city": "Goa",
         "state": "Unknown",
         "shows": 2,
         "venues": 1,
-        "totalSeats": 228,
+        "totalSeats": 194,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -5165,24 +6452,24 @@
         "housefull": 0
       },
       {
-        "city": "Wani",
+        "city": "Vijayawada",
         "state": "Unknown",
-        "shows": 4,
+        "shows": 5,
         "venues": 1,
-        "totalSeats": 1324,
-        "ticketsSold": 1204,
-        "occupancy": 90.94,
-        "grossRevenue": 151680.0,
-        "fastfilling": 4,
+        "totalSeats": 1375,
+        "ticketsSold": 45,
+        "occupancy": 3.27,
+        "grossRevenue": 7965.0,
+        "fastfilling": 0,
         "housefull": 0
       }
     ]
   },
   "State of Ramadhani: Dharyu Dhani Nu Thay (2D - Gujarati)": {
-    "shows": 6,
-    "venues": 2,
-    "cities": 1,
-    "totalSeats": 537,
+    "shows": 8,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 681,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -5218,6 +6505,18 @@
         "shows": 6,
         "venues": 2,
         "totalSeats": 537,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bavla",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 144,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -5273,60 +6572,58 @@
       }
     ]
   },
-  "Welcome To The Jungle (2D - Hindi)": {
-    "shows": 24,
-    "venues": 7,
+  "Carry On Jatta 4 (2D - Punjabi)": {
+    "shows": 7,
+    "venues": 6,
     "cities": 6,
-    "totalSeats": 4468,
-    "ticketsSold": 203,
-    "occupancy": 4.54,
-    "grossRevenue": 17050.0,
+    "totalSeats": 962,
+    "ticketsSold": 125,
+    "occupancy": 12.99,
+    "grossRevenue": 33150.0,
     "fastfilling": 0,
-    "housefull": 0,
+    "housefull": 1,
     "movieInfo": {
-      "contentId": 165834,
-      "name": "Welcome To The Jungle",
-      "lang": "Hindi",
+      "contentId": 208122,
+      "name": "Carry On Jatta 4",
+      "lang": "Punjabi",
       "scrnFmt": "2D",
       "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 165,
+      "censor": "UA13+",
+      "duration": 142,
       "genres": [
-        "Action",
-        "Drama",
-        "Comedy"
+        "Drama"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
-      "cover": "https://cdn.district.in/movies-assets/images/cinema/Welcome-To-The-Jungle-(Welcome-3)-73dfe610-d7c0-11ee-a5bd-f9e918a2ec60.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Carry-On-Jatta-4-db650000-6fb1-11f1-970e-1f5f3e4ac910.jpg",
+      "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=L0L3GGgRMn0&ab_channel=JioStudios",
+      "trailer": "",
       "rating": {
-        "hasUReview": 1,
-        "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
+        "hasUReview": 0,
+        "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 3
+      "totalSessionCount": 1
     },
     "cityDetails": [
       {
-        "city": "Ahmedabad",
+        "city": "Baddi",
         "state": "Unknown",
-        "shows": 7,
-        "venues": 2,
-        "totalSeats": 712,
-        "ticketsSold": 11,
-        "occupancy": 1.54,
-        "grossRevenue": 1690.0,
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 78,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       },
       {
-        "city": "Alwar",
+        "city": "Dasuya",
         "state": "Unknown",
         "shows": 2,
         "venues": 1,
-        "totalSeats": 114,
+        "totalSeats": 362,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -5334,11 +6631,23 @@
         "housefull": 0
       },
       {
-        "city": "Anand",
+        "city": "Doraha",
         "state": "Unknown",
-        "shows": 4,
+        "shows": 1,
         "venues": 1,
-        "totalSeats": 448,
+        "totalSeats": 125,
+        "ticketsSold": 125,
+        "occupancy": 100.0,
+        "grossRevenue": 33150.0,
+        "fastfilling": 0,
+        "housefull": 1
+      },
+      {
+        "city": "Hoshiarpur",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 42,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -5346,11 +6655,11 @@
         "housefull": 0
       },
       {
-        "city": "Bhiwandi",
+        "city": "Ludhiana",
         "state": "Unknown",
-        "shows": 4,
+        "shows": 1,
         "venues": 1,
-        "totalSeats": 2212,
+        "totalSeats": 205,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -5358,26 +6667,14 @@
         "housefull": 0
       },
       {
-        "city": "Vijapur",
+        "city": "Nakodar",
         "state": "Unknown",
-        "shows": 3,
+        "shows": 1,
         "venues": 1,
-        "totalSeats": 418,
+        "totalSeats": 150,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "West Champaran",
-        "state": "Unknown",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 564,
-        "ticketsSold": 192,
-        "occupancy": 34.04,
-        "grossRevenue": 15360.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -5588,6 +6885,186 @@
       }
     ]
   },
+  "Boys Never Compromise (2D - Kannada)": {
+    "shows": 4,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 1564,
+    "ticketsSold": 590,
+    "occupancy": 37.72,
+    "grossRevenue": 85080.0,
+    "fastfilling": 2,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 225327,
+      "name": "Boys Never Compromise",
+      "lang": "Kannada",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 127,
+      "genres": [
+        "Horror",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833383278206267.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    },
+    "cityDetails": [
+      {
+        "city": "Bhadravati",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1016,
+        "ticketsSold": 294,
+        "occupancy": 28.94,
+        "grossRevenue": 40680.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mahalingpur",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 548,
+        "ticketsSold": 296,
+        "occupancy": 54.01,
+        "grossRevenue": 44400.0,
+        "fastfilling": 2,
+        "housefull": 0
+      }
+    ]
+  },
+  "Koka Deuta Nati Aru Hati 2 (2D - Assamese)": {
+    "shows": 26,
+    "venues": 9,
+    "cities": 7,
+    "totalSeats": 4470,
+    "ticketsSold": 846,
+    "occupancy": 18.93,
+    "grossRevenue": 127979.28,
+    "fastfilling": 0,
+    "housefull": 4,
+    "movieInfo": {
+      "contentId": 226786,
+      "name": "Koka Deuta Nati Aru Hati 2",
+      "lang": "Assamese",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 160,
+      "genres": [
+        "Drama"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/_Poster%20(11)-ddbdd790-7237-11f1-873b-2f092fc15b95.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "KOKA DEUTA NATI ARU HATI 2.jpg",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    },
+    "cityDetails": [
+      {
+        "city": "Chaygaon",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 432,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Dhemaji",
+        "state": "Unknown",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 372,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Golaghat",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 660,
+        "ticketsSold": 660,
+        "occupancy": 100.0,
+        "grossRevenue": 97919.28,
+        "fastfilling": 0,
+        "housefull": 3
+      },
+      {
+        "city": "Guwahati",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 654,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kokrajhar",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 186,
+        "ticketsSold": 186,
+        "occupancy": 100.0,
+        "grossRevenue": 30060.0,
+        "fastfilling": 0,
+        "housefull": 1
+      },
+      {
+        "city": "Lakhimpur Assam",
+        "state": "Unknown",
+        "shows": 9,
+        "venues": 3,
+        "totalSeats": 1626,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Sonari",
+        "state": "Unknown",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 540,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
   "Ugra Mardhini (2D - Kannada)": {
     "shows": 4,
     "venues": 1,
@@ -5635,148 +7112,16 @@
       }
     ]
   },
-  "Koka Deuta Nati Aru Hati 2 (2D - Assamese)": {
-    "shows": 13,
+  "Sarpanch (2D - Punjabi)": {
+    "shows": 7,
     "venues": 4,
     "cities": 4,
-    "totalSeats": 2226,
-    "ticketsSold": 660,
-    "occupancy": 29.65,
-    "grossRevenue": 97919.28,
+    "totalSeats": 990,
+    "ticketsSold": 129,
+    "occupancy": 13.03,
+    "grossRevenue": 34300.0,
     "fastfilling": 0,
-    "housefull": 3,
-    "movieInfo": {
-      "contentId": 226786,
-      "name": "Koka Deuta Nati Aru Hati 2",
-      "lang": "Assamese",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 160,
-      "genres": [
-        "Drama"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/_Poster%20(11)-ddbdd790-7237-11f1-873b-2f092fc15b95.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "KOKA DEUTA NATI ARU HATI 2.jpg",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 4
-    },
-    "cityDetails": [
-      {
-        "city": "Dhemaji",
-        "state": "Unknown",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 372,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Golaghat",
-        "state": "Unknown",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 660,
-        "ticketsSold": 660,
-        "occupancy": 100.0,
-        "grossRevenue": 97919.28,
-        "fastfilling": 0,
-        "housefull": 3
-      },
-      {
-        "city": "Guwahati",
-        "state": "Unknown",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 654,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Sonari",
-        "state": "Unknown",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 540,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Carry On Jatta 4 (2D - Punjabi)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 300,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {
-      "contentId": 208122,
-      "name": "Carry On Jatta 4",
-      "lang": "Punjabi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 142,
-      "genres": [
-        "Drama"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Carry-On-Jatta-4-db650000-6fb1-11f1-970e-1f5f3e4ac910.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    },
-    "cityDetails": [
-      {
-        "city": "Doraha",
-        "state": "Unknown",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 300,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Sarpanch (2D - Punjabi)": {
-    "shows": 4,
-    "venues": 2,
-    "cities": 2,
-    "totalSeats": 492,
-    "ticketsSold": 1,
-    "occupancy": 0.2,
-    "grossRevenue": 300.0,
-    "fastfilling": 0,
-    "housefull": 0,
+    "housefull": 1,
     "movieInfo": {
       "contentId": 203559,
       "name": "Sarpanch",
@@ -5808,11 +7153,11 @@
         "shows": 2,
         "venues": 1,
         "totalSeats": 250,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
+        "ticketsSold": 128,
+        "occupancy": 51.2,
+        "grossRevenue": 34000.0,
         "fastfilling": 0,
-        "housefull": 0
+        "housefull": 1
       },
       {
         "city": "Hoshiarpur",
@@ -5825,16 +7170,40 @@
         "grossRevenue": 300.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Nakodar",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 150,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Tanda",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 348,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
       }
     ]
   },
   "Chupa Chupi (2D - Assamese)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 220,
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 446,
     "ticketsSold": 220,
-    "occupancy": 100.0,
+    "occupancy": 49.33,
     "grossRevenue": 32639.76,
     "fastfilling": 0,
     "housefull": 1,
@@ -5875,6 +7244,18 @@
         "grossRevenue": 32639.76,
         "fastfilling": 0,
         "housefull": 1
+      },
+      {
+        "city": "Lakhimpur Assam",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 226,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
       }
     ]
   },
@@ -5986,6 +7367,152 @@
       }
     ]
   },
+  "Bara Badhu (2D - Odia)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 206,
+    "ticketsSold": 166,
+    "occupancy": 80.58,
+    "grossRevenue": 24900.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 215090,
+      "name": "Bara Badhu",
+      "lang": "Odia",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 136,
+      "genres": [
+        "Drama"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Bara-Badhu-e29f3490-0679-11f1-bc39-ad2e7218e189.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=JiBjnGMaw2Y",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    },
+    "cityDetails": [
+      {
+        "city": "Jajpur Road",
+        "state": "Unknown",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 206,
+        "ticketsSold": 166,
+        "occupancy": 80.58,
+        "grossRevenue": 24900.0,
+        "fastfilling": 1,
+        "housefull": 0
+      }
+    ]
+  },
+  "Cocktail 2 (2D - Hindi)": {
+    "shows": 5,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 150,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 213788,
+      "name": "Cocktail 2",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 149,
+      "genres": [
+        "Drama",
+        "Romance",
+        "Comedy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Cocktail-2-0feaab20-6753-11f1-9e97-2d0de83fe7ee.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    },
+    "cityDetails": [
+      {
+        "city": "Kanpur",
+        "state": "Unknown",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 150,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Deadly Killer (2D - Kannada)": {
+    "shows": 2,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 548,
+    "ticketsSold": 296,
+    "occupancy": 54.01,
+    "grossRevenue": 44400.0,
+    "fastfilling": 2,
+    "housefull": 0,
+    "movieInfo": {
+      "contentId": 226400,
+      "name": "Deadly Killer",
+      "lang": "Kannada",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "U/A",
+      "duration": 148,
+      "genres": [
+        "Thriller",
+        "Crime"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/_Poster-64e1cf70-6fda-11f1-a4f1-f909e462fa7a-07ecc650-73a2-11f1-9f70-fda55f90bf61.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    },
+    "cityDetails": [
+      {
+        "city": "Mahalingpur",
+        "state": "Unknown",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 548,
+        "ticketsSold": 296,
+        "occupancy": 54.01,
+        "grossRevenue": 44400.0,
+        "fastfilling": 2,
+        "housefull": 0
+      }
+    ]
+  },
   "Evil Dead Burn (2D - Telugu)": {
     "shows": 4,
     "venues": 1,
@@ -6064,7 +7591,6 @@
       "trailer": "https://www.youtube.com/watch?v=YXPVEtFCb9s",
       "rating": {
         "hasUReview": 1,
-        "imageUrl": "\"\"",
         "hasContent": 1
       },
       "isNew": false,
@@ -6081,54 +7607,6 @@
         "occupancy": 90.3,
         "grossRevenue": 247000.0,
         "fastfilling": 4,
-        "housefull": 0
-      }
-    ]
-  },
-  "Rahun Main Tere Rubaru (2D - Hindi)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 199,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {
-      "contentId": 226180,
-      "name": "Rahun Main Tere Rubaru",
-      "lang": "Hindi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 119,
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17840219344117410.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 0,
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    },
-    "cityDetails": [
-      {
-        "city": "Mumbai",
-        "state": "Unknown",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 199,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
         "housefull": 0
       }
     ]
