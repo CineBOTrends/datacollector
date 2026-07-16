@@ -1,13 +1,49 @@
 {
-  "The Odyssey (IMAX 2D - English)": {
+  "The Odyssey (2D - English)": {
+    "shows": 16,
+    "venues": 16,
+    "cities": 5,
+    "totalSeats": 4162,
+    "ticketsSold": 669,
+    "occupancy": 16.07,
+    "grossRevenue": 238590.03,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (MX4D - English)": {
     "shows": 1,
     "venues": 1,
     "cities": 1,
-    "totalSeats": 354,
-    "ticketsSold": 195,
-    "occupancy": 55.08,
-    "grossRevenue": 155950.0,
-    "fastfilling": 1,
+    "totalSeats": 80,
+    "ticketsSold": 12,
+    "occupancy": 15.0,
+    "grossRevenue": 6360.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 11,
+    "venues": 11,
+    "cities": 3,
+    "totalSeats": 3418,
+    "ticketsSold": 2119,
+    "occupancy": 62.0,
+    "grossRevenue": 2070780.0,
+    "fastfilling": 9,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (4DX - English)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 192,
+    "ticketsSold": 31,
+    "occupancy": 16.15,
+    "grossRevenue": 20630.0,
+    "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
   }
