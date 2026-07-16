@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "movie": "Alpha (2D - Hindi)",
+    "venue": "Connplex Cinemas: Rajkot",
+    "address": "2nd Ring Road, Serenity Garden Road, Near Valupani restaurant, Rajkot, Gujarat 360004, India",
+    "chain": "Connplex Cinemas Ltd",
+    "time": "08:30 AM",
+    "audi": "",
+    "session_id": "8371",
+    "totalSeats": 75,
+    "available": 75,
+    "ticketsSold": 0,
+    "grossRevenue": 0.0,
+    "minsLeft": 155.5,
+    "city": "Rajkot",
+    "state": "Gujarat",
+    "source": "BMS",
+    "date": "20260716"
+  },
+  {
+    "movie": "Dhamaal 4 (2D - Hindi)",
+    "venue": "Connplex Cinemas: Rajkot",
+    "address": "2nd Ring Road, Serenity Garden Road, Near Valupani restaurant, Rajkot, Gujarat 360004, India",
+    "chain": "Connplex Cinemas Ltd",
+    "time": "08:30 AM",
+    "audi": "COUPLE SEATS",
+    "session_id": "8377",
+    "totalSeats": 50,
+    "available": 36,
+    "ticketsSold": 14,
+    "grossRevenue": 3500.0,
+    "minsLeft": 155.5,
+    "city": "Rajkot",
+    "state": "Gujarat",
+    "source": "BMS",
+    "date": "20260716"
+  },
+  {
+    "movie": "Evil Dead Burn (2D - Hindi)",
+    "venue": "INOX: DB Mall, Gwalior",
+    "address": "2nd Floor, DB Mall, Race course Road, Old MPSRTC Work Station, Opposite Gwalior Railway Station, Gwalior, Madhya Pradesh 474002, India",
+    "chain": "INOX",
+    "time": "08:50 AM",
+    "audi": "",
+    "session_id": "76406",
+    "totalSeats": 129,
+    "available": 125,
+    "ticketsSold": 4,
+    "grossRevenue": 420.0,
+    "minsLeft": 174.8,
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "source": "BMS",
+    "date": "20260716"
+  }
+]
