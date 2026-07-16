@@ -38,7 +38,6 @@ MODES = {
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data")              # FULL tree (admin)
-POSTER_DIR = os.path.join(HERE, "assets", "posters")   # self-hosted poster art
 
 KEY_RE = re.compile(r"^(.*)\s\(([^)]*?)\s-\s([^)]*)\)\s*$")
 
@@ -110,60 +109,6 @@ def _extract_cast(info):
         if names:
             return names
     return []
-
-
-def _poster_ext(url):
-    m = re.search(r"\.(jpe?g|png|webp)(?:\?|$)", url or "", re.I)
-    return "." + m.group(1).lower().replace("jpeg", "jpg") if m else ".jpg"
-
-
-def localize_poster(slug, poster):
-    """Mirror District's poster art into assets/posters/ and return local paths.
-
-    Hotlinking the CDN forced every PNG export to pull the image cross-origin,
-    which is where Safari's CORS cache, canvas tainting and dom-to-image's
-    cold-cache misses all came from. A same-origin file has none of those
-    problems. Downloads once; later runs reuse the file on disk.
-    """
-    if not poster:
-        return None
-
-    import urllib.request
-
-    os.makedirs(POSTER_DIR, exist_ok=True)
-    out = {}
-    for kind in ("thumb", "bg"):
-        url = (poster.get(kind) or "").strip()
-        if not url:
-            continue
-        if url.startswith("assets/"):          # already local
-            out[kind] = url
-            continue
-        name = f"{slug}-{kind}{_poster_ext(url)}"
-        dest = os.path.join(POSTER_DIR, name)
-        rel = f"assets/posters/{name}"
-        if not os.path.exists(dest) or os.path.getsize(dest) == 0:
-            try:
-                req = urllib.request.Request(
-                    url, headers={"User-Agent": "Mozilla/5.0 (CineBOTrends collector)"}
-                )
-                with urllib.request.urlopen(req, timeout=20) as r:
-                    data = r.read()
-                if not data:
-                    raise ValueError("empty body")
-                with open(dest, "wb") as f:
-                    f.write(data)
-                print(f"    poster: {rel} ({len(data)//1024} KB)")
-            except Exception as e:
-                print(f"    ! poster {url} failed ({e}); hotlinking instead")
-                out[kind] = url                # fall back to the remote URL
-                continue
-        out[kind] = rel
-
-    if not out:
-        return None
-    return {"thumb": out.get("thumb") or out.get("bg"),
-            "bg": out.get("bg") or out.get("thumb")}
 
 
 def district_meta_from_rows(rows):
@@ -514,12 +459,10 @@ def build_date(mode, date, src_dir, out_dir):
             movie["slug"] = slug
         used_slugs.add(slug)
         dm = district_meta_from_rows(mrows)
-        # District is the only source now: no posters.json map, no metadata.json
-        # override layer. Poster art is mirrored locally so it is served
-        # same-origin (see localize_poster).
-        movie["poster"] = localize_poster(
-            movie["slug"], dm["poster"] or _global_district_poster(title)
-        )
+        # Posters come straight from District — the raw CDN thumb/cover URLs.
+        # No local mirror: the dashboard loads them directly, and they refresh
+        # automatically whenever District updates the artwork.
+        movie["poster"] = dm["poster"] or _global_district_poster(title)
         movie["meta"] = dm["meta"]
         movie["last_updated"] = last_updated
         movies_for_history[movie["slug"]] = movie
