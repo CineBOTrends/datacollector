@@ -784,6 +784,14 @@ def main(collector):
         upcoming[slug] = min(dts)                        # opening day (YYYYMMDD)
 
     manifest["upcoming"] = upcoming
+    # Per-movie date lists. modes.<mode>.dates is the GLOBAL set of dates in
+    # a tree; it does NOT mean every movie has data on every date. The
+    # dashboard needs which dates belong to EACH film, or a movie shows date
+    # chips (another film's release day) that have no data for it.
+    manifest["movieDates"] = {
+        mode: {slug: sorted(set(dts)) for slug, dts in by_slug.items()}
+        for mode, by_slug in slug_dates.items()
+    }
     if upcoming:
         print(f"  upcoming: {len(upcoming)} unreleased film(s)")
         for slug, d in sorted(upcoming.items(), key=lambda x: x[1]):
