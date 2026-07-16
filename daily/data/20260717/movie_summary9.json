@@ -1,14 +1,153 @@
 {
-  "The Odyssey (2D - English)": {
-    "shows": 37,
-    "gross": 412520.0,
-    "sold": 1276,
-    "totalSeats": 8952,
-    "venues": 37,
-    "cities": 17,
-    "fastfilling": 1,
+  "Rakta Charitra (2D - Telugu)": {
+    "shows": 6,
+    "gross": 412772.0,
+    "sold": 2780,
+    "totalSeats": 4681,
+    "venues": 6,
+    "cities": 5,
+    "fastfilling": 3,
     "housefull": 0,
-    "occupancy": 14.25,
+    "occupancy": 59.39,
+    "movieInfo": {
+      "contentId": 227944,
+      "name": "Rakta Charitra",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 133,
+      "genres": [
+        "Action",
+        "Crime"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17837634905347915.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "The Odyssey (2D - Telugu)": {
+    "shows": 2,
+    "gross": 13224.0,
+    "sold": 95,
+    "totalSeats": 1042,
+    "venues": 2,
+    "cities": 2,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 9.12,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 101,
+    "gross": 927067.0,
+    "sold": 3057,
+    "totalSeats": 22727,
+    "venues": 88,
+    "cities": 32,
+    "fastfilling": 4,
+    "housefull": 0,
+    "occupancy": 13.45,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 15,
+    "gross": 26936.0,
+    "sold": 132,
+    "totalSeats": 3660,
+    "venues": 13,
+    "cities": 5,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 3.61,
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 15
+    }
+  },
+  "The Odyssey (2D - Hindi)": {
+    "shows": 13,
+    "gross": 25240.0,
+    "sold": 109,
+    "totalSeats": 2295,
+    "venues": 13,
+    "cities": 8,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 4.75,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -35,15 +174,15 @@
     }
   },
   "The Odyssey (4DX-2D - English)": {
-    "shows": 7,
-    "gross": 49570.0,
-    "sold": 94,
-    "totalSeats": 620,
-    "venues": 7,
-    "cities": 7,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 15.16,
+    "shows": 15,
+    "gross": 294218.0,
+    "sold": 504,
+    "totalSeats": 1356,
+    "venues": 15,
+    "cities": 9,
+    "fastfilling": 1,
+    "housefull": 2,
+    "occupancy": 37.17,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -69,55 +208,54 @@
       "totalSessionCount": 5
     }
   },
-  "Rakta Charitra (2D - Telugu)": {
-    "shows": 1,
-    "gross": 11400.0,
-    "sold": 76,
-    "totalSeats": 522,
+  "Bhamardo (2D - Gujarati)": {
+    "shows": 3,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 636,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 14.56,
+    "occupancy": 0.0,
     "movieInfo": {
-      "contentId": 227944,
-      "name": "Rakta Charitra",
-      "lang": "Telugu",
+      "contentId": 222400,
+      "name": "Bhamardo",
+      "lang": "Gujarati",
       "scrnFmt": "2D",
       "sndFmt": "",
-      "censor": "A",
-      "duration": 133,
+      "censor": "U",
+      "duration": 145,
       "genres": [
-        "Action",
-        "Crime"
+        "Comedy"
       ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17837634905347915.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Bhamardo---0c6476f0-5391-11f1-869e-b73d54e9e5af.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "",
+      "trailer": "https://www.youtube.com/watch?v=n5YFC59iYIE",
       "rating": {
         "hasUReview": 0,
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 2
+      "totalSessionCount": 4
     }
   },
   "The Odyssey (IMAX 2D - English)": {
-    "shows": 19,
-    "gross": 4356540.0,
-    "sold": 4436,
-    "totalSeats": 6480,
-    "venues": 19,
-    "cities": 10,
-    "fastfilling": 17,
+    "shows": 22,
+    "gross": 5656250.0,
+    "sold": 5316,
+    "totalSeats": 7508,
+    "venues": 22,
+    "cities": 11,
+    "fastfilling": 20,
     "housefull": 0,
-    "occupancy": 68.46,
+    "occupancy": 70.8,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
       "lang": "English",
-      "scrnFmt": "IMAX 2D",
+      "scrnFmt": "4DX-2D",
       "sndFmt": "",
       "censor": "A",
       "duration": 175,
@@ -125,10 +263,10 @@
         "Adventure",
         "Epic"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "",
+      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
       "rating": {
         "hasUReview": 0,
         "imageUrl": "",
@@ -138,74 +276,74 @@
       "totalSessionCount": 5
     }
   },
-  "The Odyssey (2D - Hindi)": {
-    "shows": 3,
-    "gross": 9650.0,
-    "sold": 51,
-    "totalSeats": 712,
-    "venues": 3,
+  "Evil Dead Burn (2D - English)": {
+    "shows": 2,
+    "gross": 1570.0,
+    "sold": 7,
+    "totalSeats": 286,
+    "venues": 2,
     "cities": 2,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 7.16,
+    "occupancy": 2.45,
     "movieInfo": {
-      "contentId": 187151,
-      "name": "The Odyssey",
-      "lang": "Hindi",
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "English",
       "scrnFmt": "2D",
       "sndFmt": "",
       "censor": "A",
-      "duration": 175,
+      "duration": 112,
       "genres": [
-        "Adventure",
-        "Epic"
+        "Horror"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-71fb6090-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833362123847753.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=MIjsrWpkXhg",
+      "trailer": "",
       "rating": {
         "hasUReview": 0,
         "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 9
+      "totalSessionCount": 7
     }
   },
-  "Dhamaal 4 (2D - Hindi)": {
-    "shows": 3,
+  "Welcome To The Jungle (2D - Hindi)": {
+    "shows": 2,
     "gross": 0.0,
     "sold": 0,
-    "totalSeats": 824,
-    "venues": 3,
-    "cities": 2,
+    "totalSeats": 48,
+    "venues": 2,
+    "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
     "occupancy": 0.0,
     "movieInfo": {
-      "contentId": 206457,
-      "name": "Dhamaal 4",
+      "contentId": 165834,
+      "name": "Welcome To The Jungle",
       "lang": "Hindi",
       "scrnFmt": "2D",
       "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 143,
+      "censor": "UA16+",
+      "duration": 165,
       "genres": [
-        "Adventure",
+        "Action",
+        "Drama",
         "Comedy"
       ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
-      "cover": "",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Welcome-To-The-Jungle-(Welcome-3)-73dfe610-d7c0-11ee-a5bd-f9e918a2ec60.jpg",
       "thumbnail": "",
-      "trailer": "",
+      "trailer": "https://www.youtube.com/watch?v=L0L3GGgRMn0&ab_channel=JioStudios",
       "rating": {
         "hasUReview": 1,
-        "imageUrl": "",
+        "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 16
+      "totalSessionCount": 2
     }
   },
   "The Odyssey (MX4D - English)": {
