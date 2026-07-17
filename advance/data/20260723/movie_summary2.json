@@ -88,10 +88,10 @@
     ]
   },
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 88,
-    "venues": 24,
-    "cities": 22,
-    "totalSeats": 20565,
+    "shows": 100,
+    "venues": 28,
+    "cities": 25,
+    "totalSeats": 23725,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -196,6 +196,18 @@
         "housefull": 0
       },
       {
+        "city": "Songadh",
+        "state": "Gujarat",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 880,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Tembhurni",
         "state": "Maharashtra",
         "shows": 4,
@@ -225,6 +237,18 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 160,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Balangir",
+        "state": "Odisha",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 348,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -318,9 +342,9 @@
       {
         "city": "Indore",
         "state": "Madhya Pradesh",
-        "shows": 8,
-        "venues": 2,
-        "totalSeats": 2852,
+        "shows": 10,
+        "venues": 3,
+        "totalSeats": 3960,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -357,6 +381,18 @@
         "shows": 1,
         "venues": 1,
         "totalSeats": 180,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Surajpur",
+        "state": "Chhattisgarh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 824,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -468,13 +504,13 @@
     ]
   },
   "Lenin (2D - Telugu)": {
-    "shows": 45,
-    "venues": 12,
-    "cities": 8,
-    "totalSeats": 14076,
-    "ticketsSold": 1744,
-    "occupancy": 12.39,
-    "grossRevenue": 262744.0,
+    "shows": 53,
+    "venues": 14,
+    "cities": 10,
+    "totalSeats": 16212,
+    "ticketsSold": 1790,
+    "occupancy": 11.04,
+    "grossRevenue": 267878.0,
     "fastfilling": 4,
     "housefull": 0,
     "movieInfo": {},
@@ -528,14 +564,26 @@
         "housefull": 0
       },
       {
+        "city": "Mummidivaram",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1500,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Rajahmundry",
         "state": "Andhra Pradesh",
         "shows": 8,
         "venues": 2,
         "totalSeats": 3600,
-        "ticketsSold": 144,
-        "occupancy": 4.0,
-        "grossRevenue": 20880.0,
+        "ticketsSold": 188,
+        "occupancy": 5.22,
+        "grossRevenue": 25720.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -552,14 +600,26 @@
         "housefull": 0
       },
       {
+        "city": "Dammapeta",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 636,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Guntur",
         "state": "Andhra Pradesh",
         "shows": 4,
         "venues": 1,
         "totalSeats": 960,
-        "ticketsSold": 712,
-        "occupancy": 74.17,
-        "grossRevenue": 104664.0,
+        "ticketsSold": 714,
+        "occupancy": 74.38,
+        "grossRevenue": 104958.0,
         "fastfilling": 4,
         "housefull": 0
       },
@@ -683,6 +743,44 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 1808,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Arulvaan (2D - Tamil)": {
+    "shows": 10,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 4404,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Erode",
+        "state": "Tamil Nadu",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1756,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 6,
+        "venues": 2,
+        "totalSeats": 2648,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -870,9 +968,9 @@
     "venues": 3,
     "cities": 2,
     "totalSeats": 4591,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
+    "ticketsSold": 106,
+    "occupancy": 2.31,
+    "grossRevenue": 15900.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -895,9 +993,9 @@
         "shows": 7,
         "venues": 2,
         "totalSeats": 4347,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
+        "ticketsSold": 106,
+        "occupancy": 2.44,
+        "grossRevenue": 15900.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -934,11 +1032,11 @@
     "venues": 21,
     "cities": 2,
     "totalSeats": 15958,
-    "ticketsSold": 12653,
-    "occupancy": 79.29,
-    "grossRevenue": 10555800.0,
+    "ticketsSold": 13351,
+    "occupancy": 83.66,
+    "grossRevenue": 11155200.0,
     "fastfilling": 5,
-    "housefull": 12,
+    "housefull": 13,
     "movieInfo": {},
     "cityDetails": [
       {
@@ -959,11 +1057,11 @@
         "shows": 20,
         "venues": 20,
         "totalSeats": 14981,
-        "ticketsSold": 11676,
-        "occupancy": 77.94,
-        "grossRevenue": 10050600.0,
+        "ticketsSold": 12374,
+        "occupancy": 82.6,
+        "grossRevenue": 10650000.0,
         "fastfilling": 5,
-        "housefull": 11
+        "housefull": 12
       }
     ]
   },
@@ -1071,6 +1169,32 @@
         "shows": 1,
         "venues": 1,
         "totalSeats": 774,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Balaramana Dinagalu (2D - Kannada)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 2800,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Mysuru (Mysore)",
+        "state": "Karnataka",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2800,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1213,6 +1337,32 @@
         "shows": 2,
         "venues": 1,
         "totalSeats": 466,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Hrudhayam Murali (2D - Telugu)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 860,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Rajahmundry",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 860,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1373,11 +1523,37 @@
       }
     ]
   },
+  "Guruji Namaskar (2D - Odia)": {
+    "shows": 2,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 348,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Balangir",
+        "state": "Odisha",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 348,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
   "The Odyssey (2D - Hindi)": {
-    "shows": 12,
-    "venues": 4,
-    "cities": 3,
-    "totalSeats": 3414,
+    "shows": 10,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 2918,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -1408,18 +1584,6 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
-      },
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 496,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
       }
     ]
   },
@@ -1441,6 +1605,32 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 1250,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Snake Cave (2D - Kannada)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 204,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 204,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1531,10 +1721,10 @@
     "shows": 20,
     "venues": 4,
     "cities": 1,
-    "totalSeats": 1980,
-    "ticketsSold": 58,
-    "occupancy": 2.93,
-    "grossRevenue": 46800.0,
+    "totalSeats": 1966,
+    "ticketsSold": 38,
+    "occupancy": 1.93,
+    "grossRevenue": 28140.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -1544,23 +1734,23 @@
         "state": "Karnataka",
         "shows": 20,
         "venues": 4,
-        "totalSeats": 1980,
-        "ticketsSold": 58,
-        "occupancy": 2.93,
-        "grossRevenue": 46800.0,
+        "totalSeats": 1966,
+        "ticketsSold": 38,
+        "occupancy": 1.93,
+        "grossRevenue": 28140.0,
         "fastfilling": 0,
         "housefull": 0
       }
     ]
   },
   "The Odyssey (IMAX 2D - English)": {
-    "shows": 20,
-    "venues": 4,
+    "shows": 30,
+    "venues": 6,
     "cities": 1,
-    "totalSeats": 5785,
-    "ticketsSold": 575,
-    "occupancy": 9.94,
-    "grossRevenue": 809130.0,
+    "totalSeats": 8750,
+    "ticketsSold": 1048,
+    "occupancy": 11.98,
+    "grossRevenue": 1450850.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -1568,12 +1758,12 @@
       {
         "city": "Bengaluru",
         "state": "Karnataka",
-        "shows": 20,
-        "venues": 4,
-        "totalSeats": 5785,
-        "ticketsSold": 575,
-        "occupancy": 9.94,
-        "grossRevenue": 809130.0,
+        "shows": 30,
+        "venues": 6,
+        "totalSeats": 8750,
+        "ticketsSold": 1048,
+        "occupancy": 11.98,
+        "grossRevenue": 1450850.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -1649,32 +1839,6 @@
         "shows": 1,
         "venues": 1,
         "totalSeats": 248,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Arulvaan (2D - Tamil)": {
-    "shows": 6,
-    "venues": 2,
-    "cities": 1,
-    "totalSeats": 2648,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 6,
-        "venues": 2,
-        "totalSeats": 2648,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
