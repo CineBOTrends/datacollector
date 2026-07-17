@@ -1,16 +1,28 @@
 {
   "Lenin (2D - Telugu)": {
-    "shows": 43,
-    "venues": 12,
-    "cities": 9,
-    "totalSeats": 20386,
+    "shows": 59,
+    "venues": 16,
+    "cities": 13,
+    "totalSeats": 25070,
     "ticketsSold": 1201,
-    "occupancy": 5.89,
+    "occupancy": 4.79,
     "grossRevenue": 140820.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
+      {
+        "city": "Amaravati",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 968,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
       {
         "city": "Gollaprolu",
         "state": "Andhra Pradesh",
@@ -84,6 +96,30 @@
         "housefull": 0
       },
       {
+        "city": "Jadcherla",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 860,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Makthal",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 844,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Banaganapalli",
         "state": "Andhra Pradesh",
         "shows": 4,
@@ -118,14 +154,26 @@
         "grossRevenue": 53460.0,
         "fastfilling": 0,
         "housefull": 0
+      },
+      {
+        "city": "Vizag (Visakhapatnam)",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2012,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
       }
     ]
   },
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 165,
-    "venues": 43,
-    "cities": 30,
-    "totalSeats": 66239,
+    "shows": 177,
+    "venues": 46,
+    "cities": 33,
+    "totalSeats": 67755,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -290,6 +338,18 @@
         "housefull": 0
       },
       {
+        "city": "Pathalgaon",
+        "state": "Chhattisgarh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 540,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Agra",
         "state": "Uttar Pradesh",
         "shows": 9,
@@ -362,6 +422,18 @@
         "housefull": 0
       },
       {
+        "city": "Shahjahanpur",
+        "state": "Uttar Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 80,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Vijapur",
         "state": "Gujarat",
         "shows": 5,
@@ -402,7 +474,19 @@
         "state": "Maharashtra",
         "shows": 9,
         "venues": 1,
-        "totalSeats": 1280,
+        "totalSeats": 1300,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Shirpur",
+        "state": "Maharashtra",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 876,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -499,7 +583,7 @@
     "shows": 1,
     "venues": 1,
     "cities": 1,
-    "totalSeats": 129,
+    "totalSeats": 133,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -512,7 +596,7 @@
         "state": "Uttar Pradesh",
         "shows": 1,
         "venues": 1,
-        "totalSeats": 129,
+        "totalSeats": 133,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -526,9 +610,9 @@
     "venues": 7,
     "cities": 5,
     "totalSeats": 12144,
-    "ticketsSold": 1028,
-    "occupancy": 8.47,
-    "grossRevenue": 150740.0,
+    "ticketsSold": 1030,
+    "occupancy": 8.48,
+    "grossRevenue": 151030.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -575,9 +659,9 @@
         "shows": 10,
         "venues": 3,
         "totalSeats": 4584,
-        "ticketsSold": 692,
-        "occupancy": 15.1,
-        "grossRevenue": 100340.0,
+        "ticketsSold": 694,
+        "occupancy": 15.14,
+        "grossRevenue": 100630.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -645,11 +729,37 @@
       }
     ]
   },
+  "Peddi (2D - Telugu)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 1680,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Anakapalle",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1680,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
   "The Odyssey (2D - Hindi)": {
-    "shows": 26,
+    "shows": 27,
     "venues": 8,
     "cities": 7,
-    "totalSeats": 6782,
+    "totalSeats": 6977,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -696,9 +806,9 @@
       {
         "city": "Jeypore",
         "state": "Odisha",
-        "shows": 2,
+        "shows": 3,
         "venues": 1,
-        "totalSeats": 390,
+        "totalSeats": 585,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -831,6 +941,68 @@
       }
     ]
   },
+  "Alpha (2D - Hindi)": {
+    "shows": 15,
+    "venues": 5,
+    "cities": 4,
+    "totalSeats": 4102,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Shindkheda",
+        "state": "Maharashtra",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 936,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Agra",
+        "state": "Uttar Pradesh",
+        "shows": 7,
+        "venues": 2,
+        "totalSeats": 2684,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Goalpara",
+        "state": "Assam",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 302,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Beed",
+        "state": "Maharashtra",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 180,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
   "MRP (Neekentha Naakentha) (2D - Telugu)": {
     "shows": 4,
     "venues": 1,
@@ -862,10 +1034,10 @@
     "venues": 1,
     "cities": 1,
     "totalSeats": 2500,
-    "ticketsSold": 1647,
-    "occupancy": 65.88,
-    "grossRevenue": 213780.6,
-    "fastfilling": 5,
+    "ticketsSold": 1336,
+    "occupancy": 53.44,
+    "grossRevenue": 173412.8,
+    "fastfilling": 4,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
@@ -875,36 +1047,10 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 2500,
-        "ticketsSold": 1647,
-        "occupancy": 65.88,
-        "grossRevenue": 213780.6,
-        "fastfilling": 5,
-        "housefull": 0
-      }
-    ]
-  },
-  "Mein to Palavade Bandhi Preet (2D - Gujarati)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 758,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Rajkot",
-        "state": "Gujarat",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 758,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
+        "ticketsSold": 1336,
+        "occupancy": 53.44,
+        "grossRevenue": 173412.8,
+        "fastfilling": 4,
         "housefull": 0
       }
     ]
@@ -959,56 +1105,6 @@
       }
     ]
   },
-  "Alpha (2D - Hindi)": {
-    "shows": 11,
-    "venues": 4,
-    "cities": 3,
-    "totalSeats": 3116,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Agra",
-        "state": "Uttar Pradesh",
-        "shows": 7,
-        "venues": 2,
-        "totalSeats": 2684,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Goalpara",
-        "state": "Assam",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 302,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Beed",
-        "state": "Maharashtra",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 130,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Mor Wali Alag He (2D - Chattisgarhi)": {
     "shows": 4,
     "venues": 1,
@@ -1035,32 +1131,6 @@
       }
     ]
   },
-  "The Millet Diary (2D - Odia)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 390,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Jeypore",
-        "state": "Odisha",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 390,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Ganda Bhairav (2D - Odia)": {
     "shows": 1,
     "venues": 1,
@@ -1079,6 +1149,32 @@
         "shows": 1,
         "venues": 1,
         "totalSeats": 104,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Millet Diary (2D - Odia)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 195,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Jeypore",
+        "state": "Odisha",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 195,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1219,10 +1315,10 @@
     "shows": 4,
     "venues": 1,
     "cities": 1,
-    "totalSeats": 2296,
-    "ticketsSold": 32,
-    "occupancy": 1.39,
-    "grossRevenue": 3260.0,
+    "totalSeats": 2292,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -1232,10 +1328,10 @@
         "state": "Tamil Nadu",
         "shows": 4,
         "venues": 1,
-        "totalSeats": 2296,
-        "ticketsSold": 32,
-        "occupancy": 1.39,
-        "grossRevenue": 3260.0,
+        "totalSeats": 2292,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -1319,32 +1415,6 @@
       }
     ]
   },
-  "Mahaprabhu Jagannath (2D - Hindi)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 260,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Beed",
-        "state": "Maharashtra",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 260,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Oh..! Sukumari (2D - Telugu)": {
     "shows": 12,
     "venues": 3,
@@ -1402,9 +1472,9 @@
     "venues": 2,
     "cities": 2,
     "totalSeats": 4993,
-    "ticketsSold": 2159,
-    "occupancy": 43.24,
-    "grossRevenue": 706335.0,
+    "ticketsSold": 2223,
+    "occupancy": 44.52,
+    "grossRevenue": 725005.0,
     "fastfilling": 5,
     "housefull": 0,
     "movieInfo": {},
@@ -1415,9 +1485,9 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 3235,
-        "ticketsSold": 1988,
-        "occupancy": 61.45,
-        "grossRevenue": 601035.0,
+        "ticketsSold": 2054,
+        "occupancy": 63.49,
+        "grossRevenue": 620505.0,
         "fastfilling": 5,
         "housefull": 0
       },
@@ -1427,9 +1497,9 @@
         "shows": 3,
         "venues": 1,
         "totalSeats": 1758,
-        "ticketsSold": 171,
-        "occupancy": 9.73,
-        "grossRevenue": 105300.0,
+        "ticketsSold": 169,
+        "occupancy": 9.61,
+        "grossRevenue": 104500.0,
         "fastfilling": 0,
         "housefull": 0
       }
