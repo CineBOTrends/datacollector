@@ -1,12 +1,12 @@
 {
   "The Odyssey (2D - English)": {
-    "shows": 2,
+    "shows": 5,
     "venues": 2,
     "cities": 1,
-    "totalSeats": 443,
-    "ticketsSold": 76,
-    "occupancy": 17.16,
-    "grossRevenue": 20790.0,
+    "totalSeats": 821,
+    "ticketsSold": 122,
+    "occupancy": 14.86,
+    "grossRevenue": 37290.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
@@ -28,9 +28,21 @@
     "venues": 1,
     "cities": 1,
     "totalSeats": 120,
-    "ticketsSold": 59,
-    "occupancy": 49.17,
-    "grossRevenue": 27140.0,
+    "ticketsSold": 52,
+    "occupancy": 43.33,
+    "grossRevenue": 23920.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (2D - Hindi)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 161,
+    "ticketsSold": 6,
+    "occupancy": 3.73,
+    "grossRevenue": 1180.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
