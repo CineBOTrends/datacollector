@@ -1,11 +1,11 @@
 {
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 143,
-    "venues": 33,
-    "cities": 27,
-    "totalSeats": 25498,
+    "shows": 164,
+    "venues": 39,
+    "cities": 29,
+    "totalSeats": 28338,
     "ticketsSold": 302,
-    "occupancy": 1.18,
+    "occupancy": 1.07,
     "grossRevenue": 50220.0,
     "fastfilling": 0,
     "housefull": 0,
@@ -17,6 +17,18 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 580,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kashti",
+        "state": "Maharashtra",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 216,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -60,11 +72,23 @@
         "housefull": 0
       },
       {
-        "city": "Barshi",
-        "state": "Maharashtra",
+        "city": "Chhindwara",
+        "state": "Madhya Pradesh",
         "shows": 4,
         "venues": 1,
-        "totalSeats": 748,
+        "totalSeats": 804,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Barshi",
+        "state": "Maharashtra",
+        "shows": 6,
+        "venues": 2,
+        "totalSeats": 952,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -230,9 +254,9 @@
       {
         "city": "Patan",
         "state": "Gujarat",
-        "shows": 8,
-        "venues": 1,
-        "totalSeats": 784,
+        "shows": 12,
+        "venues": 2,
+        "totalSeats": 1792,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -326,9 +350,9 @@
       {
         "city": "Ahmedabad",
         "state": "Gujarat",
-        "shows": 43,
-        "venues": 5,
-        "totalSeats": 3810,
+        "shows": 52,
+        "venues": 7,
+        "totalSeats": 4418,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -337,184 +361,24 @@
       }
     ]
   },
-  "Oh..! Sukumari (2D - Telugu)": {
-    "shows": 26,
-    "venues": 7,
-    "cities": 7,
-    "totalSeats": 13604,
-    "ticketsSold": 728,
-    "occupancy": 5.35,
-    "grossRevenue": 76440.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Gajapathinagaram",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1696,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Mahbubnagar",
-        "state": "Telangana",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 2216,
-        "ticketsSold": 560,
-        "occupancy": 25.27,
-        "grossRevenue": 58800.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Yellamanchili",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1248,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Punganur",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1656,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Nandyal",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1300,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Sangareddy",
-        "state": "Telangana",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 3732,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Khammam",
-        "state": "Telangana",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 1756,
-        "ticketsSold": 168,
-        "occupancy": 9.57,
-        "grossRevenue": 17640.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Aajo Ardhangini (2D - Bengali)": {
-    "shows": 6,
-    "venues": 4,
+  "Alpha (2D - Hindi)": {
+    "shows": 12,
+    "venues": 6,
     "cities": 4,
-    "totalSeats": 1379,
-    "ticketsSold": 142,
-    "occupancy": 10.3,
-    "grossRevenue": 23020.0,
+    "totalSeats": 1036,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
       {
-        "city": "Malda",
-        "state": "West Bengal",
+        "city": "Kashti",
+        "state": "Maharashtra",
         "shows": 2,
         "venues": 1,
-        "totalSeats": 602,
-        "ticketsSold": 142,
-        "occupancy": 23.59,
-        "grossRevenue": 23020.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Krishnanagar",
-        "state": "West Bengal",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 63,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Jhargram",
-        "state": "West Bengal",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 150,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Howrah",
-        "state": "West Bengal",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 564,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Nagabandham - The Secret Treasure (2D - Hindi)": {
-    "shows": 25,
-    "venues": 9,
-    "cities": 9,
-    "totalSeats": 8988,
-    "ticketsSold": 231,
-    "occupancy": 2.57,
-    "grossRevenue": 37830.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Malda",
-        "state": "West Bengal",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 561,
+        "totalSeats": 216,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -524,81 +388,21 @@
       {
         "city": "Bhawanipatna",
         "state": "Odisha",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 24,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Patan",
+        "state": "Gujarat",
         "shows": 1,
         "venues": 1,
-        "totalSeats": 13,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Raipur",
-        "state": "Chhattisgarh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 3724,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Krishnanagar",
-        "state": "West Bengal",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 63,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Burhanpur",
-        "state": "Madhya Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1672,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Mokama",
-        "state": "Bihar",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 580,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Karanja Lad",
-        "state": "Maharashtra",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 687,
-        "ticketsSold": 231,
-        "occupancy": 33.62,
-        "grossRevenue": 37830.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Yavatmal",
-        "state": "Maharashtra",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1592,
+        "totalSeats": 98,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -608,251 +412,41 @@
       {
         "city": "Ahmedabad",
         "state": "Gujarat",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 96,
+        "shows": 7,
+        "venues": 3,
+        "totalSeats": 698,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Mister Middle Class (2D - Telugu)": {
-    "shows": 36,
-    "venues": 10,
-    "cities": 10,
-    "totalSeats": 11754,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Chintalapudi",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 792,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Punganur",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1584,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Nandyal",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1392,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Paralakhemundi",
-        "state": "Odisha",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 504,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Tekkali",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1500,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Tatipaka",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1640,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Kanigiri",
-        "state": "Andhra Pradesh",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 810,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Sompeta",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1908,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Kothapeta",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1184,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Malikipuram",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 440,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Boys Never Compromise (2D - Kannada)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 1066,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Channapatna",
-        "state": "Karnataka",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 1066,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Vadala (2D - Telugu)": {
-    "shows": 10,
-    "venues": 4,
-    "cities": 4,
-    "totalSeats": 5466,
-    "ticketsSold": 264,
-    "occupancy": 4.83,
-    "grossRevenue": 27720.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Channapatna",
-        "state": "Karnataka",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 1066,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Mahbubnagar",
-        "state": "Telangana",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1856,
-        "ticketsSold": 96,
-        "occupancy": 5.17,
-        "grossRevenue": 10080.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Nandyal",
-        "state": "Andhra Pradesh",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 788,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Khammam",
-        "state": "Telangana",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 1756,
-        "ticketsSold": 168,
-        "occupancy": 9.57,
-        "grossRevenue": 17640.0,
         "fastfilling": 0,
         "housefull": 0
       }
     ]
   },
   "Lenin (2D - Telugu)": {
-    "shows": 54,
-    "venues": 14,
-    "cities": 14,
-    "totalSeats": 20958,
-    "ticketsSold": 402,
-    "occupancy": 1.92,
-    "grossRevenue": 60300.0,
+    "shows": 70,
+    "venues": 18,
+    "cities": 18,
+    "totalSeats": 25546,
+    "ticketsSold": 372,
+    "occupancy": 1.46,
+    "grossRevenue": 55800.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
+      {
+        "city": "Bhattiprolu",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 164,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
       {
         "city": "Amadalavalasa",
         "state": "Andhra Pradesh",
@@ -866,11 +460,35 @@
         "housefull": 0
       },
       {
+        "city": "Haliya",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 816,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Vissannapeta",
         "state": "Andhra Pradesh",
         "shows": 4,
         "venues": 1,
         "totalSeats": 1580,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bangarupalem",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1592,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -998,14 +616,26 @@
         "housefull": 0
       },
       {
+        "city": "Sompeta",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2016,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Khammam",
         "state": "Telangana",
         "shows": 4,
         "venues": 1,
         "totalSeats": 3096,
-        "ticketsSold": 30,
-        "occupancy": 0.97,
-        "grossRevenue": 4500.0,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1018,6 +648,598 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Oh..! Sukumari (2D - Telugu)": {
+    "shows": 26,
+    "venues": 7,
+    "cities": 7,
+    "totalSeats": 13295,
+    "ticketsSold": 1041,
+    "occupancy": 7.83,
+    "grossRevenue": 102315.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Gajapathinagaram",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1696,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mahbubnagar",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2216,
+        "ticketsSold": 560,
+        "occupancy": 25.27,
+        "grossRevenue": 58800.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Yellamanchili",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1248,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Punganur",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1656,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Nandyal",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1300,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Sangareddy",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 3423,
+        "ticketsSold": 313,
+        "occupancy": 9.14,
+        "grossRevenue": 25875.0,
+        "fastfilling": 1,
+        "housefull": 0
+      },
+      {
+        "city": "Khammam",
+        "state": "Telangana",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1756,
+        "ticketsSold": 168,
+        "occupancy": 9.57,
+        "grossRevenue": 17640.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Aajo Ardhangini (2D - Bengali)": {
+    "shows": 6,
+    "venues": 4,
+    "cities": 4,
+    "totalSeats": 1379,
+    "ticketsSold": 142,
+    "occupancy": 10.3,
+    "grossRevenue": 23020.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Malda",
+        "state": "West Bengal",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 602,
+        "ticketsSold": 142,
+        "occupancy": 23.59,
+        "grossRevenue": 23020.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Krishnanagar",
+        "state": "West Bengal",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 63,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jhargram",
+        "state": "West Bengal",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 150,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Howrah",
+        "state": "West Bengal",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 564,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Nagabandham - The Secret Treasure (2D - Hindi)": {
+    "shows": 27,
+    "venues": 10,
+    "cities": 10,
+    "totalSeats": 9192,
+    "ticketsSold": 231,
+    "occupancy": 2.51,
+    "grossRevenue": 37830.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Malda",
+        "state": "West Bengal",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 561,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bhawanipatna",
+        "state": "Odisha",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 13,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Barshi",
+        "state": "Maharashtra",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 204,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Raipur",
+        "state": "Chhattisgarh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 3724,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Krishnanagar",
+        "state": "West Bengal",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 63,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Burhanpur",
+        "state": "Madhya Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1672,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mokama",
+        "state": "Bihar",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 580,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Karanja Lad",
+        "state": "Maharashtra",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 687,
+        "ticketsSold": 231,
+        "occupancy": 33.62,
+        "grossRevenue": 37830.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Yavatmal",
+        "state": "Maharashtra",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1592,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 96,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Mister Middle Class (2D - Telugu)": {
+    "shows": 37,
+    "venues": 11,
+    "cities": 11,
+    "totalSeats": 11936,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Chintalapudi",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 792,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Punganur",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1584,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Nandyal",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1392,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Paralakhemundi",
+        "state": "Odisha",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 504,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Tekkali",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1500,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Rayagada",
+        "state": "Odisha",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 182,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Tatipaka",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1640,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kanigiri",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 810,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Sompeta",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1908,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kothapeta",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1184,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Malikipuram",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 440,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Peddi (2D - Telugu)": {
+    "shows": 6,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 1338,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Yemmiganur",
+        "state": "Andhra Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 708,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Nandyal",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 630,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Boys Never Compromise (2D - Kannada)": {
+    "shows": 2,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 1066,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Channapatna",
+        "state": "Karnataka",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1066,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Vadala (2D - Telugu)": {
+    "shows": 10,
+    "venues": 4,
+    "cities": 4,
+    "totalSeats": 5466,
+    "ticketsSold": 264,
+    "occupancy": 4.83,
+    "grossRevenue": 27720.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Channapatna",
+        "state": "Karnataka",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1066,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mahbubnagar",
+        "state": "Telangana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1856,
+        "ticketsSold": 96,
+        "occupancy": 5.17,
+        "grossRevenue": 10080.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Nandyal",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 788,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Khammam",
+        "state": "Telangana",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 1756,
+        "ticketsSold": 168,
+        "occupancy": 9.57,
+        "grossRevenue": 17640.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Rakky (2D - Kannada)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 1728,
+    "ticketsSold": 100,
+    "occupancy": 5.79,
+    "grossRevenue": 15000.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Sirsi",
+        "state": "Karnataka",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 1728,
+        "ticketsSold": 100,
+        "occupancy": 5.79,
+        "grossRevenue": 15000.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -1145,11 +1367,11 @@
       }
     ]
   },
-  "Alpha (2D - Hindi)": {
-    "shows": 10,
-    "venues": 5,
+  "Evil Dead Burn (2D - Hindi)": {
+    "shows": 11,
+    "venues": 6,
     "cities": 3,
-    "totalSeats": 820,
+    "totalSeats": 2340,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -1160,9 +1382,9 @@
       {
         "city": "Bhawanipatna",
         "state": "Odisha",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 24,
+        "shows": 5,
+        "venues": 2,
+        "totalSeats": 776,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1170,11 +1392,11 @@
         "housefull": 0
       },
       {
-        "city": "Patan",
-        "state": "Gujarat",
-        "shows": 1,
+        "city": "Berhampur",
+        "state": "Odisha",
+        "shows": 2,
         "venues": 1,
-        "totalSeats": 98,
+        "totalSeats": 1108,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1184,47 +1406,9 @@
       {
         "city": "Ahmedabad",
         "state": "Gujarat",
-        "shows": 7,
-        "venues": 3,
-        "totalSeats": 698,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Mahaprabhu Jagannath (2D - Odia)": {
-    "shows": 5,
-    "venues": 2,
-    "cities": 2,
-    "totalSeats": 969,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bhawanipatna",
-        "state": "Odisha",
         "shows": 4,
-        "venues": 1,
-        "totalSeats": 616,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Cuttack",
-        "state": "Odisha",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 353,
+        "venues": 3,
+        "totalSeats": 456,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1481,56 +1665,6 @@
       }
     ]
   },
-  "Evil Dead Burn (2D - Hindi)": {
-    "shows": 7,
-    "venues": 5,
-    "cities": 3,
-    "totalSeats": 1724,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bhawanipatna",
-        "state": "Odisha",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 160,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Berhampur",
-        "state": "Odisha",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 1108,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "shows": 4,
-        "venues": 3,
-        "totalSeats": 456,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Bara Badhu (2D - Odia)": {
     "shows": 1,
     "venues": 1,
@@ -1558,15 +1692,15 @@
     ]
   },
   "Koka Deuta Nati Aru Hati 2 (2D - Assamese)": {
-    "shows": 15,
-    "venues": 5,
-    "cities": 3,
-    "totalSeats": 2511,
-    "ticketsSold": 220,
-    "occupancy": 8.76,
-    "grossRevenue": 32639.76,
+    "shows": 18,
+    "venues": 6,
+    "cities": 4,
+    "totalSeats": 2706,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
     "fastfilling": 0,
-    "housefull": 1,
+    "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
       {
@@ -1575,11 +1709,23 @@
         "shows": 3,
         "venues": 1,
         "totalSeats": 660,
-        "ticketsSold": 220,
-        "occupancy": 33.33,
-        "grossRevenue": 32639.76,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
         "fastfilling": 0,
-        "housefull": 1
+        "housefull": 0
+      },
+      {
+        "city": "Barpeta Road",
+        "state": "Assam",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 195,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
       },
       {
         "city": "Lakhimpur",
@@ -1645,6 +1791,44 @@
       }
     ]
   },
+  "Main Vaapas Aaunga (2D - Hindi)": {
+    "shows": 12,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 968,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Deoria",
+        "state": "Uttar Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 400,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Khatima",
+        "state": "Uttarakhand",
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 568,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
   "Khalli Balli (2D - Hindi)": {
     "shows": 7,
     "venues": 2,
@@ -1671,15 +1855,41 @@
       }
     ]
   },
+  "Mahaprabhu Jagannath (2D - Odia)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 353,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Cuttack",
+        "state": "Odisha",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 353,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
   "The Odyssey (IMAX 2D - English)": {
     "shows": 13,
     "venues": 3,
     "cities": 3,
     "totalSeats": 4191,
-    "ticketsSold": 1485,
-    "occupancy": 35.43,
-    "grossRevenue": 893194.94,
-    "fastfilling": 2,
+    "ticketsSold": 1583,
+    "occupancy": 37.77,
+    "grossRevenue": 960016.84,
+    "fastfilling": 4,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
@@ -1689,10 +1899,10 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 1875,
-        "ticketsSold": 991,
-        "occupancy": 52.85,
-        "grossRevenue": 503764.94,
-        "fastfilling": 2,
+        "ticketsSold": 1026,
+        "occupancy": 54.72,
+        "grossRevenue": 521556.84,
+        "fastfilling": 4,
         "housefull": 0
       },
       {
@@ -1701,9 +1911,9 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 1292,
-        "ticketsSold": 129,
-        "occupancy": 9.98,
-        "grossRevenue": 84440.0,
+        "ticketsSold": 139,
+        "occupancy": 10.76,
+        "grossRevenue": 91510.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1713,9 +1923,9 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 1024,
-        "ticketsSold": 365,
-        "occupancy": 35.64,
-        "grossRevenue": 304990.0,
+        "ticketsSold": 418,
+        "occupancy": 40.82,
+        "grossRevenue": 346950.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -1953,32 +2163,6 @@
       }
     ]
   },
-  "Peddi (2D - Telugu)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 630,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Nandyal",
-        "state": "Andhra Pradesh",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 630,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Maa Inti Bangaaram (2D - Telugu)": {
     "shows": 2,
     "venues": 1,
@@ -2006,10 +2190,10 @@
     ]
   },
   "Dastaar (2D - Punjabi)": {
-    "shows": 20,
-    "venues": 3,
+    "shows": 32,
+    "venues": 4,
     "cities": 3,
-    "totalSeats": 3593,
+    "totalSeats": 5142,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -2020,9 +2204,9 @@
       {
         "city": "Hoshiarpur",
         "state": "Punjab",
-        "shows": 7,
-        "venues": 1,
-        "totalSeats": 1300,
+        "shows": 14,
+        "venues": 2,
+        "totalSeats": 2119,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -2044,9 +2228,9 @@
       {
         "city": "Rupnagar",
         "state": "Punjab",
-        "shows": 5,
+        "shows": 10,
         "venues": 1,
-        "totalSeats": 845,
+        "totalSeats": 1575,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -2056,10 +2240,10 @@
     ]
   },
   "Sarpanch (2D - Punjabi)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 332,
+    "shows": 7,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 1004,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -2070,9 +2254,71 @@
       {
         "city": "Hoshiarpur",
         "state": "Punjab",
+        "shows": 4,
+        "venues": 2,
+        "totalSeats": 566,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Rupnagar",
+        "state": "Punjab",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 438,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Carry on Jatta 4 (2D - Punjabi)": {
+    "shows": 4,
+    "venues": 3,
+    "cities": 3,
+    "totalSeats": 625,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hoshiarpur",
+        "state": "Punjab",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 117,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Dasuya",
+        "state": "Punjab",
         "shows": 2,
         "venues": 1,
-        "totalSeats": 332,
+        "totalSeats": 362,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Rupnagar",
+        "state": "Punjab",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 146,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -2107,32 +2353,6 @@
       }
     ]
   },
-  "Carry on Jatta 4 (2D - Punjabi)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 362,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Dasuya",
-        "state": "Punjab",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 362,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Chhaki Suna (2D - Odia)": {
     "shows": 3,
     "venues": 1,
@@ -2151,32 +2371,6 @@
         "shows": 3,
         "venues": 1,
         "totalSeats": 546,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Mahaprabhu Jagannath (2D - Hindi)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 182,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Rayagada",
-        "state": "Odisha",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 182,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -2224,10 +2418,10 @@
     ]
   },
   "Jindagi Once More (2D - Gujarati)": {
-    "shows": 3,
-    "venues": 2,
+    "shows": 7,
+    "venues": 3,
     "cities": 2,
-    "totalSeats": 253,
+    "totalSeats": 557,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -2250,9 +2444,9 @@
       {
         "city": "Ahmedabad",
         "state": "Gujarat",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 226,
+        "shows": 6,
+        "venues": 2,
+        "totalSeats": 530,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -2467,32 +2661,6 @@
       }
     ]
   },
-  "Main Vaapas Aaunga (2D - Hindi)": {
-    "shows": 8,
-    "venues": 2,
-    "cities": 1,
-    "totalSeats": 568,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Khatima",
-        "state": "Uttarakhand",
-        "shows": 8,
-        "venues": 2,
-        "totalSeats": 568,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Mor Wali Alag He (2D - Chattisgarhi)": {
     "shows": 8,
     "venues": 2,
@@ -2523,12 +2691,12 @@
     "shows": 4,
     "venues": 1,
     "cities": 1,
-    "totalSeats": 618,
-    "ticketsSold": 618,
+    "totalSeats": 927,
+    "ticketsSold": 927,
     "occupancy": 100.0,
-    "grossRevenue": 61800.0,
+    "grossRevenue": 92700.0,
     "fastfilling": 0,
-    "housefull": 2,
+    "housefull": 3,
     "movieInfo": {},
     "cityDetails": [
       {
@@ -2536,12 +2704,12 @@
         "state": "Andhra Pradesh",
         "shows": 4,
         "venues": 1,
-        "totalSeats": 618,
-        "ticketsSold": 618,
+        "totalSeats": 927,
+        "ticketsSold": 927,
         "occupancy": 100.0,
-        "grossRevenue": 61800.0,
+        "grossRevenue": 92700.0,
         "fastfilling": 0,
-        "housefull": 2
+        "housefull": 3
       }
     ]
   },
@@ -2682,6 +2850,32 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (IMAX 2D - Hindi)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 256,
+    "ticketsSold": 27,
+    "occupancy": 10.55,
+    "grossRevenue": 18610.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 256,
+        "ticketsSold": 27,
+        "occupancy": 10.55,
+        "grossRevenue": 18610.0,
         "fastfilling": 0,
         "housefull": 0
       }
