@@ -1,4 +1,52 @@
 {
+  "The Odyssey (2D - English)": {
+    "shows": 4,
+    "venues": 4,
+    "cities": 4,
+    "totalSeats": 720,
+    "ticketsSold": 174,
+    "occupancy": 24.17,
+    "grossRevenue": 31226.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 50,
+    "ticketsSold": 2,
+    "occupancy": 4.0,
+    "grossRevenue": 500.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Evil Dead Burn (2D - Hindi)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 108,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (2D - Hindi)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 443,
+    "ticketsSold": 18,
+    "occupancy": 4.06,
+    "grossRevenue": 3320.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
   "Rakta Charitra (2D - Telugu)": {
     "shows": 1,
     "venues": 1,
@@ -16,11 +64,23 @@
     "venues": 1,
     "cities": 1,
     "totalSeats": 886,
-    "ticketsSold": 445,
-    "occupancy": 50.23,
-    "grossRevenue": 59080.0,
+    "ticketsSold": 452,
+    "occupancy": 51.02,
+    "grossRevenue": 59960.0,
     "fastfilling": 1,
     "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (DOLBY CINEMA 2D - English)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 1233,
+    "ticketsSold": 868,
+    "occupancy": 70.4,
+    "grossRevenue": 370580.0,
+    "fastfilling": 0,
+    "housefull": 1,
     "movieInfo": {}
   }
 }
