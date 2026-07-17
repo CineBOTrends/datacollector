@@ -1,14 +1,26 @@
 {
   "The Odyssey (2D - English)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 326,
+    "ticketsSold": 73,
+    "occupancy": 22.39,
+    "grossRevenue": 19590.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Dhamaal 4 (2D - Hindi)": {
     "shows": 1,
     "venues": 1,
     "cities": 1,
-    "totalSeats": 209,
-    "ticketsSold": 13,
-    "occupancy": 6.22,
-    "grossRevenue": 2740.0,
+    "totalSeats": 174,
+    "ticketsSold": 174,
+    "occupancy": 100.0,
+    "grossRevenue": 46600.0,
     "fastfilling": 0,
-    "housefull": 0,
+    "housefull": 1,
     "movieInfo": {}
   }
 }

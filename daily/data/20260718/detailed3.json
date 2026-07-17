@@ -1,6 +1,24 @@
 [
   {
     "movie": "The Odyssey (2D - English)",
+    "venue": "PVR: Utkal Kanika Galleria, Bhubaneswar",
+    "address": "Kalpana Square, Gautam Nagar Street, Bhubaneswar, Odisha 751014, India",
+    "chain": "PVR",
+    "time": "07:00 AM",
+    "audi": "4K LASER DOLBY 7.1",
+    "session_id": "23355",
+    "totalSeats": 117,
+    "available": 57,
+    "ticketsSold": 60,
+    "grossRevenue": 16850.0,
+    "minsLeft": 123.4,
+    "city": "Bhubaneswar",
+    "state": "Odisha",
+    "source": "BMS",
+    "date": "20260718"
+  },
+  {
+    "movie": "The Odyssey (2D - English)",
     "venue": "Cinepolis: Central Mall, Guwahati",
     "address": "4th Floor, Central Mall, GS Road, Christian Basti, Near Income Tax Office, Guwahati, Assam 781005, India",
     "chain": "Cinepolis",
@@ -11,9 +29,27 @@
     "available": 196,
     "ticketsSold": 13,
     "grossRevenue": 2740.0,
-    "minsLeft": 142.6,
+    "minsLeft": 82.8,
     "city": "Guwahati",
     "state": "Assam",
+    "source": "BMS",
+    "date": "20260718"
+  },
+  {
+    "movie": "Dhamaal 4 (2D - Hindi)",
+    "venue": "Anjalee Cinema: Shillong",
+    "address": "Anjalee Complex, 25 Cantonment, Shillong, Meghalaya 793001, India",
+    "chain": "Anjalee",
+    "time": "07:45 AM",
+    "audi": "",
+    "session_id": "33296",
+    "totalSeats": 174,
+    "available": 0,
+    "ticketsSold": 174,
+    "grossRevenue": 46600.0,
+    "minsLeft": 165.8,
+    "city": "Shillong",
+    "state": "Meghalaya",
     "source": "BMS",
     "date": "20260718"
   }
