@@ -1,0 +1,27 @@
+{
+  "_comment": "Rename to tracked_movies.json to activate. Titles or slugs both work and format suffixes are not needed: 'Lenin' matches 'Lenin (2D - Telugu)' and 'Lenin (IMAX - Telugu)'.",
+
+  "_mode": "'all' collects every movie (same as having no file). 'selected' collects ONLY the list below.",
+
+  "_hide_untracked": "Applies to movies ALREADY collected. true (default) = the dashboard shows only the tracked list, everything else vanishes from the site. false = already-collected movies stay visible and the list only limits NEW scraping. Either way the raw data in R2 is untouched, so this is reversible.",
+
+  "_warning": "Filtering happens during the SCRAPE, so untracked movies are never stored going forward. Adding a title later gives it NO back-history - tracking starts from that moment. Add a movie BEFORE its bookings open.",
+
+  "mode": "selected",
+  "hide_untracked": true,
+
+  "movies": [
+    "The Odyssey",
+    "Jana Nayagan",
+    "Lenin",
+    "Spider-Man: Brand New Day",
+    "Dhamaal 4",
+    "Evil Dead Burn",
+    "The Nun 2",
+    "Idhayam Murali",
+    "Alpha",
+    "Gatta Kusthi 2",
+    "Welcome To The Jungle",
+    "Chennai Love Story"
+  ]
+}

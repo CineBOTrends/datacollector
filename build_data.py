@@ -172,6 +172,102 @@ def canonical_title(base):
     return t or (base or "").strip()
 
 
+# ============================================================
+# SELECTED-MOVIE TRACKING
+#
+# Filtering happens HERE, at build time — not at scrape or combine time.
+# Two reasons:
+#   1. It saves nothing to filter earlier. The scrape cost is per VENUE (one
+#      API call returns every movie playing there), so skipping a movie does
+#      not skip any work.
+#   2. It stays reversible. The raw + combined files in R2 keep every movie,
+#      so adding a title to the list later rebuilds its FULL history. Filter
+#      at combine time and that history is gone for good.
+#
+# tracked_movies.json (collector root, optional):
+#   { "mode": "selected",
+#     "movies": ["The Odyssey", "Lenin", "jana-nayagan"] }
+#
+# mode "all" (or no file at all) = track everything, i.e. current behaviour.
+# ============================================================
+TRACK_FILE = "tracked_movies.json"
+_track_cache = None
+
+
+def load_tracked(collector=None):
+    """Return (mode, keyset). mode is 'all' or 'selected'."""
+    global _track_cache
+    if _track_cache is not None:
+        return _track_cache
+
+    roots = [HERE]
+    if collector:
+        roots.insert(0, collector)
+
+    cfg = None
+    for root in roots:
+        fp = os.path.join(root, TRACK_FILE)
+        if os.path.exists(fp):
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    cfg = json.load(f)
+                print(f"  tracking list: {fp}")
+                break
+            except Exception as e:
+                print(f"    ! {TRACK_FILE} in {root} ignored ({e})")
+
+    if not cfg:
+        _track_cache = ("all", set())
+        return _track_cache
+
+    mode = str(cfg.get("mode", "selected")).strip().lower()
+    if mode not in ("all", "selected"):
+        mode = "selected"
+
+    # hide_untracked controls what happens to movies ALREADY collected:
+    #   true  (default) - the dashboard shows only the tracked list; everything
+    #                     else vanishes from the site (raw data is untouched, so
+    #                     removing the list brings it all back)
+    #   false           - already-collected movies stay on the site; the list
+    #                     only controls what is NEWLY scraped from now on
+    if mode == "selected" and cfg.get("hide_untracked") is False:
+        print("  hide_untracked=false -> keeping already-collected movies "
+              "visible; the list only limits NEW scraping")
+        _track_cache = ("all", set())
+        return _track_cache
+
+    keys = set()
+    for entry in cfg.get("movies", []) or []:
+        if not isinstance(entry, str) or not entry.strip():
+            continue
+        raw = entry.strip()
+        # accept a title ("The Odyssey"), a slug ("the-odyssey") or either case
+        keys.add(canon_key(raw))
+        keys.add(slugify(raw))
+        keys.add(canon_key(raw.replace("-", " ")))
+
+    if mode == "selected" and not keys:
+        # an empty list would publish an EMPTY dashboard — refuse and track all
+        print("    ! tracked_movies.json is mode=selected but lists no movies "
+              "-> tracking ALL (refusing to build an empty site)")
+        mode = "all"
+
+    _track_cache = (mode, keys)
+    return _track_cache
+
+
+def is_tracked(title, slug, tracked):
+    """Does this movie match the tracked list? Title OR slug, either form."""
+    mode, keys = tracked
+    if mode == "all":
+        return True
+    return (
+        canon_key(title) in keys
+        or slug in keys
+        or canon_key(slug.replace("-", " ")) in keys
+    )
+
+
 def canon_key(base):
     return canonical_title(base).casefold()
 
@@ -444,13 +540,20 @@ def build_date(mode, date, src_dir, out_dir):
             or global_dposters.get("fw:" + _first_word_key(title))
         )
 
+    tracked = load_tracked()
+
     index = []
     movies_for_history = {}
     used_slugs = set()
+    skipped = 0
     for ck, mrows in grouped.items():
         title = display.get(ck) or ck
         movie = build_movie(title, mrows)
         slug = movie["slug"]
+        # not on the tracked list -> don't publish it (raw data is untouched)
+        if not is_tracked(title, slug, tracked):
+            skipped += 1
+            continue
         if slug in used_slugs:
             n = 2
             while f"{slug}-{n}" in used_slugs:
@@ -506,7 +609,11 @@ def build_date(mode, date, src_dir, out_dir):
     with open(os.path.join(out_dir, "national.json"), "w", encoding="utf-8") as f:
         json.dump(national_obj, f, ensure_ascii=False, separators=(",", ":"))
 
-    print(f"    + {mode}/{date}: {len(index)} movies, {len(rows)} shows")
+    note = f", {skipped} not tracked" if skipped else ""
+    print(f"    + {mode}/{date}: {len(index)} movies, {len(rows)} shows{note}")
+    if skipped and not index:
+        print(f"    ! {mode}/{date}: tracked list matched NOTHING here - "
+              f"check the titles in {TRACK_FILE}")
     return {"date": date, "last_updated": last_updated, "movies": movies_for_history}
 
 

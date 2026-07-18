@@ -289,6 +289,20 @@ def discover_opening_days(window_days=None, probe_shard=None, force=False,
         if verbose and hits:
             print(f"    {dc}: NEW -> {', '.join(sorted(hits))}")
 
+    # Only chase opening days for films we actually track. Discovery is
+    # deliberately unfiltered (we want to SEE everything), but collection is
+    # not: scraping 9 shards for a film the tracked list will discard produces
+    # an empty date and burns CI minutes for nothing.
+    from scraper.tracked_filter import load_tracked, is_tracked
+    tmode, _ = load_tracked()
+    if tmode != "all":
+        before = len(first_seen)
+        first_seen = {t: d for t, d in first_seen.items() if is_tracked(t)}
+        skipped = before - len(first_seen)
+        if skipped:
+            print(f"  {skipped} upcoming film(s) found but not on the tracked "
+                  f"list -> not collecting them")
+
     opening = {}
     for title, d in first_seen.items():
         opening.setdefault(ymd(d), []).append(title)

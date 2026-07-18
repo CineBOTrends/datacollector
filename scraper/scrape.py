@@ -61,6 +61,12 @@ def run_shard(mode: str, shard_id: int, date_code: str = None):
 
     logger = _get_logger(shard_id, log_file)
 
+    # State the tracking scope up front so it's visible in the Actions log —
+    # otherwise a mis-typed title looks like "the scrape found nothing".
+    from scraper.tracked_filter import load_tracked, describe
+    if load_tracked()[0] != "all":
+        logger.info(describe())
+
     if shard_id == 9:
         _run_shard_async(config, shard_id, detailed_file, summary_file, logger)
     else:
@@ -162,12 +168,23 @@ def _run_shard_sync(config, shard_id, detailed_file, summary_file, logger):
 
         time.sleep(random.uniform(0.35, 0.7))
 
+    # Keep only tracked movies. Done BEFORE dedupe/merge/summary so untracked
+    # titles never reach the shard files, the combined files, R2 or the site.
+    from scraper.tracked_filter import filter_rows, load_tracked
+    if load_tracked()[0] != "all":
+        all_rows = filter_rows(all_rows, logger, f" (shard {shard_id})")
+
     # Daily: merge with old data
     if is_daily:
         detailed = merge_with_old_sync(all_rows, detailed_file)
     else:
         logger.info("Deduping shows")
         detailed = dedupe(all_rows)
+
+    # merge_with_old_sync re-introduces yesterday's rows from the existing file,
+    # which may predate the tracked list — filter again after the merge.
+    if is_daily and load_tracked()[0] != "all":
+        detailed = filter_rows(detailed, logger, " (post-merge)")
 
     # Build summary
     if is_daily:
@@ -227,14 +244,23 @@ async def _run_shard_async_impl(config, shard_id, detailed_file, summary_file, l
         fresh = parse_district_daily(
             results, dc, config["cutoff_minutes"], now_ist
         )
+        from scraper.tracked_filter import filter_rows, load_tracked
+        if load_tracked()[0] != "all":
+            fresh = filter_rows(fresh, logger, " (district)")
         # Merge with old data
         detailed = merge_with_old_async(fresh, detailed_file)
+        # the merge pulls back earlier rows that may predate the tracked list
+        if load_tracked()[0] != "all":
+            detailed = filter_rows(detailed, logger, " (post-merge)")
         # Build summary
         from scraper.summary import build_summary_daily_async
         final_summary = build_summary_daily_async(detailed)
     else:
         from scraper.parser import parse_district_advance
         detailed = parse_district_advance(results, dc)
+        from scraper.tracked_filter import filter_rows, load_tracked
+        if load_tracked()[0] != "all":
+            detailed = filter_rows(detailed, logger, " (district)")
         # Build summary
         from scraper.summary import build_summary_with_city_details
         final_summary = build_summary_with_city_details(detailed)
