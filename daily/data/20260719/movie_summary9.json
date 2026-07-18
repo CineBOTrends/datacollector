@@ -35,15 +35,85 @@
     }
   },
   "The Odyssey (2D - English)": {
-    "shows": 6,
-    "gross": 70990.0,
-    "sold": 259,
-    "totalSeats": 1441,
-    "venues": 6,
-    "cities": 3,
+    "shows": 27,
+    "gross": 273490.0,
+    "sold": 874,
+    "totalSeats": 6529,
+    "venues": 27,
+    "cities": 14,
+    "fastfilling": 2,
+    "housefull": 0,
+    "occupancy": 13.39,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "4DX-2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 24,
+    "gross": 6308100.0,
+    "sold": 6182,
+    "totalSeats": 8486,
+    "venues": 19,
+    "cities": 10,
+    "fastfilling": 22,
+    "housefull": 0,
+    "occupancy": 72.85,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  "The Odyssey (2D - Hindi)": {
+    "shows": 2,
+    "gross": 1196.0,
+    "sold": 4,
+    "totalSeats": 71,
+    "venues": 2,
+    "cities": 2,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 17.97,
+    "occupancy": 5.63,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -66,19 +136,19 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 14
+      "totalSessionCount": 6
     }
   },
   "The Odyssey (4DX-2D - English)": {
-    "shows": 2,
-    "gross": 34490.0,
-    "sold": 65,
-    "totalSeats": 192,
-    "venues": 2,
-    "cities": 2,
+    "shows": 5,
+    "gross": 58940.0,
+    "sold": 117,
+    "totalSeats": 452,
+    "venues": 5,
+    "cities": 5,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 33.85,
+    "occupancy": 25.88,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -102,41 +172,6 @@
       },
       "isNew": false,
       "totalSessionCount": 6
-    }
-  },
-  "The Odyssey (IMAX 2D - English)": {
-    "shows": 7,
-    "gross": 1672460.0,
-    "sold": 1805,
-    "totalSeats": 2771,
-    "venues": 7,
-    "cities": 2,
-    "fastfilling": 5,
-    "housefull": 0,
-    "occupancy": 65.14,
-    "movieInfo": {
-      "contentId": 187151,
-      "name": "The Odyssey",
-      "lang": "English",
-      "scrnFmt": "IMAX 2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 175,
-      "genres": [
-        "Adventure",
-        "Epic"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 7
     }
   },
   "The Odyssey (MX4D - English)": {
@@ -172,6 +207,41 @@
       },
       "isNew": false,
       "totalSessionCount": 7
+    }
+  },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 4,
+    "gross": 2581.0,
+    "sold": 24,
+    "totalSeats": 1082,
+    "venues": 4,
+    "cities": 2,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 2.22,
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 16
     }
   }
 }
