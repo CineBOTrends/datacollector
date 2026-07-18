@@ -1,1 +1,26 @@
-{}
+{
+  "The Odyssey (2D - English)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 1,
+    "totalSeats": 356,
+    "ticketsSold": 33,
+    "occupancy": 9.27,
+    "grossRevenue": 7240.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 275,
+    "ticketsSold": 205,
+    "occupancy": 74.55,
+    "grossRevenue": 191200.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {}
+  }
+}
