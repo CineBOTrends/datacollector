@@ -353,6 +353,23 @@ def finalize(acc):
 # --------------------------------------------------------------------------- #
 #  Per-movie aggregation
 # --------------------------------------------------------------------------- #
+_CITY_STATE = None
+
+
+def _city_state(city):
+    """City -> state, for rows whose venue record carried no state."""
+    global _CITY_STATE
+    if _CITY_STATE is None:
+        fp = os.path.join(HERE, "venues", "city_state.json")
+        try:
+            with open(fp, encoding="utf-8") as f:
+                _CITY_STATE = json.load(f)
+            print(f"  city->state map: {len(_CITY_STATE)} cities")
+        except Exception:
+            _CITY_STATE = {}
+    return _CITY_STATE.get(" ".join(str(city).split()).casefold(), "Unknown")
+
+
 def build_movie(title, rows):
     """rows: every show row whose base title == `title`."""
     languages, formats = set(), set()
@@ -384,8 +401,13 @@ def build_movie(title, rows):
         if lang:
             add_show(lang_acc[lang], sold, seats, gross)
 
-        state = (r.get("state") or "Unknown").strip() or "Unknown"
         city = (r.get("city") or "Unknown").strip() or "Unknown"
+        state = (r.get("state") or "").strip()
+        if not state or state == "Unknown":
+            # Applied here as well as in the parser so ALREADY-COLLECTED data is
+            # corrected on the next build — otherwise every row scraped before
+            # the fix would stay stuck under a bogus "Unknown" state forever.
+            state = _city_state(city)
         venue = (r.get("venue") or "Unknown").strip() or "Unknown"
 
         st = states.setdefault(state, {"agg": blank(venues=set()),

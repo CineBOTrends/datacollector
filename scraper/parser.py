@@ -25,8 +25,38 @@ IST_TZ = pytz.timezone("Asia/Kolkata")
 # =====================================================
 # HELPERS (District API)
 # =====================================================
-def format_state(s):
+# 56% of District venue records (1431/2518) carry no state at all — they are
+# stubs with just a city and an id, no address or pincode either. Those rows all
+# collapsed into a single bogus "Unknown" state on the dashboard, even though
+# their cities (Mumbai, New Delhi, Ahmedabad...) obviously belong somewhere.
+# venues/city_state.json maps city -> state and fills the gap.
+_CITY_STATE = None
+
+
+def _city_state_map():
+    global _CITY_STATE
+    if _CITY_STATE is None:
+        import json as _json
+        import os as _os
+        fp = _os.path.join(
+            _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+            "venues", "city_state.json",
+        )
+        try:
+            with open(fp, encoding="utf-8") as f:
+                _CITY_STATE = _json.load(f)
+        except Exception:
+            _CITY_STATE = {}
+    return _CITY_STATE
+
+
+def format_state(s, city=None):
+    """Normalise the state. Falls back to a city lookup when it's missing."""
     if not s:
+        if city:
+            hit = _city_state_map().get(" ".join(str(city).split()).casefold())
+            if hit:
+                return hit
         return "Unknown"
     return " ".join(w.capitalize() for w in s.replace("-", " ").split())
 
@@ -203,7 +233,9 @@ def parse_district_advance(results, date_code):
         data = res.get("data", {}) or {}
 
         city = venue_meta.get("city") or venue_meta.get("City") or "Unknown"
-        state = format_state(venue_meta.get("state") or venue_meta.get("State"))
+        state = format_state(
+            venue_meta.get("state") or venue_meta.get("State"), city
+        )
 
         cinema = data.get("meta", {}).get("cinema", {}) or {}
         venue_name = cinema.get("name") or venue_meta.get("name") or venue_meta.get("district_name") or "Unknown"
@@ -270,7 +302,9 @@ def parse_district_daily(results, date_code, cutoff_minutes, now_ist):
         data = res.get("data", {}) or {}
 
         city = venue_meta.get("city") or venue_meta.get("City") or "Unknown"
-        state = format_state(venue_meta.get("state") or venue_meta.get("State"))
+        state = format_state(
+            venue_meta.get("state") or venue_meta.get("State"), city
+        )
 
         cinema = data.get("meta", {}).get("cinema", {}) or {}
         venue_name = cinema.get("name") or venue_meta.get("name") or venue_meta.get("district_name") or "Unknown"
