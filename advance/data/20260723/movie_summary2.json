@@ -1,12 +1,12 @@
 {
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 171,
-    "venues": 39,
-    "cities": 32,
-    "totalSeats": 37533,
-    "ticketsSold": 75,
-    "occupancy": 0.2,
-    "grossRevenue": 15000.0,
+    "shows": 227,
+    "venues": 51,
+    "cities": 40,
+    "totalSeats": 47755,
+    "ticketsSold": 379,
+    "occupancy": 0.79,
+    "grossRevenue": 71000.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -48,11 +48,11 @@
         "housefull": 0
       },
       {
-        "city": "Ahmedabad",
+        "city": "Gandhinagar",
         "state": "Gujarat",
-        "shows": 6,
-        "venues": 1,
-        "totalSeats": 251,
+        "shows": 31,
+        "venues": 3,
+        "totalSeats": 3078,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -60,11 +60,11 @@
         "housefull": 0
       },
       {
-        "city": "Gandhinagar",
+        "city": "Ahmedabad",
         "state": "Gujarat",
-        "shows": 10,
+        "shows": 7,
         "venues": 1,
-        "totalSeats": 715,
+        "totalSeats": 305,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -96,6 +96,30 @@
         "housefull": 0
       },
       {
+        "city": "Ranchi",
+        "state": "Jharkhand",
+        "shows": 5,
+        "venues": 2,
+        "totalSeats": 1794,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Navsari",
+        "state": "Gujarat",
+        "shows": 7,
+        "venues": 1,
+        "totalSeats": 1981,
+        "ticketsSold": 175,
+        "occupancy": 8.83,
+        "grossRevenue": 29680.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Singrauli",
         "state": "Madhya Pradesh",
         "shows": 4,
@@ -104,6 +128,18 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Silchar",
+        "state": "Assam",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 744,
+        "ticketsSold": 39,
+        "occupancy": 5.24,
+        "grossRevenue": 10300.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -122,9 +158,9 @@
       {
         "city": "Vadodara",
         "state": "Gujarat",
-        "shows": 35,
-        "venues": 3,
-        "totalSeats": 7740,
+        "shows": 36,
+        "venues": 4,
+        "totalSeats": 8376,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -204,6 +240,18 @@
         "housefull": 0
       },
       {
+        "city": "Gondia",
+        "state": "Maharashtra",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 600,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Balangir",
         "state": "Odisha",
         "shows": 2,
@@ -276,6 +324,18 @@
         "housefull": 0
       },
       {
+        "city": "Chandigarh",
+        "state": "Punjab",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 1000,
+        "ticketsSold": 90,
+        "occupancy": 9.0,
+        "grossRevenue": 16020.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Bhatgaon",
         "state": "Chhattisgarh",
         "shows": 4,
@@ -293,6 +353,18 @@
         "shows": 10,
         "venues": 2,
         "totalSeats": 3104,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bahadurgarh",
+        "state": "Haryana",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 616,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -341,6 +413,30 @@
         "shows": 10,
         "venues": 3,
         "totalSeats": 3960,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Chandannagar",
+        "state": "West Bengal",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 174,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Tarkeshwar",
+        "state": "West Bengal",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 260,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -398,10 +494,10 @@
     ]
   },
   "Evil Dead Burn (2D - Hindi)": {
-    "shows": 8,
-    "venues": 4,
-    "cities": 4,
-    "totalSeats": 2506,
+    "shows": 12,
+    "venues": 8,
+    "cities": 8,
+    "totalSeats": 3060,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -415,6 +511,18 @@
         "shows": 2,
         "venues": 1,
         "totalSeats": 1526,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Gandhinagar",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 32,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -446,6 +554,18 @@
         "housefull": 0
       },
       {
+        "city": "Gondia",
+        "state": "Maharashtra",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 145,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Saharsa",
         "state": "Bihar",
         "shows": 1,
@@ -456,65 +576,13 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
-      }
-    ]
-  },
-  "Baby Do Die Do (2D - Hindi)": {
-    "shows": 5,
-    "venues": 3,
-    "cities": 2,
-    "totalSeats": 1651,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Kolkata",
-        "state": "West Bengal",
-        "shows": 3,
-        "venues": 2,
-        "totalSeats": 1349,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
       },
       {
-        "city": "Barrackpore",
-        "state": "West Bengal",
-        "shows": 2,
+        "city": "Bahadurgarh",
+        "state": "Haryana",
+        "shows": 1,
         "venues": 1,
-        "totalSeats": 302,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Aajo Ardhangini (2D - Bengali)": {
-    "shows": 8,
-    "venues": 5,
-    "cities": 3,
-    "totalSeats": 1404,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Kolkata",
-        "state": "West Bengal",
-        "shows": 5,
-        "venues": 3,
-        "totalSeats": 1052,
+        "totalSeats": 290,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -522,61 +590,11 @@
         "housefull": 0
       },
       {
-        "city": "Barrackpore",
-        "state": "West Bengal",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 302,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Bakhrahat",
+        "city": "Chandannagar",
         "state": "West Bengal",
         "shows": 1,
         "venues": 1,
-        "totalSeats": 50,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Nagabandham - The Secret Treasure (2D - Hindi)": {
-    "shows": 4,
-    "venues": 2,
-    "cities": 2,
-    "totalSeats": 831,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Kolkata",
-        "state": "West Bengal",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 381,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Maheshtala",
-        "state": "West Bengal",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 450,
+        "totalSeats": 87,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -586,10 +604,10 @@
     ]
   },
   "Welcome To The Jungle (2D - Hindi)": {
-    "shows": 13,
-    "venues": 6,
-    "cities": 4,
-    "totalSeats": 1718,
+    "shows": 19,
+    "venues": 8,
+    "cities": 6,
+    "totalSeats": 2105,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -622,6 +640,30 @@
         "housefull": 0
       },
       {
+        "city": "Gandhinagar",
+        "state": "Gujarat",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 87,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ranchi",
+        "state": "Jharkhand",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 300,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Vadodara",
         "state": "Gujarat",
         "shows": 4,
@@ -642,106 +684,6 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Raavan (2D - Bengali)": {
-    "shows": 3,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 150,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bakhrahat",
-        "state": "West Bengal",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 150,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Oh..! Sukumari (2D - Telugu)": {
-    "shows": 20,
-    "venues": 5,
-    "cities": 5,
-    "totalSeats": 6816,
-    "ticketsSold": 68,
-    "occupancy": 1.0,
-    "grossRevenue": 10030.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "B.Kothakota",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 656,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Neelapalli",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1708,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Rajahmundry",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 976,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Madanapalle",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 2628,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Guntur",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 848,
-        "ticketsSold": 68,
-        "occupancy": 8.02,
-        "grossRevenue": 10030.0,
         "fastfilling": 0,
         "housefull": 0
       }
@@ -894,15 +836,15 @@
     ]
   },
   "Jana Nayagan (2D - Tamil)": {
-    "shows": 377,
-    "venues": 85,
-    "cities": 19,
-    "totalSeats": 128038,
-    "ticketsSold": 39722,
-    "occupancy": 31.02,
-    "grossRevenue": 22126918.8,
-    "fastfilling": 34,
-    "housefull": 33,
+    "shows": 467,
+    "venues": 121,
+    "cities": 24,
+    "totalSeats": 152243,
+    "ticketsSold": 49537,
+    "occupancy": 32.54,
+    "grossRevenue": 27505900.2,
+    "fastfilling": 59,
+    "housefull": 36,
     "movieInfo": {},
     "cityDetails": [
       {
@@ -910,12 +852,48 @@
         "state": "Kerala",
         "shows": 12,
         "venues": 2,
-        "totalSeats": 2673,
-        "ticketsSold": 336,
-        "occupancy": 12.57,
-        "grossRevenue": 57350.0,
+        "totalSeats": 2682,
+        "ticketsSold": 475,
+        "occupancy": 17.71,
+        "grossRevenue": 79950.0,
         "fastfilling": 0,
         "housefull": 1
+      },
+      {
+        "city": "Gandhinagar",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 172,
+        "ticketsSold": 6,
+        "occupancy": 3.49,
+        "grossRevenue": 2100.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bodinayakanur",
+        "state": "Tamil Nadu",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2428,
+        "ticketsSold": 107,
+        "occupancy": 4.41,
+        "grossRevenue": 21290.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Panachamoodu",
+        "state": "Tamil Nadu",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 1875,
+        "ticketsSold": 450,
+        "occupancy": 24.0,
+        "grossRevenue": 81000.0,
+        "fastfilling": 1,
+        "housefull": 0
       },
       {
         "city": "Thalikulam",
@@ -923,9 +901,9 @@
         "shows": 6,
         "venues": 1,
         "totalSeats": 1878,
-        "ticketsSold": 183,
-        "occupancy": 9.74,
-        "grossRevenue": 26130.0,
+        "ticketsSold": 220,
+        "occupancy": 11.71,
+        "grossRevenue": 31680.0,
         "fastfilling": 1,
         "housefull": 0
       },
@@ -935,9 +913,9 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 1430,
-        "ticketsSold": 70,
-        "occupancy": 4.9,
-        "grossRevenue": 13315.8,
+        "ticketsSold": 85,
+        "occupancy": 5.94,
+        "grossRevenue": 16704.8,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -947,9 +925,9 @@
         "shows": 7,
         "venues": 1,
         "totalSeats": 2175,
-        "ticketsSold": 332,
-        "occupancy": 15.26,
-        "grossRevenue": 52508.0,
+        "ticketsSold": 378,
+        "occupancy": 17.38,
+        "grossRevenue": 59887.2,
         "fastfilling": 1,
         "housefull": 0
       },
@@ -959,9 +937,9 @@
         "shows": 6,
         "venues": 1,
         "totalSeats": 1290,
-        "ticketsSold": 241,
-        "occupancy": 18.68,
-        "grossRevenue": 33443.2,
+        "ticketsSold": 276,
+        "occupancy": 21.4,
+        "grossRevenue": 38269.0,
         "fastfilling": 1,
         "housefull": 0
       },
@@ -971,9 +949,21 @@
         "shows": 15,
         "venues": 3,
         "totalSeats": 3480,
-        "ticketsSold": 144,
-        "occupancy": 4.14,
-        "grossRevenue": 26880.0,
+        "ticketsSold": 182,
+        "occupancy": 5.23,
+        "grossRevenue": 34190.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 176,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -983,10 +973,22 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 800,
-        "ticketsSold": 69,
-        "occupancy": 8.62,
-        "grossRevenue": 15680.0,
+        "ticketsSold": 94,
+        "occupancy": 11.75,
+        "grossRevenue": 20810.0,
         "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Erode",
+        "state": "Tamil Nadu",
+        "shows": 12,
+        "venues": 2,
+        "totalSeats": 3416,
+        "ticketsSold": 1547,
+        "occupancy": 45.29,
+        "grossRevenue": 298620.0,
+        "fastfilling": 6,
         "housefull": 0
       },
       {
@@ -995,23 +997,23 @@
         "shows": 1,
         "venues": 1,
         "totalSeats": 977,
-        "ticketsSold": 209,
-        "occupancy": 21.39,
-        "grossRevenue": 110100.0,
+        "ticketsSold": 222,
+        "occupancy": 22.72,
+        "grossRevenue": 116900.0,
         "fastfilling": 0,
         "housefull": 0
       },
       {
         "city": "Trivandrum",
         "state": "Kerala",
-        "shows": 211,
-        "venues": 26,
-        "totalSeats": 66102,
-        "ticketsSold": 15118,
-        "occupancy": 22.87,
-        "grossRevenue": 2833217.1,
-        "fastfilling": 18,
-        "housefull": 13
+        "shows": 221,
+        "venues": 27,
+        "totalSeats": 67952,
+        "ticketsSold": 17726,
+        "occupancy": 26.09,
+        "grossRevenue": 3304109.9,
+        "fastfilling": 26,
+        "housefull": 16
       },
       {
         "city": "Vadakara",
@@ -1019,9 +1021,9 @@
         "shows": 10,
         "venues": 2,
         "totalSeats": 4325,
-        "ticketsSold": 604,
-        "occupancy": 13.97,
-        "grossRevenue": 78715.0,
+        "ticketsSold": 680,
+        "occupancy": 15.72,
+        "grossRevenue": 87865.0,
         "fastfilling": 0,
         "housefull": 1
       },
@@ -1031,9 +1033,9 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 1390,
-        "ticketsSold": 51,
-        "occupancy": 3.67,
-        "grossRevenue": 6755.3,
+        "ticketsSold": 73,
+        "occupancy": 5.25,
+        "grossRevenue": 10030.5,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1043,9 +1045,9 @@
         "shows": 4,
         "venues": 1,
         "totalSeats": 1100,
-        "ticketsSold": 28,
-        "occupancy": 2.55,
-        "grossRevenue": 3634.4,
+        "ticketsSold": 81,
+        "occupancy": 7.36,
+        "grossRevenue": 10513.8,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1055,9 +1057,9 @@
         "shows": 5,
         "venues": 1,
         "totalSeats": 1210,
-        "ticketsSold": 14,
-        "occupancy": 1.16,
-        "grossRevenue": 2400.0,
+        "ticketsSold": 44,
+        "occupancy": 3.64,
+        "grossRevenue": 6900.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1067,9 +1069,9 @@
         "shows": 6,
         "venues": 1,
         "totalSeats": 2021,
-        "ticketsSold": 663,
-        "occupancy": 32.81,
-        "grossRevenue": 103000.0,
+        "ticketsSold": 717,
+        "occupancy": 35.48,
+        "grossRevenue": 111450.0,
         "fastfilling": 2,
         "housefull": 0
       },
@@ -1079,10 +1081,10 @@
         "shows": 6,
         "venues": 1,
         "totalSeats": 2682,
-        "ticketsSold": 215,
-        "occupancy": 8.02,
-        "grossRevenue": 33750.0,
-        "fastfilling": 0,
+        "ticketsSold": 308,
+        "occupancy": 11.48,
+        "grossRevenue": 48800.0,
+        "fastfilling": 1,
         "housefull": 0
       },
       {
@@ -1091,9 +1093,9 @@
         "shows": 6,
         "venues": 1,
         "totalSeats": 1848,
-        "ticketsSold": 34,
-        "occupancy": 1.84,
-        "grossRevenue": 5100.0,
+        "ticketsSold": 36,
+        "occupancy": 1.95,
+        "grossRevenue": 5400.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1102,51 +1104,185 @@
         "state": "Kerala",
         "shows": 8,
         "venues": 1,
-        "totalSeats": 2225,
-        "ticketsSold": 35,
-        "occupancy": 1.57,
-        "grossRevenue": 5250.0,
+        "totalSeats": 2296,
+        "ticketsSold": 153,
+        "occupancy": 6.66,
+        "grossRevenue": 21240.0,
         "fastfilling": 0,
         "housefull": 0
       },
       {
         "city": "Bengaluru",
         "state": "Karnataka",
-        "shows": 35,
-        "venues": 35,
-        "totalSeats": 25425,
-        "ticketsSold": 20758,
-        "occupancy": 81.64,
-        "grossRevenue": 18582600.0,
-        "fastfilling": 11,
+        "shows": 88,
+        "venues": 63,
+        "totalSeats": 38946,
+        "ticketsSold": 24750,
+        "occupancy": 63.55,
+        "grossRevenue": 22889320.0,
+        "fastfilling": 19,
         "housefull": 18
       },
       {
         "city": "Kozhikode",
         "state": "Kerala",
-        "shows": 25,
-        "venues": 4,
-        "totalSeats": 5007,
-        "ticketsSold": 618,
-        "occupancy": 12.34,
-        "grossRevenue": 137090.0,
+        "shows": 29,
+        "venues": 5,
+        "totalSeats": 5694,
+        "ticketsSold": 927,
+        "occupancy": 16.28,
+        "grossRevenue": 208870.0,
+        "fastfilling": 1,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 31,
+    "venues": 13,
+    "cities": 9,
+    "totalSeats": 12732,
+    "ticketsSold": 542,
+    "occupancy": 4.26,
+    "grossRevenue": 92360.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Gandhinagar",
+        "state": "Gujarat",
+        "shows": 6,
+        "venues": 2,
+        "totalSeats": 753,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Navsari",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 379,
+        "ticketsSold": 27,
+        "occupancy": 7.12,
+        "grossRevenue": 4960.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Silchar",
+        "state": "Assam",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 246,
+        "ticketsSold": 109,
+        "occupancy": 44.31,
+        "grossRevenue": 38400.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "shows": 2,
+        "venues": 2,
+        "totalSeats": 398,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Tadepalligudem",
+        "state": "Andhra Pradesh",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 244,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Chandigarh",
+        "state": "Punjab",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 410,
+        "ticketsSold": 34,
+        "occupancy": 8.29,
+        "grossRevenue": 6460.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Tarkeshwar",
+        "state": "West Bengal",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 284,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Hooghly",
+        "state": "West Bengal",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 236,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "shows": 12,
+        "venues": 3,
+        "totalSeats": 9782,
+        "ticketsSold": 372,
+        "occupancy": 3.8,
+        "grossRevenue": 42540.0,
         "fastfilling": 0,
         "housefull": 0
       }
     ]
   },
   "The Odyssey (2D - Hindi)": {
-    "shows": 39,
-    "venues": 11,
-    "cities": 9,
-    "totalSeats": 7735,
-    "ticketsSold": 75,
-    "occupancy": 0.97,
-    "grossRevenue": 16200.0,
+    "shows": 71,
+    "venues": 21,
+    "cities": 17,
+    "totalSeats": 13493,
+    "ticketsSold": 241,
+    "occupancy": 1.79,
+    "grossRevenue": 50400.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
+      {
+        "city": "Gandhinagar",
+        "state": "Gujarat",
+        "shows": 16,
+        "venues": 3,
+        "totalSeats": 1748,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
       {
         "city": "Ahmedabad",
         "state": "Gujarat",
@@ -1160,14 +1296,26 @@
         "housefull": 0
       },
       {
-        "city": "Gandhinagar",
+        "city": "Navsari",
         "state": "Gujarat",
-        "shows": 4,
+        "shows": 3,
         "venues": 1,
-        "totalSeats": 200,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
+        "totalSeats": 1137,
+        "ticketsSold": 81,
+        "occupancy": 7.12,
+        "grossRevenue": 13530.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Silchar",
+        "state": "Assam",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 82,
+        "ticketsSold": 34,
+        "occupancy": 41.46,
+        "grossRevenue": 12000.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1220,6 +1368,18 @@
         "housefull": 0
       },
       {
+        "city": "Gondia",
+        "state": "Maharashtra",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 435,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
         "city": "Abohar",
         "state": "Punjab",
         "shows": 4,
@@ -1228,6 +1388,18 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Chandigarh",
+        "state": "Punjab",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 615,
+        "ticketsSold": 51,
+        "occupancy": 8.29,
+        "grossRevenue": 8670.0,
         "fastfilling": 0,
         "housefull": 0
       },
@@ -1254,27 +1426,13 @@
         "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
-      }
-    ]
-  },
-  "The Odyssey (2D - English)": {
-    "shows": 18,
-    "venues": 8,
-    "cities": 5,
-    "totalSeats": 10608,
-    "ticketsSold": 255,
-    "occupancy": 2.4,
-    "grossRevenue": 28190.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
+      },
       {
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "shows": 1,
+        "city": "Bahadurgarh",
+        "state": "Haryana",
+        "shows": 4,
         "venues": 1,
-        "totalSeats": 54,
+        "totalSeats": 1160,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1282,11 +1440,11 @@
         "housefull": 0
       },
       {
-        "city": "Gandhinagar",
-        "state": "Gujarat",
-        "shows": 1,
+        "city": "Chandannagar",
+        "state": "West Bengal",
+        "shows": 3,
         "venues": 1,
-        "totalSeats": 50,
+        "totalSeats": 261,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1294,23 +1452,11 @@
         "housefull": 0
       },
       {
-        "city": "Vadodara",
-        "state": "Gujarat",
-        "shows": 2,
-        "venues": 2,
-        "totalSeats": 398,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Tadepalligudem",
-        "state": "Andhra Pradesh",
+        "city": "Tarkeshwar",
+        "state": "West Bengal",
         "shows": 2,
         "venues": 1,
-        "totalSeats": 244,
+        "totalSeats": 284,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1318,24 +1464,24 @@
         "housefull": 0
       },
       {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 12,
-        "venues": 3,
-        "totalSeats": 9862,
-        "ticketsSold": 255,
-        "occupancy": 2.59,
-        "grossRevenue": 28190.0,
+        "city": "Hooghly",
+        "state": "West Bengal",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 236,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
         "fastfilling": 0,
         "housefull": 0
       }
     ]
   },
   "Alpha (2D - Hindi)": {
-    "shows": 15,
-    "venues": 5,
-    "cities": 5,
-    "totalSeats": 2495,
+    "shows": 16,
+    "venues": 6,
+    "cities": 6,
+    "totalSeats": 2640,
     "ticketsSold": 0,
     "occupancy": 0.0,
     "grossRevenue": 0.0,
@@ -1343,6 +1489,18 @@
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
+      {
+        "city": "Gandhinagar",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 145,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
       {
         "city": "Ahmedabad",
         "state": "Gujarat",
@@ -1405,232 +1563,14 @@
       }
     ]
   },
-  "State of Ramadhani: Dharyu Dhani Nu Thay (2D - Gujarati)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 82,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 82,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Jindagi Once More (2D - Gujarati)": {
-    "shows": 8,
-    "venues": 3,
-    "cities": 2,
-    "totalSeats": 952,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 41,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Vadodara",
-        "state": "Gujarat",
-        "shows": 7,
-        "venues": 2,
-        "totalSeats": 911,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Aghru Che Yaar (2D - Gujarati)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 47,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 47,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Rangaaa (2D - Gujarati)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 41,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Ahmedabad",
-        "state": "Gujarat",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 41,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Cocktail 2 (2D - Hindi)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 143,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Gandhinagar",
-        "state": "Gujarat",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 143,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Rahun Main Tere Rubaru (2D - Hindi)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 85,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Zarap",
-        "state": "Maharashtra",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 85,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Anbe Diana (2D - Tamil)": {
-    "shows": 10,
-    "venues": 3,
-    "cities": 3,
-    "totalSeats": 7374,
-    "ticketsSold": 1028,
-    "occupancy": 13.94,
-    "grossRevenue": 109400.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bodinayakanur",
-        "state": "Tamil Nadu",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 790,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Mysuru (Mysore)",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 3528,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 3056,
-        "ticketsSold": 1028,
-        "occupancy": 33.64,
-        "grossRevenue": 109400.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
   "Gatta Kusthi 2 (2D - Tamil)": {
     "shows": 3,
     "venues": 2,
     "cities": 2,
     "totalSeats": 1350,
-    "ticketsSold": 53,
-    "occupancy": 3.93,
-    "grossRevenue": 6360.0,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -1653,96 +1593,6 @@
         "shows": 1,
         "venues": 1,
         "totalSeats": 560,
-        "ticketsSold": 53,
-        "occupancy": 9.46,
-        "grossRevenue": 6360.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Venkatramaiah Gari Taluka (2D - Telugu)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 1808,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Ieeja",
-        "state": "Telangana",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1808,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Arulvaan (2D - Tamil)": {
-    "shows": 10,
-    "venues": 3,
-    "cities": 2,
-    "totalSeats": 4404,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Erode",
-        "state": "Tamil Nadu",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1756,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 6,
-        "venues": 2,
-        "totalSeats": 2648,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Maa Inti Bangaaram (2D - Telugu)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 1236,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Tanuku",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1236,
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
@@ -1752,14 +1602,14 @@
     ]
   },
   "The Odyssey (2D - Telugu)": {
-    "shows": 22,
-    "venues": 6,
+    "shows": 26,
+    "venues": 7,
     "cities": 5,
-    "totalSeats": 8360,
-    "ticketsSold": 173,
-    "occupancy": 2.07,
-    "grossRevenue": 25305.0,
-    "fastfilling": 0,
+    "totalSeats": 9036,
+    "ticketsSold": 291,
+    "occupancy": 3.22,
+    "grossRevenue": 40005.0,
+    "fastfilling": 1,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
@@ -1814,255 +1664,13 @@
       {
         "city": "Guntur",
         "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1576,
-        "ticketsSold": 88,
-        "occupancy": 5.58,
-        "grossRevenue": 12980.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "First Night with Devva (2D - Kannada)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 3036,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Mysuru (Mysore)",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 3036,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Mister Middle Class (2D - Telugu)": {
-    "shows": 17,
-    "venues": 5,
-    "cities": 5,
-    "totalSeats": 7954,
-    "ticketsSold": 160,
-    "occupancy": 2.01,
-    "grossRevenue": 23520.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Mysuru (Mysore)",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 808,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Rajamahendravaram (Rajahmundry)",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1892,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Madanapalle",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 2548,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Guntur",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1932,
-        "ticketsSold": 160,
-        "occupancy": 8.28,
-        "grossRevenue": 23520.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 774,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Balaramana Dinagalu (2D - Kannada)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 2800,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Mysuru (Mysore)",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 2800,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Mother Promise (2D - Kannada)": {
-    "shows": 8,
-    "venues": 2,
-    "cities": 2,
-    "totalSeats": 4032,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Mundargi",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 400,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 3632,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Antappante Athbudha Pravarthikal (2D - Malayalam)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 656,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Vadakara",
-        "state": "Kerala",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 656,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Varavu (2D - Malayalam)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 1200,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Vadakara",
-        "state": "Kerala",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 1200,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Raja The Raja (2D - Telugu)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 466,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Rajahmundry",
-        "state": "Andhra Pradesh",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 466,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 2252,
+        "ticketsSold": 206,
+        "occupancy": 9.15,
+        "grossRevenue": 27680.0,
+        "fastfilling": 1,
         "housefull": 0
       }
     ]
@@ -2093,402 +1701,40 @@
       }
     ]
   },
-  "Hrudhayam Murali (2D - Telugu)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 860,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Rajahmundry",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 860,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Vadala (2D - Telugu)": {
-    "shows": 7,
-    "venues": 3,
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 36,
+    "venues": 7,
     "cities": 2,
-    "totalSeats": 4346,
-    "ticketsSold": 1392,
-    "occupancy": 32.03,
-    "grossRevenue": 177740.0,
-    "fastfilling": 4,
+    "totalSeats": 10400,
+    "ticketsSold": 2640,
+    "occupancy": 25.38,
+    "grossRevenue": 3919130.0,
+    "fastfilling": 3,
     "housefull": 0,
     "movieInfo": {},
     "cityDetails": [
       {
-        "city": "Rajahmundry",
-        "state": "Andhra Pradesh",
-        "shows": 4,
+        "city": "Trivandrum",
+        "state": "Kerala",
+        "shows": 6,
         "venues": 1,
-        "totalSeats": 1784,
-        "ticketsSold": 1028,
-        "occupancy": 57.62,
-        "grossRevenue": 128900.0,
-        "fastfilling": 4,
-        "housefull": 0
-      },
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 3,
-        "venues": 2,
-        "totalSeats": 2562,
-        "ticketsSold": 364,
-        "occupancy": 14.21,
-        "grossRevenue": 48840.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Rakta Charitra (2D - Telugu)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 80,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Rajamahendravaram (Rajahmundry)",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 80,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "The Millet Diary (2D - Odia)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 216,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Jatni",
-        "state": "Odisha",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 216,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Operation Aruna Reddy (2D - Telugu)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 120,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Gudlavalleru",
-        "state": "Andhra Pradesh",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 120,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Bharat Bhagya Vidhata. (2D - Bhojpuri)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 176,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Ramgarhwa",
-        "state": "Bihar",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 176,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Guruji Namaskar (2D - Odia)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 348,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Balangir",
-        "state": "Odisha",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 348,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Dastaar (2D - Punjabi)": {
-    "shows": 4,
-    "venues": 2,
-    "cities": 2,
-    "totalSeats": 949,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Abohar",
-        "state": "Punjab",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 849,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      },
-      {
-        "city": "Hisar",
-        "state": "Haryana",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 100,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Sarpanch (2D - Punjabi)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 321,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Abohar",
-        "state": "Punjab",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 321,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Vaama: Ladai Sanmanachi (2D - Marathi)": {
-    "shows": 5,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 1250,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Jalna",
-        "state": "Maharashtra",
-        "shows": 5,
-        "venues": 1,
-        "totalSeats": 1250,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Snake Cave (2D - Kannada)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 204,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 4,
-        "venues": 1,
-        "totalSeats": 204,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Deadly Killer (2D - Kannada)": {
-    "shows": 3,
-    "venues": 2,
-    "cities": 2,
-    "totalSeats": 1134,
-    "ticketsSold": 182,
-    "occupancy": 16.05,
-    "grossRevenue": 24420.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Mahalingpur",
-        "state": "Karnataka",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 240,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
+        "totalSeats": 1650,
+        "ticketsSold": 370,
+        "occupancy": 22.42,
+        "grossRevenue": 330930.0,
         "fastfilling": 0,
         "housefull": 0
       },
       {
         "city": "Bengaluru",
         "state": "Karnataka",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 894,
-        "ticketsSold": 182,
-        "occupancy": 20.36,
-        "grossRevenue": 24420.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Boys Never Compromise (2D - Kannada)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 240,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Mahalingpur",
-        "state": "Karnataka",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 240,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Koka Deuta Nati Aru Hati 2 (2D - Assamese)": {
-    "shows": 3,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 540,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Sonari",
-        "state": "Assam",
-        "shows": 3,
-        "venues": 1,
-        "totalSeats": 540,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
+        "shows": 30,
+        "venues": 6,
+        "totalSeats": 8750,
+        "ticketsSold": 2270,
+        "occupancy": 25.94,
+        "grossRevenue": 3588200.0,
+        "fastfilling": 3,
         "housefull": 0
       }
     ]
@@ -2497,10 +1743,10 @@
     "shows": 20,
     "venues": 4,
     "cities": 1,
-    "totalSeats": 1964,
-    "ticketsSold": 71,
-    "occupancy": 3.62,
-    "grossRevenue": 51740.0,
+    "totalSeats": 2010,
+    "ticketsSold": 136,
+    "occupancy": 6.77,
+    "grossRevenue": 100970.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {},
@@ -2510,37 +1756,11 @@
         "state": "Karnataka",
         "shows": 20,
         "venues": 4,
-        "totalSeats": 1964,
-        "ticketsSold": 71,
-        "occupancy": 3.62,
-        "grossRevenue": 51740.0,
+        "totalSeats": 2010,
+        "ticketsSold": 136,
+        "occupancy": 6.77,
+        "grossRevenue": 100970.0,
         "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "The Odyssey (IMAX 2D - English)": {
-    "shows": 30,
-    "venues": 6,
-    "cities": 1,
-    "totalSeats": 8730,
-    "ticketsSold": 2068,
-    "occupancy": 23.69,
-    "grossRevenue": 3424390.0,
-    "fastfilling": 2,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 30,
-        "venues": 6,
-        "totalSeats": 8730,
-        "ticketsSold": 2068,
-        "occupancy": 23.69,
-        "grossRevenue": 3424390.0,
-        "fastfilling": 2,
         "housefull": 0
       }
     ]
@@ -2566,110 +1786,6 @@
         "ticketsSold": 0,
         "occupancy": 0.0,
         "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Achyuta Avataaram (2D - Malayalam)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 248,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 248,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "I, Nobody (2D - Malayalam)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 774,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 1,
-        "venues": 1,
-        "totalSeats": 774,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Graamaayana (2D - Kannada)": {
-    "shows": 8,
-    "venues": 2,
-    "cities": 1,
-    "totalSeats": 4272,
-    "ticketsSold": 0,
-    "occupancy": 0.0,
-    "grossRevenue": 0.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 8,
-        "venues": 2,
-        "totalSeats": 4272,
-        "ticketsSold": 0,
-        "occupancy": 0.0,
-        "grossRevenue": 0.0,
-        "fastfilling": 0,
-        "housefull": 0
-      }
-    ]
-  },
-  "Nagabandham - The Secret Treasure (2D - Telugu)": {
-    "shows": 2,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 1788,
-    "ticketsSold": 364,
-    "occupancy": 20.36,
-    "grossRevenue": 48840.0,
-    "fastfilling": 0,
-    "housefull": 0,
-    "movieInfo": {},
-    "cityDetails": [
-      {
-        "city": "Bengaluru",
-        "state": "Karnataka",
-        "shows": 2,
-        "venues": 1,
-        "totalSeats": 1788,
-        "ticketsSold": 364,
-        "occupancy": 20.36,
-        "grossRevenue": 48840.0,
         "fastfilling": 0,
         "housefull": 0
       }
