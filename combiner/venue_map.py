@@ -48,6 +48,34 @@ def same_venue(v1, v2, city):
     return a <= b or b <= a          # full containment of the shorter name
 
 
+# The two sources also disagree on CITY names for the same place:
+#     District "New Delhi"  vs  BMS "Delhi"
+#     District "Gurgaon"    vs  BMS "Gurugram (Gurgaon)"
+# The dedupe groups by (movie, city, time), so a mismatched city name meant the
+# duplicate pair was never even compared — every Delhi show was counted twice,
+# once under BMS/"NCR" and once under District/"Unknown".
+_ALIASES = None
+
+
+def canon_city(city):
+    """Map a city to its canonical (BMS) spelling for keying."""
+    global _ALIASES
+    if _ALIASES is None:
+        import json as _json
+        import os as _os
+        fp = _os.path.join(
+            _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+            "venues", "city_aliases.json",
+        )
+        try:
+            with open(fp, encoding="utf-8") as f:
+                _ALIASES = {k.casefold(): v for k, v in _json.load(f).items()}
+        except Exception:
+            _ALIASES = {}
+    c = " ".join((city or "").split())
+    return _ALIASES.get(c.casefold(), c).strip().lower()
+
+
 def canon_movie(title):
     """'Maa Inti Bangaaram (2D - Telugu)' -> 'maaintibangaaram'."""
     t = re.sub(r"\([^)]*\)", " ", title or "")
@@ -64,7 +92,7 @@ def cross_source_dedupe(rows, project_root=None):
     for r in rows:
         if r.get("source") == "District":
             continue
-        k = (canon_movie(r.get("movie")), (r.get("city") or "").strip().lower(),
+        k = (canon_movie(r.get("movie")), canon_city(r.get("city")),
              r.get("time", ""))
         bms_index.setdefault(k, set()).add(r.get("venue", ""))
 
@@ -77,7 +105,7 @@ def cross_source_dedupe(rows, project_root=None):
         if r.get("source") != "District":
             out.append(r)
             continue
-        city = (r.get("city") or "").strip().lower()
+        city = canon_city(r.get("city"))
         k = (canon_movie(r.get("movie")), city, r.get("time", ""))
         taken = claimed.setdefault(k, {})
         hit = None
