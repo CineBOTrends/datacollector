@@ -1,4 +1,39 @@
 {
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 13,
+    "gross": 1094520.0,
+    "sold": 1421,
+    "totalSeats": 4091,
+    "venues": 13,
+    "cities": 7,
+    "fastfilling": 3,
+    "housefull": 0,
+    "occupancy": 34.73,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
   "The Odyssey (4DX-2D - English)": {
     "shows": 1,
     "gross": 0.0,
@@ -34,39 +69,39 @@
       "totalSessionCount": 6
     }
   },
-  "The Odyssey (IMAX 2D - English)": {
-    "shows": 1,
-    "gross": 109560.0,
-    "sold": 229,
-    "totalSeats": 410,
-    "venues": 1,
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 2,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 637,
+    "venues": 2,
     "cities": 1,
-    "fastfilling": 1,
+    "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 55.85,
+    "occupancy": 0.0,
     "movieInfo": {
-      "contentId": 187151,
-      "name": "The Odyssey",
-      "lang": "English",
-      "scrnFmt": "4DX-2D",
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
       "sndFmt": "",
-      "censor": "A",
-      "duration": 175,
+      "censor": "UA13+",
+      "duration": 143,
       "genres": [
         "Adventure",
-        "Epic"
+        "Comedy"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
+      "trailer": "",
       "rating": {
         "hasUReview": 1,
         "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 5
+      "totalSessionCount": 19
     }
   }
 }
