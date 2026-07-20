@@ -5,6 +5,8 @@
 
   "_hide_untracked": "Applies to movies ALREADY collected. true (default) = the dashboard shows only the tracked list, everything else vanishes from the site. false = already-collected movies stay visible and the list only limits NEW scraping. Either way the raw data in R2 is untouched, so this is reversible.",
 
+  "_dubs": "A film released under a DIFFERENT TITLE per language is a SEPARATE movie with its own card. List each title you want tracked. Example: Jana Nayagan (Tamil), Jana Nayakudu (Telugu), Jan Neta (Hindi) are three entries, not one.",
+
   "_warning": "Filtering happens during the SCRAPE, so untracked movies are never stored going forward. Adding a title later gives it NO back-history - tracking starts from that moment. Add a movie BEFORE its bookings open.",
 
   "mode": "selected",
@@ -13,6 +15,8 @@
   "movies": [
     "The Odyssey",
     "Jana Nayagan",
+    "Jana Nayakudu",
+    "Jan Neta",
     "Lenin",
     "Spider-Man: Brand New Day",
     "Dhamaal 4",
