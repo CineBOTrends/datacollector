@@ -1,0 +1,960 @@
+{
+  "Spider-Man: Brand New Day (HDR By Barco - English)": {
+    "shows": 8,
+    "venues": 2,
+    "cities": 1,
+    "totalSeats": 3350,
+    "ticketsSold": 3350,
+    "occupancy": 100.0,
+    "grossRevenue": 992100.0,
+    "fastfilling": 0,
+    "housefull": 8,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 3350,
+        "ticketsSold": 3350,
+        "occupancy": 100.0,
+        "grossRevenue": 992100.0,
+        "fastfilling": 0,
+        "housefull": 8
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (3D - English)": {
+    "shows": 756,
+    "venues": 109,
+    "cities": 17,
+    "totalSeats": 167355,
+    "ticketsSold": 45478,
+    "occupancy": 27.17,
+    "grossRevenue": 20101872.78,
+    "fastfilling": 98,
+    "housefull": 21,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 123,
+        "venues": 23,
+        "totalSeats": 34611,
+        "ticketsSold": 18821,
+        "occupancy": 54.38,
+        "grossRevenue": 6867750.0,
+        "fastfilling": 38,
+        "housefull": 20
+      },
+      {
+        "city": "Kochi",
+        "state": "Kerala",
+        "shows": 95,
+        "venues": 12,
+        "totalSeats": 20353,
+        "ticketsSold": 8500,
+        "occupancy": 41.76,
+        "grossRevenue": 2806510.78,
+        "fastfilling": 33,
+        "housefull": 1
+      },
+      {
+        "city": "Angamaly",
+        "state": "Kerala",
+        "shows": 13,
+        "venues": 2,
+        "totalSeats": 3199,
+        "ticketsSold": 774,
+        "occupancy": 24.2,
+        "grossRevenue": 177800.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kariyad",
+        "state": "Kerala",
+        "shows": 7,
+        "venues": 1,
+        "totalSeats": 896,
+        "ticketsSold": 170,
+        "occupancy": 18.97,
+        "grossRevenue": 50360.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Vijayawada",
+        "state": "Andhra Pradesh",
+        "shows": 12,
+        "venues": 2,
+        "totalSeats": 3338,
+        "ticketsSold": 1212,
+        "occupancy": 36.31,
+        "grossRevenue": 287562.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kodakara",
+        "state": "Kerala",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 1206,
+        "ticketsSold": 84,
+        "occupancy": 6.97,
+        "grossRevenue": 15120.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Navi Mumbai",
+        "state": "Maharashtra",
+        "shows": 29,
+        "venues": 6,
+        "totalSeats": 7164,
+        "ticketsSold": 1441,
+        "occupancy": 20.11,
+        "grossRevenue": 693390.0,
+        "fastfilling": 1,
+        "housefull": 0
+      },
+      {
+        "city": "Thane",
+        "state": "Maharashtra",
+        "shows": 41,
+        "venues": 5,
+        "totalSeats": 8005,
+        "ticketsSold": 1013,
+        "occupancy": 12.65,
+        "grossRevenue": 525820.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 320,
+        "venues": 38,
+        "totalSeats": 64470,
+        "ticketsSold": 8273,
+        "occupancy": 12.83,
+        "grossRevenue": 5542300.0,
+        "fastfilling": 15,
+        "housefull": 0
+      },
+      {
+        "city": "Kalyan",
+        "state": "Maharashtra",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 1464,
+        "ticketsSold": 202,
+        "occupancy": 13.8,
+        "grossRevenue": 79330.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ulhasnagar",
+        "state": "Maharashtra",
+        "shows": 4,
+        "venues": 2,
+        "totalSeats": 1259,
+        "ticketsSold": 204,
+        "occupancy": 16.2,
+        "grossRevenue": 75600.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jalgaon",
+        "state": "Maharashtra",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 418,
+        "ticketsSold": 52,
+        "occupancy": 12.44,
+        "grossRevenue": 13230.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jalandhar",
+        "state": "Punjab",
+        "shows": 8,
+        "venues": 3,
+        "totalSeats": 2040,
+        "ticketsSold": 155,
+        "occupancy": 7.6,
+        "grossRevenue": 75210.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Davanagere",
+        "state": "Karnataka",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 1554,
+        "ticketsSold": 105,
+        "occupancy": 6.76,
+        "grossRevenue": 43350.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Delhi",
+        "state": "NCR",
+        "shows": 49,
+        "venues": 7,
+        "totalSeats": 8686,
+        "ticketsSold": 1590,
+        "occupancy": 18.31,
+        "grossRevenue": 1122060.0,
+        "fastfilling": 1,
+        "housefull": 0
+      },
+      {
+        "city": "Noida",
+        "state": "NCR",
+        "shows": 24,
+        "venues": 3,
+        "totalSeats": 6030,
+        "ticketsSold": 1827,
+        "occupancy": 30.3,
+        "grossRevenue": 1223010.0,
+        "fastfilling": 6,
+        "housefull": 0
+      },
+      {
+        "city": "Greater Noida",
+        "state": "NCR",
+        "shows": 11,
+        "venues": 1,
+        "totalSeats": 2662,
+        "ticketsSold": 1055,
+        "occupancy": 39.63,
+        "grossRevenue": 503470.0,
+        "fastfilling": 4,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (2D - English)": {
+    "shows": 25,
+    "venues": 8,
+    "cities": 7,
+    "totalSeats": 5711,
+    "ticketsSold": 1904,
+    "occupancy": 33.34,
+    "grossRevenue": 579445.99,
+    "fastfilling": 6,
+    "housefull": 1,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 3,
+        "venues": 2,
+        "totalSeats": 1068,
+        "ticketsSold": 907,
+        "occupancy": 84.93,
+        "grossRevenue": 269765.0,
+        "fastfilling": 2,
+        "housefull": 1
+      },
+      {
+        "city": "Kochi",
+        "state": "Kerala",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 1404,
+        "ticketsSold": 608,
+        "occupancy": 43.3,
+        "grossRevenue": 161900.99,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Kothamangalam",
+        "state": "Kerala",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 1674,
+        "ticketsSold": 154,
+        "occupancy": 9.2,
+        "grossRevenue": 27720.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 65,
+        "ticketsSold": 8,
+        "occupancy": 12.31,
+        "grossRevenue": 14140.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jalandhar",
+        "state": "Punjab",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 628,
+        "ticketsSold": 36,
+        "occupancy": 5.73,
+        "grossRevenue": 13180.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Noida",
+        "state": "NCR",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 440,
+        "ticketsSold": 144,
+        "occupancy": 32.73,
+        "grossRevenue": 71140.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Greater Noida",
+        "state": "NCR",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 432,
+        "ticketsSold": 47,
+        "occupancy": 10.88,
+        "grossRevenue": 21600.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 390,
+    "ticketsSold": 64,
+    "occupancy": 16.41,
+    "grossRevenue": 18880.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 390,
+        "ticketsSold": 64,
+        "occupancy": 16.41,
+        "grossRevenue": 18880.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (HDR By Barco - English)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 390,
+    "ticketsSold": 156,
+    "occupancy": 40.0,
+    "grossRevenue": 46020.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 390,
+        "ticketsSold": 156,
+        "occupancy": 40.0,
+        "grossRevenue": 46020.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (4DX 3D - English)": {
+    "shows": 63,
+    "venues": 15,
+    "cities": 8,
+    "totalSeats": 6118,
+    "ticketsSold": 5179,
+    "occupancy": 84.65,
+    "grossRevenue": 5206026.0,
+    "fastfilling": 36,
+    "housefull": 23,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 12,
+        "venues": 3,
+        "totalSeats": 992,
+        "ticketsSold": 992,
+        "occupancy": 100.0,
+        "grossRevenue": 515936.0,
+        "fastfilling": 0,
+        "housefull": 12
+      },
+      {
+        "city": "Kochi",
+        "state": "Kerala",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 548,
+        "ticketsSold": 542,
+        "occupancy": 98.91,
+        "grossRevenue": 341460.0,
+        "fastfilling": 0,
+        "housefull": 5
+      },
+      {
+        "city": "Navi Mumbai",
+        "state": "Maharashtra",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 432,
+        "ticketsSold": 312,
+        "occupancy": 72.22,
+        "grossRevenue": 495200.0,
+        "fastfilling": 4,
+        "housefull": 0
+      },
+      {
+        "city": "Thane",
+        "state": "Maharashtra",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 648,
+        "ticketsSold": 445,
+        "occupancy": 68.67,
+        "grossRevenue": 655300.0,
+        "fastfilling": 3,
+        "housefull": 1
+      },
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 9,
+        "venues": 3,
+        "totalSeats": 798,
+        "ticketsSold": 729,
+        "occupancy": 91.35,
+        "grossRevenue": 834820.0,
+        "fastfilling": 8,
+        "housefull": 1
+      },
+      {
+        "city": "Delhi",
+        "state": "NCR",
+        "shows": 15,
+        "venues": 3,
+        "totalSeats": 1532,
+        "ticketsSold": 1285,
+        "occupancy": 83.88,
+        "grossRevenue": 1533750.0,
+        "fastfilling": 10,
+        "housefull": 4
+      },
+      {
+        "city": "Noida",
+        "state": "NCR",
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 944,
+        "ticketsSold": 675,
+        "occupancy": 71.5,
+        "grossRevenue": 636860.0,
+        "fastfilling": 7,
+        "housefull": 0
+      },
+      {
+        "city": "Gurugram (Gurgaon)",
+        "state": "NCR",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 224,
+        "ticketsSold": 199,
+        "occupancy": 88.84,
+        "grossRevenue": 192700.0,
+        "fastfilling": 4,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (EPIQ 3D - English)": {
+    "shows": 5,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 1460,
+    "ticketsSold": 1447,
+    "occupancy": 99.11,
+    "grossRevenue": 503395.0,
+    "fastfilling": 0,
+    "housefull": 5,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 1460,
+        "ticketsSold": 1447,
+        "occupancy": 99.11,
+        "grossRevenue": 503395.0,
+        "fastfilling": 0,
+        "housefull": 5
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (3D - Malayalam)": {
+    "shows": 3,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 454,
+    "ticketsSold": 52,
+    "occupancy": 11.45,
+    "grossRevenue": 13020.02,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Kochi",
+        "state": "Kerala",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 114,
+        "ticketsSold": 18,
+        "occupancy": 15.79,
+        "grossRevenue": 4900.02,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Angamaly",
+        "state": "Kerala",
+        "shows": 2,
+        "venues": 1,
+        "totalSeats": 340,
+        "ticketsSold": 34,
+        "occupancy": 10.0,
+        "grossRevenue": 8120.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (3D - Hindi)": {
+    "shows": 179,
+    "venues": 48,
+    "cities": 10,
+    "totalSeats": 48644,
+    "ticketsSold": 4168,
+    "occupancy": 8.57,
+    "grossRevenue": 1725000.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Kariyad",
+        "state": "Kerala",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 127,
+        "ticketsSold": 8,
+        "occupancy": 6.3,
+        "grossRevenue": 2720.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Thane",
+        "state": "Maharashtra",
+        "shows": 12,
+        "venues": 5,
+        "totalSeats": 4163,
+        "ticketsSold": 220,
+        "occupancy": 5.28,
+        "grossRevenue": 108460.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 88,
+        "venues": 23,
+        "totalSeats": 23354,
+        "ticketsSold": 1969,
+        "occupancy": 8.43,
+        "grossRevenue": 781940.0,
+        "fastfilling": 1,
+        "housefull": 0
+      },
+      {
+        "city": "Navi Mumbai",
+        "state": "Maharashtra",
+        "shows": 18,
+        "venues": 4,
+        "totalSeats": 5204,
+        "ticketsSold": 319,
+        "occupancy": 6.13,
+        "grossRevenue": 112000.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Kalyan",
+        "state": "Maharashtra",
+        "shows": 10,
+        "venues": 2,
+        "totalSeats": 2190,
+        "ticketsSold": 72,
+        "occupancy": 3.29,
+        "grossRevenue": 26860.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Ulhasnagar",
+        "state": "Maharashtra",
+        "shows": 14,
+        "venues": 3,
+        "totalSeats": 5282,
+        "ticketsSold": 532,
+        "occupancy": 10.07,
+        "grossRevenue": 195670.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jalgaon",
+        "state": "Maharashtra",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 853,
+        "ticketsSold": 161,
+        "occupancy": 18.87,
+        "grossRevenue": 42160.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jalandhar",
+        "state": "Punjab",
+        "shows": 7,
+        "venues": 3,
+        "totalSeats": 1695,
+        "ticketsSold": 162,
+        "occupancy": 9.56,
+        "grossRevenue": 74630.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Delhi",
+        "state": "NCR",
+        "shows": 17,
+        "venues": 4,
+        "totalSeats": 3354,
+        "ticketsSold": 499,
+        "occupancy": 14.88,
+        "grossRevenue": 293040.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Noida",
+        "state": "NCR",
+        "shows": 8,
+        "venues": 2,
+        "totalSeats": 2422,
+        "ticketsSold": 226,
+        "occupancy": 9.33,
+        "grossRevenue": 87520.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Jana Nayagan (2D - Tamil)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 2740,
+    "ticketsSold": 48,
+    "occupancy": 1.75,
+    "grossRevenue": 9280.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Dindigul",
+        "state": "Tamil Nadu",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 2740,
+        "ticketsSold": 48,
+        "occupancy": 1.75,
+        "grossRevenue": 9280.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (2D - Hindi)": {
+    "shows": 7,
+    "venues": 3,
+    "cities": 3,
+    "totalSeats": 1824,
+    "ticketsSold": 148,
+    "occupancy": 8.11,
+    "grossRevenue": 55980.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Jharsuguda",
+        "state": "Odisha",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 234,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Jalandhar",
+        "state": "Punjab",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 942,
+        "ticketsSold": 41,
+        "occupancy": 4.35,
+        "grossRevenue": 14150.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Greater Noida",
+        "state": "NCR",
+        "shows": 3,
+        "venues": 1,
+        "totalSeats": 648,
+        "ticketsSold": 107,
+        "occupancy": 16.51,
+        "grossRevenue": 41830.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (3D SCREEN X - English)": {
+    "shows": 7,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 2010,
+    "ticketsSold": 1418,
+    "occupancy": 70.55,
+    "grossRevenue": 1418850.0,
+    "fastfilling": 6,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 7,
+        "venues": 1,
+        "totalSeats": 2010,
+        "ticketsSold": 1418,
+        "occupancy": 70.55,
+        "grossRevenue": 1418850.0,
+        "fastfilling": 6,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (MX4D 3D - English)": {
+    "shows": 5,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 388,
+    "ticketsSold": 275,
+    "occupancy": 70.88,
+    "grossRevenue": 276550.0,
+    "fastfilling": 3,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 388,
+        "ticketsSold": 275,
+        "occupancy": 70.88,
+        "grossRevenue": 276550.0,
+        "fastfilling": 3,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (4DX 3D - Hindi)": {
+    "shows": 4,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 480,
+    "ticketsSold": 301,
+    "occupancy": 62.71,
+    "grossRevenue": 352950.0,
+    "fastfilling": 3,
+    "housefull": 1,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 3,
+        "venues": 2,
+        "totalSeats": 372,
+        "ticketsSold": 193,
+        "occupancy": 51.88,
+        "grossRevenue": 169350.0,
+        "fastfilling": 3,
+        "housefull": 0
+      },
+      {
+        "city": "Delhi",
+        "state": "NCR",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 108,
+        "ticketsSold": 108,
+        "occupancy": 100.0,
+        "grossRevenue": 183600.0,
+        "fastfilling": 0,
+        "housefull": 1
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (4DX - English)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 84,
+    "ticketsSold": 42,
+    "occupancy": 50.0,
+    "grossRevenue": 46650.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 84,
+        "ticketsSold": 42,
+        "occupancy": 50.0,
+        "grossRevenue": 46650.0,
+        "fastfilling": 1,
+        "housefull": 0
+      }
+    ]
+  },
+  "Alpha (2D - Hindi)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 96,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Damoh",
+        "state": "Madhya Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 96,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (ICE 3D - English)": {
+    "shows": 11,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 1609,
+    "ticketsSold": 1283,
+    "occupancy": 79.74,
+    "grossRevenue": 1001480.0,
+    "fastfilling": 11,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Gurugram (Gurgaon)",
+        "state": "NCR",
+        "shows": 6,
+        "venues": 1,
+        "totalSeats": 948,
+        "ticketsSold": 730,
+        "occupancy": 77.0,
+        "grossRevenue": 552660.0,
+        "fastfilling": 6,
+        "housefull": 0
+      },
+      {
+        "city": "Delhi",
+        "state": "NCR",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 661,
+        "ticketsSold": 553,
+        "occupancy": 83.66,
+        "grossRevenue": 448820.0,
+        "fastfilling": 5,
+        "housefull": 0
+      }
+    ]
+  }
+}
