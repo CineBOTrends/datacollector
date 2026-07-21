@@ -1,5 +1,173 @@
 [
   {
+    "movie": "The Odyssey (2D - English)",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "venue": "INOX Elpro City Square, Chinchwad, Pune",
+    "address": "2nd Floor, Elpro City Square Mall, Pimpri Chinchwad Link Road, Chinchwad, Pune, Maharashtra 411033, India",
+    "time": "06:45 AM",
+    "audi": "SCREEN 3",
+    "session_id": "57249",
+    "totalSeats": 281,
+    "available": 271,
+    "sold": 10,
+    "gross": 2300.0,
+    "minsLeft": 147.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-71fb6090-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=MIjsrWpkXhg",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "venue": "INOX South City Mall, South City Mall, Kolkata",
+    "address": "2nd Floor, South City Mall, 375, Prince Anwar Shah Road, Kolkata, West Bengal 700068, India",
+    "time": "06:45 AM",
+    "audi": "IMAX 4",
+    "session_id": "147709",
+    "totalSeats": 249,
+    "available": 147,
+    "sold": 102,
+    "gross": 86470.0,
+    "minsLeft": 147.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Kochi",
+    "state": "Kerala",
+    "venue": "Cinepolis Centre Square Mall, Ernakulam, Kochi",
+    "address": "Central Mall, Mahatma Gandhi Road, Ernakulam, Kerala 682035, India",
+    "time": "07:00 AM",
+    "audi": "IMAX",
+    "session_id": "6746",
+    "totalSeats": 229,
+    "available": 116,
+    "sold": 113,
+    "gross": 120100.0,
+    "minsLeft": 162.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Cinepolis",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "venue": "EROS INOX IMAX Cinema, Churchgate, Mumbai",
+    "address": "Cambata Building, 42, Maharshi Karve Rd, Churchgate, Mumbai, Maharashtra 400020, India",
+    "time": "06:30 AM",
+    "audi": "SCREEN 1",
+    "session_id": "5379",
+    "totalSeats": 289,
+    "available": 236,
+    "sold": 53,
+    "gross": 25840.0,
+    "minsLeft": 132.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  {
     "movie": "The Odyssey (4DX-2D - English)",
     "city": "Mumbai",
     "state": "Maharashtra",
@@ -12,7 +180,7 @@
     "available": 74,
     "sold": 6,
     "gross": 1860.0,
-    "minsLeft": 162.2,
+    "minsLeft": 102.3,
     "source": "District",
     "date": "20260722",
     "chain": "Pvr",
@@ -43,6 +211,300 @@
   },
   {
     "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "venue": "INOX Megaplex, Oberoi Sky City Mall, Mumbai",
+    "address": "INOX Megaplex, Oberoi Sky City Mall, Datta Pada Road, Borivali East, Devi Pada Metro Station, Mumbai, Maharashtra 400066, India",
+    "time": "06:30 AM",
+    "audi": "SCREEN 6",
+    "session_id": "18393",
+    "totalSeats": 311,
+    "available": 222,
+    "sold": 89,
+    "gross": 91480.0,
+    "minsLeft": 132.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "4DX-2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  {
+    "movie": "Dhamaal 4 (2D - Hindi)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "venue": "Maxus Cinemas, Bhayandar",
+    "address": "Maxus Mall, 3rd Floor, 150 Feet Road, Near Railway Flyover, Opposite Salasar Bridge Bhoomi, Mumbai, Maharashtra 401101, India",
+    "time": "07:15 AM",
+    "audi": "SCREEN 1",
+    "session_id": "217536",
+    "totalSeats": 358,
+    "available": 358,
+    "sold": 0,
+    "gross": 0.0,
+    "minsLeft": 177.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Maxus",
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 19
+    }
+  },
+  {
+    "movie": "Dhamaal 4 (2D - Hindi)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "venue": "Maxus Cinemas, Borivali (W)",
+    "address": "Zoom Plaza Mall, 4th Floor,L.T. Road, Borivali (W), Opposite Gorai Depot, Mumbai, Maharashtra 400092, India",
+    "time": "07:15 AM",
+    "audi": "SCREEN 1",
+    "session_id": "129635",
+    "totalSeats": 279,
+    "available": 279,
+    "sold": 0,
+    "gross": 0.0,
+    "minsLeft": 177.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Maxus",
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 9
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "venue": "PVR ICON Phoenix Palladium, Lower Parel, Mumbai",
+    "address": "High Street Phoenix, Extension of Entry Road to Phoenix, Senapati Bapat Marg, Lower Parel (West), Mumbai, Maharashtra 400013, India",
+    "time": "06:45 AM",
+    "audi": "IMAX",
+    "session_id": "34492",
+    "totalSeats": 497,
+    "available": 362,
+    "sold": 135,
+    "gross": 158100.0,
+    "minsLeft": 147.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Navi Mumbai",
+    "state": "Maharashtra",
+    "venue": "Cinepolis Nexus Seawoods, Navi Mumbai",
+    "address": "Unit Multiplex Seawoods Railway, Sector 40 Plot R1, Nerul Navi Mumbai, Mumbai, Maharashtra 400706, India",
+    "time": "06:30 AM",
+    "audi": "AUDI 01 (IMAX)",
+    "session_id": "13222",
+    "totalSeats": 227,
+    "available": 185,
+    "sold": 42,
+    "gross": 29550.0,
+    "minsLeft": 132.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Cinepolis",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "4DX-2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "New Delhi",
+    "state": "NCR",
+    "venue": "PVR IMAX with Laser - Priya, Vasant Vihar, New Delhi",
+    "address": "61, Community Centre, Basant Lok, Vasant Vihar, Near Guru Harkrishan Public School, Delhi 110057, India",
+    "time": "06:30 AM",
+    "audi": "SCREEN 1",
+    "session_id": "5569",
+    "totalSeats": 381,
+    "available": 115,
+    "sold": 266,
+    "gross": 186500.0,
+    "minsLeft": 132.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "New Delhi",
+    "state": "NCR",
+    "venue": "PVR Select City Walk, Saket, New Delhi",
+    "address": "A-3, First Floor, Select City Walk Mall, District Center, Saket, New Delhi 110017, India",
+    "time": "06:35 AM",
+    "audi": "IMAX",
+    "session_id": "31694",
+    "totalSeats": 380,
+    "available": 269,
+    "sold": 111,
+    "gross": 90940.0,
+    "minsLeft": 137.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
     "city": "New Delhi",
     "state": "NCR",
     "venue": "PVR Vegas, Dwarka, New Delhi",
@@ -54,7 +516,7 @@
     "available": 315,
     "sold": 8,
     "gross": 5680.0,
-    "minsLeft": 162.2,
+    "minsLeft": 102.3,
     "source": "District",
     "date": "20260722",
     "chain": "Pvr",
@@ -81,6 +543,90 @@
       },
       "isNew": false,
       "totalSessionCount": 5
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Thane",
+    "state": "Maharashtra",
+    "venue": "Cinepolis Lake Shore, Thane (EX Cinepolis Viviana Mall, Thane)",
+    "address": "Viviana Mall, Eastern Express Highway, Laxmi Nagar, Beside Jupiter Hospital, Thane (West), Mumbai, Maharashtra 400606, India",
+    "time": "06:30 AM",
+    "audi": "AUDI 02 (IMAX)",
+    "session_id": "10888",
+    "totalSeats": 320,
+    "available": 245,
+    "sold": 75,
+    "gross": 40300.0,
+    "minsLeft": 132.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Cinepolis",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "4DX-2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "city": "Trivandrum",
+    "state": "Kerala",
+    "venue": "PVR LULU, Lulu International Shopping Mall, Trivandrum",
+    "address": "2nd floor, Lulu International Shopping Mall, Akkulm Bridge, Anayara Post, Thiruvananthapuram, Kerala 695029, India",
+    "time": "06:20 AM",
+    "audi": "AUDI 01",
+    "session_id": "54580",
+    "totalSeats": 243,
+    "available": 171,
+    "sold": 72,
+    "gross": 67630.0,
+    "minsLeft": 122.3,
+    "source": "District",
+    "date": "20260722",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "4DX-2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
     }
   }
 ]
