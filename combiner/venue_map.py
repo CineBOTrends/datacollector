@@ -34,9 +34,44 @@ def _words(s):
     return [w for w in re.split(r"[^a-z0-9]+", (s or "").lower()) if w]
 
 
+_CITY_WORDS = None
+
+
+def _city_word_set(canon_city):
+    """
+    All words that could denote this (already-canonicalised) city across
+    sources - the canonical spelling itself plus every raw alias that maps
+    to it (e.g. canon "bengaluru" also covers "bangalore", since venue
+    strings from BMS/District embed whichever raw spelling that source used).
+    """
+    global _CITY_WORDS
+    if _CITY_WORDS is None:
+        aliases = {}
+        try:
+            # reuse the same table canon_city() loads, built lazily here too
+            # in case _distinctive() is called before canon_city()
+            import json as _json
+            import os as _os
+            fp = _os.path.join(
+                _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+                "venues", "city_aliases.json",
+            )
+            with open(fp, encoding="utf-8") as f:
+                aliases = _json.load(f)
+        except Exception:
+            aliases = {}
+        _CITY_WORDS = {}
+        for raw, mapped in aliases.items():
+            _CITY_WORDS.setdefault(mapped.strip().lower(), set()).update(_words(mapped))
+            _CITY_WORDS[mapped.strip().lower()].update(_words(raw))
+    words = set(_words(canon_city))
+    words |= _CITY_WORDS.get(canon_city, set())
+    return words
+
+
 def _distinctive(venue, city):
-    """Venue words minus generic cinema words and the city name."""
-    city_w = set(_words(city))
+    """Venue words minus generic cinema words and every known spelling of the city."""
+    city_w = _city_word_set(city)
     return {w for w in _words(venue) if w not in GENERIC and w not in city_w and len(w) > 1}
 
 
