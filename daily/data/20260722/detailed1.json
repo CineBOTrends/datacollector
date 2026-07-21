@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "movie": "The Odyssey (2D - English)",
+    "venue": "INOX: Elpro City Square, Chinchwad",
+    "address": "2nd Floor, Elpro City Square Mall, Pimpri Chinchwad Link Road, Pune, Maharashtra 411033, India",
+    "chain": "INOX",
+    "time": "06:45 AM",
+    "audi": "",
+    "session_id": "57249",
+    "totalSeats": 273,
+    "available": 271,
+    "ticketsSold": 2,
+    "grossRevenue": 460.0,
+    "minsLeft": 167.4,
+    "city": "Pune",
+    "state": "Maharashtra",
+    "source": "BMS",
+    "date": "20260722"
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "venue": "INOX: South City, Kolkata",
+    "address": "375, South City Mall, Prince Anwar Shah Road, Opposite Central Bank of India, Kolkata, West Bengal 700068, India",
+    "chain": "INOX",
+    "time": "06:45 AM",
+    "audi": "IMAX",
+    "session_id": "147709",
+    "totalSeats": 257,
+    "available": 147,
+    "ticketsSold": 110,
+    "grossRevenue": 93670.0,
+    "minsLeft": 167.1,
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "source": "BMS",
+    "date": "20260722"
+  }
+]
