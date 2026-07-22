@@ -1,24 +1,60 @@
 {
-  "The Odyssey (2D - English)": {
-    "shows": 1,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 281,
-    "ticketsSold": 10,
-    "occupancy": 3.56,
-    "grossRevenue": 2300.0,
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 650,
+    "ticketsSold": 149,
+    "occupancy": 22.92,
+    "grossRevenue": 119020.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
   },
-  "The Odyssey (IMAX 2D - English)": {
+  "The Odyssey (2D - English)": {
+    "shows": 3,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 592,
+    "ticketsSold": 13,
+    "occupancy": 2.2,
+    "grossRevenue": 3210.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Evil Dead Burn (2D - Hindi)": {
     "shows": 1,
     "venues": 1,
     "cities": 1,
-    "totalSeats": 257,
-    "ticketsSold": 110,
-    "occupancy": 42.8,
-    "grossRevenue": 93670.0,
+    "totalSeats": 234,
+    "ticketsSold": 20,
+    "occupancy": 8.55,
+    "grossRevenue": 2600.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (4DX - English)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 68,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 2,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 424,
+    "ticketsSold": 15,
+    "occupancy": 3.54,
+    "grossRevenue": 3350.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
