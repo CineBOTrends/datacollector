@@ -1,14 +1,14 @@
 {
   "Jana Nayagan (2D - Tamil)": {
-    "shows": 4,
-    "gross": 55890.0,
-    "sold": 307,
-    "totalSeats": 1032,
-    "venues": 2,
-    "cities": 2,
+    "shows": 9,
+    "gross": 77740.0,
+    "sold": 390,
+    "totalSeats": 2120,
+    "venues": 6,
+    "cities": 5,
     "fastfilling": 1,
     "housefull": 0,
-    "occupancy": 29.75,
+    "occupancy": 18.4,
     "movieInfo": {
       "contentId": 188681,
       "name": "Jana Nayagan",
@@ -32,24 +32,59 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 6
+      "totalSessionCount": 15
+    }
+  },
+  "Chennai Love Story (2D - Telugu)": {
+    "shows": 1,
+    "gross": 43570.0,
+    "sold": 275,
+    "totalSeats": 522,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 1,
+    "housefull": 0,
+    "occupancy": 52.68,
+    "movieInfo": {
+      "contentId": 199197,
+      "name": "Chennai Love Story",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 179,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17843678287326648.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
     }
   },
   "The Odyssey (IMAX 2D - English)": {
-    "shows": 2,
-    "gross": 27480.0,
-    "sold": 38,
-    "totalSeats": 599,
-    "venues": 2,
-    "cities": 2,
-    "fastfilling": 0,
+    "shows": 16,
+    "gross": 1024570.0,
+    "sold": 1271,
+    "totalSeats": 4826,
+    "venues": 16,
+    "cities": 9,
+    "fastfilling": 3,
     "housefull": 0,
-    "occupancy": 6.34,
+    "occupancy": 26.34,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
       "lang": "English",
-      "scrnFmt": "4DX-2D",
+      "scrnFmt": "IMAX 2D",
       "sndFmt": "",
       "censor": "A",
       "duration": 175,
@@ -57,17 +92,87 @@
         "Adventure",
         "Epic"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-poster-f81c2bf0-4852-11f1-ae93-11b250c87b8a-a9e46070-738f-11f1-b14c-c7bb4e91d5e6.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=xlPPOEWhxjI",
+      "trailer": "",
       "rating": {
         "hasUReview": 1,
         "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 4
+      "totalSessionCount": 5
+    }
+  },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 2,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 701,
+    "venues": 2,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 12
+    }
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 1,
+    "gross": 596.0,
+    "sold": 4,
+    "totalSeats": 67,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.97,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 8
     }
   }
 }
