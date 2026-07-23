@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "venue": "PVR IMAX with Laser, Priya: Delhi",
+    "address": "61, Community Centre, Basant Lok, Vasant Vihar, Near Guru Harkrishan Public School, Delhi, NCR 110057, India",
+    "chain": "PVR",
+    "time": "06:30 AM",
+    "audi": "IMAX",
+    "session_id": "5586",
+    "totalSeats": 316,
+    "available": 110,
+    "ticketsSold": 206,
+    "grossRevenue": 156800.0,
+    "minsLeft": 155.5,
+    "city": "Delhi",
+    "state": "NCR",
+    "source": "BMS",
+    "date": "20260724"
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "venue": "INOX: COCA-COLA IMAX Paras, Nehru Place, Delhi",
+    "address": "1st Floor, Paras Cinema Building, Nehru Place, Delhi, NCR 110019, India",
+    "chain": "INOX",
+    "time": "06:00 AM",
+    "audi": "IMAX",
+    "session_id": "6504",
+    "totalSeats": 305,
+    "available": 275,
+    "ticketsSold": 30,
+    "grossRevenue": 12260.0,
+    "minsLeft": 125.4,
+    "city": "Delhi",
+    "state": "NCR",
+    "source": "BMS",
+    "date": "20260724"
+  }
+]
