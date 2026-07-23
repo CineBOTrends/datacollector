@@ -6,6 +6,11 @@
 # does not. Deleting the folders alone is NOT enough: ci_persist.restore() pulls
 # every key under raw/<mode>/ back down at the start of the next combine job, so
 # any date left in R2 resurrects itself and gets republished.
+#
+# Leave "movie" blank to drop the date(s) entirely (every movie). Fill it in
+# to drop just that one movie's rows/entries for those date(s) — e.g. a
+# glitched Day 1 for a title that shouldn't have started tracking yet —
+# leaving every other movie on those dates untouched.
 
 name: Undo dates (cleanup)
 
@@ -20,6 +25,11 @@ on:
       dates:
         description: "Space-separated YYYYMMDD (e.g. 20260717 20260719 20260721)"
         required: true
+        type: string
+      movie:
+        description: "Optional: only remove this movie's data for the date(s) above (leave blank to drop the whole date)"
+        required: false
+        default: ""
         type: string
       dry_run:
         description: "List what would be deleted, delete nothing"
@@ -56,7 +66,9 @@ jobs:
         run: |
           FLAG=""
           [ "${{ inputs.dry_run }}" = "true" ] && FLAG="--dry-run"
-          python undo_dates.py "${{ inputs.mode }}" ${{ inputs.dates }} $FLAG
+          MOVIE_FLAG=""
+          [ -n "${{ inputs.movie }}" ] && MOVIE_FLAG=(--movie "${{ inputs.movie }}")
+          python undo_dates.py "${{ inputs.mode }}" ${{ inputs.dates }} "${MOVIE_FLAG[@]}" $FLAG
 
       - name: Commit the removal
         if: ${{ inputs.dry_run == false }}
@@ -65,7 +77,9 @@ jobs:
           git config user.email "cinebotrends@users.noreply.github.com"
           git add -A
           git diff --cached --quiet && { echo "nothing to commit"; exit 0; }
-          git commit -m "undo: drop ${{ inputs.dates }} (${{ inputs.mode }})"
+          MSG="undo: drop ${{ inputs.dates }} (${{ inputs.mode }})"
+          [ -n "${{ inputs.movie }}" ] && MSG="undo: drop '${{ inputs.movie }}' ${{ inputs.dates }} (${{ inputs.mode }})"
+          git commit -m "$MSG"
           for i in 1 2 3 4 5; do
             git pull --rebase origin main || true
             git push origin main && break
@@ -120,5 +134,7 @@ jobs:
           git config user.name "cbt-bot"
           git config user.email "cinebotrends@users.noreply.github.com"
           git add -f data
-          git commit -m "data(undo ${{ inputs.dates }}): $(date -u +%FT%TZ)" || echo "no changes"
+          MSG="data(undo ${{ inputs.dates }}): $(date -u +%FT%TZ)"
+          [ -n "${{ inputs.movie }}" ] && MSG="data(undo '${{ inputs.movie }}' ${{ inputs.dates }}): $(date -u +%FT%TZ)"
+          git commit -m "$MSG" || echo "no changes"
           git push
