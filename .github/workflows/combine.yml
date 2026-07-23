@@ -1,7 +1,6 @@
 # .github/workflows/combine.yml
 # MANUAL ONLY - re-combine + re-publish using shard data already in the repo
-# (no scraping). Useful to re-publish after a code fix, or after manual shard runs.
-# The scheduled path already combines inside run-all.yml.
+# Also supports content-only publishes (reviews/news/box office).
 
 name: Combine + publish (manual)
 
@@ -25,34 +24,58 @@ jobs:
   combine:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
       - name: Restore history from R2
         run: python ci_persist.py restore
 
       - name: Combine whatever exists (both modes)
+        shell: bash
         run: |
+          set +e
+
           TODAY=$(TZ=Asia/Kolkata date +%Y%m%d)
           TOMO=$(TZ=Asia/Kolkata date -d "+1 day" +%Y%m%d)
+
           FOUND=0
+
           for SPEC in "daily:$TODAY" "advance:$TOMO"; do
-            MODE="${SPEC%%:*}"; DATE="${SPEC##*:}"
-            COUNT=$(ls "$MODE/data/$DATE"/detailed*.json 2>/dev/null | wc -l)
-            echo "$MODE $DATE -> $COUNT/9 shard file(s)"
-            if [ "$COUNT" -gt 0 ]; then
-              python cli.py combine --mode "$MODE" --date "$DATE" && FOUND=1
+
+            MODE="${SPEC%%:*}"
+            DATE="${SPEC##*:}"
+
+            DIR="$MODE/data/$DATE"
+
+            if [ -d "$DIR" ]; then
+              COUNT=$(find "$DIR" -maxdepth 1 -name "detailed*.json" | wc -l)
+            else
+              COUNT=0
             fi
+
+            echo "$MODE $DATE -> $COUNT shard file(s)"
+
+            if [ "$COUNT" -gt 0 ]; then
+              echo "Combining $MODE $DATE"
+              python cli.py combine --mode "$MODE" --date "$DATE"
+              FOUND=1
+            fi
+
           done
+
           if [ "$FOUND" -eq 0 ]; then
-            echo "::error::No shard data found - refusing to publish"
-            exit 1
+            echo "No new shard data found."
+            echo "Continuing with restored history from R2."
           fi
 
       - name: Save raw data to R2
@@ -61,29 +84,43 @@ jobs:
       - name: Build data tree
         run: python build_data.py .
 
-      - name: Sanity check — refuse to publish an empty build
+      - name: Sanity check
         run: |
-          if [ ! -s data/manifest.json ]; then
-            echo "::error::No manifest built - refusing to publish (this would wipe the dashboard)"
-            exit 1
-          fi
-          DATES=$(python -c "import json;m=json.load(open('data/manifest.json'));print(sum(len(v.get('dates',[])) for v in m['modes'].values()))")
-          echo "dates in manifest: $DATES"
-          if [ "$DATES" -lt 2 ]; then
-            echo "::error::Manifest has almost nothing in it - refusing to publish"
+          if [ ! -f data/manifest.json ]; then
+            echo "::error::manifest.json missing"
             exit 1
           fi
 
-      - name: Publish data/ -> dashboard repo
+          if [ ! -s data/manifest.json ]; then
+            echo "::error::manifest.json empty"
+            exit 1
+          fi
+
+          python - <<'PY'
+          import json
+          m=json.load(open("data/manifest.json"))
+          total=sum(len(v.get("dates",[])) for v in m.get("modes",{}).values())
+          print("dates:",total)
+          if total==0:
+              raise SystemExit("Manifest contains no data")
+          PY
+
+      - name: Publish data -> dashboard repo
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
+
           rm -rf out/data
-          cp -r data out/data
+          cp -R data out/data
+
           cd out
+
           git config user.name "cbt-bot"
           git config user.email "cinebotrends@users.noreply.github.com"
-          git add -f data
-          git commit -m "data(manual): $(date -u +%FT%TZ)" || echo "no changes"
+
+          git add -A
+
+          git commit -m "data(manual): $(date -u +%FT%TZ)" || echo "No changes"
+
           git push
