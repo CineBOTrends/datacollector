@@ -1,14 +1,14 @@
 {
   "Jana Nayagan (2D - Tamil)": {
-    "shows": 3,
-    "gross": 45900.0,
-    "sold": 255,
-    "totalSeats": 876,
+    "shows": 4,
+    "gross": 65700.0,
+    "sold": 365,
+    "totalSeats": 1078,
     "venues": 1,
     "cities": 1,
-    "fastfilling": 0,
+    "fastfilling": 1,
     "housefull": 0,
-    "occupancy": 29.11,
+    "occupancy": 33.86,
     "movieInfo": {
       "contentId": 188681,
       "name": "Jana Nayagan",
@@ -33,6 +33,76 @@
       },
       "isNew": false,
       "totalSessionCount": 19
+    }
+  },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 2,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 701,
+    "venues": 2,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 12
+    }
+  },
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 2,
+    "gross": 427620.0,
+    "sold": 330,
+    "totalSeats": 684,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 1,
+    "housefull": 0,
+    "occupancy": 48.25,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 7
     }
   },
   "Jan Neta (2D - Hindi)": {
@@ -69,41 +139,6 @@
       },
       "isNew": false,
       "totalSessionCount": 8
-    }
-  },
-  "The Odyssey (IMAX 2D - English)": {
-    "shows": 1,
-    "gross": 189070.0,
-    "sold": 167,
-    "totalSeats": 342,
-    "venues": 1,
-    "cities": 1,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 48.83,
-    "movieInfo": {
-      "contentId": 187151,
-      "name": "The Odyssey",
-      "lang": "English",
-      "scrnFmt": "IMAX 2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 175,
-      "genres": [
-        "Adventure",
-        "Epic"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 7
     }
   }
 }
