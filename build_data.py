@@ -385,7 +385,18 @@ def _venue_chain_key(chain, venue):
     c = (chain or "").strip()
     if not c:
         c = re.split(r"[:\-,\u00b7]", venue or "")[0]     # \u00b7 = '·'
-    return re.sub(r"[^a-z0-9]", "", c.lower())
+    key = re.sub(r"[^a-z0-9]", "", c.lower())
+    # PVR and INOX merged into PVR INOX Ltd in 2023. Sources inconsistently
+    # tag the SAME physical theatre with either brand name (e.g. one row's
+    # `chain` is "INOX", another row for the identical venue has `chain`
+    # "Pvr"). Without this, those rows get different chain_keys, the cluster
+    # check below bails out before ever comparing address/name tokens, and
+    # the same theatre shows up as two cards with box office split across
+    # both. Collapse both brands to one key so the token-overlap check can
+    # still tell genuinely different venues apart.
+    if "pvr" in key or "inox" in key:
+        return "pvrinox"
+    return key
 
 
 def _dedupe_theatre_rows(rows):
