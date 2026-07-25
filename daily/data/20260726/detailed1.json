@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "movie": "Jana Nayagan (2D - Tamil)",
+    "venue": "Cinepolis: Nexus WESTEND Mall Aundh, Pune",
+    "address": "5, Gurukul Park Road, Ward No. 8, Wireless Colony, Aundh, Pune, Maharashtra 411007, India",
+    "chain": "Cinepolis",
+    "time": "06:15 AM",
+    "audi": "DOLBY 7.1",
+    "session_id": "12804",
+    "totalSeats": 156,
+    "available": 111,
+    "ticketsSold": 45,
+    "grossRevenue": 10360.0,
+    "minsLeft": 135.3,
+    "city": "Pune",
+    "state": "Maharashtra",
+    "source": "BMS",
+    "date": "20260726"
+  },
+  {
+    "movie": "The Odyssey (IMAX 2D - English)",
+    "venue": "INOX: South City, Kolkata",
+    "address": "375, South City Mall, Prince Anwar Shah Road, Opposite Central Bank of India, Kolkata, West Bengal 700068, India",
+    "chain": "INOX",
+    "time": "06:45 AM",
+    "audi": "IMAX",
+    "session_id": "148002",
+    "totalSeats": 257,
+    "available": 46,
+    "ticketsSold": 211,
+    "grossRevenue": 149100.0,
+    "minsLeft": 164.9,
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "source": "BMS",
+    "date": "20260726"
+  }
+]
