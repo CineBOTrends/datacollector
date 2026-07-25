@@ -1,14 +1,14 @@
 {
   "Jana Nayagan (2D - Tamil)": {
-    "shows": 4,
-    "gross": 123660.0,
-    "sold": 687,
-    "totalSeats": 1132,
-    "venues": 1,
-    "cities": 1,
-    "fastfilling": 4,
+    "shows": 6,
+    "gross": 177710.0,
+    "sold": 1013,
+    "totalSeats": 1906,
+    "venues": 3,
+    "cities": 3,
+    "fastfilling": 5,
     "housefull": 0,
-    "occupancy": 60.69,
+    "occupancy": 53.15,
     "movieInfo": {
       "contentId": 188681,
       "name": "Jana Nayagan",
@@ -35,16 +35,51 @@
       "totalSessionCount": 19
     }
   },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 3,
+    "gross": 3980.0,
+    "sold": 20,
+    "totalSeats": 1094,
+    "venues": 3,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 1.83,
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 9
+    }
+  },
   "The Odyssey (IMAX 2D - English)": {
-    "shows": 1,
-    "gross": 175600.0,
-    "sold": 98,
-    "totalSeats": 342,
+    "shows": 2,
+    "gross": 420800.0,
+    "sold": 230,
+    "totalSeats": 684,
     "venues": 1,
     "cities": 1,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 28.65,
+    "occupancy": 33.63,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
