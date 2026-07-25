@@ -1,13 +1,25 @@
 {
   "The Odyssey (IMAX 2D - English)": {
-    "shows": 5,
-    "venues": 5,
-    "cities": 2,
-    "totalSeats": 1749,
-    "ticketsSold": 907,
-    "occupancy": 51.86,
-    "grossRevenue": 927080.0,
-    "fastfilling": 4,
+    "shows": 17,
+    "venues": 13,
+    "cities": 5,
+    "totalSeats": 5330,
+    "ticketsSold": 3127,
+    "occupancy": 58.67,
+    "grossRevenue": 3097820.0,
+    "fastfilling": 13,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Jana Nayagan (2D - Tamil)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 252,
+    "ticketsSold": 32,
+    "occupancy": 12.7,
+    "grossRevenue": 6740.0,
+    "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
   }
