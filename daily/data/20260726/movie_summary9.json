@@ -1,14 +1,14 @@
 {
   "Chennai Love Story (2D - Telugu)": {
-    "shows": 488,
-    "gross": 11858018.0,
-    "sold": 87899,
-    "totalSeats": 202166,
+    "shows": 492,
+    "gross": 12894822.0,
+    "sold": 95845,
+    "totalSeats": 203477,
     "venues": 242,
     "cities": 165,
-    "fastfilling": 189,
-    "housefull": 21,
-    "occupancy": 43.48,
+    "fastfilling": 202,
+    "housefull": 35,
+    "occupancy": 47.1,
     "movieInfo": {
       "contentId": 199197,
       "name": "Chennai Love Story",
@@ -35,15 +35,15 @@
     }
   },
   "Jan Neta (2D - Hindi)": {
-    "shows": 1182,
-    "gross": 7612053.94,
-    "sold": 47727,
-    "totalSeats": 263302,
-    "venues": 584,
-    "cities": 315,
-    "fastfilling": 126,
-    "housefull": 7,
-    "occupancy": 18.13,
+    "shows": 1225,
+    "gross": 8111317.94,
+    "sold": 50059,
+    "totalSeats": 271849,
+    "venues": 585,
+    "cities": 316,
+    "fastfilling": 132,
+    "housefull": 8,
+    "occupancy": 18.41,
     "movieInfo": {
       "contentId": 212360,
       "name": "Jan Neta",
@@ -71,15 +71,15 @@
     }
   },
   "Jana Nayagan (2D - Tamil)": {
-    "shows": 1289,
-    "gross": 54686803.94,
-    "sold": 299272,
-    "totalSeats": 441757,
-    "venues": 438,
-    "cities": 209,
-    "fastfilling": 518,
-    "housefull": 356,
-    "occupancy": 67.75,
+    "shows": 1303,
+    "gross": 55459022.23,
+    "sold": 303546,
+    "totalSeats": 445446,
+    "venues": 441,
+    "cities": 210,
+    "fastfilling": 501,
+    "housefull": 384,
+    "occupancy": 68.14,
     "movieInfo": {
       "contentId": 188681,
       "name": "Jana Nayagan",
@@ -107,15 +107,15 @@
     }
   },
   "The Odyssey (2D - English)": {
-    "shows": 247,
-    "gross": 2781777.76,
-    "sold": 10531,
-    "totalSeats": 53621,
-    "venues": 157,
-    "cities": 94,
-    "fastfilling": 32,
+    "shows": 255,
+    "gross": 2994244.36,
+    "sold": 11387,
+    "totalSeats": 56139,
+    "venues": 160,
+    "cities": 96,
+    "fastfilling": 34,
     "housefull": 2,
-    "occupancy": 19.64,
+    "occupancy": 20.28,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -141,16 +141,50 @@
       "totalSessionCount": 1
     }
   },
+  "Lenin (2D - Telugu)": {
+    "shows": 153,
+    "gross": 1795770.0,
+    "sold": 14866,
+    "totalSeats": 55125,
+    "venues": 87,
+    "cities": 66,
+    "fastfilling": 31,
+    "housefull": 0,
+    "occupancy": 26.97,
+    "movieInfo": {
+      "contentId": 195286,
+      "name": "Lenin",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 158,
+      "genres": [
+        "Action"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/poster_0004_Lenini-73309e00-1548-11f0-afe9-91710f201788-ba35f350-f769-11f0-9ad0-97f643f4852c.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=w2ZbnBobkuQ&t=2s",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
   "Jana Nayakudu (2D - Telugu)": {
-    "shows": 420,
-    "gross": 6332620.0,
-    "sold": 53501,
-    "totalSeats": 166536,
+    "shows": 424,
+    "gross": 6563131.0,
+    "sold": 55219,
+    "totalSeats": 168353,
     "venues": 217,
     "cities": 156,
-    "fastfilling": 92,
+    "fastfilling": 99,
     "housefull": 3,
-    "occupancy": 32.13,
+    "occupancy": 32.8,
     "movieInfo": {
       "contentId": 212361,
       "name": "Jana Nayakudu",
@@ -177,50 +211,16 @@
       "totalSessionCount": 4
     }
   },
-  "Lenin (2D - Telugu)": {
-    "shows": 153,
-    "gross": 1723558.0,
-    "sold": 14370,
-    "totalSeats": 55128,
-    "venues": 87,
-    "cities": 66,
-    "fastfilling": 28,
-    "housefull": 0,
-    "occupancy": 26.07,
-    "movieInfo": {
-      "contentId": 195286,
-      "name": "Lenin",
-      "lang": "Telugu",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "UA16+",
-      "duration": 158,
-      "genres": [
-        "Action"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/poster_0004_Lenini-73309e00-1548-11f0-afe9-91710f201788-ba35f350-f769-11f0-9ad0-97f643f4852c.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=w2ZbnBobkuQ&t=2s",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 4
-    }
-  },
   "The Odyssey (2D - Telugu)": {
     "shows": 72,
-    "gross": 824841.0,
-    "sold": 6055,
+    "gross": 844464.0,
+    "sold": 6195,
     "totalSeats": 25566,
     "venues": 44,
     "cities": 29,
     "fastfilling": 4,
     "housefull": 0,
-    "occupancy": 23.68,
+    "occupancy": 24.23,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -247,15 +247,15 @@
     }
   },
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 1276,
-    "gross": 8308794.0,
-    "sold": 42283,
-    "totalSeats": 276499,
-    "venues": 509,
-    "cities": 259,
-    "fastfilling": 90,
+    "shows": 1307,
+    "gross": 9143228.0,
+    "sold": 46056,
+    "totalSeats": 282914,
+    "venues": 510,
+    "cities": 260,
+    "fastfilling": 105,
     "housefull": 7,
-    "occupancy": 15.29,
+    "occupancy": 16.28,
     "movieInfo": {
       "contentId": 206457,
       "name": "Dhamaal 4",
@@ -283,14 +283,14 @@
   },
   "Alpha (2D - Hindi)": {
     "shows": 37,
-    "gross": 123755.0,
-    "sold": 643,
+    "gross": 125695.0,
+    "sold": 650,
     "totalSeats": 5383,
     "venues": 29,
     "cities": 18,
-    "fastfilling": 5,
+    "fastfilling": 4,
     "housefull": 0,
-    "occupancy": 11.95,
+    "occupancy": 12.08,
     "movieInfo": {
       "contentId": 175697,
       "name": "Alpha",
@@ -318,15 +318,15 @@
     }
   },
   "The Odyssey (2D - Hindi)": {
-    "shows": 384,
-    "gross": 2716977.0,
-    "sold": 12847,
-    "totalSeats": 83903,
-    "venues": 270,
-    "cities": 154,
-    "fastfilling": 24,
-    "housefull": 3,
-    "occupancy": 15.31,
+    "shows": 389,
+    "gross": 2872532.0,
+    "sold": 13645,
+    "totalSeats": 84890,
+    "venues": 272,
+    "cities": 156,
+    "fastfilling": 25,
+    "housefull": 4,
+    "occupancy": 16.07,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -353,15 +353,15 @@
     }
   },
   "Evil Dead Burn (2D - Hindi)": {
-    "shows": 77,
-    "gross": 395276.0,
-    "sold": 1937,
-    "totalSeats": 15122,
-    "venues": 69,
+    "shows": 79,
+    "gross": 425583.0,
+    "sold": 2079,
+    "totalSeats": 15541,
+    "venues": 70,
     "cities": 49,
     "fastfilling": 2,
     "housefull": 1,
-    "occupancy": 12.81,
+    "occupancy": 13.38,
     "movieInfo": {
       "contentId": 207239,
       "name": "Evil Dead Burn",
@@ -383,19 +383,19 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 1
+      "totalSessionCount": 2
     }
   },
   "Welcome To The Jungle (2D - Hindi)": {
     "shows": 52,
-    "gross": 187395.0,
-    "sold": 1027,
+    "gross": 201865.0,
+    "sold": 1126,
     "totalSeats": 8474,
     "venues": 43,
     "cities": 22,
     "fastfilling": 1,
     "housefull": 0,
-    "occupancy": 12.12,
+    "occupancy": 13.29,
     "movieInfo": {
       "contentId": 165834,
       "name": "Welcome To The Jungle",
@@ -416,40 +416,6 @@
       "rating": {
         "hasUReview": 1,
         "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    }
-  },
-  "Evil Dead Burn (2D - English)": {
-    "shows": 16,
-    "gross": 48194.0,
-    "sold": 204,
-    "totalSeats": 3055,
-    "venues": 15,
-    "cities": 10,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 6.68,
-    "movieInfo": {
-      "contentId": 207239,
-      "name": "Evil Dead Burn",
-      "lang": "English",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 112,
-      "genres": [
-        "Horror"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17833362123847753.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
@@ -491,16 +457,50 @@
       "totalSessionCount": 1
     }
   },
+  "Evil Dead Burn (2D - English)": {
+    "shows": 16,
+    "gross": 53244.0,
+    "sold": 226,
+    "totalSeats": 3055,
+    "venues": 15,
+    "cities": 10,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 7.4,
+    "movieInfo": {
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 112,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17833362123847753.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
   "Gatta Kusthi 2 (2D - Tamil)": {
     "shows": 21,
-    "gross": 365354.0,
-    "sold": 3104,
+    "gross": 375354.0,
+    "sold": 3173,
     "totalSeats": 8395,
     "venues": 13,
     "cities": 11,
     "fastfilling": 5,
     "housefull": 3,
-    "occupancy": 36.97,
+    "occupancy": 37.8,
     "movieInfo": {
       "contentId": 205464,
       "name": "Gatta Kusthi 2",
@@ -530,14 +530,14 @@
   },
   "Idhayam Murali (2D - Tamil)": {
     "shows": 8,
-    "gross": 63420.0,
-    "sold": 395,
+    "gross": 66200.0,
+    "sold": 411,
     "totalSeats": 3014,
     "venues": 5,
     "cities": 5,
     "fastfilling": 1,
     "housefull": 0,
-    "occupancy": 13.11,
+    "occupancy": 13.64,
     "movieInfo": {
       "contentId": 190425,
       "name": "Idhayam Murali",
@@ -560,7 +560,76 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 3
+      "totalSessionCount": 1
+    }
+  },
+  "Evil Dead Burn (2D - Telugu)": {
+    "shows": 5,
+    "gross": 10022.0,
+    "sold": 57,
+    "totalSeats": 1234,
+    "venues": 5,
+    "cities": 3,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 4.62,
+    "movieInfo": {
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 112,
+      "genres": [
+        "Horror"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-25d05810-5e7d-11f1-af8d-3fa9ffcddf9e.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 7,
+    "gross": 2358500.0,
+    "sold": 1409,
+    "totalSeats": 2496,
+    "venues": 2,
+    "cities": 2,
+    "fastfilling": 4,
+    "housefull": 0,
+    "occupancy": 56.45,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "IMAX 2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
     }
   },
   "The Odyssey (2D - Tamil)": {
@@ -596,75 +665,6 @@
       },
       "isNew": false,
       "totalSessionCount": 3
-    }
-  },
-  "Evil Dead Burn (2D - Telugu)": {
-    "shows": 5,
-    "gross": 9972.0,
-    "sold": 55,
-    "totalSeats": 1234,
-    "venues": 5,
-    "cities": 3,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 4.46,
-    "movieInfo": {
-      "contentId": 207239,
-      "name": "Evil Dead Burn",
-      "lang": "Telugu",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 112,
-      "genres": [
-        "Horror"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-25d05810-5e7d-11f1-af8d-3fa9ffcddf9e.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    }
-  },
-  "The Odyssey (IMAX 2D - English)": {
-    "shows": 7,
-    "gross": 2356900.0,
-    "sold": 1407,
-    "totalSeats": 2496,
-    "venues": 2,
-    "cities": 2,
-    "fastfilling": 4,
-    "housefull": 0,
-    "occupancy": 56.37,
-    "movieInfo": {
-      "contentId": 187151,
-      "name": "The Odyssey",
-      "lang": "English",
-      "scrnFmt": "IMAX 2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 175,
-      "genres": [
-        "Adventure",
-        "Epic"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-504353e0-6288-11f1-836e-9fd1f1c5b5a2.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 4
     }
   },
   "Evil Dead Burn (2D - Tamil)": {
