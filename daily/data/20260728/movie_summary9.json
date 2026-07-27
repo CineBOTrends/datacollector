@@ -1,4 +1,112 @@
 {
+  "Jana Nayagan (2D - Tamil)": {
+    "shows": 4,
+    "gross": 107056.8,
+    "sold": 606,
+    "totalSeats": 1441,
+    "venues": 4,
+    "cities": 3,
+    "fastfilling": 0,
+    "housefull": 1,
+    "occupancy": 42.05,
+    "movieInfo": {
+      "contentId": 188681,
+      "name": "Jana Nayagan",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 183,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Political"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17847021692920630.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Welcome To The Jungle (2D - Hindi)": {
+    "shows": 2,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 48,
+    "venues": 2,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 165834,
+      "name": "Welcome To The Jungle",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA16+",
+      "duration": 165,
+      "genres": [
+        "Action",
+        "Drama",
+        "Comedy"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/17811549132914624-0667fb20-6dfc-11f1-9a9b-71d1ad62c0c2.jpg",
+      "cover": "https://cdn.district.in/movies-assets/images/cinema/Welcome-To-The-Jungle-(Welcome-3)-73dfe610-d7c0-11ee-a5bd-f9e918a2ec60.jpg",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=L0L3GGgRMn0&ab_channel=JioStudios",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "https://cdn.district.in/movies-assets/images/cinema/Welcome3-min-5ecae150-5064-11ee-9976-c32b18db04ad.jpg",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
+    }
+  },
+  "Jan Neta (2D - Hindi)": {
+    "shows": 2,
+    "gross": 23089.0,
+    "sold": 111,
+    "totalSeats": 631,
+    "venues": 2,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 17.59,
+    "movieInfo": {
+      "contentId": 212360,
+      "name": "Jan Neta",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 183,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Political"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17846952866577022.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 8
+    }
+  },
   "Dhamaal 4 (2D - Hindi)": {
     "shows": 2,
     "gross": 1485.0,
@@ -32,6 +140,41 @@
       },
       "isNew": false,
       "totalSessionCount": 12
+    }
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 1,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 68,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
     }
   }
 }
