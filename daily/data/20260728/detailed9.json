@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "movie": "Dhamaal 4 (2D - Hindi)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "venue": "Maxus Cinemas, Bhayandar",
+    "address": "Maxus Mall, 3rd Floor, 150 Feet Road, Near Railway Flyover, Opposite Salasar Bridge Bhoomi, Mumbai, Maharashtra 401101, India",
+    "time": "07:15 AM",
+    "audi": "SCREEN 4",
+    "session_id": "217896",
+    "totalSeats": 384,
+    "available": 384,
+    "sold": 0,
+    "gross": 0.0,
+    "minsLeft": 177.2,
+    "source": "District",
+    "date": "20260728",
+    "chain": "Maxus",
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 12
+    }
+  },
+  {
+    "movie": "Dhamaal 4 (2D - Hindi)",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "venue": "Maxus Cinemas, Saki Naka",
+    "address": "90 Feet Road, Sakinaka Andheri(East), Opposite Jarimari Bus Stop, Mumbai, Maharashtra 400072, India",
+    "time": "07:15 AM",
+    "audi": "SCREEN 3",
+    "session_id": "183977",
+    "totalSeats": 317,
+    "available": 302,
+    "sold": 15,
+    "gross": 1485.0,
+    "minsLeft": 177.2,
+    "source": "District",
+    "date": "20260728",
+    "chain": "Maxus",
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 8
+    }
+  }
+]
