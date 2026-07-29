@@ -34,16 +34,16 @@
       "totalSessionCount": 5
     }
   },
-  "Spider-Man: Brand New Day (3D - Tamil)": {
-    "shows": 3,
-    "gross": 79050.0,
-    "sold": 441,
-    "totalSeats": 1209,
-    "venues": 3,
-    "cities": 3,
-    "fastfilling": 0,
+  "Spider-Man: Brand New Day (3D - English)": {
+    "shows": 11,
+    "gross": 410560.0,
+    "sold": 1240,
+    "totalSeats": 3548,
+    "venues": 11,
+    "cities": 10,
+    "fastfilling": 3,
     "housefull": 0,
-    "occupancy": 36.48,
+    "occupancy": 34.95,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
@@ -67,7 +67,115 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 2
+      "totalSessionCount": 7
+    }
+  },
+  "Spider-Man: Brand New Day (3D - Tamil)": {
+    "shows": 6,
+    "gross": 158530.0,
+    "sold": 859,
+    "totalSeats": 2138,
+    "venues": 6,
+    "cities": 5,
+    "fastfilling": 2,
+    "housefull": 0,
+    "occupancy": 40.18,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "English",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-80d689a0-6a44-11f1-8e5c-53a5b7291e0a.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=BwntXFBNfOA",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  "Spider-Man: Brand New Day (2D - English)": {
+    "shows": 2,
+    "gross": 46080.0,
+    "sold": 190,
+    "totalSeats": 510,
+    "venues": 2,
+    "cities": 2,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 37.25,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "English",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-80d689a0-6a44-11f1-8e5c-53a5b7291e0a.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=BwntXFBNfOA",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 6
+    }
+  },
+  "Spider-Man: Brand New Day (3D - Hindi)": {
+    "shows": 6,
+    "gross": 87810.0,
+    "sold": 269,
+    "totalSeats": 1421,
+    "venues": 6,
+    "cities": 6,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 18.93,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 9
     }
   }
 }
