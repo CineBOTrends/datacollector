@@ -1,14 +1,26 @@
 {
+  "Spider-Man: Brand New Day (3D - Hindi)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 274,
+    "ticketsSold": 263,
+    "occupancy": 95.99,
+    "grossRevenue": 76300.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {}
+  },
   "Dhamaal 4 (2D - Hindi)": {
     "shows": 1,
     "venues": 1,
     "cities": 1,
     "totalSeats": 95,
-    "ticketsSold": 95,
-    "occupancy": 100.0,
-    "grossRevenue": 19000.0,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
     "fastfilling": 0,
-    "housefull": 1,
+    "housefull": 0,
     "movieInfo": {}
   }
 }
