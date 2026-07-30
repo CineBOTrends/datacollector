@@ -1,18 +1,18 @@
 {
-  "Spider-Man: Brand New Day (2D - Hindi)": {
-    "shows": 179,
-    "gross": 2445470.0,
-    "sold": 9880,
-    "totalSeats": 46602,
-    "venues": 160,
-    "cities": 92,
-    "fastfilling": 26,
-    "housefull": 0,
-    "occupancy": 21.2,
+  "Spider-Man: Brand New Day (3D - English)": {
+    "shows": 397,
+    "gross": 9932773.08,
+    "sold": 38086,
+    "totalSeats": 102773,
+    "venues": 244,
+    "cities": 129,
+    "fastfilling": 100,
+    "housefull": 7,
+    "occupancy": 37.06,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
-      "lang": "Hindi",
+      "lang": "English",
       "scrnFmt": "3D",
       "sndFmt": "",
       "censor": "UA13+",
@@ -22,10 +22,46 @@
         "Sci-Fi",
         "Adventure"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-80d689a0-6a44-11f1-8e5c-53a5b7291e0a.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "trailer": "https://www.youtube.com/watch?v=BwntXFBNfOA",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 1
+    }
+  },
+  "Spider-Man: Brand New Day (2D - Hindi)": {
+    "shows": 222,
+    "gross": 2973470.0,
+    "sold": 11783,
+    "totalSeats": 57494,
+    "venues": 174,
+    "cities": 101,
+    "fastfilling": 33,
+    "housefull": 0,
+    "occupancy": 20.49,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-2bb90730-6a45-11f1-993c-fd4f611cc816.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=QdLExXYsyQw",
       "rating": {
         "hasUReview": 0,
         "imageUrl": "",
@@ -36,15 +72,15 @@
     }
   },
   "Spider-Man: Brand New Day (3D - Telugu)": {
-    "shows": 89,
-    "gross": 3135267.0,
-    "sold": 19613,
-    "totalSeats": 36190,
-    "venues": 81,
-    "cities": 56,
-    "fastfilling": 51,
-    "housefull": 1,
-    "occupancy": 54.19,
+    "shows": 132,
+    "gross": 4625535.0,
+    "sold": 29801,
+    "totalSeats": 52940,
+    "venues": 111,
+    "cities": 77,
+    "fastfilling": 76,
+    "housefull": 2,
+    "occupancy": 56.29,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
@@ -71,36 +107,34 @@
       "totalSessionCount": 4
     }
   },
-  "Srinivasa Mangapuram (2D - Telugu)": {
-    "shows": 139,
-    "gross": 2389052.0,
-    "sold": 20684,
-    "totalSeats": 59279,
-    "venues": 133,
-    "cities": 103,
-    "fastfilling": 33,
-    "housefull": 4,
-    "occupancy": 34.89,
+  "Lenin (2D - Telugu)": {
+    "shows": 13,
+    "gross": 93337.0,
+    "sold": 741,
+    "totalSeats": 3476,
+    "venues": 13,
+    "cities": 13,
+    "fastfilling": 2,
+    "housefull": 0,
+    "occupancy": 21.32,
     "movieInfo": {
-      "contentId": 219722,
-      "name": "Srinivasa Mangapuram",
+      "contentId": 195286,
+      "name": "Lenin",
       "lang": "Telugu",
       "scrnFmt": "2D",
       "sndFmt": "",
       "censor": "UA16+",
-      "duration": 164,
+      "duration": 158,
       "genres": [
-        "Action",
-        "Drama",
-        "Romance"
+        "Action"
       ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17849109781358776.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/poster_0004_Lenini-73309e00-1548-11f0-afe9-91710f201788-ba35f350-f769-11f0-9ad0-97f643f4852c.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "",
+      "trailer": "https://www.youtube.com/watch?v=w2ZbnBobkuQ&t=2s",
       "rating": {
         "hasUReview": 0,
-        "imageUrl": "\"\"",
+        "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
@@ -108,15 +142,15 @@
     }
   },
   "Chennai Love Story (2D - Telugu)": {
-    "shows": 109,
-    "gross": 1327963.0,
-    "sold": 12720,
-    "totalSeats": 46409,
-    "venues": 109,
-    "cities": 99,
-    "fastfilling": 22,
+    "shows": 151,
+    "gross": 1610129.0,
+    "sold": 14807,
+    "totalSeats": 61554,
+    "venues": 149,
+    "cities": 123,
+    "fastfilling": 23,
     "housefull": 1,
-    "occupancy": 27.41,
+    "occupancy": 24.06,
     "movieInfo": {
       "contentId": 199197,
       "name": "Chennai Love Story",
@@ -142,52 +176,16 @@
       "totalSessionCount": 4
     }
   },
-  "Jana Nayakudu (2D - Telugu)": {
-    "shows": 24,
-    "gross": 372785.0,
-    "sold": 3617,
-    "totalSeats": 8295,
-    "venues": 24,
-    "cities": 21,
-    "fastfilling": 12,
-    "housefull": 0,
-    "occupancy": 43.6,
-    "movieInfo": {
-      "contentId": 212361,
-      "name": "Jana Nayakudu",
-      "lang": "Telugu",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 183,
-      "genres": [
-        "Action",
-        "Thriller",
-        "Political"
-      ],
-      "poster": "https://b.zmtcdn.com/data/edition_assets/17846952666553267.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 4
-    }
-  },
   "Spider-Man: Brand New Day (2D - Telugu)": {
-    "shows": 39,
-    "gross": 1056790.0,
-    "sold": 7339,
-    "totalSeats": 16093,
-    "venues": 34,
-    "cities": 20,
-    "fastfilling": 20,
+    "shows": 55,
+    "gross": 1522690.0,
+    "sold": 10234,
+    "totalSeats": 22872,
+    "venues": 46,
+    "cities": 29,
+    "fastfilling": 29,
     "housefull": 1,
-    "occupancy": 45.6,
+    "occupancy": 44.74,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
@@ -214,31 +212,68 @@
       "totalSessionCount": 4
     }
   },
-  "Lenin (2D - Telugu)": {
-    "shows": 7,
-    "gross": 45194.0,
-    "sold": 319,
-    "totalSeats": 1949,
-    "venues": 7,
-    "cities": 7,
-    "fastfilling": 1,
-    "housefull": 0,
-    "occupancy": 16.37,
+  "Srinivasa Mangapuram (2D - Telugu)": {
+    "shows": 194,
+    "gross": 3396942.0,
+    "sold": 28688,
+    "totalSeats": 79701,
+    "venues": 182,
+    "cities": 129,
+    "fastfilling": 50,
+    "housefull": 5,
+    "occupancy": 35.99,
     "movieInfo": {
-      "contentId": 195286,
-      "name": "Lenin",
+      "contentId": 219722,
+      "name": "Srinivasa Mangapuram",
       "lang": "Telugu",
       "scrnFmt": "2D",
       "sndFmt": "",
       "censor": "UA16+",
-      "duration": 158,
+      "duration": 164,
       "genres": [
-        "Action"
+        "Action",
+        "Drama",
+        "Romance"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/poster_0004_Lenini-73309e00-1548-11f0-afe9-91710f201788-ba35f350-f769-11f0-9ad0-97f643f4852c.jpg",
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17849109781358776.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=w2ZbnBobkuQ&t=2s",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 0,
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Jana Nayakudu (2D - Telugu)": {
+    "shows": 31,
+    "gross": 378835.0,
+    "sold": 3655,
+    "totalSeats": 9844,
+    "venues": 31,
+    "cities": 25,
+    "fastfilling": 12,
+    "housefull": 0,
+    "occupancy": 37.13,
+    "movieInfo": {
+      "contentId": 212361,
+      "name": "Jana Nayakudu",
+      "lang": "Telugu",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 183,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Political"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17846952666553267.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
       "rating": {
         "hasUReview": 0,
         "imageUrl": "",
@@ -249,15 +284,15 @@
     }
   },
   "The Odyssey (2D - Telugu)": {
-    "shows": 3,
-    "gross": 22482.0,
-    "sold": 129,
-    "totalSeats": 785,
-    "venues": 3,
-    "cities": 3,
+    "shows": 5,
+    "gross": 24082.0,
+    "sold": 136,
+    "totalSeats": 1161,
+    "venues": 5,
+    "cities": 5,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 16.43,
+    "occupancy": 11.71,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
@@ -284,15 +319,15 @@
     }
   },
   "Jana Nayagan (2D - Tamil)": {
-    "shows": 229,
-    "gross": 1888226.42,
-    "sold": 12707,
-    "totalSeats": 88878,
-    "venues": 226,
-    "cities": 131,
-    "fastfilling": 12,
+    "shows": 293,
+    "gross": 2748919.97,
+    "sold": 17669,
+    "totalSeats": 115760,
+    "venues": 279,
+    "cities": 144,
+    "fastfilling": 16,
     "housefull": 0,
-    "occupancy": 14.3,
+    "occupancy": 15.26,
     "movieInfo": {
       "contentId": 188681,
       "name": "Jana Nayagan",
@@ -320,15 +355,15 @@
     }
   },
   "Spider-Man: Brand New Day (2D - English)": {
-    "shows": 47,
-    "gross": 650249.0,
-    "sold": 2370,
-    "totalSeats": 9092,
-    "venues": 37,
-    "cities": 28,
-    "fastfilling": 7,
-    "housefull": 0,
-    "occupancy": 26.07,
+    "shows": 56,
+    "gross": 855441.6,
+    "sold": 3402,
+    "totalSeats": 11527,
+    "venues": 44,
+    "cities": 31,
+    "fastfilling": 9,
+    "housefull": 2,
+    "occupancy": 29.51,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
@@ -352,55 +387,19 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 2
-    }
-  },
-  "Spider-Man: Brand New Day (3D - English)": {
-    "shows": 317,
-    "gross": 8101414.2,
-    "sold": 31519,
-    "totalSeats": 83060,
-    "venues": 204,
-    "cities": 109,
-    "fastfilling": 82,
-    "housefull": 6,
-    "occupancy": 37.95,
-    "movieInfo": {
-      "contentId": 194537,
-      "name": "Spider-Man: Brand New Day",
-      "lang": "English",
-      "scrnFmt": "3D",
-      "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 145,
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Adventure"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-80d689a0-6a44-11f1-8e5c-53a5b7291e0a.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=BwntXFBNfOA",
-      "rating": {
-        "hasUReview": 0,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 5
+      "totalSessionCount": 4
     }
   },
   "Jan Neta (2D - Hindi)": {
-    "shows": 123,
-    "gross": 330732.0,
-    "sold": 2177,
-    "totalSeats": 21263,
-    "venues": 118,
-    "cities": 77,
-    "fastfilling": 6,
-    "housefull": 0,
-    "occupancy": 10.24,
+    "shows": 257,
+    "gross": 1171862.0,
+    "sold": 8780,
+    "totalSeats": 49463,
+    "venues": 244,
+    "cities": 169,
+    "fastfilling": 31,
+    "housefull": 3,
+    "occupancy": 17.75,
     "movieInfo": {
       "contentId": 212360,
       "name": "Jan Neta",
@@ -428,15 +427,15 @@
     }
   },
   "Spider-Man: Brand New Day (3D - Hindi)": {
-    "shows": 460,
-    "gross": 11076930.0,
-    "sold": 36564,
-    "totalSeats": 112315,
-    "venues": 308,
-    "cities": 153,
-    "fastfilling": 106,
-    "housefull": 5,
-    "occupancy": 32.55,
+    "shows": 567,
+    "gross": 13958016.0,
+    "sold": 46117,
+    "totalSeats": 136980,
+    "venues": 337,
+    "cities": 168,
+    "fastfilling": 136,
+    "housefull": 11,
+    "occupancy": 33.67,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
@@ -460,19 +459,19 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 7
+      "totalSessionCount": 4
     }
   },
   "Dhamaal 4 (2D - Hindi)": {
-    "shows": 205,
-    "gross": 546253.0,
-    "sold": 3326,
-    "totalSeats": 37094,
-    "venues": 194,
-    "cities": 99,
-    "fastfilling": 8,
+    "shows": 274,
+    "gross": 681758.0,
+    "sold": 4090,
+    "totalSeats": 47750,
+    "venues": 242,
+    "cities": 132,
+    "fastfilling": 11,
     "housefull": 2,
-    "occupancy": 8.97,
+    "occupancy": 8.57,
     "movieInfo": {
       "contentId": 206457,
       "name": "Dhamaal 4",
@@ -495,24 +494,24 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 5
+      "totalSessionCount": 2
     }
   },
   "The Odyssey (2D - Hindi)": {
-    "shows": 15,
-    "gross": 16478.0,
-    "sold": 101,
-    "totalSeats": 2730,
-    "venues": 15,
-    "cities": 10,
+    "shows": 23,
+    "gross": 34568.0,
+    "sold": 197,
+    "totalSeats": 4222,
+    "venues": 23,
+    "cities": 16,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 3.7,
+    "occupancy": 4.67,
     "movieInfo": {
       "contentId": 187151,
       "name": "The Odyssey",
       "lang": "Hindi",
-      "scrnFmt": "2D",
+      "scrnFmt": "IMAX 2D",
       "sndFmt": "",
       "censor": "A",
       "duration": 175,
@@ -520,17 +519,17 @@
         "Adventure",
         "Epic"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-71fb6090-6288-11f1-836e-9fd1f1c5b5a2.jpg",
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17829803909946968.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=MIjsrWpkXhg",
+      "trailer": "",
       "rating": {
         "hasUReview": 1,
         "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 4
+      "totalSessionCount": 1
     }
   },
   "Spider-Man: Brand New Day (3D - Kannada)": {
@@ -569,16 +568,16 @@
       "totalSessionCount": 2
     }
   },
-  "Spider-Man: Brand New Day (3D - Tamil)": {
-    "shows": 124,
-    "gross": 3656580.74,
-    "sold": 21962,
-    "totalSeats": 43036,
-    "venues": 93,
-    "cities": 54,
-    "fastfilling": 60,
-    "housefull": 2,
-    "occupancy": 51.03,
+  "Spider-Man: Brand New Day (3D - Malayalam)": {
+    "shows": 1,
+    "gross": 7100.0,
+    "sold": 41,
+    "totalSeats": 221,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 18.55,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
@@ -602,23 +601,94 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 1
+      "totalSessionCount": 4
+    }
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 15,
+    "gross": 24402.0,
+    "sold": 122,
+    "totalSeats": 2656,
+    "venues": 14,
+    "cities": 11,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 4.59,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Spider-Man: Brand New Day (3D - Tamil)": {
+    "shows": 152,
+    "gross": 4387767.08,
+    "sold": 26480,
+    "totalSeats": 50915,
+    "venues": 101,
+    "cities": 54,
+    "fastfilling": 74,
+    "housefull": 4,
+    "occupancy": 52.01,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Tamil",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-7221ee30-6a45-11f1-a575-bb3ca31238ed.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 0,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
     }
   },
   "Spider-Man: Brand New Day (2D - Tamil)": {
-    "shows": 15,
-    "gross": 215835.6,
-    "sold": 1432,
-    "totalSeats": 4976,
-    "venues": 14,
-    "cities": 12,
+    "shows": 18,
+    "gross": 294045.6,
+    "sold": 1881,
+    "totalSeats": 5673,
+    "venues": 16,
+    "cities": 13,
     "fastfilling": 3,
-    "housefull": 0,
-    "occupancy": 28.78,
+    "housefull": 1,
+    "occupancy": 33.16,
     "movieInfo": {
       "contentId": 194537,
       "name": "Spider-Man: Brand New Day",
-      "lang": "English",
+      "lang": "Tamil",
       "scrnFmt": "3D",
       "sndFmt": "",
       "censor": "UA13+",
@@ -628,29 +698,64 @@
         "Sci-Fi",
         "Adventure"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-80d689a0-6a44-11f1-8e5c-53a5b7291e0a.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-7221ee30-6a45-11f1-a575-bb3ca31238ed.jpg",
       "cover": "",
       "thumbnail": "",
-      "trailer": "https://www.youtube.com/watch?v=BwntXFBNfOA",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
       "rating": {
         "hasUReview": 0,
         "imageUrl": "",
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 7
+      "totalSessionCount": 4
+    }
+  },
+  "The Odyssey (2D - Tamil)": {
+    "shows": 1,
+    "gross": 450.0,
+    "sold": 3,
+    "totalSeats": 141,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 2.13,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "Tamil",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-8dba09d0-6288-11f1-9f5b-8fefdf83467e.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "https://www.youtube.com/watch?v=JLEDwlSZcAI",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 2
     }
   },
   "Gatta Kusthi 2 (2D - Tamil)": {
-    "shows": 5,
-    "gross": 21660.0,
-    "sold": 222,
-    "totalSeats": 1131,
-    "venues": 5,
-    "cities": 4,
+    "shows": 6,
+    "gross": 25560.0,
+    "sold": 252,
+    "totalSeats": 1730,
+    "venues": 6,
+    "cities": 5,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 19.63,
+    "occupancy": 14.57,
     "movieInfo": {
       "contentId": 205464,
       "name": "Gatta Kusthi 2",
@@ -675,32 +780,31 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 1
+      "totalSessionCount": 2
     }
   },
-  "The Odyssey (2D - English)": {
-    "shows": 11,
-    "gross": 21049.0,
-    "sold": 112,
-    "totalSeats": 2044,
-    "venues": 11,
-    "cities": 9,
+  "Evil Dead Burn (2D - Hindi)": {
+    "shows": 3,
+    "gross": 1600.0,
+    "sold": 8,
+    "totalSeats": 610,
+    "venues": 3,
+    "cities": 3,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 5.48,
+    "occupancy": 1.31,
     "movieInfo": {
-      "contentId": 187151,
-      "name": "The Odyssey",
-      "lang": "English",
+      "contentId": 207239,
+      "name": "Evil Dead Burn",
+      "lang": "Hindi",
       "scrnFmt": "2D",
       "sndFmt": "",
       "censor": "A",
-      "duration": 175,
+      "duration": 112,
       "genres": [
-        "Adventure",
-        "Epic"
+        "Horror"
       ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-bcec1460-5e7c-11f1-bb0a-07766384fec6.jpg",
       "cover": "",
       "thumbnail": "",
       "trailer": "",
@@ -710,19 +814,19 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 3
+      "totalSessionCount": 1
     }
   },
   "Alpha (2D - Hindi)": {
-    "shows": 2,
-    "gross": 0.0,
-    "sold": 0,
-    "totalSeats": 220,
-    "venues": 2,
-    "cities": 2,
-    "fastfilling": 0,
+    "shows": 4,
+    "gross": 14160.0,
+    "sold": 112,
+    "totalSeats": 440,
+    "venues": 4,
+    "cities": 4,
+    "fastfilling": 1,
     "housefull": 0,
-    "occupancy": 0.0,
+    "occupancy": 25.45,
     "movieInfo": {
       "contentId": 175697,
       "name": "Alpha",
@@ -746,41 +850,7 @@
         "hasContent": 1
       },
       "isNew": false,
-      "totalSessionCount": 1
-    }
-  },
-  "Evil Dead Burn (2D - Hindi)": {
-    "shows": 1,
-    "gross": 0.0,
-    "sold": 0,
-    "totalSeats": 130,
-    "venues": 1,
-    "cities": 1,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 0.0,
-    "movieInfo": {
-      "contentId": 207239,
-      "name": "Evil Dead Burn",
-      "lang": "Hindi",
-      "scrnFmt": "2D",
-      "sndFmt": "",
-      "censor": "A",
-      "duration": 112,
-      "genres": [
-        "Horror"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/Evil-Dead-Burn_Poster-0eb5e430-49d1-11f1-a8aa-ef664b57e8ad-bcec1460-5e7c-11f1-bb0a-07766384fec6.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 2
+      "totalSessionCount": 3
     }
   },
   "Idhayam Murali (2D - Tamil)": {
