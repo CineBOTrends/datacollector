@@ -4,9 +4,9 @@
     "venues": 111,
     "cities": 53,
     "totalSeats": 46641,
-    "ticketsSold": 3495,
+    "ticketsSold": 3494,
     "occupancy": 7.49,
-    "grossRevenue": 631790.0,
+    "grossRevenue": 631490.0,
     "fastfilling": 5,
     "housefull": 1,
     "movieInfo": {}
@@ -23,28 +23,28 @@
     "housefull": 0,
     "movieInfo": {}
   },
-  "Spider-Man: Brand New Day (3D - Hindi)": {
-    "shows": 643,
-    "venues": 131,
-    "cities": 40,
-    "totalSeats": 149350,
-    "ticketsSold": 66825,
-    "occupancy": 44.74,
-    "grossRevenue": 24449612.0,
-    "fastfilling": 248,
-    "housefull": 29,
-    "movieInfo": {}
-  },
   "Spider-Man: Brand New Day (2D - English)": {
     "shows": 247,
     "venues": 78,
     "cities": 21,
     "totalSeats": 54839,
-    "ticketsSold": 26577,
-    "occupancy": 48.46,
-    "grossRevenue": 9064895.32,
-    "fastfilling": 125,
+    "ticketsSold": 26587,
+    "occupancy": 48.48,
+    "grossRevenue": 9070235.32,
+    "fastfilling": 126,
     "housefull": 4,
+    "movieInfo": {}
+  },
+  "Spider-Man: Brand New Day (3D - Hindi)": {
+    "shows": 643,
+    "venues": 131,
+    "cities": 40,
+    "totalSeats": 149350,
+    "ticketsSold": 67022,
+    "occupancy": 44.88,
+    "grossRevenue": 24531392.0,
+    "fastfilling": 248,
+    "housefull": 29,
     "movieInfo": {}
   },
   "Spider-Man: Brand New Day (2D - Hindi)": {
@@ -52,9 +52,9 @@
     "venues": 82,
     "cities": 29,
     "totalSeats": 58753,
-    "ticketsSold": 17853,
-    "occupancy": 30.39,
-    "grossRevenue": 5659270.0,
+    "ticketsSold": 17823,
+    "occupancy": 30.34,
+    "grossRevenue": 5649080.0,
     "fastfilling": 61,
     "housefull": 1,
     "movieInfo": {}
@@ -64,35 +64,11 @@
     "venues": 141,
     "cities": 47,
     "totalSeats": 60834,
-    "ticketsSold": 6117,
-    "occupancy": 10.06,
-    "grossRevenue": 1209549.0,
+    "ticketsSold": 6145,
+    "occupancy": 10.1,
+    "grossRevenue": 1217619.0,
     "fastfilling": 7,
     "housefull": 3,
-    "movieInfo": {}
-  },
-  "Spider-Man: Brand New Day (3D - English)": {
-    "shows": 1105,
-    "venues": 176,
-    "cities": 49,
-    "totalSeats": 258556,
-    "ticketsSold": 142153,
-    "occupancy": 54.98,
-    "grossRevenue": 54273794.8,
-    "fastfilling": 667,
-    "housefull": 33,
-    "movieInfo": {}
-  },
-  "Welcome To The Jungle (2D - Hindi)": {
-    "shows": 14,
-    "venues": 10,
-    "cities": 7,
-    "totalSeats": 1626,
-    "ticketsSold": 104,
-    "occupancy": 6.4,
-    "grossRevenue": 17100.0,
-    "fastfilling": 1,
-    "housefull": 0,
     "movieInfo": {}
   },
   "Lenin (2D - Telugu)": {
@@ -105,6 +81,18 @@
     "grossRevenue": 14925.0,
     "fastfilling": 1,
     "housefull": 0,
+    "movieInfo": {}
+  },
+  "Spider-Man: Brand New Day (3D - English)": {
+    "shows": 1106,
+    "venues": 176,
+    "cities": 49,
+    "totalSeats": 258695,
+    "ticketsSold": 142222,
+    "occupancy": 54.98,
+    "grossRevenue": 54285827.2,
+    "fastfilling": 668,
+    "housefull": 33,
     "movieInfo": {}
   },
   "Jana Nayakudu (2D - Telugu)": {
@@ -131,6 +119,78 @@
     "housefull": 0,
     "movieInfo": {}
   },
+  "Spider-Man: Brand New Day (2D - Tamil)": {
+    "shows": 16,
+    "venues": 4,
+    "cities": 3,
+    "totalSeats": 2209,
+    "ticketsSold": 1687,
+    "occupancy": 76.37,
+    "grossRevenue": 272729.35,
+    "fastfilling": 10,
+    "housefull": 3,
+    "movieInfo": {}
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 137,
+    "venues": 68,
+    "cities": 20,
+    "totalSeats": 24334,
+    "ticketsSold": 5532,
+    "occupancy": 22.73,
+    "grossRevenue": 1579913.0,
+    "fastfilling": 23,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "The Odyssey (IMAX 2D - English)": {
+    "shows": 36,
+    "venues": 7,
+    "cities": 2,
+    "totalSeats": 10400,
+    "ticketsSold": 5660,
+    "occupancy": 54.42,
+    "grossRevenue": 7690990.0,
+    "fastfilling": 19,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Spider-Man: Brand New Day (4DX 3D - English)": {
+    "shows": 42,
+    "venues": 9,
+    "cities": 5,
+    "totalSeats": 4076,
+    "ticketsSold": 3729,
+    "occupancy": 91.49,
+    "grossRevenue": 4464160.0,
+    "fastfilling": 33,
+    "housefull": 9,
+    "movieInfo": {}
+  },
+  "Spider-Man: Brand New Day (MX4D 3D - English)": {
+    "shows": 4,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 400,
+    "ticketsSold": 286,
+    "occupancy": 71.5,
+    "grossRevenue": 199660.0,
+    "fastfilling": 3,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Welcome To The Jungle (2D - Hindi)": {
+    "shows": 14,
+    "venues": 10,
+    "cities": 7,
+    "totalSeats": 1626,
+    "ticketsSold": 104,
+    "occupancy": 6.4,
+    "grossRevenue": 17100.0,
+    "fastfilling": 1,
+    "housefull": 0,
+    "movieInfo": {}
+  },
   "Spider-Man: Brand New Day (3D - Tamil)": {
     "shows": 30,
     "venues": 8,
@@ -141,30 +201,6 @@
     "grossRevenue": 1466336.3,
     "fastfilling": 19,
     "housefull": 4,
-    "movieInfo": {}
-  },
-  "Spider-Man: Brand New Day (2D - Tamil)": {
-    "shows": 16,
-    "venues": 4,
-    "cities": 3,
-    "totalSeats": 2209,
-    "ticketsSold": 1682,
-    "occupancy": 76.14,
-    "grossRevenue": 271810.35,
-    "fastfilling": 10,
-    "housefull": 3,
-    "movieInfo": {}
-  },
-  "The Odyssey (2D - English)": {
-    "shows": 137,
-    "venues": 68,
-    "cities": 20,
-    "totalSeats": 24348,
-    "ticketsSold": 5531,
-    "occupancy": 22.72,
-    "grossRevenue": 1577593.0,
-    "fastfilling": 22,
-    "housefull": 0,
     "movieInfo": {}
   },
   "The Odyssey (4DX - English)": {
@@ -179,30 +215,6 @@
     "housefull": 0,
     "movieInfo": {}
   },
-  "The Odyssey (IMAX 2D - English)": {
-    "shows": 36,
-    "venues": 7,
-    "cities": 2,
-    "totalSeats": 10400,
-    "ticketsSold": 5655,
-    "occupancy": 54.37,
-    "grossRevenue": 7686140.0,
-    "fastfilling": 19,
-    "housefull": 0,
-    "movieInfo": {}
-  },
-  "Spider-Man: Brand New Day (4DX 3D - English)": {
-    "shows": 42,
-    "venues": 9,
-    "cities": 5,
-    "totalSeats": 4056,
-    "ticketsSold": 3718,
-    "occupancy": 91.67,
-    "grossRevenue": 4457010.0,
-    "fastfilling": 32,
-    "housefull": 10,
-    "movieInfo": {}
-  },
   "The Odyssey (2D - Hindi)": {
     "shows": 28,
     "venues": 20,
@@ -211,18 +223,6 @@
     "ticketsSold": 890,
     "occupancy": 18.07,
     "grossRevenue": 202054.0,
-    "fastfilling": 3,
-    "housefull": 0,
-    "movieInfo": {}
-  },
-  "Spider-Man: Brand New Day (MX4D 3D - English)": {
-    "shows": 4,
-    "venues": 1,
-    "cities": 1,
-    "totalSeats": 400,
-    "ticketsSold": 284,
-    "occupancy": 71.0,
-    "grossRevenue": 198060.0,
     "fastfilling": 3,
     "housefull": 0,
     "movieInfo": {}
