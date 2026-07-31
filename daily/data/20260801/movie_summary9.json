@@ -1,1 +1,38 @@
-{}
+{
+  "Spider-Man: Brand New Day (2D - Hindi)": {
+    "shows": 1,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 175,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  }
+}
