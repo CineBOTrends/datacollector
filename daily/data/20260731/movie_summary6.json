@@ -1,25 +1,49 @@
 {
-  "Spider-Man: Brand New Day (3D - English)": {
-    "shows": 5,
-    "venues": 5,
-    "cities": 3,
-    "totalSeats": 1252,
-    "ticketsSold": 206,
-    "occupancy": 16.45,
-    "grossRevenue": 69470.0,
+  "Spider-Man: Brand New Day (3D - Hindi)": {
+    "shows": 11,
+    "venues": 11,
+    "cities": 8,
+    "totalSeats": 2691,
+    "ticketsSold": 451,
+    "occupancy": 16.76,
+    "grossRevenue": 132020.0,
     "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
   },
-  "Spider-Man: Brand New Day (3D - Hindi)": {
-    "shows": 2,
-    "venues": 2,
-    "cities": 2,
-    "totalSeats": 608,
-    "ticketsSold": 121,
-    "occupancy": 19.9,
-    "grossRevenue": 34440.0,
+  "Spider-Man: Brand New Day (2D - Hindi)": {
+    "shows": 6,
+    "venues": 6,
+    "cities": 3,
+    "totalSeats": 1294,
+    "ticketsSold": 70,
+    "occupancy": 5.41,
+    "grossRevenue": 19460.0,
     "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {}
+  },
+  "Spider-Man: Brand New Day (3D - English)": {
+    "shows": 13,
+    "venues": 11,
+    "cities": 4,
+    "totalSeats": 2654,
+    "ticketsSold": 561,
+    "occupancy": 21.14,
+    "grossRevenue": 193230.0,
+    "fastfilling": 0,
+    "housefull": 1,
+    "movieInfo": {}
+  },
+  "Spider-Man: Brand New Day (2D - English)": {
+    "shows": 7,
+    "venues": 5,
+    "cities": 3,
+    "totalSeats": 1354,
+    "ticketsSold": 586,
+    "occupancy": 43.28,
+    "grossRevenue": 273862.8,
+    "fastfilling": 2,
     "housefull": 0,
     "movieInfo": {}
   },
@@ -30,7 +54,7 @@
     "totalSeats": 256,
     "ticketsSold": 155,
     "occupancy": 60.55,
-    "grossRevenue": 76850.0,
+    "grossRevenue": 79270.0,
     "fastfilling": 1,
     "housefull": 0,
     "movieInfo": {}
@@ -44,18 +68,6 @@
     "occupancy": 86.67,
     "grossRevenue": 63440.0,
     "fastfilling": 1,
-    "housefull": 0,
-    "movieInfo": {}
-  },
-  "Spider-Man: Brand New Day (2D - Hindi)": {
-    "shows": 3,
-    "venues": 3,
-    "cities": 1,
-    "totalSeats": 705,
-    "ticketsSold": 51,
-    "occupancy": 7.23,
-    "grossRevenue": 14390.0,
-    "fastfilling": 0,
     "housefull": 0,
     "movieInfo": {}
   }
