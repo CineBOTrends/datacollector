@@ -479,7 +479,6 @@ def _city_state(city):
 
 def build_movie(title, rows):
     """rows: every show row whose base title == `title`."""
-    rows = _dedupe_theatre_rows(rows)
     languages, formats = set(), set()
     fmt_acc = defaultdict(blank)
     lang_acc = defaultdict(blank)
