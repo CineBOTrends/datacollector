@@ -1,39 +1,39 @@
 {
   "Dookudu (2D - Telugu)": {
-    "shows": 2,
+    "shows": 4,
     "venues": 2,
     "cities": 2,
-    "totalSeats": 984,
-    "ticketsSold": 483,
-    "occupancy": 49.09,
-    "grossRevenue": 72450.0,
+    "totalSeats": 2388,
+    "ticketsSold": 2116,
+    "occupancy": 88.61,
+    "grossRevenue": 306300.0,
     "fastfilling": 1,
-    "housefull": 0,
+    "housefull": 3,
     "movieInfo": {},
     "cityDetails": [
       {
-        "city": "Jangareddy Gudem",
+        "city": "Tirupati",
         "state": "Andhra Pradesh",
-        "shows": 1,
+        "shows": 2,
         "venues": 1,
-        "totalSeats": 270,
-        "ticketsSold": 4,
-        "occupancy": 1.48,
-        "grossRevenue": 600.0,
+        "totalSeats": 960,
+        "ticketsSold": 960,
+        "occupancy": 100.0,
+        "grossRevenue": 132900.0,
         "fastfilling": 0,
-        "housefull": 0
+        "housefull": 2
       },
       {
         "city": "Bengaluru",
         "state": "Karnataka",
-        "shows": 1,
+        "shows": 2,
         "venues": 1,
-        "totalSeats": 714,
-        "ticketsSold": 479,
-        "occupancy": 67.09,
-        "grossRevenue": 71850.0,
+        "totalSeats": 1428,
+        "ticketsSold": 1156,
+        "occupancy": 80.95,
+        "grossRevenue": 173400.0,
         "fastfilling": 1,
-        "housefull": 0
+        "housefull": 1
       }
     ]
   }
