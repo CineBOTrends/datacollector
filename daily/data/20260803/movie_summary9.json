@@ -1,86 +1,121 @@
 {
-  "Spider-Man: Brand New Day (3D - English)": {
+  "Spider-Man: Brand New Day (3D - Hindi)": {
+    "shows": 29,
+    "gross": 108701.0,
+    "sold": 494,
+    "totalSeats": 6345,
+    "venues": 29,
+    "cities": 22,
+    "fastfilling": 2,
+    "housefull": 0,
+    "occupancy": 7.79,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 4
+    }
+  },
+  "Spider-Man: Brand New Day (2D - Hindi)": {
+    "shows": 9,
+    "gross": 40490.0,
+    "sold": 137,
+    "totalSeats": 2465,
+    "venues": 9,
+    "cities": 8,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.56,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 7
+    }
+  },
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 3,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 430,
+    "venues": 3,
+    "cities": 3,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 206457,
+      "name": "Dhamaal 4",
+      "lang": "Hindi",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 143,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "poster": "https://b.zmtcdn.com/data/edition_assets/17836742758995427.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
+    }
+  },
+  "Jan Neta (2D - Hindi)": {
     "shows": 4,
-    "gross": 39539.0,
-    "sold": 131,
-    "totalSeats": 1368,
+    "gross": 3823.0,
+    "sold": 21,
+    "totalSeats": 517,
     "venues": 4,
     "cities": 3,
     "fastfilling": 0,
     "housefull": 0,
-    "occupancy": 9.58,
-    "movieInfo": {
-      "contentId": 194537,
-      "name": "Spider-Man: Brand New Day",
-      "lang": "Hindi",
-      "scrnFmt": "3D",
-      "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 145,
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Adventure"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 1
-    }
-  },
-  "Spider-Man: Brand New Day (3D - Hindi)": {
-    "shows": 7,
-    "gross": 3169.0,
-    "sold": 13,
-    "totalSeats": 1667,
-    "venues": 7,
-    "cities": 6,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 0.78,
-    "movieInfo": {
-      "contentId": 194537,
-      "name": "Spider-Man: Brand New Day",
-      "lang": "Hindi",
-      "scrnFmt": "3D",
-      "sndFmt": "",
-      "censor": "UA13+",
-      "duration": 145,
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Adventure"
-      ],
-      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
-      "cover": "",
-      "thumbnail": "",
-      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
-      "rating": {
-        "hasUReview": 1,
-        "imageUrl": "",
-        "hasContent": 1
-      },
-      "isNew": false,
-      "totalSessionCount": 8
-    }
-  },
-  "Jan Neta (2D - Hindi)": {
-    "shows": 1,
-    "gross": 2783.0,
-    "sold": 17,
-    "totalSeats": 183,
-    "venues": 1,
-    "cities": 1,
-    "fastfilling": 0,
-    "housefull": 0,
-    "occupancy": 9.29,
+    "occupancy": 4.06,
     "movieInfo": {
       "contentId": 212360,
       "name": "Jan Neta",
@@ -105,6 +140,113 @@
       },
       "isNew": false,
       "totalSessionCount": 2
+    }
+  },
+  "Spider-Man: Brand New Day (3D - English)": {
+    "shows": 20,
+    "gross": 99739.0,
+    "sold": 328,
+    "totalSeats": 5809,
+    "venues": 20,
+    "cities": 11,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 5.65,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  "Spider-Man: Brand New Day (2D - English)": {
+    "shows": 3,
+    "gross": 2930.0,
+    "sold": 9,
+    "totalSeats": 713,
+    "venues": 3,
+    "cities": 2,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 1.26,
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 5
+    }
+  },
+  "The Odyssey (2D - Hindi)": {
+    "shows": 1,
+    "gross": 0.0,
+    "sold": 0,
+    "totalSeats": 215,
+    "venues": 1,
+    "cities": 1,
+    "fastfilling": 0,
+    "housefull": 0,
+    "occupancy": 0.0,
+    "movieInfo": {
+      "contentId": 187151,
+      "name": "The Odyssey",
+      "lang": "English",
+      "scrnFmt": "2D",
+      "sndFmt": "",
+      "censor": "A",
+      "duration": 175,
+      "genres": [
+        "Adventure",
+        "Epic"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/THe-odyssey-3bc50d00-6288-11f1-a890-bfd3109fc6d5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 3
     }
   }
 }
