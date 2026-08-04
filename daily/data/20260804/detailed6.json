@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "movie": "Spider-Man: Brand New Day (3D - English)",
+    "venue": "INOX Ozone Galleria Mall: Dhanbad",
+    "address": "Ozone Galleria Mall, Saraidhela, Kolakusma, Above Big Bazaar, Dhanbad(Jharkhand), Jharkhand 828127, India",
+    "chain": "INOX",
+    "time": "07:05 AM",
+    "audi": "",
+    "session_id": "91089",
+    "totalSeats": 244,
+    "available": 227,
+    "ticketsSold": 17,
+    "grossRevenue": 3570.0,
+    "minsLeft": 72.0,
+    "city": "Dhanbad(Jharkhand)",
+    "state": "Jharkhand",
+    "source": "BMS",
+    "date": "20260804"
+  },
+  {
+    "movie": "Spider-Man: Brand New Day (3D - English)",
+    "venue": "Kumecs Cinema: Imphal",
+    "address": "Kumecs Infratech, Kumecs City Centre, Kakwa, Imphal West, Imphal, Manipur 795008, India",
+    "chain": "Kumecs Infratech",
+    "time": "07:25 AM",
+    "audi": "",
+    "session_id": "7610",
+    "totalSeats": 155,
+    "available": 132,
+    "ticketsSold": 23,
+    "grossRevenue": 8320.0,
+    "minsLeft": 91.3,
+    "city": "Imphal",
+    "state": "Manipur",
+    "source": "BMS",
+    "date": "20260804"
+  },
+  {
+    "movie": "Spider-Man: Brand New Day (3D - Hindi)",
+    "venue": "Vijay Mamta Cinema: Nashik",
+    "address": "Vijay Mamta Theater, Nashik Poona Road, Ashoka Marg, Nashik, Maharashtra 422006, India",
+    "chain": "Vijay Enterprises: Nashik",
+    "time": "07:15 AM",
+    "audi": "4K LASER DOLBY 7.1",
+    "session_id": "15445",
+    "totalSeats": 354,
+    "available": 327,
+    "ticketsSold": 27,
+    "grossRevenue": 5670.0,
+    "minsLeft": 81.3,
+    "city": "Nashik",
+    "state": "Maharashtra",
+    "source": "BMS",
+    "date": "20260804"
+  }
+]
