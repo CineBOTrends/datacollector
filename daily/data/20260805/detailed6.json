@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "movie": "Spider-Man: Brand New Day (3D - English)",
+    "venue": "Kumecs Cinema: Imphal",
+    "address": "Kumecs Infratech, Kumecs City Centre, Kakwa, Imphal West, Imphal, Manipur 795008, India",
+    "chain": "Kumecs Infratech",
+    "time": "07:25 AM",
+    "audi": "",
+    "session_id": "7611",
+    "totalSeats": 155,
+    "available": 150,
+    "ticketsSold": 5,
+    "grossRevenue": 1990.0,
+    "minsLeft": 90.9,
+    "city": "Imphal",
+    "state": "Manipur",
+    "source": "BMS",
+    "date": "20260805"
+  },
+  {
+    "movie": "Spider-Man: Brand New Day (3D - Hindi)",
+    "venue": "Vijay Mamta Cinema: Nashik",
+    "address": "Vijay Mamta Theater, Nashik Poona Road, Ashoka Marg, Nashik, Maharashtra 422006, India",
+    "chain": "Vijay Enterprises: Nashik",
+    "time": "07:15 AM",
+    "audi": "4K LASER DOLBY 7.1",
+    "session_id": "15451",
+    "totalSeats": 354,
+    "available": 331,
+    "ticketsSold": 23,
+    "grossRevenue": 5790.0,
+    "minsLeft": 80.9,
+    "city": "Nashik",
+    "state": "Maharashtra",
+    "source": "BMS",
+    "date": "20260805"
+  }
+]
