@@ -1,1 +1,218 @@
-{}
+{
+  "Dhamaal 4 (2D - Hindi)": {
+    "shows": 11,
+    "venues": 5,
+    "cities": 2,
+    "totalSeats": 808,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "shows": 10,
+        "venues": 4,
+        "totalSeats": 684,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Prayagraj (Allahabad)",
+        "state": "Uttar Pradesh",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 124,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Jan Neta (2D - Hindi)": {
+    "shows": 9,
+    "venues": 4,
+    "cities": 1,
+    "totalSeats": 372,
+    "ticketsSold": 0,
+    "occupancy": 0.0,
+    "grossRevenue": 0.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "shows": 9,
+        "venues": 4,
+        "totalSeats": 372,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (3D - Hindi)": {
+    "shows": 42,
+    "venues": 8,
+    "cities": 3,
+    "totalSeats": 5353,
+    "ticketsSold": 290,
+    "occupancy": 5.42,
+    "grossRevenue": 144710.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "shows": 26,
+        "venues": 5,
+        "totalSeats": 1861,
+        "ticketsSold": 12,
+        "occupancy": 0.64,
+        "grossRevenue": 5400.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Prayagraj (Allahabad)",
+        "state": "Uttar Pradesh",
+        "shows": 11,
+        "venues": 2,
+        "totalSeats": 2492,
+        "ticketsSold": 218,
+        "occupancy": 8.75,
+        "grossRevenue": 122810.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Prayagraj",
+        "state": "Uttar Pradesh",
+        "shows": 5,
+        "venues": 1,
+        "totalSeats": 1000,
+        "ticketsSold": 60,
+        "occupancy": 6.0,
+        "grossRevenue": 16500.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (2D - Hindi)": {
+    "shows": 5,
+    "venues": 2,
+    "cities": 2,
+    "totalSeats": 894,
+    "ticketsSold": 18,
+    "occupancy": 2.01,
+    "grossRevenue": 9720.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 64,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Prayagraj (Allahabad)",
+        "state": "Uttar Pradesh",
+        "shows": 4,
+        "venues": 1,
+        "totalSeats": 830,
+        "ticketsSold": 18,
+        "occupancy": 2.17,
+        "grossRevenue": 9720.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "Spider-Man: Brand New Day (3D - English)": {
+    "shows": 5,
+    "venues": 3,
+    "cities": 2,
+    "totalSeats": 894,
+    "ticketsSold": 98,
+    "occupancy": 10.96,
+    "grossRevenue": 61830.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 64,
+        "ticketsSold": 0,
+        "occupancy": 0.0,
+        "grossRevenue": 0.0,
+        "fastfilling": 0,
+        "housefull": 0
+      },
+      {
+        "city": "Prayagraj (Allahabad)",
+        "state": "Uttar Pradesh",
+        "shows": 4,
+        "venues": 2,
+        "totalSeats": 830,
+        "ticketsSold": 98,
+        "occupancy": 11.81,
+        "grossRevenue": 61830.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  },
+  "The Odyssey (2D - English)": {
+    "shows": 1,
+    "venues": 1,
+    "cities": 1,
+    "totalSeats": 139,
+    "ticketsSold": 17,
+    "occupancy": 12.23,
+    "grossRevenue": 5780.0,
+    "fastfilling": 0,
+    "housefull": 0,
+    "movieInfo": {},
+    "cityDetails": [
+      {
+        "city": "Prayagraj (Allahabad)",
+        "state": "Uttar Pradesh",
+        "shows": 1,
+        "venues": 1,
+        "totalSeats": 139,
+        "ticketsSold": 17,
+        "occupancy": 12.23,
+        "grossRevenue": 5780.0,
+        "fastfilling": 0,
+        "housefull": 0
+      }
+    ]
+  }
+}
