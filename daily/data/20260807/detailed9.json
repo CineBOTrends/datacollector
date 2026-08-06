@@ -1,1 +1,45 @@
-[]
+[
+  {
+    "movie": "Spider-Man: Brand New Day (3D - Hindi)",
+    "city": "Nashik",
+    "state": "Maharashtra",
+    "venue": "Cinemax City Center, City Center Mall, Nashik",
+    "address": "Sambaji Chowk, Lawate Nagar, Banyan Square, Untwadi, Nashik, Maharashtra 422009, India",
+    "time": "06:35 AM",
+    "audi": "SCREEN 2",
+    "session_id": "25039",
+    "totalSeats": 185,
+    "available": 179,
+    "sold": 6,
+    "gross": 1500.0,
+    "minsLeft": 82.0,
+    "source": "District",
+    "date": "20260807",
+    "chain": "Pvr",
+    "movieInfo": {
+      "contentId": 194537,
+      "name": "Spider-Man: Brand New Day",
+      "lang": "Hindi",
+      "scrnFmt": "3D",
+      "sndFmt": "",
+      "censor": "UA13+",
+      "duration": 145,
+      "genres": [
+        "Action",
+        "Sci-Fi",
+        "Adventure"
+      ],
+      "poster": "https://cdn.district.in/movies-assets/images/cinema/image-(29)-4285f900-6a45-11f1-8f37-ef2b86efdae5.jpg",
+      "cover": "",
+      "thumbnail": "",
+      "trailer": "SPIDERMAN BRAND NEW DAY.jpg",
+      "rating": {
+        "hasUReview": 1,
+        "imageUrl": "",
+        "hasContent": 1
+      },
+      "isNew": false,
+      "totalSessionCount": 9
+    }
+  }
+]
