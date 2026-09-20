@@ -96,7 +96,6 @@ jobs:
           DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
           DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
           DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
-          CONCURRENCY: "2"
         run: |
           python cli.py scrape --mode ${{ needs.decide-day.outputs.mode }} \
                                --shard ${{ matrix.shard }} \
