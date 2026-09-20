@@ -173,11 +173,9 @@ In Docker, `start.sh` launches both the API server (background) and the schedule
 ├── Dockerfile
 ├── scraper/
 │   ├── config.py           # Date/path/env config
-│   ├── stealth.py          # BookMyShow anti-bot: UA, fake IP, CloudScraper
-│   ├── fetcher_sync.py     # Sync engine (shards 1-8, BookMyShow)
-│   ├── district_stealth.py # District anti-bot: UA, fake IP, CloudScraper, proxy rotation
-│   ├── district_common.py  # District URL-building + __NEXT_DATA__ parsing
-│   ├── fetcher_district_sync.py # Sync engine (shard 9, District)
+│   ├── stealth.py          # Anti-bot: UA, fake IP, CloudScraper
+│   ├── fetcher_sync.py     # Sync engine (shards 1-8)
+│   ├── fetcher_async.py    # Async engine (shard 9)
 │   ├── parser.py           # BMS + District API parsers
 │   ├── summary.py          # Movie summary builder
 │   ├── dedupe.py           # Deduplication

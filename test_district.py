@@ -1,38 +1,22 @@
-"""One-cinema direct District page test for shard 9."""
+"""
+One-cinema end-to-end test for District shard 9.
+
+Run from the minttrack folder:
+    python test_district.py
+
+It picks the first cinema in venues/districtvenues.json, calls your LIVE
+worker with your headers, then runs the real parser and reports exactly where
+rows are kept or dropped. Override the advance date with TEST_DATE=YYYY-MM-DD.
+"""
 import os
 import re
 import json
+import requests
 from scraper.parser import parse_district_advance
-from scraper.district_common import _build_url, _parse_direct_page
-from scraper.district_stealth import get_district_identity
 
-
-def _load_local_env():
-    """Read repository .env for this local diagnostic, without logging secrets."""
-    values = {}
-    env_path = os.path.join(os.path.dirname(__file__), ".env")
-    if not os.path.isfile(env_path):
-        return values
-
-    with open(env_path, encoding="utf-8") as env_file:
-        for line in env_file:
-            line = line.strip()
-            if not line or line.startswith("#") or "=" not in line:
-                continue
-            key, value = line.split("=", 1)
-            values[key.strip()] = value.strip().strip("\"'")
-    return values
-
-
-_LOCAL_ENV = _load_local_env()
-
-
-def _setting(name):
-    # For this local probe, an explicitly configured repository .env is the
-    # source of truth; CI runs without the repository .env and uses os.environ.
-    return _LOCAL_ENV.get(name) or os.environ.get(name, "")
-
-
+WORKER = os.environ.get("DISTRICT_WORKER_URL", "")
+UA = os.environ.get("DISTRICT_UA", "")
+KEY = os.environ.get("DISTRICT_KEY", "")
 DATE = os.environ.get("TEST_DATE", "2026-07-02")  # advance date, YYYY-MM-DD
 
 
@@ -45,26 +29,35 @@ def slug(t):
 
 
 def main():
+    if not KEY:
+        print("WARNING: DISTRICT_KEY is empty -> worker will 401. Set it first.\n")
+
     venues = json.load(open("venues/districtvenues.json", encoding="utf-8"))
     if isinstance(venues, dict):
         venues = [{**v, "id": v.get("id", k)} for k, v in venues.items()]
 
     v = venues[0]
-    url = _build_url(v, DATE)
-    print("District URL:", url)
+    params = {
+        "cinema_id": v.get("id") or v.get("cinema_id"),
+        "slug": v.get("slug") or slug(v.get("district_name") or v.get("name")),
+        "city": slug(v.get("city") or v.get("City")),
+        "date": DATE,
+    }
+    print("Worker URL :", WORKER)
+    print("Params     :", params)
+    print("Headers    : User-Agent=%s  x-api-key=%s***" % (UA, KEY[:4]))
     print("-" * 60)
 
-    ident = get_district_identity()
-    r = ident.scraper.get(url, headers=ident.headers(), timeout=30, proxies=ident.proxy_dict())
+    r = requests.get(WORKER, params=params, headers={"User-Agent": UA, "x-api-key": KEY}, timeout=30)
     print("HTTP status:", r.status_code)
-    data = _parse_direct_page(
-        r.text,
-        url,
-        v.get("id") or v.get("cinema_id"),
-        slug(v.get("city") or v.get("City")),
-    )
+    try:
+        data = r.json()
+    except Exception:
+        print("Body (not JSON):", r.text[:300]); return
+
     if data.get("error"):
-        print("DISTRICT ERROR:", data.get("error"))
+        print("WORKER ERROR:", data.get("error"))
+        print("(404 = wrong CD id / no page; 401 = bad UA/key; no_next_data = page changed)")
         return
 
     movies = data.get("meta", {}).get("movies", []) or []
