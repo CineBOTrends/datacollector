@@ -92,5 +92,5 @@ def fetch_venue(venue_code, date_code, logger=None):
     This ensures CloudScraper session + cookies are reused, preventing
     bot detection from seeing rapid session churn.
     """
-    ident = get_identity(logger)
+    ident = get_identity("bookmyshow", logger)
     return _do_fetch(ident, venue_code, date_code)
