@@ -172,17 +172,12 @@ def probe_venues(cities=None, per_city=None):
 
 def probe_date(date_code, venues, logger, with_raw=False):
     """District rows (with movieInfo) for one date, from a few venues only."""
-    import asyncio
-    from scraper.fetcher_async import fetch_all_async
+    from scraper.fetcher_district_sync import fetch_district_venues
     from scraper.parser import parse_district_advance
 
     dd = f"{date_code[:4]}-{date_code[4:6]}-{date_code[6:8]}"
 
-    async def _go():
-        results, _err, _failed = await fetch_all_async(venues, dd, "advance", logger)
-        return results
-
-    raw = asyncio.run(_go())
+    raw, _err, _failed = fetch_district_venues(venues, dd, logger)
     rows = parse_district_advance(raw, date_code)
     return (rows, raw) if with_raw else rows
 
@@ -350,8 +345,6 @@ if __name__ == "__main__":
 
     # Load .env by hand: python-dotenv is NOT in requirements.txt, so importing
     # it silently failed and every District call went out unauthenticated (401).
-    # This must happen BEFORE scraper.fetcher_async is imported — that module
-    # reads DISTRICT_* into constants at import time.
     _load_env_file()
 
     out = discover_opening_days(window_days=a.window, force=True,

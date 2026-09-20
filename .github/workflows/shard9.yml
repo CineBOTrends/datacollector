@@ -48,9 +48,8 @@ jobs:
 
       - name: Scrape shard 9
         env:
-          DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
-          DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
-          DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+          CONCURRENCY: "2"
+          DISTRICT_PROXIES: ${{ secrets.DISTRICT_PROXIES }}
         run: |
           python cli.py scrape --mode ${{ inputs.mode }} \
                                --shard 9 \
