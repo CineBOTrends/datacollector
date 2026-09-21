@@ -1,5 +1,5 @@
 ---
-title: ".	Varanasi Production Enters Final Phase Ahead of April 7, 2027 Release."
+title: "Varanasi Production Enters Final Phase Ahead of April 7, 2027 Release."
 date: "2026-09-21"
 image: "https://cdn.cinebotrends.com/IMG_7876.webp"
 summary: "#Varanasi enters its final production phase as Mahesh Babu nears shoot completion, VFX progresses in parallel and promotions are planned from December."
