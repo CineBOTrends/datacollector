@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
-Orchestrator - Runs all 9 shards in parallel, then combines.
+Orchestrator - Runs all 14 shards in parallel, then combines.
 """
 import os
 import sys
 import time
+import random
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 
@@ -18,13 +20,41 @@ from services.logger import get_logger
 IST = timezone(timedelta(hours=5, minutes=30))
 logger = get_logger(shard_id=None, log_file=None)
 
+TOTAL_SHARDS = 14
+
+DISTRICT_CONCURRENCY_LIMIT = int(os.environ.get("DISTRICT_CONCURRENCY_LIMIT", "2"))
+DISTRICT_STARTUP_JITTER_SECONDS = float(os.environ.get("DISTRICT_STARTUP_JITTER_SECONDS", "8"))
+_district_semaphore = threading.Semaphore(DISTRICT_CONCURRENCY_LIMIT)
+
+
+# def _run_one_shard(mode, shard_id, date_code):
+#     """Run a single shard, return (success, shard_id, duration)."""
+#     start = time.time()
+#     try:
+#         from scraper.scrape import run_shard
+#         run_shard(mode=mode, shard_id=shard_id, date_code=date_code)
+#         duration = time.time() - start
+#         return True, shard_id, duration
+#     except Exception as e:
+#         duration = time.time() - start
+#         logger.error(f"Shard {shard_id} failed: {e}")
+#         import traceback
+#         traceback.print_exc()
+#         return False, shard_id, duration
 
 def _run_one_shard(mode, shard_id, date_code):
-    """Run a single shard, return (success, shard_id, duration)."""
     start = time.time()
     try:
-        from scraper.scrape import run_shard
-        run_shard(mode=mode, shard_id=shard_id, date_code=date_code)
+        from scraper.scrape import run_shard, DISTRICT_SHARD_IDS
+
+        if shard_id in DISTRICT_SHARD_IDS:
+            if DISTRICT_STARTUP_JITTER_SECONDS > 0:
+                time.sleep(random.uniform(0, DISTRICT_STARTUP_JITTER_SECONDS))
+            with _district_semaphore:
+                run_shard(mode=mode, shard_id=shard_id, date_code=date_code)
+        else:
+            run_shard(mode=mode, shard_id=shard_id, date_code=date_code)
+
         duration = time.time() - start
         return True, shard_id, duration
     except Exception as e:
@@ -36,7 +66,7 @@ def _run_one_shard(mode, shard_id, date_code):
 
 
 def run_advance(date_code=None):
-    """Run advance booking scrapers (all 9 shards parallel + combine)."""
+    """Run advance booking scrapers (all 14 shards parallel + combine)."""
     from scraper.config import get_config
 
     config = get_config("advance", date_code)
@@ -48,10 +78,10 @@ def run_advance(date_code=None):
     logger.info(f"Date: {dc}")
 
     # Run all shards in parallel
-    with ThreadPoolExecutor(max_workers=9) as executor:
+    with ThreadPoolExecutor(max_workers=14) as executor:
         futures = {
             executor.submit(_run_one_shard, "advance", i, dc): i
-            for i in range(1, 10)
+            for i in range(1, 15)
         }
         results = []
         for future in as_completed(futures):
@@ -66,26 +96,35 @@ def run_advance(date_code=None):
     from combiner.combine import combine_shards
     combine_shards(mode="advance", date_code=dc)
 
+    # Build the all-India territory report (tracked-titles view only — advance
+    # is forward-looking pre-sales, but it's exactly what lets a specific
+    # tracked release's opening-day advance be tracked territory-wise).
+    try:
+        from territory_report import build_report as build_territory_report
+        build_territory_report("advance", dc)
+    except Exception as e:
+        logger.error(f"Territory report (advance) failed: {e}")
+
     # Cleanup
     logger.info("Cleaning up shard files...")
     _cleanup()
 
     success_count = sum(1 for s, _, _ in results if s)
-    logger.success(f"Advance scrape: {success_count}/9 shards successful")
+    logger.success(f"Advance scrape: {success_count}/14 shards successful")
 
     return results
 
 
 def run_daily():
-    """Run daily scrapers (all 9 shards parallel + combine)."""
+    """Run daily scrapers (all 14 shards parallel + combine)."""
     logger.separator("=")
     logger.info("DAILY SCRAPE (TODAY)")
     logger.separator("=")
 
-    with ThreadPoolExecutor(max_workers=9) as executor:
+    with ThreadPoolExecutor(max_workers=14) as executor:
         futures = {
             executor.submit(_run_one_shard, "daily", i, None): i
-            for i in range(1, 10)
+            for i in range(1, 15)
         }
         results = []
         for future in as_completed(futures):
@@ -98,8 +137,26 @@ def run_daily():
     from combiner.combine import combine_shards
     combine_shards(mode="daily")
 
+    # Build the multiplex report for the selected chains
+    try:
+        from scraper.config import get_config
+        dc = get_config("daily")["date_code"]
+        from multiplex_report import build_report
+        build_report("daily", dc)
+    except Exception as e:
+        logger.error(f"Multiplex report failed: {e}")
+
+    # Build the all-India territory report
+    try:
+        from scraper.config import get_config
+        dc = get_config("daily")["date_code"]
+        from territory_report import build_report as build_territory_report
+        build_territory_report("daily", dc)
+    except Exception as e:
+        logger.error(f"Territory report failed: {e}")
+
     success_count = sum(1 for s, _, _ in results if s)
-    logger.success(f"Daily scrape: {success_count}/9 shards successful")
+    logger.success(f"Daily scrape: {success_count}/14 shards successful")
 
     return results
 
@@ -149,8 +206,8 @@ def _cleanup():
     END_DATE = (datetime.now(IST_TZ) - timedelta(days=1)).strftime("%Y%m%d")
 
     FILES_TO_DELETE = [
-        *(f"detailed{i}.json" for i in range(1, 10)),
-        *(f"movie_summary{i}.json" for i in range(1, 10)),
+        *(f"detailed{i}.json" for i in range(1, 15)),
+        *(f"movie_summary{i}.json" for i in range(1, 15)),
     ]
 
     deleted = 0

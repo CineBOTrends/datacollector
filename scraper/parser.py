@@ -327,7 +327,7 @@ def parse_district_daily(results, date_code, cutoff_minutes, now_ist):
                 continue
 
             mins = _minutes_left_async(show_time, now_ist)
-            if mins > cutoff_minutes:
+            if cutoff_minutes is not None and mins > cutoff_minutes:
                 continue
 
             name = movie.get("name", "Unknown")

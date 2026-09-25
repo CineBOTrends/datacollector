@@ -4,14 +4,14 @@ Summary builder - aggregates detailed show data into movie-level stats.
 Mode-aware:
 - advance/rotate: includes cityDetails with per-city breakdown, uses ticketsSold/grossRevenue
 - daily sync: NO cityDetails, uses ticketsSold/grossRevenue
-- daily async (shard 9): NO cityDetails, uses sold/gross field names
+- daily async (District shards 9-14): NO cityDetails, uses sold/gross field names
 """
 
 
 def build_summary_with_city_details(detailed):
     """
     Build summary with cityDetails breakdown.
-    Used by: advance sync (bms1-8), advance async (bms9), rotate sync, rotate async.
+    Used by: advance sync (bms1-8), advance async (District 9-14), rotate sync, rotate async.
     Reads: ticketsSold, grossRevenue from rows.
     """
     summary = {}
@@ -180,7 +180,7 @@ def build_summary_daily_sync(detailed):
 def build_summary_daily_async(detailed):
     """
     Build flat summary (NO cityDetails).
-    Used by: bmsdaily9.
+    Used by: districtdaily9-14.
     Reads: sold, gross from rows (NOT ticketsSold/grossRevenue).
     """
     summary = {}

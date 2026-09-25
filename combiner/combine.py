@@ -12,6 +12,9 @@ from scraper.config import get_config
 
 IST = pytz.timezone("Asia/Kolkata")
 
+# Shards 1-8 = BMS, 9-14 = District (District split from 1 shard into 6).
+TOTAL_SHARDS = 14
+
 
 def load_json(path):
     try:
@@ -117,7 +120,7 @@ def combine_shards(mode: str, date_code: str = None, upload_r2: bool = True):
     loaded_shards = 0
     missing_shards = []
 
-    for i in range(1, 10):
+    for i in range(1, 15):
         path = os.path.join(base_dir, f"detailed{i}.json")
         data = load_json(path)
         if data:
@@ -128,7 +131,7 @@ def combine_shards(mode: str, date_code: str = None, upload_r2: bool = True):
             missing_shards.append(i)
 
     print(f"\U0001f4ca Raw rows: {len(all_rows)}")
-    print(f"\U0001f4e6 Loaded {loaded_shards}/9 shards")
+    print(f"\U0001f4e6 Loaded {loaded_shards}/14 shards")
     if missing_shards:
         print(f"\u26a0\ufe0f  Missing or empty shards: {missing_shards}")
 

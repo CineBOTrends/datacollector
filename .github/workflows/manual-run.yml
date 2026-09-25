@@ -76,11 +76,11 @@ jobs:
     name: Shard ${{ matrix.shard }}
     needs: decide-day
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -96,6 +96,8 @@ jobs:
           DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
           DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
           DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+          CONCURRENCY: "2"
+          DISTRICT_PROXIES: ${{ secrets.DISTRICT_PROXIES }}
         run: |
           python cli.py scrape --mode ${{ needs.decide-day.outputs.mode }} \
                                --shard ${{ matrix.shard }} \
@@ -150,9 +152,9 @@ jobs:
       - name: How many shards made it?
         run: |
           COUNT=$(ls "$MODE/data/$DATE_CODE"/detailed*.json 2>/dev/null | wc -l)
-          echo "shards collected: $COUNT / 9"
+          echo "shards collected: $COUNT / 14"
           if [ "$COUNT" -eq 0 ]; then
-            echo "::error::All 9 shards blocked - refusing to publish (protects existing dashboard data)"
+            echo "::error::All 14 shards blocked - refusing to publish (protects existing dashboard data)"
             exit 1
           fi
 

@@ -1,0 +1,15 @@
+{
+  "_comment": "Selected multiplex chains for the Multiplex Report (multiplex_report.py). Add/remove entries here without touching code.",
+  "_match": "'match' strings are matched case-insensitively as a substring against each row's 'chain' field (falls back to 'venue' if chain is 'Unknown'/blank). Add extra spellings/typos seen in real BMS data if a theatre isn't showing up.",
+  "_match_field": "'match_field': 'chain' (default) matches the theatre chain/company name. 'location' matches the venue name + address instead, useful for grouping several standalone/independent single-screen theatres that share one area/complex but aren't the same chain (e.g. all cinemas at one crossroads).",
+
+  "chains": [
+    { "key": "prasads-multiplex", "label": "Prasads Multiplex", "match": ["prasads multiplex", "prasad's multiplex", "prasads"] },
+    { "key": "amb-cinemas",       "label": "AMB Cinemas",        "match": ["amb cinemas"] },
+    { "key": "art-cinemas",       "label": "Art Cinemas",        "match": ["art cinemas"] },
+    { "key": "allu-cinemas",      "label": "Allu Cinemas",       "match": ["allu Cineplex"] },
+    { "key": "aaa-cinemas",       "label": "AAA Cinemas",        "match": ["aaa cinemas"] },
+    { "key": "aparna-cinemas",    "label": "Aparna Cinemas",     "match": ["APARNA CINEMAS PRIVATE LIMITED"] },
+    { "key": "asian-cinepride",   "label": "Asian Lakshmikala Cinepride", "match": ["asian lakshmikala cinepride", "Asian Cinemas"] }
+  ]
+}

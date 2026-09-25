@@ -7,12 +7,16 @@ import os
 import sys
 import random
 import time
-import asyncio
 from datetime import datetime
 
 from scraper.config import get_config, IST
 from scraper.dedupe import dedupe
 from scraper.daily_merge import minutes_left_sync, merge_with_old_sync, merge_with_old_async
+
+# District used to be a single shard (9) reading one big districtvenues.json.
+# It's now split across 6 shards (9-14), each reading its own venues9.json ..
+# venues14.json — same naming convention BMS shards (1-8) already use.
+DISTRICT_SHARD_IDS = set(range(9, 15))
 
 
 def _get_logger(shard_id, log_file):
@@ -22,11 +26,9 @@ def _get_logger(shard_id, log_file):
 
 
 def _resolve_venue_path(shard_id, project_root):
-    """Resolve path to venue JSON file."""
-    if shard_id == 9:
-        return os.path.join(project_root, "venues", "districtvenues.json")
-    else:
-        return os.path.join(project_root, "venues", f"venues{shard_id}.json")
+    """Resolve path to venue JSON file. All shards (BMS 1-8, District 9-14)
+    now follow the same venues/venues{shard_id}.json convention."""
+    return os.path.join(project_root, "venues", f"venues{shard_id}.json")
 
 
 def run_shard(mode: str, shard_id: int, date_code: str = None):
@@ -35,7 +37,7 @@ def run_shard(mode: str, shard_id: int, date_code: str = None):
 
     Args:
         mode: "advance", "daily", or "rotate"
-        shard_id: 1-9
+        shard_id: 1-14 (1-8 = BMS, 9-14 = District)
         date_code: Optional YYYYMMDD date override
     """
     config = get_config(mode, date_code)
@@ -48,7 +50,7 @@ def run_shard(mode: str, shard_id: int, date_code: str = None):
     summary_file = f"{base_dir}/movie_summary{shard_id}.json"
 
     # Log file name matches original convention
-    if shard_id == 9:
+    if shard_id in DISTRICT_SHARD_IDS:
         if config["is_daily"]:
             log_file = f"{log_dir}/districtdaily{shard_id}.log"
         else:
@@ -67,8 +69,8 @@ def run_shard(mode: str, shard_id: int, date_code: str = None):
     if load_tracked()[0] != "all":
         logger.info(describe())
 
-    if shard_id == 9:
-        _run_shard_async(config, shard_id, detailed_file, summary_file, logger)
+    if shard_id in DISTRICT_SHARD_IDS:
+        _run_shard_district(config, shard_id, detailed_file, summary_file, logger)
     else:
         _run_shard_sync(config, shard_id, detailed_file, summary_file, logger)
 
@@ -119,7 +121,7 @@ def _run_shard_sync(config, shard_id, detailed_file, summary_file, logger):
                 # Apply cutoff and add minsLeft
                 for r in rows:
                     mins = minutes_left_sync(r["time"])
-                    if mins <= cutoff_minutes:
+                    if cutoff_minutes is None or mins <= cutoff_minutes:
                         r["minsLeft"] = round(mins, 1)
                         r["city"] = venues[vcode].get("City", "Unknown")
                         r["state"] = venues[vcode].get("State", "Unknown")
@@ -205,14 +207,11 @@ def _run_shard_sync(config, shard_id, detailed_file, summary_file, logger):
 
 
 # =====================================================
-# ASYNC SHARD (9)
+# DISTRICT SHARD (9) - synchronous, cloudscraper-based (same stealth
+# approach as BookMyShow, no concurrency)
 # =====================================================
-def _run_shard_async(config, shard_id, detailed_file, summary_file, logger):
-    asyncio.run(_run_shard_async_impl(config, shard_id, detailed_file, summary_file, logger))
-
-
-async def _run_shard_async_impl(config, shard_id, detailed_file, summary_file, logger):
-    from scraper.fetcher_async import fetch_all_async
+def _run_shard_district(config, shard_id, detailed_file, summary_file, logger):
+    from scraper.fetcher_district_sync import fetch_district_venues
 
     mode = config["mode"]
     dc = config["date_code"]
@@ -231,9 +230,9 @@ async def _run_shard_async_impl(config, shard_id, detailed_file, summary_file, l
 
     logger.info(f"Loaded {len(dist_venues)} district venues")
 
-    # Fetch all venues async
-    results, error_counts, failed_venues = await fetch_all_async(
-        dist_venues, config["date_district"], mode, logger
+    # Fetch all venues sequentially
+    results, error_counts, failed_venues = fetch_district_venues(
+        dist_venues, config["date_district"], logger, shard_id=shard_id
     )
 
     # Parse results (mode-aware)

@@ -1,42 +1,42 @@
 timezone: "Asia/Kolkata"
 
 advance:
-  - "09:00"
-  - "12:00"
-  - "15:00"
-  - "18:00"
-  - "21:00"
-  - "22:00"
-  - "23:30"
+  - "06:15"
+  - "09:15"
+  - "12:15"
+  - "15:15"
+  - "18:15"
+  - "21:15"
+  - "22:35"
 
 daily:
+  - "00:30"
   - "03:00"
+  - "04:44"
   - "05:00"
-  - "07:00"
-  - "08:00"
+  - "06:07"
+  - "07:16"
+  - "08:16"
+  - "09:00"
   - "10:00"
   - "11:00"
+  - "12:00"
   - "13:00"
   - "14:00"
+  - "15:00"
   - "16:00"
   - "17:00"
+  - "18:07"
   - "19:00"
   - "20:00"
+  - "21:00"
   - "22:00"
+  - "23:20"
 
 # Upcoming releases: advance bookings for films that HAVEN'T released yet.
 # Tracks each new film's OPENING DAY (its release date), not arbitrary offsets:
 # discovers release dates from District's movieInfo, then scrapes advance for
 # exactly those days and drops every film not opening that day.
-upcoming:
-  window_days: 21      # how far ahead to look for films with bookings open
-  # discovery hits ~15 District venues in the biggest cities (cheap, and only
-  # District rows carry movieInfo/releaseDate); the real collect uses all 9 shards
-  # Bookings for new films open/refresh in bursts; a few passes a day is plenty.
-  times:
-    - "10:00"
-    - "16:00"
-    - "21:30"
 
 cleanup:
   time: "02:00"
@@ -45,4 +45,4 @@ cleanup:
 # Where the scheduler pushes the built data/ (drives cinebotrends.com).
 publish:
   dashboard_repo: "https://github.com/CineBOTrends/dashboard.git"
-  dashboard_dir: "../dashboard-publish"   # local clone, created automatically
+  dashboard_dir: "../dashboard-publish" # local clone, created automatically

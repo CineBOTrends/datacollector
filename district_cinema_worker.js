@@ -27,8 +27,8 @@
  * Sessions join to movies by the SHORT mid (meta.movies[].id), not contentId.
  */
 
-const ALLOWED_UA = "";   // set via Worker secret ALLOWED_UA
-const ALLOWED_KEY = "";  // set via Worker secret ALLOWED_KEY  (NEVER hardcode)
+const ALLOWED_UA = "";   // optional fallback; prefer Worker secrets
+const ALLOWED_KEY = "";  // optional fallback; never commit real credentials
 
 const BROWSER_UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
@@ -38,8 +38,15 @@ export default {
   async fetch(request, env) {
     const ua = request.headers.get("user-agent") || "";
     const key = request.headers.get("x-api-key") || "";
-    const wantUA = (env && env.ALLOWED_UA) || ALLOWED_UA;
-    const wantKEY = (env && env.ALLOWED_KEY) || ALLOWED_KEY;
+    // Prefer the client configuration names when both secret pairs exist.
+    // This prevents stale ALLOWED_* secrets from overriding DISTRICT_*.
+    const wantUA =
+      (env && (env.DISTRICT_UA || env.ALLOWED_UA)) || ALLOWED_UA;
+    const wantKEY =
+      (env && (env.DISTRICT_KEY || env.ALLOWED_KEY)) || ALLOWED_KEY;
+    if (!wantUA || !wantKEY) {
+      return json({ error: "worker_auth_not_configured" }, 503);
+    }
     if (ua !== wantUA || key !== wantKEY) return json({ error: "unauthorized" }, 401);
 
     const url = new URL(request.url);
@@ -56,11 +63,30 @@ export default {
     let html;
     try {
       const r = await fetch(pageUrl, {
-        headers: { "User-Agent": BROWSER_UA, Accept: "text/html" },
-        cf: { cacheTtl: 0 },
+        headers: {
+          "User-Agent": BROWSER_UA,
+          "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+          "Accept-Language": "en-IN,en;q=0.9",
+          "Referer": "https://www.district.in/",
+          "Upgrade-Insecure-Requests": "1",
+          "Sec-Fetch-Dest": "document",
+          "Sec-Fetch-Mode": "navigate",
+          "Sec-Fetch-Site": "same-origin",
+        },
+        cf: { cacheTtl: 0, cacheEverything: false },
         redirect: "follow",
       });
-      if (r.status !== 200) return json({ error: "district_status_" + r.status, pageUrl, sessions: [] }, 200);
+      if (r.status !== 200) {
+        const upstreamBody = debug ? (await r.text()).slice(0, 500) : undefined;
+        return json({
+          error: "district_status_" + r.status,
+          pageUrl,
+          upstreamServer: r.headers.get("server"),
+          upstreamContentType: r.headers.get("content-type"),
+          upstreamBody,
+          sessions: [],
+        }, 200);
+      }
       html = await r.text();
     } catch (e) {
       return json({ error: "fetch_failed", detail: String(e), sessions: [] }, 200);

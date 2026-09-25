@@ -49,8 +49,21 @@ def get_config(mode: str, date_code: str = None) -> dict:
     else:
         base_dir = os.path.join("advance", "data", date_code)
 
-    # Cutoff only applies to daily mode
-    cutoff_minutes = 95 if mode == "daily" else None
+    # Cutoff only applies to daily mode: drops shows starting more than
+    # cutoff_minutes from now, so each daily run only captures near-term
+    # showtimes. Override with DAILY_CUTOFF_MINUTES=off (or "none"/"0") to
+    # capture the whole day's showtimes in a single run instead, or set it
+    # to a specific number of minutes for a custom window.
+    if mode == "daily":
+        raw_cutoff = os.environ.get("DAILY_CUTOFF_MINUTES")
+        if raw_cutoff is None:
+            cutoff_minutes = 75          # default: near-term shows only
+        elif raw_cutoff.strip().lower() in ("off", "none", "0", ""):
+            cutoff_minutes = None        # no filter: capture the whole day
+        else:
+            cutoff_minutes = int(raw_cutoff)
+    else:
+        cutoff_minutes = None
 
     return {
         "mode": mode,

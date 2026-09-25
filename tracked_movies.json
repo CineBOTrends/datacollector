@@ -3,16 +3,26 @@
 
   "_mode": "'all' collects every movie (same as having no file). 'selected' collects ONLY the list below.",
 
+  "_store_all": "true = disable the destructive scrape-time filter entirely; EVERY movie at every venue is scraped and stored (raw files, R2, combined data), regardless of 'mode'/'movies' above. The dashboard build (build_data.py) still applies 'mode'/'movies' independently, so the SITE only shows the listed titles while the raw data keeps everything (e.g. for full per-venue/multiplex analysis). Default false = old destructive behaviour (scrape only stores the tracked list).",
+
   "_hide_untracked": "Applies to movies ALREADY collected. true (default) = the dashboard shows only the tracked list, everything else vanishes from the site. false = already-collected movies stay visible and the list only limits NEW scraping. Either way the raw data in R2 is untouched, so this is reversible.",
 
   "_dubs": "A film released under a DIFFERENT TITLE per language is a SEPARATE movie with its own card. List each title you want tracked. Example: Jana Nayagan (Tamil), Jana Nayakudu (Telugu), Jan Neta (Hindi) are three entries, not one.",
 
-  "_warning": "Filtering happens during the SCRAPE, so untracked movies are never stored going forward. Adding a title later gives it NO back-history - tracking starts from that moment. Add a movie BEFORE its bookings open.",
+  "_warning": "With store_all=false (default), filtering happens during the SCRAPE, so untracked movies are never stored going forward - adding a title later gives it NO back-history. With store_all=true, everything is always stored regardless of when a title is added to the list; only the dashboard display is affected.",
 
+  "_release_dates": "REAL release date (YYYY-MM-DD) per film. Release day = Day 1; every date BEFORE it shows as Premiere on the dashboard and in Historical. REQUIRED for any film that has premiere / paid-preview shows, because then the earliest date with bookings is NOT the release date. Titles or slugs both work.",
+  "release_dates": {
+    "The Paradise": "2026-09-24",
+    "Avengers Endgame: Encore": "2026-09-25"
+  },
+
+  "store_all": true,
   "mode": "selected",
   "hide_untracked": true,
 
   "movies": [
-    "The Paradise"
+    "The Paradise",
+    "Avengers Endgame: Encore"
   ]
 }

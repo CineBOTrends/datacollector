@@ -19,6 +19,12 @@ TRADE-OFF, on purpose: this is destructive. A movie not on the list is never
 collected, so adding it later gives you NO back-history — tracking starts from
 that moment. (Filtering at build time instead would keep the raw data and stay
 reversible, but the files and storage stay full-size.)
+
+"store_all": true bypasses this destructive scrape-time filter entirely
+(everything gets collected/stored, regardless of "mode"/"movies"), while
+build_data.py's OWN independent tracked-list check still limits what actually
+shows up on the dashboard. Use this when you want full raw data (e.g. for
+per-venue/multiplex analysis) but a curated public site.
 """
 import json
 import os
@@ -60,6 +66,12 @@ def load_tracked(force=False):
             cfg = json.load(f)
     except Exception as e:
         print(f"! tracked_movies.json unreadable ({e}) -> tracking ALL")
+        _cache = ("all", set())
+        return _cache
+
+    if cfg.get("store_all") is True:
+        print("store_all=true -> scrape-time filter disabled; "
+              "everything is stored, display filtering (if any) happens at build time")
         _cache = ("all", set())
         return _cache
 

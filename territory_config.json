@@ -1,0 +1,26 @@
+{
+  "_comment": "Drives territory_report.py. Each entry says which real-world 'state' values map to which territory/*.json hierarchy file. Add/remove states here without touching code.",
+  "_unmatched_label": "'unmatched_label' is used when a row's state matches one of these groups but its city can't be found anywhere in that group's territory file (new/renamed towns, typos, etc). Those rows still get counted, just bucketed separately so totals never silently drop rows.",
+  "_label_overrides": "Renames a territory/*.json bucket label for display, without editing the hierarchy file itself (which encodes city->territory classification, not naming). Key = the label as it appears in the territory/*.json file; value = what to display instead everywhere (territories list, groups, territory_order should use the new name).",
+
+  "state_files": [
+    { "match": ["telangana", "andhra pradesh"], "file": "apts_territories.json", "unmatched_label": "Other (AP/Telangana)" },
+    { "match": ["karnataka"], "file": "karnataka_bengaluru.json", "unmatched_label": "Other (Karnataka)" },
+    { "match": ["tamil nadu", "tamilnadu"], "file": "tamilnadu_chennai.json", "unmatched_label": "Other (Tamil Nadu)" },
+    { "match": ["kerala"], "file": "kerala.json", "unmatched_label": "Other (Kerala)" }
+  ],
+
+  "label_overrides": {
+    "Vizag": "UA - Uttar Andhra"
+  },
+
+  "rest_of_india_key": "rest-of-india",
+  "rest_of_india_label": "Rest of India",
+
+  "territory_order": [
+    "Hyderabad", "Nizam Districts", "Ceded", "UA - Uttar Andhra", "East", "West", "Krishna", "Guntur", "Nellore",
+    "Kerala",
+    "Bengaluru City", "Karnataka",
+    "Chennai City", "Tamil Nadu"
+  ]
+}

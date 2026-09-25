@@ -31,7 +31,7 @@ def cmd_scrape(args):
     from scraper.scrape import run_shard
 
     if args.shard == "all":
-        shards = list(range(1, 10))
+        shards = list(range(1, 15))
     else:
         shards = [int(args.shard)]
 
@@ -131,8 +131,8 @@ def cmd_cleanup(args):
     END_DATE = (datetime.now(IST) - timedelta(days=1)).strftime("%Y%m%d")
 
     FILES_TO_DELETE = [
-        *(f"detailed{i}.json" for i in range(1, 10)),
-        *(f"movie_summary{i}.json" for i in range(1, 10)),
+        *(f"detailed{i}.json" for i in range(1, 15)),
+        *(f"movie_summary{i}.json" for i in range(1, 15)),
     ]
 
     def daterange(start, end):
@@ -172,7 +172,7 @@ def main():
     p_scrape.add_argument("--mode", required=True, choices=["advance", "daily", "rotate"],
                           help="Scrape mode")
     p_scrape.add_argument("--shard", required=True,
-                          help="Shard ID (1-9) or 'all'")
+                          help="Shard ID (1-14) or 'all'")
     p_scrape.add_argument("--date", default=None,
                           help="Date override (YYYYMMDD)")
     p_scrape.set_defaults(func=cmd_scrape)

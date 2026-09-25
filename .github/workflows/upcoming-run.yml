@@ -88,9 +88,9 @@ jobs:
     timeout-minutes: 40
     strategy:
       fail-fast: false
-      max-parallel: 9
+      max-parallel: 14
       matrix:
-        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
         date: ${{ fromJson(needs.discover.outputs.dates) }}
     steps:
       - uses: actions/checkout@v4
@@ -104,6 +104,8 @@ jobs:
           DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
           DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
           DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+          CONCURRENCY: "2"
+          DISTRICT_PROXIES: ${{ secrets.DISTRICT_PROXIES }}
         run: |
           python cli.py scrape --mode advance \
                                --shard ${{ matrix.shard }} \
@@ -166,7 +168,7 @@ jobs:
           for d in dates:
               n = len([f for f in os.listdir(f"advance/data/{d}")
                        if f.startswith("detailed")]) if os.path.isdir(f"advance/data/{d}") else 0
-              print(f"--- {d}: {n}/9 shards ---")
+              print(f"--- {d}: {n}/14 shards ---")
               if not n:
                   print(f"::warning::no shards for {d}, skipping")
                   continue

@@ -26,7 +26,7 @@ Daily mode lights up automatically once the collector emits daily/data/* folders
 
 import json, os, re, sys, shutil
 import datetime as _dt
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 MODES = {
     "advance": {"label": "Advance", "runsPerDay": 6,
@@ -155,6 +155,158 @@ def district_meta_from_rows(rows):
         "trailer": (info.get("trailer") or "").strip() or None,
     }
     return {"poster": poster, "meta": meta}
+
+
+# ============================================================
+# RELEASE DATE  ->  PREMIERE vs DAY 1
+#
+# Rule the dashboard follows:
+#     release date            = Day 1
+#     any date BEFORE release = "Premiere"  (bookings/shows opened early)
+#
+# That only works if we know the REAL release date. Sources, strongest first:
+#   1. tracked_movies.json  "release_dates": {"The Paradise": "2026-09-24"}
+#        manual override - use it whenever a film has premiere shows, because
+#        the earliest date we see bookings for is then NOT the release date
+#   2. District movieInfo.releaseDate  (meta.releaseDate, as scraped)
+#   3. upcoming/release_dates.json     (opening_days probed by upcoming.py)
+#   4. last resort (advance-only film): earliest advance date  <- can wrongly
+#        call a premiere day "Opening Day"; build prints a warning for these
+# ============================================================
+_ISO_RE = re.compile(r"(\d{4})-(\d{2})-(\d{2})")
+_REL_MANUAL = {}                       # canon key / slug -> 'YYYY-MM-DD' (wins)
+_REL_PROBED = {}                       # canon key / slug -> 'YYYY-MM-DD' (fallback)
+_REL_SEEN = defaultdict(Counter)       # slug -> Counter({'YYYY-MM-DD': n files})
+_REL_MISSING = defaultdict(list)       # slug -> [(mode, date)] files w/o a date
+
+
+def _iso_date(v):
+    """'2026-09-24...' -> '2026-09-24' (validated), else None."""
+    m = _ISO_RE.match(str(v or "").strip())
+    if not m:
+        return None
+    try:
+        _dt.date(int(m[1]), int(m[2]), int(m[3]))
+    except ValueError:
+        return None
+    return f"{m[1]}-{m[2]}-{m[3]}"
+
+
+def _empty_meta():
+    return {"genres": [], "runTime": None, "certification": None,
+            "languages": [], "likes": None, "eventCode": None,
+            "releaseDate": None, "cast": [], "trailer": None}
+
+
+def _reset_release_state(collector=None):
+    """Load manual + probed release dates. Called once at the start of main()."""
+    _REL_MANUAL.clear(); _REL_PROBED.clear()
+    _REL_SEEN.clear(); _REL_MISSING.clear()
+    roots = [HERE]
+    if collector:
+        roots.insert(0, collector)
+
+    def put(dst, name, iso):
+        iso = _iso_date(iso)
+        if not iso or not isinstance(name, str) or not name.strip():
+            return
+        raw = name.strip()
+        base = canonical_title(raw)
+        for k in (canon_key(raw), slugify(base), canon_key(raw.replace("-", " "))):
+            dst[k] = iso
+
+    for root in roots:                                   # 3. probed (weakest)
+        fp = os.path.join(root, "upcoming", "release_dates.json")
+        if not os.path.exists(fp):
+            continue
+        try:
+            with open(fp, encoding="utf-8") as f:
+                cfg = json.load(f)
+            for ymd, titles in (cfg.get("opening_days") or {}).items():
+                if re.fullmatch(r"\d{8}", str(ymd)):
+                    iso = f"{ymd[:4]}-{ymd[4:6]}-{ymd[6:8]}"
+                    for t in titles or []:
+                        put(_REL_PROBED, t, iso)
+            break
+        except Exception as e:
+            print(f"    ! {fp} ignored ({e})")
+
+    for root in roots:                                   # 1. manual (wins)
+        fp = os.path.join(root, TRACK_FILE)
+        if not os.path.exists(fp):
+            continue
+        try:
+            with open(fp, encoding="utf-8") as f:
+                cfg = json.load(f)
+            for name, iso in (cfg.get("release_dates") or {}).items():
+                if str(name).startswith("_"):
+                    continue
+                if _iso_date(iso):
+                    put(_REL_MANUAL, name, iso)
+                else:
+                    print(f"    ! release_dates: '{name}': '{iso}' is not YYYY-MM-DD")
+            break
+        except Exception as e:
+            print(f"    ! {TRACK_FILE} release_dates ignored ({e})")
+    if _REL_MANUAL or _REL_PROBED:
+        print(f"  release dates: {len(set(_REL_MANUAL.values()))} manual, "
+              f"{len(_REL_PROBED)} probed key(s)")
+
+
+def _apply_release_date(mode, date, movie, title):
+    """Settle meta.releaseDate for one movie file (manual > District > probed)
+    and remember what we found so every date of the film ends up consistent."""
+    slug = movie["slug"]
+    keys = (canon_key(title), slug, canon_key(slug.replace("-", " ")))
+    manual = next((_REL_MANUAL[k] for k in keys if k in _REL_MANUAL), None)
+    probed = next((_REL_PROBED[k] for k in keys if k in _REL_PROBED), None)
+    meta = movie.get("meta")
+    have = _iso_date((meta or {}).get("releaseDate"))
+    rel = manual or have or probed
+    if rel and rel != have:
+        if not isinstance(meta, dict):
+            meta = _empty_meta()
+        meta["releaseDate"] = rel
+        movie["meta"] = meta
+    if rel:
+        _REL_SEEN[slug][rel] += 1
+    else:
+        _REL_MISSING[slug].append((mode, date))
+
+
+def _resolved_release(slug):
+    """Most common release date seen for a film (ties -> earliest), or None."""
+    c = _REL_SEEN.get(slug)
+    if not c:
+        return None
+    return sorted(c.items(), key=lambda kv: (-kv[1], kv[0]))[0][0]
+
+
+def _backfill_release_dates():
+    """Some days District omits the release date. Stamp the resolved date onto
+    those files too, so opening a date chip never falls back to guessing."""
+    n = 0
+    for slug, files in _REL_MISSING.items():
+        rel = _resolved_release(slug)
+        if not rel:
+            continue
+        for mode, date in files:
+            fp = os.path.join(OUT, mode, date, "m", slug + ".json")
+            if not os.path.exists(fp):
+                continue
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    mj = json.load(f)
+                if not isinstance(mj.get("meta"), dict):
+                    mj["meta"] = _empty_meta()
+                mj["meta"]["releaseDate"] = rel
+                with open(fp, "w", encoding="utf-8") as f:
+                    json.dump(mj, f, ensure_ascii=False, separators=(",", ":"))
+                n += 1
+            except Exception as e:
+                print(f"    ! could not backfill release date for {slug} ({e})")
+    if n:
+        print(f"  release date backfilled onto {n} file(s)")
 
 
 # Trailing "(2003)" / "[3D]" style tags, stripped so title variants merge.
@@ -696,6 +848,7 @@ def build_date(mode, date, src_dir, out_dir):
         # automatically whenever District updates the artwork.
         movie["poster"] = dm["poster"] or _global_district_poster(title)
         movie["meta"] = dm["meta"]
+        _apply_release_date(mode, date, movie, title)
         movie["last_updated"] = last_updated
         movies_for_history[movie["slug"]] = movie
         # FULL tree (admin)
@@ -743,6 +896,42 @@ def build_date(mode, date, src_dir, out_dir):
     if skipped and not index:
         print(f"    ! {mode}/{date}: tracked list matched NOTHING here - "
               f"check the titles in {TRACK_FILE}")
+
+    # Copy the multiplex report (selected-chain breakdown) through as-is, if
+    # multiplex_report.py has produced one for this date. DAILY only — advance
+    # is forward-looking pre-sales, not real box-office collections, and the
+    # multiplex report is about actual per-theatre gross/shows tracked so far.
+    # It's aggregate-only, so identical for both the FULL and PUBLIC trees,
+    # same as national.json.
+    multiplex_src = os.path.join(src_dir, "multiplex.json")
+    if mode == "daily" and os.path.exists(multiplex_src):
+        with open(multiplex_src, encoding="utf-8") as f:
+            multiplex_obj = json.load(f)
+        with open(os.path.join(out_dir, "multiplex.json"), "w", encoding="utf-8") as f:
+            json.dump(multiplex_obj, f, ensure_ascii=False, separators=(",", ":"))
+
+    # Copy the all-India territory report through as-is, if territory_report.py
+    # has produced one for this date. Generated for BOTH daily and advance —
+    # unlike the multiplex report, advance territory data is exactly what lets
+    # a tracked upcoming release's opening-day advance be seen territory-wise
+    # (e.g. The Paradise's 20260923 premiere advance). Aggregate-only, so
+    # identical for both the FULL and PUBLIC trees.
+    territory_src = os.path.join(src_dir, "territory.json")
+    if os.path.exists(territory_src):
+        with open(territory_src, encoding="utf-8") as f:
+            territory_obj = json.load(f)
+        with open(os.path.join(out_dir, "territory.json"), "w", encoding="utf-8") as f:
+            json.dump(territory_obj, f, ensure_ascii=False, separators=(",", ":"))
+
+    # ...and its tracked-only companion (only the highlighted/dashboard
+    # titles) — same daily+advance availability as above.
+    territory_tracked_src = os.path.join(src_dir, "territory_tracked.json")
+    if os.path.exists(territory_tracked_src):
+        with open(territory_tracked_src, encoding="utf-8") as f:
+            territory_tracked_obj = json.load(f)
+        with open(os.path.join(out_dir, "territory_tracked.json"), "w", encoding="utf-8") as f:
+            json.dump(territory_tracked_obj, f, ensure_ascii=False, separators=(",", ":"))
+
     return {"date": date, "last_updated": last_updated, "movies": movies_for_history}
 
 
@@ -764,9 +953,23 @@ def build_history(mode, per_date, out_dir):
     for slug, entries in by_slug.items():
         days = []
         prev = None
+        # Release day = Day 1. Any tracked date BEFORE the release date is a
+        # premiere (day 0, premiere=True) - never counted as a numbered day.
+        # No known release date -> old behaviour (position in tracked list).
+        rel = _resolved_release(slug)
+        rel_d = _dt.date.fromisoformat(rel) if rel else None
         for i, (date, movie) in enumerate(entries, 1):
             k = movie["kpi"]
-            row = {"day": i, "date": date,
+            day_no, premiere = i, False
+            if rel_d:
+                try:
+                    dd = _dt.datetime.strptime(
+                        str(date).replace("-", ""), "%Y%m%d").date()
+                    diff = (dd - rel_d).days
+                    day_no, premiere = (0, True) if diff < 0 else (diff + 1, False)
+                except ValueError:
+                    pass
+            row = {"day": day_no, "premiere": premiere, "date": date,
                    "complete": str(date).replace("-", "") < today_ymd,
                    "gross": k["gross"], "sold": k["sold"],
                    "seats": k.get("seats", 0), "shows": k["shows"],
@@ -860,6 +1063,7 @@ def build_history(mode, per_date, out_dir):
         formats = sorted(fm_acc.values(), key=by_gross, reverse=True)
 
         hist_obj = {"title": latest["title"], "last_updated": latest.get("last_updated"),
+                    "releaseDate": rel,
                     "cumulative": cumulative, "daysCounted": len(done_entries),
                     "totals": tot, "days": days, "cities": cities[:50],
                     "states": states, "formats": formats}
@@ -969,6 +1173,7 @@ def main(collector):
         os.makedirs(d, exist_ok=True)
 
     manifest = {"generated": "", "timezone": "Asia/Kolkata", "modes": {}}
+    _reset_release_state(collector)
     import datetime
     manifest["generated"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
@@ -1012,12 +1217,27 @@ def main(collector):
     # A running film is in daily every day, so it can never be flagged. This is
     # what lets the dashboard show "Opening Day Advance" instead of a row of
     # meaningless advance date chips.
+    #
+    # If a REAL release date is known (tracked_movies.json "release_dates",
+    # District, or upcoming/release_dates.json) it is used as the opening day,
+    # so earlier advance dates read as PREMIERE instead of "Opening Day".
+    _backfill_release_dates()
     released = set(slug_dates.get("daily", {}))
     upcoming = {}
+    inferred = []
     for slug, dts in slug_dates.get("advance", {}).items():
         if slug in released or not dts:
             continue
-        upcoming[slug] = min(dts)                        # opening day (YYYYMMDD)
+        rel = _resolved_release(slug)
+        if rel:
+            upcoming[slug] = rel.replace("-", "")        # real release date
+        else:
+            upcoming[slug] = min(dts)                    # inferred (YYYYMMDD)
+            inferred.append(slug)
+    for slug in inferred:
+        print(f"    ! {slug}: release date INFERRED from its earliest advance "
+              f"date ({upcoming[slug]}). If it has premiere shows before "
+              f"release, add it to tracked_movies.json -> release_dates.")
 
     manifest["upcoming"] = upcoming
     # Per-movie date lists. modes.<mode>.dates is the GLOBAL set of dates in
