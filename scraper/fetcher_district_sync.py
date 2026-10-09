@@ -12,9 +12,13 @@ Only the target differs from BMS: District's cinema pages (HTML with an
 embedded __NEXT_DATA__ blob), not a JSON API, so the response is parsed via
 scraper.district_common instead of json().
 """
+import os
 import random
+import re
 import threading
 import time
+
+import requests
 
 from scraper.district_stealth import get_district_identity, reset_district_identity
 from scraper.district_common import _build_url, _parse_direct_page, _slugify, _target_id, _venue_city
@@ -88,6 +92,78 @@ def _do_fetch(ident, url):
     return r.text
 
 
+# =====================================================
+# CLOUDFLARE WORKER PATH (preferred when DISTRICT_WORKER_URL is set)
+# =====================================================
+# The worker (district_cinema_worker.js) fetches district.in from Cloudflare's
+# network, so no local IP or proxy is exposed. It returns the same payload that
+# _parse_direct_page() produces.
+_worker_cfg = None
+
+
+def _worker_settings():
+    """(url, ua, key) — the local .env wins over stale shell variables (CI has no
+    .env and uses the environment). Accepts KEY=value and `$env:KEY = "value"`."""
+    global _worker_cfg
+    if _worker_cfg is not None:
+        return _worker_cfg
+    vals = {k: os.environ.get(k, "") for k in ("DISTRICT_WORKER_URL", "DISTRICT_UA", "DISTRICT_KEY")}
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                m = re.match(r'\s*(?:\$env:)?(\w+)\s*=\s*["\']?([^"\'\r\n]*?)["\']?\s*$', line)
+                if m and m.group(1) in vals and m.group(2):
+                    vals[m.group(1)] = m.group(2)
+    _worker_cfg = (vals["DISTRICT_WORKER_URL"].strip(), vals["DISTRICT_UA"], vals["DISTRICT_KEY"])
+    return _worker_cfg
+
+
+def worker_enabled():
+    """Worker path is opt-in (DISTRICT_USE_WORKER=1); proxies are the default."""
+    if os.environ.get("DISTRICT_USE_WORKER", "").strip().lower() not in ("1", "true", "yes"):
+        return False
+    url, ua, key = _worker_settings()
+    return bool(url and ua and key)
+
+
+def fetch_via_worker(venue, date_district):
+    """Return the worker's parsed JSON for one cinema/date, or raise with the
+    same error vocabulary the HTTP path uses (Blocked|/RateLimit|/...)."""
+    url, ua, key = _worker_settings()
+    cid = venue.get("id") or venue.get("cinema_id") or ""
+    slug = venue.get("slug") or _slugify(venue.get("district_name") or venue.get("name"))
+    params = {"cinema_id": cid, "slug": slug, "city": _slugify(_venue_city(venue)),
+              "date": date_district}
+    r = requests.get(url, params=params, timeout=API_TIMEOUT,
+                     headers={"User-Agent": ua, "x-api-key": key})
+    if r.status_code in (401, 403):
+        raise RuntimeError(f"Blocked|worker {r.status_code}")
+    if r.status_code == 429:
+        raise RuntimeError(f"RateLimit|{r.status_code}")
+    if r.status_code >= 500:
+        raise RuntimeError(f"ServerError|worker {r.status_code}")
+    if r.status_code != 200:
+        raise RuntimeError(f"HTTPError|worker {r.status_code}")
+    try:
+        data = r.json()
+    except ValueError:
+        raise RuntimeError("Blocked|HTML")
+    err = str(data.get("error") or "")
+    if err:
+        m = re.match(r"district_status_(\d+)", err)
+        if m and m.group(1) in ("401", "403"):
+            raise RuntimeError(f"Blocked|{m.group(1)}")
+        if m and m.group(1) == "429":
+            raise RuntimeError("RateLimit|429")
+        if m:
+            raise RuntimeError(f"HTTPError|{m.group(1)}")
+        if err == "no_next_data":
+            raise RuntimeError("Blocked|HTML")
+        raise RuntimeError(f"HTTPError|{err}")
+    return data
+
+
 def fetch_cinema_page(venue, date_district, logger=None, shard_id=None):
     """
     Public API. Gets identity in the CALLING thread (where thread_local
@@ -142,11 +218,14 @@ def fetch_district_venues(venues, date_district, logger, shard_id=None):
 
         cid = _target_id(venue)
         try:
-            url, html = fetch_cinema_page(venue, date_district, logger, shard_id=shard_id)
-            data = _parse_direct_page(
-                html, url, venue.get("id") or venue.get("cinema_id") or "",
-                _slugify(_venue_city(venue)),
-            )
+            if worker_enabled():
+                data = fetch_via_worker(venue, date_district)
+            else:
+                url, html = fetch_cinema_page(venue, date_district, logger, shard_id=shard_id)
+                data = _parse_direct_page(
+                    html, url, venue.get("id") or venue.get("cinema_id") or "",
+                    _slugify(_venue_city(venue)),
+                )
 
             if data.get("error"):
                 error_counts["http_error"] += 1

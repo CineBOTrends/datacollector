@@ -74,9 +74,12 @@ def normalize_row(r, date_code):
 
 
 def dedupe(rows):
+    """Drop exact same-source repeats. Returns (rows, dropped_rows) —
+    dropped_rows is the list of removed rows (not just a count), tagged with
+    "_dedupe_reason", so they can be saved and manually cross-checked."""
     seen = set()
     out = []
-    dupes = 0
+    dropped = []
     for r in rows:
         key = (
             r.get("venue", ""),
@@ -85,11 +88,13 @@ def dedupe(rows):
             r.get("audi", ""),
         )
         if key in seen:
-            dupes += 1
+            dropped_row = dict(r)
+            dropped_row["_dedupe_reason"] = "exact_duplicate_same_source"
+            dropped.append(dropped_row)
             continue
         seen.add(key)
         out.append(r)
-    return out, dupes
+    return out, dropped
 
 
 def combine_shards(mode: str, date_code: str = None, upload_r2: bool = True):
@@ -139,16 +144,33 @@ def combine_shards(mode: str, date_code: str = None, upload_r2: bool = True):
     all_rows = [normalize_row(r, dc) for r in all_rows]
 
     # Dedupe (same-source exact repeats)
-    final_rows, dupes = dedupe(all_rows)
-    print(f"\U0001f9f9 Duplicates removed: {dupes}")
+    final_rows, exact_dropped = dedupe(all_rows)
+    print(f"\U0001f9f9 Duplicates removed: {len(exact_dropped)}")
 
     # Dedupe across sources: the same theatre is listed under different names by
     # BMS and District, so the same show was being counted twice (inflating
     # shows / tickets / gross). Keep BMS (real per-seat prices), drop District's copy.
     from combiner.venue_map import cross_source_dedupe
-    final_rows, cross = cross_source_dedupe(final_rows)
-    print(f"\U0001f501 Cross-source duplicates removed (District/BMS): {cross}")
+    final_rows, cross_dropped = cross_source_dedupe(final_rows)
+    print(f"\U0001f501 Cross-source duplicates removed (District/BMS): {len(cross_dropped)}")
     print(f"\U0001f3af Final detailed rows: {len(final_rows)}")
+
+    # Save every row either dedupe step removed, in ONE file, so they can be
+    # manually cross-checked instead of just trusting the printed counts.
+    removed_path = os.path.join(base_dir, "removed_duplicates.json")
+    all_dropped = exact_dropped + cross_dropped
+    save_json(removed_path, {
+        "last_updated": last_updated,
+        "date": dc,
+        "mode": mode,
+        "summary": {
+            "exact_duplicates_removed": len(exact_dropped),
+            "cross_source_duplicates_removed": len(cross_dropped),
+            "total_removed": len(all_dropped),
+        },
+        "removed": all_dropped,
+    })
+    print(f"\U0001f5c3\ufe0f  removed_duplicates.json saved ({len(all_dropped)} row(s))")
 
     # Sort
     final_rows.sort(
@@ -269,6 +291,7 @@ def combine_shards(mode: str, date_code: str = None, upload_r2: bool = True):
     print("\U0001f4c4 Files ready:")
     print(f"   \u2022 {final_detailed}")
     print(f"   \u2022 {final_summary_file}")
+    print(f"   \u2022 {removed_path}")
 
     # Upload to R2 if configured
     # Path format: {mode}/{year}/{month}/{day}.json

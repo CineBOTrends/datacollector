@@ -37,8 +37,12 @@ def run_advance_job():
     logger.separator("=")
     start = time.time()
     try:
-        from runner import run_advance
+        from runner import run_advance, run_tracked_advance
         run_advance()
+        try:
+            run_tracked_advance()
+        except Exception as e:
+            logger.error(f"Tracked opening-day advance failed: {e}")
         logger.success(f"Advance job completed in {(time.time() - start) / 60:.1f} min")
         publish("advance")
     except Exception as e:
@@ -111,29 +115,54 @@ def publish(mode):
         os.path.join(PROJECT_ROOT, cfg.get("dashboard_dir", "../dashboard-publish"))
     )
     data_src = os.path.join(PROJECT_ROOT, "data")
-    try:
-        if not os.path.isdir(os.path.join(pubdir, ".git")):
-            subprocess.run(["git", "clone", repo, pubdir], check=True)
-        subprocess.run(["git", "-C", pubdir, "pull", "--quiet"], check=False)
+    git_env = dict(os.environ, GIT_TERMINAL_PROMPT="0", GIT_EDITOR="true")
 
+    def git(*args, check=True):
+        return subprocess.run(["git", "-C", pubdir, *args], check=check, env=git_env)
+
+    def sync_to_origin():
+        # pubdir is a publish-only clone, so make it EXACTLY origin/main. No merge,
+        # no conflicts, no editor: data/ and assets/posters are fully rewritten below.
+        git("fetch", "origin", "--quiet")
+        branch = subprocess.run(
+            ["git", "-C", pubdir, "symbolic-ref", "--short", "refs/remotes/origin/HEAD"],
+            capture_output=True, text=True, env=git_env).stdout.strip() or "origin/main"
+        git("merge", "--abort", check=False)
+        git("rebase", "--abort", check=False)
+        git("checkout", "-B", branch.split("/", 1)[-1], branch)
+        git("reset", "--hard", branch)
+        return branch
+
+    def stage_publish():
         dst = os.path.join(pubdir, "data")
         if os.path.isdir(dst):
             shutil.rmtree(dst)
         shutil.copytree(data_src, dst)
+        poster_src = os.path.join(PROJECT_ROOT, "poster_assets")
+        if os.path.isdir(poster_src):
+            shutil.copytree(poster_src, os.path.join(pubdir, "assets", "posters"), dirs_exist_ok=True)
+        git("add", "-f", "data")
+        git("add", "-f", "assets/posters", check=False)
 
-        subprocess.run(["git", "-C", pubdir, "add", "-f", "data"], check=True)
+    try:
+        if not os.path.isdir(os.path.join(pubdir, ".git")):
+            subprocess.run(["git", "clone", repo, pubdir], check=True, env=git_env)
+
         stamp = datetime.now().isoformat(timespec="seconds")
-        r = subprocess.run(
-            ["git", "-C", pubdir, "commit", "-m", f"data({mode}): {stamp}"]
-        )
-        if r.returncode == 0:
-            subprocess.run(["git", "-C", pubdir, "push"], check=True)
-            logger.success("Published -> dashboard (Cloudflare will rebuild)")
-        else:
-            logger.info("No data changes to publish")
+        for attempt in range(1, 4):
+            branch = sync_to_origin()
+            stage_publish()
+            if git("commit", "-m", f"data({mode}): {stamp}", check=False).returncode != 0:
+                logger.info("No data changes to publish")
+                return
+            if git("push", "origin", "HEAD", check=False).returncode == 0:
+                logger.success("Published -> dashboard (Cloudflare will rebuild)")
+                return
+            # someone (e.g. a GitHub Action) pushed meanwhile: re-sync and redo
+            logger.error(f"push rejected (attempt {attempt}/3) - re-syncing with {branch} and retrying")
+        logger.error("publish gave up after 3 rejected pushes")
     except Exception as e:
         logger.error(f"publish/push failed: {e}")
-
 
 def run_cleanup_job(retain_days):
     """Triggered by scheduler for data cleanup."""

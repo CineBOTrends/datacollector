@@ -14,6 +14,7 @@ env var (comma-separated proxy URLs) — BookMyShow does not use this.
 """
 import os
 import random
+import re
 import threading
 
 import cloudscraper
@@ -38,9 +39,25 @@ _thread_local = threading.local()
 _warned_thin_pool = False
 
 
+def _configured_proxies():
+    """DISTRICT_PROXIES from the environment, else from the local .env
+    (KEY=value or `$env:KEY = "value"`). CI has no .env and uses the env var."""
+    configured = os.environ.get("DISTRICT_PROXIES", "")
+    if configured.strip():
+        return configured
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                m = re.match(r'\s*(?:\$env:)?DISTRICT_PROXIES\s*=\s*["\']?([^\r\n]*?)["\']?\s*$', line)
+                if m and m.group(1):
+                    return m.group(1)
+    return ""
+
+
 class DistrictIdentity:
     def __init__(self, shard_id=None):
-        configured = os.environ.get("DISTRICT_PROXIES", "")
+        configured = _configured_proxies()
         all_proxies = [value.strip() for value in configured.split(",") if value.strip()]
 
         self.proxies = all_proxies

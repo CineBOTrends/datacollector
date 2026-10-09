@@ -161,6 +161,47 @@ def run_daily():
     return results
 
 
+def tracked_release_dates(max_ahead=21):
+    """Future release dates (YYYYMMDD) from tracked_movies.json "release_dates".
+
+    Tomorrow is skipped (the normal advance run already covers it) and so are
+    today/past dates (daily covers those).
+    """
+    import json
+    from datetime import datetime, timedelta, timezone
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tracked_movies.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            cfg = json.load(f)
+    except Exception:
+        return {}
+    today = datetime.now(timezone(timedelta(hours=5, minutes=30))).date()
+    out = {}
+    for title, ds in (cfg.get("release_dates") or {}).items():
+        try:
+            d = datetime.strptime(str(ds)[:10], "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if 2 <= (d - today).days <= max_ahead:
+            out.setdefault(d.strftime("%Y%m%d"), []).append(title)
+    return out
+
+
+def run_tracked_advance():
+    """Opening-day advance for tracked titles that haven't released yet."""
+    dates = tracked_release_dates()
+    if not dates:
+        return []
+    results = []
+    for dc, titles in sorted(dates.items()):
+        logger.info(f"--- tracked opening day {dc}: {', '.join(titles)} ---")
+        try:
+            results.extend(run_advance(dc))
+        except Exception as e:
+            logger.error(f"tracked opening day {dc} failed: {e}")
+    return results
+
+
 def run_upcoming(window_days=None, force_probe=False):
     """Opening-day advance for films that haven't released yet.
 

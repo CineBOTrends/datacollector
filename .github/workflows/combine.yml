@@ -113,6 +113,8 @@ jobs:
 
           rm -rf out/data
           cp -R data out/data
+          mkdir -p out/assets/posters
+          if [ -d poster_assets ]; then cp -f poster_assets/* out/assets/posters/ 2>/dev/null || true; fi
 
           cd out
 

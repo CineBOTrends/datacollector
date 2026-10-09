@@ -17,7 +17,13 @@ Push-Location $Publish
 git pull --quiet
 if (Test-Path "data") { Remove-Item -Recurse -Force "data" }
 Copy-Item -Recurse (Join-Path $Collector "data") "data"
+$PosterSrc = Join-Path $Collector "poster_assets"
+if (Test-Path $PosterSrc) {
+  New-Item -ItemType Directory -Force "assets\posters" | Out-Null
+  Copy-Item -Force (Join-Path $PosterSrc "*") "assets\posters"
+}
 git add -f data
+git add -f assets/posters 2>$null
 git commit -m ("data(rebuild-posters): {0}" -f (Get-Date -Format "yyyy-MM-ddTHH:mm:ss")) 2>$null
 if ($LASTEXITCODE -eq 0) { git push } else { Write-Host "no changes to push" }
 Pop-Location

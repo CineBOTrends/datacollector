@@ -12,9 +12,21 @@
   "_warning": "With store_all=false (default), filtering happens during the SCRAPE, so untracked movies are never stored going forward - adding a title later gives it NO back-history. With store_all=true, everything is always stored regardless of when a title is added to the list; only the dashboard display is affected.",
 
   "_release_dates": "REAL release date (YYYY-MM-DD) per film. Release day = Day 1; every date BEFORE it shows as Premiere on the dashboard and in Historical. REQUIRED for any film that has premiere / paid-preview shows, because then the earliest date with bookings is NOT the release date. Titles or slugs both work.",
+
   "release_dates": {
-    "The Paradise": "2026-09-24",
-    "Avengers Endgame: Encore": "2026-09-25"
+    "Don't Trouble The Trouble": "2026-10-02",
+    "Sigma": "2026-10-02",
+    "Thella Kaagitham": "2026-10-02",
+    "Drishyam The Conclusion": "2026-10-02",
+    "Jailer 2": "2026-10-15",
+    "Ranabaali": "2026-10-16"
+  },
+
+  "_bms_codes": "OPTIONAL. BookMyShow event code (or movie page URL) per title, e.g. ET00504928 (the end of the BMS movie URL). Lets posters be fetched as soon as a title is added, BEFORE bookings open.",
+
+  "bms_codes": {
+    "Jailer 2": "ET00518674",
+    "Ranabaali": "ET00483565"
   },
 
   "store_all": true,
@@ -22,7 +34,17 @@
   "hide_untracked": true,
 
   "movies": [
-    "The Paradise",
-    "Avengers Endgame: Encore"
-  ]
+    "Don't Trouble The Trouble",
+    "Sigma",
+    "Thella Kaagitham",
+    "Drishyam The Conclusion",
+    "Jailer 2",
+    "Ranabaali"
+  ],
+
+  "title_mapping": {
+    "Jailer 2": ["Jailer 2", "Rajini: The Jailer 2"],
+    "Thella Kaagitham": "Thellakaagitham",
+    "Drishyam The Conclusion": "Drishyam: The Conclusion"
+  }
 }

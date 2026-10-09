@@ -57,6 +57,133 @@ MODES = {
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data")              # FULL tree (admin)
+# Mirrored poster images; the publish step copies this to <dashboard>/assets/posters
+POSTER_DIR = os.path.join(HERE, "poster_assets")
+POSTER_URL_PREFIX = "/assets/posters/"
+BMS_BG_URL = "https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/{id}.jpg"
+_poster_done = {}
+
+
+def _download(url, dest):
+    """Download url -> dest. True on success; an existing file is left untouched on failure."""
+    import urllib.request
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                          "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+            "Referer": "https://in.bookmyshow.com/",
+        })
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = resp.read()
+        if len(data) < 1000:
+            return False
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        tmp = dest + ".part"
+        with open(tmp, "wb") as f:
+            f.write(data)
+        os.replace(tmp, dest)
+        return True
+    except Exception as e:
+        print(f"    ! poster download failed {url} ({e})")
+        return False
+
+
+BMS_THUMB_URL = "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/{id}.jpg"
+
+
+def load_bms_codes(collector=None):
+    """tracked_movies.json "bms_codes": {"Jailer 2": "ET00xxxxxx"} (code or BMS
+    movie URL). Lets a title's posters be fetched BEFORE any show exists.
+    Returns {canon_key(title): "ETxxxxxxxx"}."""
+    cfg = None
+    for root in [c for c in (collector, HERE) if c]:
+        fp = os.path.join(root, TRACK_FILE)
+        if os.path.exists(fp):
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    cfg = json.load(f)
+                break
+            except Exception:
+                pass
+    out = {}
+    for title, val in ((cfg or {}).get("bms_codes") or {}).items():
+        m = re.search(r"ET\d{8}", str(val or ""), re.I)
+        if m and not str(title).startswith("_"):
+            out[canon_key(title)] = m.group(0).upper()
+    return out
+
+
+def _bms_image_from_rows(rows, extra_codes=(), title=None):
+    """Resolve the BMS image id from the BMS event codes on a movie's rows
+    (most common code first), then any code configured in tracked_movies.json,
+    then (if still none) a code auto-discovered from BMS listings by title."""
+    from collections import Counter
+    codes = [c for c, _ in Counter(r["bmsCode"] for r in rows if r.get("bmsCode")).most_common()]
+    codes += [c for c in extra_codes if c not in codes]
+    try:
+        from scraper.bms_poster import resolve_image_id, find_code
+    except Exception:
+        return None
+    if not codes and title:
+        auto = find_code(title)
+        if auto:
+            codes.append(auto)
+    for code in codes:
+        img = resolve_image_id(code)
+        if img:
+            return img
+    return None
+
+
+def prefetch_tracked_posters(collector, built_slugs):
+    """Fetch posters for tracked titles that have no shows yet (bookings not
+    open). The BMS code comes from tracked_movies.json "bms_codes" if given,
+    otherwise it is discovered automatically from BMS listings by title."""
+    codes = load_bms_codes(collector)
+    try:
+        with open(os.path.join(collector or HERE, TRACK_FILE), encoding="utf-8") as f:
+            titles = json.load(f).get("movies") or []
+    except Exception:
+        return
+    title_map = load_title_mapping()
+    for entry in titles:
+        raw = entry.get("title") if isinstance(entry, dict) else entry
+        raw = str(raw or "").strip()
+        if not raw:
+            continue
+        slug = slugify(canonical_title(title_map.get(canon_key(raw)) or raw))
+        if slug in built_slugs:
+            continue
+        if all(os.path.exists(os.path.join(POSTER_DIR, f"{slug}-{k}.jpg")) for k in ("thumb", "bg")):
+            continue
+        code = codes.get(canon_key(raw))
+        img = _bms_image_from_rows([], [code] if code else [], title=raw)
+        if not img:
+            print(f"    ! no BMS poster found for {raw} (not listed on BMS yet? "
+                  f"add its code under bms_codes in {TRACK_FILE})")
+            continue
+        mirror_posters(slug, None, img)
+        print(f"  poster (pre-booking): {raw} -> {slug}")
+
+
+def mirror_posters(slug, poster, bms_id):
+    """Mirror thumb (District, else BMS thumbnail) + bg (BMS xxlarge, else District)
+    to POSTER_DIR and return the poster dict pointing at
+    /assets/posters/<slug>-{thumb,bg}.jpg where mirrored."""
+    if (slug, bms_id) in _poster_done:
+        return _poster_done[(slug, bms_id)]
+    out = dict(poster) if poster else {}
+    thumb_url = (poster or {}).get("thumb") or (BMS_THUMB_URL.format(id=bms_id) if bms_id else None)
+    bg_url = BMS_BG_URL.format(id=bms_id) if bms_id else (poster or {}).get("bg")
+    for kind, url in (("thumb", thumb_url), ("bg", bg_url)):
+        if not url:
+            continue
+        dest = os.path.join(POSTER_DIR, f"{slug}-{kind}.jpg")
+        if _download(url, dest) or os.path.exists(dest):
+            out[kind] = f"{POSTER_URL_PREFIX}{slug}-{kind}.jpg"
+    result = out or None
+    _poster_done[(slug, bms_id)] = result
+    return result
 
 KEY_RE = re.compile(r"^(.*)\s\(([^)]*?)\s-\s([^)]*)\)\s*$")
 
@@ -131,19 +258,23 @@ def _extract_cast(info):
 
 
 def district_meta_from_rows(rows):
-    """Derive {poster, meta} from the District worker's movieInfo embedded in rows."""
+    """Derive {poster, meta} from the District worker's movieInfo embedded in rows.
+
+    NOTE: releaseDate is deliberately NOT read from District's movieInfo here
+    (District's own field is unreliable / frequently wrong or missing). The
+    user now maintains release dates by hand in tracked_movies.json, and
+    that's the ONLY source meta.releaseDate is ever set from — see
+    load_tracked_release_dates() and its stamping pass in build_date().
+    """
     best = None
     fallback = None
-    release_date = None
     cast = []
     for r in rows:
         mi = r.get("movieInfo")
         if not mi:
             continue
-        # cast / release date may live on a different row than the poster —
-        # keep the first non-empty value we find across all rows.
-        if release_date is None:
-            release_date = _extract_release_date(mi)
+        # cast may live on a different row than the poster — keep the first
+        # non-empty value we find across all rows.
         if not cast:
             cast = _extract_cast(mi)
         if fallback is None and (mi.get("poster") or mi.get("genres") or mi.get("censor")
@@ -151,7 +282,7 @@ def district_meta_from_rows(rows):
             fallback = mi
         if mi.get("poster"):
             best = mi
-            if release_date and cast:
+            if cast:
                 break
     info = best or fallback
     if not info:
@@ -169,7 +300,7 @@ def district_meta_from_rows(rows):
         "languages": [lang] if lang else [],
         "likes": None,
         "eventCode": (str(info["contentId"]) if info.get("contentId") is not None else None),
-        "releaseDate": release_date,
+        "releaseDate": None,
         "cast": cast,
         "trailer": (info.get("trailer") or "").strip() or None,
     }
@@ -257,9 +388,19 @@ def load_tracked(collector=None):
 
     keys = set()
     for entry in cfg.get("movies", []) or []:
-        if not isinstance(entry, str) or not entry.strip():
+        # A "movies" entry is normally just a title/slug string, but it can
+        # also be an object -- {"title": "...", "releaseDate": "..."} -- so a
+        # user-provided release date (see load_tracked_release_dates() below)
+        # can live right next to the title it corrects, instead of a second
+        # file to keep in sync. Either form counts for tracking purposes.
+        if isinstance(entry, dict):
+            raw = str(entry.get("title") or entry.get("movie") or entry.get("name") or "").strip()
+        elif isinstance(entry, str):
+            raw = entry.strip()
+        else:
+            raw = ""
+        if not raw:
             continue
-        raw = entry.strip()
         # accept a title ("The Odyssey"), a slug ("the-odyssey") or either case
         keys.add(canon_key(raw))
         keys.add(slugify(raw))
@@ -273,6 +414,123 @@ def load_tracked(collector=None):
 
     _track_cache = (mode, keys)
     return _track_cache
+
+
+_title_map_cache = None
+
+
+def load_title_mapping(collector=None):
+    """Read tracked_movies.json's optional "title_mapping":
+        {"Thella Kaagitham": "Thellakaagitham"}
+    i.e. {canonical_title: alias}, for a film BMS and District scrape under
+    two different spellings/spacings of the SAME title -- canon_key() alone
+    can't catch this, since it only strips trailing format/version tags, it
+    never fixes spelling/spacing differences mid-title. Without this, the two
+    sources' rows build as two separate, each-incomplete "movies" (and
+    whichever spelling isn't in tracked_movies.json's "movies"/"release_dates"
+    list gets silently filtered out of the dashboard build entirely, even
+    though it was scraped and stored fine).
+
+    Returns {canon_key(alias): canonical_title}, so a raw scraped title can
+    be looked up and rewritten to the canonical spelling BEFORE grouping,
+    tracking-filter matching, or anything else keys off of it.
+    """
+    global _title_map_cache
+    if _title_map_cache is not None:
+        return _title_map_cache
+
+    roots = [HERE]
+    if collector:
+        roots.insert(0, collector)
+
+    cfg = None
+    for root in roots:
+        fp = os.path.join(root, TRACK_FILE)
+        if os.path.exists(fp):
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    cfg = json.load(f)
+                break
+            except Exception:
+                pass
+
+    mapping = {}
+    for canonical, alias in (cfg or {}).get("title_mapping", {}).items():
+        canonical = str(canonical or "").strip()
+        alias = str(alias or "").strip()
+        if not canonical or not alias:
+            continue
+        mapping[canon_key(alias)] = canonical
+
+    _title_map_cache = mapping
+    return _title_map_cache
+
+
+_track_release_cache = None
+
+
+def load_tracked_release_dates(collector=None):
+    """Read tracked_movies.json again for any per-movie release date the
+    user has provided directly. Two forms are accepted:
+
+        {"release_dates": {"The Paradise": "2026-09-25"}}            <- primary
+        {"movies": [{"title": "The Paradise", "releaseDate": "..."}]} <- also OK
+
+    Returns {canon_key_or_slug(title): "YYYY-MM-DD"}.
+
+    This is a user-curated fact, not a guess, so it's the FIRST thing
+    checked when stamping meta.releaseDate onto a movie's files -- ahead of
+    District's own (often missing/wrong) release-date field and the
+    inferred "first daily date" fallback below. It's also the only way to
+    fix a film whose release date build_data can't infer at all (e.g. one
+    that's never appeared in `daily` yet and had no distinguishable
+    premiere/advance split).
+    """
+    global _track_release_cache
+    if _track_release_cache is not None:
+        return _track_release_cache
+
+    roots = [HERE]
+    if collector:
+        roots.insert(0, collector)
+
+    cfg = None
+    for root in roots:
+        fp = os.path.join(root, TRACK_FILE)
+        if os.path.exists(fp):
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    cfg = json.load(f)
+                break
+            except Exception:
+                pass
+
+    cfg = cfg or {}
+    dates = {}
+
+    def _store(title, raw):
+        title = str(title or "").strip()
+        raw = str(raw or "").strip()
+        if not title or not raw:
+            return
+        iso = raw[:10] if len(raw) >= 10 and raw[4:5] == "-" else raw
+        dates[canon_key(title)] = iso
+        dates[slugify(title)] = iso
+
+    # Primary form: a top-level {"release_dates": {title_or_slug: date}} map.
+    for title, raw in (cfg.get("release_dates") or {}).items():
+        _store(title, raw)
+
+    # Also accept a per-entry releaseDate inside "movies", for anyone who
+    # prefers keeping it next to the title instead of a separate map.
+    for entry in cfg.get("movies", []) or []:
+        if not isinstance(entry, dict):
+            continue
+        title = entry.get("title") or entry.get("movie") or entry.get("name")
+        _store(title, _extract_release_date(entry))
+
+    _track_release_cache = dates
+    return _track_release_cache
 
 
 def is_tracked(title, slug, tracked):
@@ -370,110 +628,13 @@ def finalize(acc):
 
 
 # --------------------------------------------------------------------------- #
-#  Cross-source theatre de-duplication
-#
-#  The same physical cinema is often scraped by BOTH BMS and District, and
-#  each source names/formats it differently:
-#     "PVR Lido, Santacruz (W), Mumbai"   vs   "PVR: Lido, Juhu Mumbai"
-#     "MOVIE TIME: HUB, Goregaon (E)"     vs   "MovieTime Hub Mall, Goregaon (E), Mumbai"
-#  Left as-is, these show up as TWO separate theatre cards, and — worse —
-#  both get folded into the city/state/movie totals, silently doubling the
-#  real gross/sold for that venue. This groups rows per (city, raw venue),
-#  then clusters groups that are almost certainly the same real theatre
-#  (same chain, same city, heavy address/name token overlap) and keeps only
-#  the most complete group per cluster instead of summing them.
+#  Cross-source theatre de-duplication (shared with territory_report.py —
+#  see dedupe_theatres.py). Applied once per movie's row group in
+#  build_date() below, BEFORE build_movie() / _movie_territory() ever see the
+#  rows, so kpi, State/City/Format Wise, and the All India Report tab are
+#  always built from the exact same de-duplicated rows and can't drift apart.
 # --------------------------------------------------------------------------- #
-_VENUE_STOPWORDS = {
-    "the", "near", "opp", "opposite", "road", "rd", "street", "st", "complex",
-    "mall", "malls", "multiplex", "multiplexes", "cinema", "cinemas",
-    "megaplex", "mumbai", "maharashtra", "india", "floor", "1st", "2nd",
-    "3rd", "4th", "5th", "ave", "avenue", "compound", "junction", "station",
-    "metro", "market", "city", "and", "of", "in", "at",
-}
-
-
-def _venue_tokens(*texts):
-    toks = set()
-    for text in texts:
-        t = re.sub(r"[^a-z0-9\s]", " ", (text or "").lower())
-        toks |= {w for w in t.split() if len(w) >= 3 and w not in _VENUE_STOPWORDS}
-    return toks
-
-
-def _venue_chain_key(chain, venue):
-    c = (chain or "").strip()
-    if not c:
-        c = re.split(r"[:\-,\u00b7]", venue or "")[0]     # \u00b7 = '·'
-    key = re.sub(r"[^a-z0-9]", "", c.lower())
-    # PVR and INOX merged into PVR INOX Ltd in 2023. Sources inconsistently
-    # tag the SAME physical theatre with either brand name (e.g. one row's
-    # `chain` is "INOX", another row for the identical venue has `chain`
-    # "Pvr"). Without this, those rows get different chain_keys, the cluster
-    # check below bails out before ever comparing address/name tokens, and
-    # the same theatre shows up as two cards with box office split across
-    # both. Collapse both brands to one key so the token-overlap check can
-    # still tell genuinely different venues apart.
-    if "pvr" in key or "inox" in key:
-        return "pvrinox"
-    return key
-
-
-def _dedupe_theatre_rows(rows):
-    """Collapse rows for the SAME physical theatre reported under different
-    venue-name strings by different sources. Returns a filtered row list
-    where each real theatre contributes only once, so downstream gross/sold
-    aggregation is never double-counted."""
-    rows_by_city_venue = defaultdict(list)
-    for r in rows:
-        city = (r.get("city") or "Unknown").strip() or "Unknown"
-        venue = (r.get("venue") or "Unknown").strip() or "Unknown"
-        rows_by_city_venue[(city, venue)].append(r)
-
-    groups = []
-    for (city, venue), grp_rows in rows_by_city_venue.items():
-        chain = next((r.get("chain") for r in grp_rows if r.get("chain")), "")
-        address = next((r.get("address") for r in grp_rows if r.get("address")), "")
-        groups.append({
-            "city": city, "venue": venue, "chain": chain, "address": address,
-            "chain_key": _venue_chain_key(chain, venue),
-            "tokens": _venue_tokens(venue, address),
-            "rows": grp_rows,
-        })
-
-    merged_rows = []
-    used = [False] * len(groups)
-    for i, g in enumerate(groups):
-        if used[i]:
-            continue
-        cluster = [g]
-        used[i] = True
-        for j in range(i + 1, len(groups)):
-            if used[j]:
-                continue
-            h = groups[j]
-            if h["city"] != g["city"] or h["chain_key"] != g["chain_key"]:
-                continue
-            if not g["tokens"] or not h["tokens"]:
-                continue
-            overlap = g["tokens"] & h["tokens"]
-            jaccard = len(overlap) / len(g["tokens"] | h["tokens"])
-            if jaccard >= 0.34 and len(overlap) >= 2:
-                cluster.append(h)
-                used[j] = True
-        if len(cluster) == 1:
-            merged_rows.extend(g["rows"])
-            continue
-        # True duplicate across sources: keep the most complete-looking
-        # group (most shows, then most tickets sold, then longest/most
-        # descriptive address) instead of summing — summing would double
-        # count real box office that both sources scraped independently.
-        winner = max(cluster, key=lambda c: (
-            len(c["rows"]),
-            sum(row_vals(r)[1] for r in c["rows"]),
-            len(c["address"] or ""),
-        ))
-        merged_rows.extend(winner["rows"])
-    return merged_rows
+from dedupe_theatres import dedupe_theatre_rows as _dedupe_theatre_rows
 
 
 # --------------------------------------------------------------------------- #
@@ -696,10 +857,20 @@ def build_date(mode, date, src_dir, out_dir):
     rows = payload.get("data", [])
     last_updated = payload.get("last_updated", "")
 
+    title_map = load_title_mapping()
     grouped = defaultdict(list)
     display = {}                       # canon key -> clean display title
     for r in rows:
-        base, _, _ = parse_key(r.get("movie", ""))
+        base, fmt, lang = parse_key(r.get("movie", ""))
+        mapped = title_map.get(canon_key(base))
+        if mapped:
+            base = mapped
+            # Keep the row's own "movie" field in sync too, so everything
+            # downstream that reads r["movie"] directly (the per-movie
+            # breakdown inside build_movie/_movie_territory, combiner's
+            # cross-source dedup, etc.) sees one consistent spelling rather
+            # than treating BMS's and District's titles as different films.
+            r["movie"] = f"{base} ({fmt} - {lang})" if (fmt or lang) else base
         ck = canon_key(base)
         grouped[ck].append(r)
         disp = canonical_title(base)
@@ -735,6 +906,7 @@ def build_date(mode, date, src_dir, out_dir):
         )
 
     tracked = load_tracked()
+    _bms_codes = load_bms_codes()
     territory_ctx = _load_territory_context()
 
     index = []
@@ -743,6 +915,11 @@ def build_date(mode, date, src_dir, out_dir):
     skipped = 0
     for ck, mrows in grouped.items():
         title = display.get(ck) or ck
+        # De-dupe cross-source theatre rows (BMS + District both scraping the
+        # same physical venue under different name strings) ONCE here, so
+        # kpi/state/city/format AND the "territory" (All India Report) block
+        # built just below are guaranteed to come from the identical row set.
+        mrows = _dedupe_theatre_rows(mrows)
         movie = build_movie(title, mrows)
         slug = movie["slug"]
         # not on the tracked list -> don't publish it (raw data is untouched)
@@ -762,10 +939,13 @@ def build_date(mode, date, src_dir, out_dir):
             movie["slug"] = slug
         used_slugs.add(slug)
         dm = district_meta_from_rows(mrows)
-        # Posters come straight from District — the raw CDN thumb/cover URLs.
-        # No local mirror: the dashboard loads them directly, and they refresh
-        # automatically whenever District updates the artwork.
+        # District supplies the card thumbnail; BookMyShow's xxlarge image (when a
+        # BMS row carries its image id) supplies the background. Both are mirrored
+        # to /assets/posters/<slug>-{thumb,bg}.jpg in the dashboard repo; if a
+        # download fails we keep the remote URL so nothing breaks.
         movie["poster"] = dm["poster"] or _global_district_poster(title)
+        movie["poster"] = mirror_posters(slug, movie["poster"], _bms_image_from_rows(
+                    mrows, [c for c in [_bms_codes.get(canon_key(title))] if c], title=title))
         movie["meta"] = dm["meta"]
         movie["last_updated"] = last_updated
         movies_for_history[movie["slug"]] = movie
@@ -1158,13 +1338,62 @@ def main(collector):
                     mj["meta"] = {}
                 mj["meta"]["upcoming"] = True
                 mj["meta"]["openingDay"] = open_day
-                # only fill releaseDate if District never gave us one
-                if not mj["meta"].get("releaseDate"):
-                    mj["meta"]["releaseDate"] = iso
+                # releaseDate is NOT guessed here (see district_meta_from_rows
+                # and the user-provided block just below) -- meta.upcoming /
+                # meta.openingDay alone still let the dashboard show "Opening
+                # Day Advance" for a still-unreleased film with no manually
+                # set release date yet.
                 with open(fp, "w", encoding="utf-8") as f:
                     json.dump(mj, f, ensure_ascii=False, separators=(",", ":"))
             except Exception as e:
                 print(f"    ! could not flag {slug} ({e})")
+
+    # ---- user-provided release date, from tracked_movies.json --------------
+    # This is now the ONLY source meta.releaseDate is ever set from. District's
+    # own release-date field is never used (district_meta_from_rows always
+    # leaves it None) and there is no "infer it from first daily date"
+    # fallback either -- both were unreliable/wrong often enough that the
+    # user now maintains release dates by hand instead. A movie the user
+    # hasn't set a date for simply has no releaseDate (Premiere/Day-N
+    # labelling falls back to the upcoming/openingDay signal above, or shows
+    # nothing, rather than a guess).
+    # Takes priority over BOTH District's own field and the "first daily
+    # date" backfill just above: it's a fact the user is stating directly,
+    # not a guess, so it OVERWRITES whatever is already there (including a
+    # wrong District value) rather than only filling gaps. This is the
+    # reliable way to get Premiere/Day-N labelling right for any movie,
+    # including ones build_data can't infer a release day for at all yet
+    # (still advance-only, no daily data to infer from).
+    user_release_dates = load_tracked_release_dates()
+    if user_release_dates:
+        all_slugs = set()
+        for by_slug in slug_dates.values():
+            all_slugs.update(by_slug.keys())
+        touched = 0
+        for slug in all_slugs:
+            iso = user_release_dates.get(slug)
+            if not iso:
+                continue
+            for mode in ("advance", "daily"):
+                for date in slug_dates.get(mode, {}).get(slug, []):
+                    fp = os.path.join(OUT, mode, date, "m", slug + ".json")
+                    if not os.path.exists(fp):
+                        continue
+                    try:
+                        with open(fp, encoding="utf-8") as f:
+                            mj = json.load(f)
+                        if not isinstance(mj.get("meta"), dict):
+                            mj["meta"] = {}
+                        if mj["meta"].get("releaseDate") == iso:
+                            continue
+                        mj["meta"]["releaseDate"] = iso
+                        with open(fp, "w", encoding="utf-8") as f:
+                            json.dump(mj, f, ensure_ascii=False, separators=(",", ":"))
+                        touched += 1
+                    except Exception as e:
+                        print(f"    ! could not set user releaseDate for {slug} ({e})")
+        if touched:
+            print(f"  releaseDate: {touched} file(s) set from tracked_movies.json")
 
     # The "Historical" tab must always show what we ACTUALLY tracked day by day
     # (i.e. DAILY actuals), never the advance/pre-sales snapshot. Advance numbers
@@ -1184,6 +1413,8 @@ def main(collector):
 
     with open(os.path.join(OUT, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+    prefetch_tracked_posters(collector, {s for sl in slug_dates.values() for s in sl})
 
     # editorial content (admin-posted news / reviews / box office) -> both trees
     build_editorial()

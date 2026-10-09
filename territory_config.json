@@ -19,8 +19,32 @@
 
   "territory_order": [
     "Hyderabad", "Nizam Districts", "Ceded", "UA - Uttar Andhra", "East", "West", "Krishna", "Guntur", "Nellore",
-    "Kerala",
     "Bengaluru City", "Karnataka",
-    "Chennai City", "Tamil Nadu"
+    "Chennai City", "Tamil Nadu",
+    "Kerala"
+  ],
+
+  "_groups_comment": "Roll-up subtotal rows. Processed in order (a group can reference an earlier group by label, e.g. APTG Total references Nizam). 'children' nests a member as an indented sub-row under the group's own row and hides its other raw members (e.g. Nizam shows Hyderabad nested, Nizam Districts folded in silently). No Kerala/ROI group on purpose: each is already a single raw territory, so a matching group would just repeat its numbers a second time.",
+  "groups": [
+    {
+      "label": "Nizam",
+      "members": ["Hyderabad", "Nizam Districts"],
+      "children": ["Hyderabad"],
+      "note": "Territory splits are calculated for Andhra Pradesh and Telangana only. Sub-regions such as Hyderabad are already counted inside their parent territory."
+    },
+    {
+      "label": "APTG Total",
+      "members": ["Nizam", "UA - Uttar Andhra", "Ceded", "East", "Guntur", "Krishna", "West", "Nellore"]
+    },
+    {
+      "label": "Karnataka Total",
+      "members": ["Bengaluru City", "Karnataka"],
+      "children": ["Bengaluru City"]
+    },
+    {
+      "label": "Tamil Nadu Total",
+      "members": ["Chennai City", "Tamil Nadu"],
+      "children": ["Chennai City"]
+    }
   ]
 }

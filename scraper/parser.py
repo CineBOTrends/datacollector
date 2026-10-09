@@ -210,6 +210,7 @@ def parse_bms(data, date_code):
                     "available": avail,
                     "ticketsSold": sold,
                     "grossRevenue": round(gross, 2),
+                    **({"bmsCode": ch["EventCode"]} if ch.get("EventCode") else {}),
                 })
 
     return out

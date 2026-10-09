@@ -120,7 +120,10 @@ def canon_movie(title):
 def cross_source_dedupe(rows, project_root=None):
     """
     Drop District rows for shows BMS already reported at the same theatre+time.
-    Returns (rows, dropped_count).
+    Returns (rows, dropped_rows) — dropped_rows is the list of District rows
+    that got removed, each tagged with which BMS venue it was matched against
+    (via "_matched_bms_venue"), so the drops can be saved and manually
+    cross-checked instead of only ever seeing a bare count.
     """
     # index BMS venues by (movie, city, time)
     bms_index = {}
@@ -135,7 +138,7 @@ def cross_source_dedupe(rows, project_root=None):
     # (movie, city, time) group, so two distinct District theatres can never
     # both be deleted against a single BMS entry.
     claimed = {}                       # (movie,city,time) -> {bms_venue: district_venue}
-    out, dropped = [], 0
+    out, dropped = [], []
     for r in rows:
         if r.get("source") != "District":
             out.append(r)
@@ -153,7 +156,10 @@ def cross_source_dedupe(rows, project_root=None):
                 break
         if hit is not None:
             taken[hit] = r.get("venue", "")
-            dropped += 1
+            dropped_row = dict(r)
+            dropped_row["_dedupe_reason"] = "cross_source_district_bms"
+            dropped_row["_matched_bms_venue"] = hit
+            dropped.append(dropped_row)
             continue
         out.append(r)
     return out, dropped

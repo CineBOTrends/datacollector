@@ -56,6 +56,7 @@ import re
 import sys
 
 from multiplex_report import _load_rows, _latest_date
+from dedupe_theatres import dedupe_theatre_rows as _dedupe_theatre_rows
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TERRITORY_DIR = os.path.join(HERE, "territory")
@@ -321,10 +322,11 @@ DEFAULT_GROUPS = [
     },
     {"label": "APTG Total", "members": ["Nizam", "UA - Uttar Andhra", "Ceded", "East", "Guntur",
                                          "Krishna", "West", "Nellore"]},
-    {"label": "Karnataka Total", "members": ["Bengaluru City", "Karnataka"]},
-    {"label": "Tamil Nadu Total", "members": ["Chennai City", "Tamil Nadu"]},
-    {"label": "Kerala Total", "members": ["Kerala"]},
-    {"label": "ROI Total", "members": ["Rest of India"]},
+    {"label": "Karnataka Total", "members": ["Bengaluru City", "Karnataka"], "children": ["Bengaluru City"]},
+    {"label": "Tamil Nadu Total", "members": ["Chennai City", "Tamil Nadu"], "children": ["Chennai City"]},
+    # No Kerala/ROI groups on purpose: each is already a single raw
+    # territory on its own, so a matching group would just repeat the same
+    # numbers a second time right underneath it.
 ]
 
 
@@ -391,22 +393,11 @@ def _compute_groups(territories, stats_by_key, group_defs, rest_key, rest_label)
         # reference it by label as one of its own members.
         pool[key] = {"label": g["label"], "gross": gross, "shows": shows, "sold": sold, "seats": seats}
 
-    # Rest of India is already a single rolled-up bucket on its own (with a
-    # per-state breakdown) -- mirror it into "groups" too so a dashboard can
-    # treat every entry in "groups" uniformly, even if a custom config
-    # forgets to define an ROI group explicitly.
-    if rest_key in pool and rest_key not in claimed and rest_key not in {o["key"] for o in out}:
-        p = pool[rest_key]
-        out.append({
-            "key": rest_key,
-            "label": rest_label,
-            "gross": p["gross"],
-            "shows": p["shows"],
-            "sold": p["sold"],
-            "occupancy": _occ(p["sold"], p["seats"]),
-            "members": [rest_key],
-        })
-
+    # Rest of India is already a single rolled-up bucket on its own — it's
+    # left standing in "territories" and deliberately NOT mirrored into
+    # "groups" here. It would otherwise render as a second "Rest of India"
+    # row directly under the real one, showing the exact same numbers twice
+    # (same for Kerala, which is why it also has no matching group below).
     return out
 
 
@@ -414,8 +405,8 @@ def _aggregate(rows, groups, rest_key, rest_label, order):
     """Bucket rows into territories and return (territories, total_gross, total_shows)."""
     buckets = {}
     for r in rows:
-        key, label, is_rest = resolve_bucket(r, groups, rest_key, rest_label)
-        b = buckets.setdefault(key, {"label": label, "movies": {}, "states": {}})
+        key, label, _is_rest = resolve_bucket(r, groups, rest_key, rest_label)
+        b = buckets.setdefault(key, {"label": label, "movies": {}})
         movie = r.get("movie", "Unknown")
         seats, sold, gross = _row_vals(r)
         acc = b["movies"].setdefault(movie, {"gross": 0.0, "shows": 0, "sold": 0, "seats": 0})
@@ -423,13 +414,9 @@ def _aggregate(rows, groups, rest_key, rest_label, order):
         acc["shows"] += 1
         acc["sold"] += sold
         acc["seats"] += seats
-        if is_rest:
-            state = (r.get("state") or "Unknown").strip() or "Unknown"
-            sacc = b["states"].setdefault(state, {"gross": 0.0, "shows": 0, "sold": 0, "seats": 0})
-            sacc["gross"] += gross
-            sacc["shows"] += 1
-            sacc["sold"] += sold
-            sacc["seats"] += seats
+        # NOTE: Rest of India used to also get a per-state child breakdown
+        # here (is_rest branch). Removed on request — the All India Report
+        # shows ROI as a single flat total row, no nested states.
 
     territories = []
     stats_by_key = {}
@@ -453,17 +440,6 @@ def _aggregate(rows, groups, rest_key, rest_label, order):
             "sold": t_sold,
             "occupancy": _occ(t_sold, t_seats),
         }
-        if b["states"]:
-            entry["states"] = sorted(
-                (
-                    {
-                        "state": s, "gross": round(v["gross"], 2), "shows": v["shows"],
-                        "sold": v["sold"], "occupancy": _occ(v["sold"], v["seats"]),
-                    }
-                    for s, v in b["states"].items()
-                ),
-                key=lambda x: x["gross"], reverse=True,
-            )
         territories.append(entry)
         stats_by_key[key] = {"sold": t_sold, "seats": t_seats}
         total_gross += t_gross
@@ -525,6 +501,16 @@ def build_report(mode, date_code):
 
     rows, source = _load_rows(base_dir)
     print(f"  loaded {len(rows)} row(s) from {source}")
+
+    # Same cross-source (BMS + District) theatre de-duplication build_data.py
+    # applies per movie, done once here over every row for this date so the
+    # admin all-movies territory.json/territory_tracked.json totals line up
+    # with what the dashboard shows (which is built from de-duplicated rows).
+    before = len(rows)
+    rows = _dedupe_theatre_rows(rows)
+    if len(rows) != before:
+        print(f"  de-duped {before - len(rows)} cross-source duplicate "
+              f"theatre row(s) ({before} -> {len(rows)})")
 
     # ---- ALL movies (admin / full raw breakdown) ----
     territories, total_gross, total_shows, total_sold, total_seats, stats_by_key = _aggregate(
