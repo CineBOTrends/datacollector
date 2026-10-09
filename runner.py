@@ -188,7 +188,12 @@ def tracked_release_dates(max_ahead=21):
 
 
 def run_tracked_advance():
-    """Opening-day advance for tracked titles that haven't released yet."""
+    """Opening-day advance for tracked titles that haven't released yet.
+
+    Skipped when DATE_CODE is set: that pins advance to a single date."""
+    if os.environ.get("DATE_CODE"):
+        logger.info(f"DATE_CODE={os.environ['DATE_CODE']} set -> skipping extra tracked dates")
+        return []
     dates = tracked_release_dates()
     if not dates:
         return []
