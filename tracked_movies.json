@@ -14,10 +14,6 @@
   "_release_dates": "REAL release date (YYYY-MM-DD) per film. Release day = Day 1; every date BEFORE it shows as Premiere on the dashboard and in Historical. REQUIRED for any film that has premiere / paid-preview shows, because then the earliest date with bookings is NOT the release date. Titles or slugs both work.",
 
   "release_dates": {
-    "Don't Trouble The Trouble": "2026-10-02",
-    "Sigma": "2026-10-02",
-    "Thella Kaagitham": "2026-10-02",
-    "Drishyam The Conclusion": "2026-10-02",
     "Jailer 2": "2026-10-15",
     "Ranabaali": "2026-10-16"
   },
@@ -34,17 +30,11 @@
   "hide_untracked": true,
 
   "movies": [
-    "Don't Trouble The Trouble",
-    "Sigma",
-    "Thella Kaagitham",
-    "Drishyam The Conclusion",
     "Jailer 2",
     "Ranabaali"
   ],
 
   "title_mapping": {
-    "Jailer 2": ["Jailer 2", "Rajini: The Jailer 2"],
-    "Thella Kaagitham": "Thellakaagitham",
-    "Drishyam The Conclusion": "Drishyam: The Conclusion"
+    "Jailer 2": "Rajini: The Jailer 2"
   }
 }
