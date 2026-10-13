@@ -51,6 +51,7 @@ jobs:
           DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
           DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
           DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
+          WEBSHARE_PROXY: ${{ secrets.WEBSHARE_PROXY }}
         run: |
           python cli.py scrape --mode ${{ inputs.mode }} \
                                --shard 5 \

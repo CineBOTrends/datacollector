@@ -8,10 +8,13 @@ ALL techniques preserved exactly from the original codebase:
 - Thread-local identity management with reset on errors
 - Realistic browser headers (Accept, Referer, Origin)
 """
+import os
 import random
 import threading
 
 import cloudscraper
+
+from scraper.proxy_config import proxy_dict as _webshare_proxy_dict
 
 # =====================================================
 # USER AGENTS
@@ -32,6 +35,27 @@ class Identity:
         self.scraper = cloudscraper.create_scraper(
             browser={"browser": "chrome", "platform": "windows", "desktop": True}
         )
+        # Chrome-TLS-fingerprint session: BMS 403s CloudScraper's fingerprint.
+        try:
+            from curl_cffi import requests as _cffi
+            self.cffi = _cffi.Session(impersonate="chrome124")
+        except Exception:
+            self.cffi = None
+
+    def cffi_headers(self):
+        # User-Agent / client hints come from the impersonated browser profile.
+        return {
+            "Accept-Language": "en-IN,en;q=0.9",
+            "Origin": "https://in.bookmyshow.com",
+            "Referer": "https://in.bookmyshow.com/",
+        }
+
+    def proxy_dict(self):
+        # Opt-in: BMS 403s rotating residential IPs, so it goes direct unless
+        # BMS_USE_PROXY=1 is set.
+        if os.environ.get("BMS_USE_PROXY", "").strip().lower() not in ("1", "true", "yes"):
+            return None
+        return _webshare_proxy_dict()
 
     def headers(self):
         return {

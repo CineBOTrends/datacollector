@@ -19,6 +19,27 @@ from scraper.proxy_config import redact_proxy_credentials
 # venues14.json — same naming convention BMS shards (1-8) already use.
 DISTRICT_SHARD_IDS = set(range(9, 15))
 
+# Blocked (403) / rate-limited (429) venues are retried with a fresh identity
+# and growing backoff before being counted as failed, so no venue is silently lost.
+BMS_RETRY_BACKOFF = (4, 10, 25, 45, 75)
+
+
+def _fetch_venue_with_retry(vcode, dc, logger):
+    from scraper.fetcher_sync import fetch_venue
+    from scraper.stealth import reset_identity
+
+    for attempt, wait in enumerate(BMS_RETRY_BACKOFF + (None,)):
+        try:
+            return fetch_venue(vcode, dc, logger)
+        except Exception as e:
+            msg = str(e)
+            retryable = "Blocked" in msg or "RateLimit" in msg or "429" in msg
+            if not retryable or wait is None:
+                raise
+            logger.warn(f"{vcode} | {msg} - retry {attempt + 1}/{len(BMS_RETRY_BACKOFF)} in {wait}s")
+            reset_identity(logger)
+            time.sleep(wait + random.uniform(0, 3))
+
 
 def _get_logger(shard_id, log_file):
     """Get logger, handling import from services."""
@@ -115,7 +136,7 @@ def _run_shard_sync(config, shard_id, detailed_file, summary_file, logger):
         if i == 1 or i == total_venues or i % 50 == 0:
             logger.progress(f"[{i}/{total_venues}] Processing venues...")
         try:
-            raw = fetch_venue(vcode, dc, logger)
+            raw = _fetch_venue_with_retry(vcode, dc, logger)
             rows = parse_bms(raw, dc)
 
             if is_daily:

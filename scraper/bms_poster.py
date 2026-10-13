@@ -54,7 +54,7 @@ def _fetchers(logger=None):
             if reset:
                 stealth.reset_identity(logger)
             ident = stealth.get_identity(logger)
-            r = ident.scraper.get(PAGE_URL.format(code=code), headers=ident.headers(), timeout=25)
+            r = ident.scraper.get(PAGE_URL.format(code=code), headers=ident.headers(), timeout=25, proxies=ident.proxy_dict())
             return r.text if r.status_code == 200 else None
         return run
 

@@ -66,7 +66,14 @@ def _do_fetch(ident, venue_code, date_code):
     Identity is passed explicitly so it works across thread boundaries.
     """
     url = BMS_API_URL.format(venue_code=venue_code, date_code=date_code)
-    r = ident.scraper.get(url, headers=ident.headers(), timeout=API_TIMEOUT)
+    if ident.cffi is not None:
+        r = ident.cffi.get(
+            url, headers=ident.cffi_headers(), timeout=API_TIMEOUT, proxies=ident.proxy_dict()
+        )
+    else:
+        r = ident.scraper.get(
+            url, headers=ident.headers(), timeout=API_TIMEOUT, proxies=ident.proxy_dict()
+        )
 
     # Check HTTP status code
     if hasattr(r, "status_code") and r.status_code != 200:
