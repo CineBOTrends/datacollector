@@ -953,6 +953,7 @@ def build_date(mode, date, src_dir, out_dir):
     movies_for_history = {}
     used_slugs = set()
     skipped = 0
+    untracked_summary = []
     for ck, mrows in grouped.items():
         title = display.get(ck) or ck
         # De-dupe cross-source theatre rows (BMS + District both scraping the
@@ -965,6 +966,13 @@ def build_date(mode, date, src_dir, out_dir):
         # not on the tracked list -> don't publish it (raw data is untouched)
         if not is_tracked(title, slug, tracked):
             skipped += 1
+            uk = movie["kpi"]
+            untracked_summary.append({
+                "title": title, "slug": slug, "date": date, "mode": mode,
+                "gross": uk["gross"], "sold": uk["sold"], "shows": uk["shows"],
+                "theatres": uk["theatres"], "cities": uk["cities"],
+                "sources": sorted({r.get("source") for r in mrows if r.get("source")}),
+            })
             continue
         try:
             movie["territory"] = _movie_territory(mrows, territory_ctx)
@@ -1028,6 +1036,18 @@ def build_date(mode, date, src_dir, out_dir):
     # national index is aggregate-only -> identical for both trees
     with open(os.path.join(out_dir, "national.json"), "w", encoding="utf-8") as f:
         json.dump(national_obj, f, ensure_ascii=False, separators=(",", ":"))
+
+    # Backup/verification record of what the tracked list hid. Written to the
+    # collector's own data dir (src_dir), NOT the published out_dir.
+    if untracked_summary:
+        untracked_summary.sort(key=lambda x: x["gross"], reverse=True)
+        try:
+            with open(os.path.join(src_dir, "untracked_movies.json"), "w", encoding="utf-8") as f:
+                json.dump({"mode": mode, "date": date, "last_updated": last_updated,
+                           "count": len(untracked_summary), "movies": untracked_summary},
+                          f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            print(f"    ! untracked_movies.json not written: {e}")
 
     note = f", {skipped} not tracked" if skipped else ""
     print(f"    + {mode}/{date}: {len(index)} movies, {len(rows)} shows{note}")
