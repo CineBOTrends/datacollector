@@ -19,6 +19,8 @@ import threading
 
 import cloudscraper
 
+from scraper.proxy_config import get_webshare_proxy
+
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/119 Safari/537.36",
@@ -42,6 +44,9 @@ _warned_thin_pool = False
 def _configured_proxies():
     """DISTRICT_PROXIES from the environment, else from the local .env
     (KEY=value or `$env:KEY = "value"`). CI has no .env and uses the env var."""
+    webshare_proxy = get_webshare_proxy()
+    if webshare_proxy:
+        return webshare_proxy
     configured = os.environ.get("DISTRICT_PROXIES", "")
     if configured.strip():
         return configured
@@ -55,13 +60,35 @@ def _configured_proxies():
     return ""
 
 
+def _clean_proxy(entry):
+    """Validate one proxy URL. Returns a normalised URL (credentials
+    percent-encoded) or None if malformed, printing a masked warning so a typo
+    like an extra '@' in the username is caught here instead of showing up as
+    a 407 'Proxy Authentication Required' on every request."""
+    from urllib.parse import quote, unquote
+    entry = entry.strip()
+    m = re.match(r"^(https?://)([^/]+)$", entry)
+    if not m or entry.count("@") != 1:
+        print(f"! Ignoring malformed DISTRICT_PROXIES entry (need exactly one '@'): "
+              f"{entry.split('@')[-1] if '@' in entry else entry[:20]}")
+        return None
+    scheme, rest = m.groups()
+    cred, host = rest.split("@")
+    user, sep, pw = cred.partition(":")
+    if not sep or not user or not pw or ":" not in host:
+        print(f"! Ignoring DISTRICT_PROXIES entry with missing user/password/port: {host}")
+        return None
+    return f"{scheme}{quote(unquote(user), safe='')}:{quote(unquote(pw), safe='')}@{host}"
+
+
 class DistrictIdentity:
     def __init__(self, shard_id=None):
-        configured = _configured_proxies()
-        all_proxies = [value.strip() for value in configured.split(",") if value.strip()]
+        webshare_proxy = get_webshare_proxy()
+        configured = webshare_proxy or _configured_proxies()
+        all_proxies = [c for c in (_clean_proxy(v) for v in configured.split(",") if v.strip()) if c]
 
         self.proxies = all_proxies
-        if shard_id is not None and all_proxies:
+        if shard_id is not None and all_proxies and not webshare_proxy:
             idx = (shard_id - DISTRICT_SHARD_BASE) % NUM_DISTRICT_SHARDS
             partition = all_proxies[idx::NUM_DISTRICT_SHARDS]
             if partition:

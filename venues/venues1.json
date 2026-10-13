@@ -11,18 +11,6 @@
     "Longitude": "83.3961",
     "AvailableFormats": "7D"
   },
-  "CXKR": {
-    "VenueCode": "CXKR",
-    "VenueName": "Cineplexx: Beside Hotel Deepti, Rourkela",
-    "VenueAddress": "Railway Colony, Ring Road, Rourkela, Odisha 769001, India",
-    "City": "Rourkela",
-    "State": "Odisha",
-    "RegionCode": "RKOR",
-    "SubRegionCode": "RKOR",
-    "Latitude": "22.2342",
-    "Longitude": "84.8724",
-    "AvailableFormats": "2D"
-  },
   "SROP": {
     "VenueCode": "SROP",
     "VenueName": "Shree Ram Talkies: Shahpura",
@@ -1473,6 +1461,18 @@
     "SubRegionCode": "KOCH",
     "Latitude": "9.97953",
     "Longitude": "76.2768",
+    "AvailableFormats": "2D"
+  },
+    "VKGP": {
+    "VenueCode": "VKGP",
+    "VenueName": "VKG CINEMAS 4K RGB LASER DOLBY ATMOS: PAVARATTY",
+    "VenueAddress": "Chavara Shopping Complex, Pavaratty, Guruvayur, Kerala 680507, India",
+    "City": "Guruvayur",
+    "State": "Kerala",
+    "RegionCode": "THSR",
+    "SubRegionCode": "THSR",
+    "Latitude": "10.5653",
+    "Longitude": "76.0626",
     "AvailableFormats": "2D"
   },
   "DHCB": {
@@ -3057,18 +3057,6 @@
     "SubRegionCode": "MANR",
     "Latitude": "10.4185",
     "Longitude": "76.213",
-    "AvailableFormats": "2D"
-  },
-  "MMVI": {
-    "VenueCode": "MMVI",
-    "VenueName": "Mas Movies Irinjalakuda",
-    "VenueAddress": "Njavarikulam Road, Irinjalakuda, Near Chembakassery MultiMall, Irinjalakuda, Kerala 680121, India",
-    "City": "Irinjalakuda",
-    "State": "Kerala",
-    "RegionCode": "THSR",
-    "SubRegionCode": "THSR",
-    "Latitude": "10.3507",
-    "Longitude": "76.2139",
     "AvailableFormats": "2D"
   },
   "JKCM": {

@@ -146,6 +146,40 @@ R2 upload path: `tt_gross/v1/{mode}/{year}/{month}/{day}.json` (finalsummary onl
 | `CF_PURGE_BASE_URL` | No | R2 subdomain URL (e.g. `https://data.cinebotrends.com`) |
 | `DATA_PATH` | No | Data directory for API server (default: `.`) |
 | `CONCURRENCY` | No | Async shard concurrency (default: `20`) |
+| `WEBSHARE_PROXY` | No | Webshare rotating residential gateway URL for District only |
+
+### Webshare rotating residential proxy
+
+Webshare is used only for District (shards 9-14). BookMyShow (shards 1-8)
+continues using its existing direct connection and does not use `WEBSHARE_PROXY`.
+In Webshare's **Rotating Residential → Endpoint Generator**, select the HTTP
+output and rotating mode (not a sticky session). Choose India as the country if
+available and appropriate for the account.
+
+For a local run, add the generated HTTP proxy URL to `.env` without committing
+that file:
+
+```text
+WEBSHARE_PROXY="http://<rotating-username>:<password>@p.webshare.io:80"
+```
+
+If using the PowerShell-style convention already present in your `.env`, use:
+
+```text
+$env:WEBSHARE_PROXY = "http://<rotating-username>:<password>@p.webshare.io:80"
+```
+
+For GitHub Actions, add the same full URL as a repository Actions secret named
+`WEBSHARE_PROXY`; District scrape workflows use it. Do not put the credentials
+in workflow files, logs, or screenshots.
+
+If proxy credentials have been exposed in a screenshot or chat, rotate them in
+Webshare before adding the new endpoint.
+
+Before a full scrape, run `py test_webshare_proxy.py`. It checks proxy egress
+and makes one low-volume request to District. A valid page response confirms
+the route works; zero District sessions can still be normal for a venue/date
+with no shows.
 
 ## Docker
 

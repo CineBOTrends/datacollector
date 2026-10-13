@@ -23,6 +23,7 @@
     "Longitude": "81.8405",
     "AvailableFormats": "2D"
   },
+  
   "CSSL": {
     "VenueCode": "CSSL",
     "VenueName": "CineCosmo: Sentrum Mall, Asansol",
@@ -33,6 +34,135 @@
     "SubRegionCode": "ASANSOL",
     "Latitude": "23.7034",
     "Longitude": "86.9483",
+    "AvailableFormats": "2D"
+  },
+  
+  "JTKZ": {
+    "VenueCode": "JTKZ",
+    "VenueName": "Surabhi Cinemas 4K Dolby Atmos: Kozhikode",
+    "VenueAddress": "3rd Floor, Surabhi Mall, Kozhikode-Palakkad Highway, Ramanattukara, Kozhikode, Kerala 673633, India",
+    "City": "Kozhikode",
+    "State": "Kerala",
+    "RegionCode": "KOZH",
+    "SubRegionCode": "KOZH",
+    "Latitude": "11.1781",
+    "Longitude": "75.8658",
+    "AvailableFormats": "2D"
+  },
+  
+  "RRGB": {
+    "VenueCode": "RRGB",
+    "VenueName": "Rakki RGB Laser 4K: Thiruvallur",
+    "VenueAddress": "No.1, Thiruvallur High Road, MGM Nagar, Chennai, Tamil Nadu 602001, India",
+    "City": "Chennai",
+    "State": "Tamil Nadu",
+    "RegionCode": "CHEN",
+    "SubRegionCode": "CHEN",
+    "Latitude": "13.1429357",
+    "Longitude": "79.9103979",
+    "AvailableFormats": "2D"
+  },
+  
+  "MCXF": {
+    "VenueCode": "MCXF",
+    "VenueName": "Meenakshi Cinemas (Rakki) 4K Dolby Atmos: Avadi",
+    "VenueAddress": "OCF Main Road, Avadi, Next to TNEB Office, Chennai, Tamil Nadu 600054, India",
+    "City": "Chennai",
+    "State": "Tamil Nadu",
+    "RegionCode": "CHEN",
+    "SubRegionCode": "CHEN",
+    "Latitude": "13.120605",
+    "Longitude": "80.097921",
+    "AvailableFormats": "2D"
+  },
+  
+  "UPTP": {
+    "VenueCode": "UPTP",
+    "VenueName": "Upasana Theatre: Ranni",
+    "VenueAddress": "Triuvalla Eraviperoor, Ranni Raod, Near Angadi Post Office, Pathanamthitta, Kerala 689672, India",
+    "City": "Pathanamthitta",
+    "State": "Kerala",
+    "RegionCode": "PTNM",
+    "SubRegionCode": "PTNM",
+    "Latitude": "9.38196",
+    "Longitude": "76.7789",
+    "AvailableFormats": "2D"
+  },
+  
+  "RAKK": {
+    "VenueCode": "RAKK",
+    "VenueName": "Rakki Cinemas: OMR, Kelambakkam",
+    "VenueAddress": "Rajiv Gandhi Salai, Old Mamallapuram Road, Kelambakkam, Chennai, Tamil Nadu 603110, India",
+    "City": "Chennai",
+    "State": "Tamil Nadu",
+    "RegionCode": "CHEN",
+    "SubRegionCode": "CHEN",
+    "Latitude": "12.7538965",
+    "Longitude": "80.2060265",
+    "AvailableFormats": "2D, EPIQ"
+  },
+  
+  "TMMP": {
+    "VenueCode": "TMMP",
+    "VenueName": "Trinity Movie Max: Pathanamthitta",
+    "VenueAddress": "Thiruvalla-Kumbazha Highway, Abban Junction, Near Bank of India, Pathanamthitta, Kerala 689645, India",
+    "City": "Pathanamthitta",
+    "State": "Kerala",
+    "RegionCode": "PTNM",
+    "SubRegionCode": "PTNM",
+    "Latitude": "9.26462",
+    "Longitude": "76.7894",
+    "AvailableFormats": "2D"
+  },
+    "MXGN": {
+    "VenueCode": "MXGN",
+    "VenueName": "MovieMax Laserplex: Gulshan One 29 Mall, Noida",
+    "VenueAddress": "MovieMax Gulshan One 29 Mall C-3, Sector 129, Noida, NCR 201301, India",
+    "City": "Noida",
+    "State": "NCR",
+    "RegionCode": "NCR",
+    "SubRegionCode": "NOIDA",
+    "Latitude": "28.5085",
+    "Longitude": "77.3871",
+    "AvailableFormats": "2D"
+  },
+  
+  "ACPM": {
+    "VenueCode": "ACPM",
+    "VenueName": "Asian Lakshmikala Cinepride: Moosapet",
+    "VenueAddress": "Street Number 4, SP Nagar, Bharat Nagar,Moosapet, Opposite Sri Ramulu Theatre, Hyderabad, Telangana 500018, India",
+    "City": "Hyderabad",
+    "State": "Telangana",
+    "RegionCode": "HYD",
+    "SubRegionCode": "HYD",
+    "Latitude": "17.4676",
+    "Longitude": "78.4282",
+    "AvailableFormats": "2D"
+  },
+  
+  "AACN": {
+    "VenueCode": "AACN",
+    "VenueName": "Aparna Cinemas: Nallagandla",
+    "VenueAddress": "Nallagandla Road, HUDA Layout, Hyderabad, Telangana 500019, India",
+    "City": "Hyderabad",
+    "State": "Telangana",
+    "RegionCode": "HYD",
+    "SubRegionCode": "HYD",
+    "Latitude": "17.4669",
+    "Longitude": "78.3104",
+    "AvailableFormats": "2D"
+  },
+  
+  "ACAS": {
+    "VenueCode": "ACAS",
+    "VenueName": "AAA Cinemas: Ameerpet",
+    "VenueAddress": "Asian Allu Arjun Cinemas, Satyam Theatre Road, X Road Kumar Basti, Ameerpet, Hyderabad, Telangana 500082, India",
+    "City": "Hyderabad",
+    "State": "Telangana",
+    "RegionCode": "HYD",
+    "SubRegionCode": "HYD",
+    "Latitude": "17.4371",
+    "Longitude": "78.4486",
     "AvailableFormats": "2D"
   },
   "BGGM": {
@@ -1737,6 +1867,44 @@
     "SubRegionCode": "AMBH",
     "Latitude": "22.8852",
     "Longitude": "87.7866",
+    "AvailableFormats": "2D"
+  },
+  "AMBH": {
+    "VenueCode": "AMBH",
+    "VenueName": "AMB Cinemas: Gachibowli",
+    "VenueAddress": "Sarath City Capital Mall, Forest Dept Colony, Kondapur, Gachibowli - Miyapur Road, White Field Road, Opposite Mahindra Showroom, Hyderabad, Telangana 500084, India",
+    "City": "Hyderabad",
+    "State": "Telangana",
+    "RegionCode": "HYD",
+    "SubRegionCode": "HYD",
+    "Latitude": "17.4578",
+    "Longitude": "78.3642",
+    "AvailableFormats": "2D"
+  },
+  
+  "CHKM": {
+    "VenueCode": "CHKM",
+    "VenueName": "Chithra Cineplex 4K RGB Laser dtsX: Mannur Valavu",
+    "VenueAddress": "8/567, Mannur Valavu, Mannur Valavu, Kadalundi, Kadalundi, Kerala 673328, India",
+    "City": "Kadalundi",
+    "State": "Kerala",
+    "RegionCode": "KOZH",
+    "SubRegionCode": "KOZH",
+    "Latitude": "11.1549",
+    "Longitude": "75.8473",
+    "AvailableFormats": "2D"
+  },
+  
+  "CXKR": {
+    "VenueCode": "CXKR",
+    "VenueName": "Cineplexx: Beside Hotel Deepti, Rourkela",
+    "VenueAddress": "Railway Colony, Ring Road, Rourkela, Odisha 769001, India",
+    "City": "Rourkela",
+    "State": "Odisha",
+    "RegionCode": "RKOR",
+    "SubRegionCode": "RKOR",
+    "Latitude": "22.2342",
+    "Longitude": "84.8724",
     "AvailableFormats": "2D"
   },
   "SSDX": {

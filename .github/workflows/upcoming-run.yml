@@ -66,6 +66,7 @@ jobs:
         env:
           WINDOW: ${{ github.event.inputs.window_days || '21' }}
           FORCE: ${{ github.event.inputs.force_probe || 'false' }}
+          WEBSHARE_PROXY: ${{ secrets.WEBSHARE_PROXY }}
           DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
           DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
           DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
@@ -101,6 +102,7 @@ jobs:
 
       - name: Scrape shard ${{ matrix.shard }} for ${{ matrix.date }}
         env:
+          WEBSHARE_PROXY: ${{ matrix.shard >= 9 && secrets.WEBSHARE_PROXY || '' }}
           DISTRICT_WORKER_URL: ${{ secrets.DISTRICT_WORKER_URL }}
           DISTRICT_UA: ${{ secrets.DISTRICT_UA }}
           DISTRICT_KEY: ${{ secrets.DISTRICT_KEY }}
@@ -183,6 +185,18 @@ jobs:
 
       - name: Save raw data to R2
         run: python ci_persist.py save advance || true
+
+      - name: Restore cached posters (download once, never refetch)
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          mkdir -p poster_assets
+          if git clone --depth 1 --filter=blob:none --sparse https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git _dash_posters; then
+            (cd _dash_posters && git sparse-checkout set assets/posters) || true
+            cp -n _dash_posters/assets/posters/* poster_assets/ 2>/dev/null || true
+          fi
+          rm -rf _dash_posters
+          echo "cached posters: $(ls poster_assets | wc -l)"
 
       - name: Build data tree
         run: python build_data.py .

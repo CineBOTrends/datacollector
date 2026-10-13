@@ -104,6 +104,18 @@ jobs:
             exit 1
           fi
 
+      - name: Restore cached posters (download once, never refetch)
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          mkdir -p poster_assets
+          if git clone --depth 1 --filter=blob:none --sparse https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git _dash_posters; then
+            (cd _dash_posters && git sparse-checkout set assets/posters) || true
+            cp -n _dash_posters/assets/posters/* poster_assets/ 2>/dev/null || true
+          fi
+          rm -rf _dash_posters
+          echo "cached posters: $(ls poster_assets | wc -l)"
+
       - name: Rebuild data tree (now without those dates)
         if: ${{ inputs.dry_run == false }}
         run: python build_data.py .

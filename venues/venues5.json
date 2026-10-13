@@ -1,16 +1,4 @@
 {
-  "MXGN": {
-    "VenueCode": "MXGN",
-    "VenueName": "MovieMax Laserplex: Gulshan One 29 Mall, Noida",
-    "VenueAddress": "MovieMax Gulshan One 29 Mall C-3, Sector 129, Noida, NCR 201301, India",
-    "City": "Noida",
-    "State": "NCR",
-    "RegionCode": "NCR",
-    "SubRegionCode": "NOIDA",
-    "Latitude": "28.5085",
-    "Longitude": "77.3871",
-    "AvailableFormats": "2D"
-  },
   "PGGM": {
     "VenueCode": "PGGM",
     "VenueName": "PVR: MGF, Gurgaon",
@@ -1005,6 +993,54 @@
     "SubRegionCode": "GHAZ",
     "Latitude": "28.711",
     "Longitude": "77.292",
+    "AvailableFormats": "2D"
+  },
+  "PAXA": {
+    "VenueCode": "PAXA",
+    "VenueName": "Palaxi Cinemas HiLITE MALL: Kozhikode",
+    "VenueAddress": "Third floor, Hilite Mall, Poovangal, Kozhikode, Kerala 673014, India",
+    "City": "Kozhikode",
+    "State": "Kerala",
+    "RegionCode": "KOZH",
+    "SubRegionCode": "KOZH",
+    "Latitude": "11.2485",
+    "Longitude": "75.8336",
+    "AvailableFormats": "2D"
+  },
+  "LCSO": {
+    "VenueCode": "LCSO",
+    "VenueName": "Ladder Cinemas: Ottapalam - 4k Dolby Atmos/2k 7.1",
+    "VenueAddress": "Ponnani Road, Lakkidi Koottupatha, Ottapalam, Kerala 679301, India",
+    "City": "Ottapalam",
+    "State": "Kerala",
+    "RegionCode": "PLKK",
+    "SubRegionCode": "PLKK",
+    "Latitude": "10.7734",
+    "Longitude": "76.4259",
+    "AvailableFormats": "2D"
+  },
+  "KFMT": {
+    "VenueCode": "KFMT",
+    "VenueName": "Karthika Fun Movies Thalikulam RGB 4K Laser Atmos",
+    "VenueAddress": "Karthika Movies, National Highway 66, Thalikulam, Kerala 680569, India",
+    "City": "Thalikulam",
+    "State": "Kerala",
+    "RegionCode": "THAI",
+    "SubRegionCode": "THAI",
+    "Latitude": "10.4413",
+    "Longitude": "76.0938",
+    "AvailableFormats": "2D"
+  },
+  "MMVI": {
+    "VenueCode": "MMVI",
+    "VenueName": "Mas Movies Irinjalakuda",
+    "VenueAddress": "Njavarikulam Road, Irinjalakuda, Near Chembakassery MultiMall, Irinjalakuda, Kerala 680121, India",
+    "City": "Irinjalakuda",
+    "State": "Kerala",
+    "RegionCode": "THSR",
+    "SubRegionCode": "THSR",
+    "Latitude": "10.3507",
+    "Longitude": "76.2139",
     "AvailableFormats": "2D"
   },
   "MKLJ": {
@@ -4654,18 +4690,6 @@
     "Latitude": "12.7596",
     "Longitude": "75.2062",
     "AvailableFormats": "2D|3D"
-  },
-  "ZCBB": {
-    "VenueCode": "ZCBB",
-    "VenueName": "B Cinemas Vylathoor,4K RGB Laser 3D Dolby Atmos",
-    "VenueAddress": "Anjoor - Kunnamkulam Road, Nambeeshanpadi, Anjoor, Kunnamkulam, Kerala 679563, India",
-    "City": "Kunnamkulam",
-    "State": "Kerala",
-    "RegionCode": "THSR",
-    "SubRegionCode": "THSR",
-    "Latitude": "10.6381",
-    "Longitude": "76.0242",
-    "AvailableFormats": "2D"
   },
   "DCGO": {
     "VenueCode": "DCGO",

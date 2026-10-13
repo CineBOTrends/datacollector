@@ -135,54 +135,94 @@ def _bms_image_from_rows(rows, extra_codes=(), title=None):
     return None
 
 
+COMING_SOON_MESSAGE = "Advance bookings yet to open. Check back soon."
+
+
 def prefetch_tracked_posters(collector, built_slugs):
-    """Fetch posters for tracked titles that have no shows yet (bookings not
-    open). The BMS code comes from tracked_movies.json "bms_codes" if given,
-    otherwise it is discovered automatically from BMS listings by title."""
+    """For tracked titles that have no shows yet (bookings not open):
+      1. fetch their posters ONCE (BMS code from tracked_movies.json "bms_codes",
+         otherwise auto-discovered from BMS listings by title), and
+      2. return a "coming soon" entry per title so the dashboard can still
+         publish the title with an "Advance bookings yet to open - check back
+         soon" state instead of hiding it.
+    Returns the list of coming-soon entries."""
     codes = load_bms_codes(collector)
     try:
         with open(os.path.join(collector or HERE, TRACK_FILE), encoding="utf-8") as f:
             titles = json.load(f).get("movies") or []
     except Exception:
-        return
+        return []
     title_map = load_title_mapping()
+    release_dates = load_tracked_release_dates(collector)
+    pending = []
+    seen = set()
     for entry in titles:
         raw = entry.get("title") if isinstance(entry, dict) else entry
         raw = str(raw or "").strip()
         if not raw:
             continue
-        slug = slugify(canonical_title(title_map.get(canon_key(raw)) or raw))
-        if slug in built_slugs:
+        display = canonical_title(title_map.get(canon_key(raw)) or raw)
+        slug = slugify(display)
+        if slug in built_slugs or slug in seen:
             continue
-        if all(os.path.exists(os.path.join(POSTER_DIR, f"{slug}-{k}.jpg")) for k in ("thumb", "bg")):
-            continue
-        code = codes.get(canon_key(raw))
-        img = _bms_image_from_rows([], [code] if code else [], title=raw)
-        if not img:
-            print(f"    ! no BMS poster found for {raw} (not listed on BMS yet? "
-                  f"add its code under bms_codes in {TRACK_FILE})")
-            continue
-        mirror_posters(slug, None, img)
-        print(f"  poster (pre-booking): {raw} -> {slug}")
+        seen.add(slug)
+        poster = None
+        have = {k: os.path.exists(os.path.join(POSTER_DIR, f"{slug}-{k}.jpg")) for k in ("thumb", "bg")}
+        if not all(have.values()):
+            code = codes.get(canon_key(raw))
+            img = _bms_image_from_rows([], [code] if code else [], title=raw)
+            if img:
+                poster = mirror_posters(slug, None, img)
+                print(f"  poster (pre-booking): {raw} -> {slug}")
+            else:
+                print(f"    ! no BMS poster found for {raw} (not listed on BMS yet? "
+                      f"add its code under bms_codes in {TRACK_FILE})")
+        if poster is None:
+            poster = {k: f"{POSTER_URL_PREFIX}{slug}-{k}.jpg" for k, ok in have.items() if ok} or None
+        pending.append({
+            "slug": slug,
+            "title": display,
+            "status": "bookings_not_open",
+            "message": COMING_SOON_MESSAGE,
+            "releaseDate": (release_dates.get(canon_key(raw)) or release_dates.get(slug)
+                            or release_dates.get(canon_key(display))),
+            "poster": poster,
+            "gross": 0, "sold": 0, "shows": 0, "theatres": 0,
+        })
+    return pending
 
 
 def mirror_posters(slug, poster, bms_id):
     """Mirror thumb (District, else BMS thumbnail) + bg (BMS xxlarge, else District)
     to POSTER_DIR and return the poster dict pointing at
     /assets/posters/<slug>-{thumb,bg}.jpg where mirrored."""
-    if (slug, bms_id) in _poster_done:
-        return _poster_done[(slug, bms_id)]
+    # bms_id may be a callable so the (network) BMS image-id lookup is skipped
+    # entirely when the posters are already on disk.
+    if slug in _poster_done:
+        return _poster_done[slug]
     out = dict(poster) if poster else {}
-    thumb_url = (poster or {}).get("thumb") or (BMS_THUMB_URL.format(id=bms_id) if bms_id else None)
-    bg_url = BMS_BG_URL.format(id=bms_id) if bms_id else (poster or {}).get("bg")
-    for kind, url in (("thumb", thumb_url), ("bg", bg_url)):
-        if not url:
-            continue
-        dest = os.path.join(POSTER_DIR, f"{slug}-{kind}.jpg")
-        if _download(url, dest) or os.path.exists(dest):
+    dests = {k: os.path.join(POSTER_DIR, f"{slug}-{k}.jpg") for k in ("thumb", "bg")}
+
+    def _have(p):
+        return os.path.exists(p) and os.path.getsize(p) >= 1000
+
+    # Fetch ONCE: kinds already in poster_assets are never re-downloaded.
+    for kind, dest in dests.items():
+        if _have(dest):
             out[kind] = f"{POSTER_URL_PREFIX}{slug}-{kind}.jpg"
+    missing = [k for k in dests if not _have(dests[k])]
+    if missing:
+        if callable(bms_id):
+            bms_id = bms_id()
+        thumb_url = (poster or {}).get("thumb") or (BMS_THUMB_URL.format(id=bms_id) if bms_id else None)
+        bg_url = BMS_BG_URL.format(id=bms_id) if bms_id else (poster or {}).get("bg")
+        urls = {"thumb": thumb_url, "bg": bg_url}
+        for kind in missing:
+            url = urls[kind]
+            if url and _download(url, dests[kind]):
+                out[kind] = f"{POSTER_URL_PREFIX}{slug}-{kind}.jpg"
     result = out or None
-    _poster_done[(slug, bms_id)] = result
+    _poster_done[slug] = result
     return result
 
 KEY_RE = re.compile(r"^(.*)\s\(([^)]*?)\s-\s([^)]*)\)\s*$")
@@ -944,7 +984,7 @@ def build_date(mode, date, src_dir, out_dir):
         # to /assets/posters/<slug>-{thumb,bg}.jpg in the dashboard repo; if a
         # download fails we keep the remote URL so nothing breaks.
         movie["poster"] = dm["poster"] or _global_district_poster(title)
-        movie["poster"] = mirror_posters(slug, movie["poster"], _bms_image_from_rows(
+        movie["poster"] = mirror_posters(slug, movie["poster"], lambda mrows=mrows, title=title: _bms_image_from_rows(
                     mrows, [c for c in [_bms_codes.get(canon_key(title))] if c], title=title))
         movie["meta"] = dm["meta"]
         movie["last_updated"] = last_updated
@@ -1029,6 +1069,14 @@ def build_date(mode, date, src_dir, out_dir):
             territory_tracked_obj = json.load(f)
         with open(os.path.join(out_dir, "territory_tracked.json"), "w", encoding="utf-8") as f:
             json.dump(territory_tracked_obj, f, ensure_ascii=False, separators=(",", ":"))
+
+    # Territory -> area-wise detail for tracked titles (areas where shows opened).
+    areas_src = os.path.join(src_dir, "territory_areas.json")
+    if os.path.exists(areas_src):
+        with open(areas_src, encoding="utf-8") as f:
+            areas_obj = json.load(f)
+        with open(os.path.join(out_dir, "territory_areas.json"), "w", encoding="utf-8") as f:
+            json.dump(areas_obj, f, ensure_ascii=False, separators=(",", ":"))
 
     return {"date": date, "last_updated": last_updated, "movies": movies_for_history}
 
@@ -1414,7 +1462,15 @@ def main(collector):
     with open(os.path.join(OUT, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
 
-    prefetch_tracked_posters(collector, {s for sl in slug_dates.values() for s in sl})
+    coming_soon = prefetch_tracked_posters(collector, {s for sl in slug_dates.values() for s in sl})
+    # Published at the data root; titles drop out of this list automatically
+    # the first time they have bookings (they then appear as normal movies).
+    with open(os.path.join(OUT, "coming_soon.json"), "w", encoding="utf-8") as f:
+        json.dump({"last_updated": _dt.datetime.now(_dt.timezone(_dt.timedelta(hours=5, minutes=30))
+                                                    ).isoformat(timespec="seconds"),
+                   "message": COMING_SOON_MESSAGE, "movies": coming_soon},
+                  f, ensure_ascii=False, separators=(",", ":"))
+    print(f"  coming soon (no bookings yet): {len(coming_soon)} title(s)")
 
     # editorial content (admin-posted news / reviews / box office) -> both trees
     build_editorial()

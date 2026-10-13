@@ -36,6 +36,9 @@ this script.
 
 Writes:
     daily/data/<date>/territory.json          all movies (raw, admin view)
+    daily/data/<date>/territory_areas.json    tracked titles only: territory ->
+                                               area (city/town with shows opened)
+                                               -> theatres/movies detail
     daily/data/<date>/territory_tracked.json  only the currently tracked/
                                                highlighted titles from
                                                tracked_movies.json — same
@@ -154,6 +157,28 @@ def _index_file(path):
     return index
 
 
+def _index_districts(path):
+    """normalized place name -> district name (2nd level under each territory
+    bucket in territory/*.json). Used only to label areas in territory_areas.json."""
+    with open(path, encoding="utf-8") as f:
+        tree = json.load(f)
+    out = {}
+
+    def walk(node, district):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                out.setdefault(_norm(k), district or k)
+                walk(v, district or k)
+        elif isinstance(node, list):
+            for item in node:
+                if isinstance(item, str):
+                    out.setdefault(_norm(item), district)
+
+    for _bucket, subtree in tree.items():
+        walk(subtree, None)
+    return out
+
+
 def _apply_label_overrides(index, overrides):
     """Rename territory bucket labels after the fact (e.g. "Vizag" ->
     "UA - Uttar Andhra") without touching the underlying territory/*.json
@@ -175,6 +200,7 @@ def build_groups(cfg):
             "match": [m.lower() for m in entry.get("match", [])],
             "index": _apply_label_overrides(_index_file(path), overrides),
             "file": entry["file"],
+            "districts": _index_districts(path),
             "unmatched_label": entry.get("unmatched_label", f"Other ({entry['file']})"),
         })
     return groups
@@ -462,6 +488,105 @@ def _aggregate(rows, groups, rest_key, rest_label, order):
     return territories, total_gross, total_shows, total_sold, total_seats, stats_by_key
 
 
+def _movie_name(t):
+    """'Lenin (2D - Telugu)' -> 'Lenin' (display case kept)."""
+    t = (t or "Unknown").strip()
+    prev = None
+    while prev != t and t:
+        prev = t
+        t = _TITLE_TAG_RE.sub("", t).strip()
+    return t or "Unknown"
+
+
+def _acc():
+    return {"gross": 0.0, "shows": 0, "sold": 0, "seats": 0}
+
+
+def _add(a, seats, sold, gross):
+    a["gross"] += gross
+    a["shows"] += 1
+    a["sold"] += sold
+    a["seats"] += seats
+
+
+def _fin(a):
+    return {"gross": round(a["gross"], 2), "shows": a["shows"], "sold": a["sold"],
+            "seats": a["seats"], "occupancy": _occ(a["sold"], a["seats"])}
+
+
+def _aggregate_areas(rows, groups, rest_key, rest_label, order):
+    """Territory -> area (the row's city/town) -> theatre/movie breakdown.
+    Only areas that actually have shows appear, i.e. the areas where
+    bookings opened. Returns (territories, totals)."""
+    terr = {}
+    for r in rows:
+        key, label, _ = resolve_bucket(r, groups, rest_key, rest_label)
+        t = terr.setdefault(key, {"label": label, "tot": _acc(), "areas": {}})
+        city_raw = (r.get("city") or "Unknown").strip() or "Unknown"
+        a = t["areas"].setdefault(_norm(city_raw), {
+            "names": {}, "states": {}, "tot": _acc(), "movies": {}, "theatres": {}})
+        a["names"][city_raw] = a["names"].get(city_raw, 0) + 1
+        st = (r.get("state") or "").strip()
+        if st:
+            a["states"][st] = a["states"].get(st, 0) + 1
+        seats, sold, gross = _row_vals(r)
+        _add(t["tot"], seats, sold, gross)
+        _add(a["tot"], seats, sold, gross)
+        _add(a["movies"].setdefault(_movie_name(r.get("movie")), _acc()), seats, sold, gross)
+        venue = (r.get("venue") or r.get("theatre") or "Unknown").strip() or "Unknown"
+        th = a["theatres"].setdefault(venue, {"chain": r.get("chain") or "", "tot": _acc(), "movies": {}})
+        _add(th["tot"], seats, sold, gross)
+        _add(th["movies"].setdefault(_movie_name(r.get("movie")), _acc()), seats, sold, gross)
+
+    out = []
+    grand = _acc()
+    n_areas = n_theatres = 0
+    for key, t in terr.items():
+        # the file this territory's districts came from (if any)
+        dmap = {}
+        for g in groups:
+            dmap.update(g.get("districts", {}))
+        areas = []
+        t_theatres = 0
+        for nkey, a in t["areas"].items():
+            name = max(a["names"].items(), key=lambda kv: kv[1])[0]
+            state = max(a["states"].items(), key=lambda kv: kv[1])[0] if a["states"] else None
+            district = None
+            for c in _candidates(name):
+                if c in dmap:
+                    district = dmap[c]
+                    break
+            theatres = []
+            for v, th in a["theatres"].items():
+                e = {"venue": v, "chain": th["chain"], **_fin(th["tot"]),
+                     "movies": [{"movie": m, **_fin(x)} for m, x in
+                                sorted(th["movies"].items(), key=lambda kv: -kv[1]["gross"])]}
+                theatres.append(e)
+            theatres.sort(key=lambda e: -e["gross"])
+            t_theatres += len(theatres)
+            areas.append({
+                "area": name, "state": state, "district": district,
+                **_fin(a["tot"]),
+                "theatres_count": len(theatres),
+                "movies": [{"movie": m, **_fin(x)} for m, x in
+                           sorted(a["movies"].items(), key=lambda kv: -kv[1]["gross"])],
+                "theatres": theatres,
+            })
+        areas.sort(key=lambda e: -e["gross"])
+        n_areas += len(areas)
+        n_theatres += t_theatres
+        for k in ("gross", "shows", "sold", "seats"):
+            grand[k] += t["tot"][k]
+        out.append({"key": key, "label": t["label"], **_fin(t["tot"]),
+                    "areas_count": len(areas), "theatres_count": t_theatres, "areas": areas})
+
+    order_index = {_slug(name): i for i, name in enumerate(order)}
+    out.sort(key=lambda t: (2, 0) if t["key"] == rest_key
+             else (0, order_index[t["key"]]) if t["key"] in order_index else (1, t["label"]))
+    totals = {"territories": len(out), "areas": n_areas, "theatres": n_theatres, **_fin(grand)}
+    return out, totals
+
+
 def _make_report(mode, date_code, territories, total_gross, total_shows, total_sold,
                   total_seats, stats_by_key, rest_key, rest_label, group_defs):
     return {
@@ -543,6 +668,23 @@ def build_report(mode, date_code):
     print(f"  tracked-only: {len(t_territories)} territorie(s), "
           f"gross={tracked_report['totals']['gross']}, shows={tracked_report['totals']['shows']}")
     print(f"  saved -> {tracked_out_path}")
+
+    # ---- TRACKED titles: territory -> area-wise detail (areas with shows opened) ----
+    a_terr, a_tot = _aggregate_areas(tracked_rows, groups, rest_key, rest_label, order)
+    areas_report = {
+        "mode": mode,
+        "date": date_code,
+        "date_iso": f"{date_code[:4]}-{date_code[4:6]}-{date_code[6:8]}",
+        "tracked_titles": sorted({_movie_name(r.get("movie")) for r in tracked_rows}),
+        "totals": a_tot,
+        "territories": a_terr,
+    }
+    areas_out_path = os.path.join(base_dir, "territory_areas.json")
+    with open(areas_out_path, "w", encoding="utf-8") as f:
+        json.dump(areas_report, f, ensure_ascii=False, separators=(",", ":"))
+    print(f"  territory areas: {a_tot['territories']} territorie(s), {a_tot['areas']} area(s), "
+          f"{a_tot['theatres']} theatre(s)")
+    print(f"  saved -> {areas_out_path}")
 
     return report
 

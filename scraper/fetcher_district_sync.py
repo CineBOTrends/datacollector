@@ -22,6 +22,7 @@ import requests
 
 from scraper.district_stealth import get_district_identity, reset_district_identity
 from scraper.district_common import _build_url, _parse_direct_page, _slugify, _target_id, _venue_city
+from scraper.proxy_config import redact_proxy_credentials
 
 # =====================================================
 # CONFIG
@@ -243,7 +244,7 @@ def fetch_district_venues(venues, date_district, logger, shard_id=None):
 
         except Exception as e:
             reset_district_identity(logger)
-            error_msg = str(e)
+            error_msg = redact_proxy_credentials(e)
             error_type = type(e).__name__
 
             if "RateLimit" in error_msg or "429" in error_msg:

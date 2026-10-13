@@ -12,6 +12,7 @@ from datetime import datetime
 from scraper.config import get_config, IST
 from scraper.dedupe import dedupe
 from scraper.daily_merge import minutes_left_sync, merge_with_old_sync, merge_with_old_async
+from scraper.proxy_config import redact_proxy_credentials
 
 # District used to be a single shard (9) reading one big districtvenues.json.
 # It's now split across 6 shards (9-14), each reading its own venues9.json ..
@@ -140,7 +141,7 @@ def _run_shard_sync(config, shard_id, detailed_file, summary_file, logger):
 
         except Exception as e:
             reset_identity(logger)
-            error_msg = str(e)
+            error_msg = redact_proxy_credentials(e)
             error_type = type(e).__name__
 
             if "RateLimit" in error_msg or "429" in error_msg:

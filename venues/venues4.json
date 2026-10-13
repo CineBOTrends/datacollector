@@ -11,18 +11,6 @@
     "Longitude": "94.9053",
     "AvailableFormats": "2D|3D"
   },
-  "AMBH": {
-    "VenueCode": "AMBH",
-    "VenueName": "AMB Cinemas: Gachibowli",
-    "VenueAddress": "Sarath City Capital Mall, Forest Dept Colony, Kondapur, Gachibowli - Miyapur Road, White Field Road, Opposite Mahindra Showroom, Hyderabad, Telangana 500084, India",
-    "City": "Hyderabad",
-    "State": "Telangana",
-    "RegionCode": "HYD",
-    "SubRegionCode": "HYD",
-    "Latitude": "17.4578",
-    "Longitude": "78.3642",
-    "AvailableFormats": "2D|3D"
-  },
   "PRHN": {
     "VenueCode": "PRHN",
     "VenueName": "Prasads Multiplex: Hyderabad",
@@ -35,17 +23,17 @@
     "Longitude": "78.4658",
     "AvailableFormats": "2D|3D"
   },
-  "ACPM": {
-    "VenueCode": "ACPM",
-    "VenueName": "Asian Lakshmikala Cinepride: Moosapet",
-    "VenueAddress": "Street Number 4, SP Nagar, Bharat Nagar,Moosapet, Opposite Sri Ramulu Theatre, Hyderabad, Telangana 500018, India",
+  "PRHN": {
+    "VenueCode": "PRHN",
+    "VenueName": "Prasads Multiplex: Hyderabad",
+    "VenueAddress": "Khairtabad, IMAX Road, NTR Marg, Near NTR Gardens, Hyderabad, Telangana 500063, India",
     "City": "Hyderabad",
     "State": "Telangana",
     "RegionCode": "HYD",
     "SubRegionCode": "HYD",
-    "Latitude": "17.4676",
-    "Longitude": "78.4282",
-    "AvailableFormats": "2D"
+    "Latitude": "17.4128",
+    "Longitude": "78.4658",
+    "AvailableFormats": "2D, 3D"
   },
   "PVFS": {
     "VenueCode": "PVFS",
@@ -58,30 +46,6 @@
     "Latitude": "17.4845",
     "Longitude": "78.3888",
     "AvailableFormats": "4DX|2D|3D|4DX 3D"
-  },
-  "AACN": {
-    "VenueCode": "AACN",
-    "VenueName": "Aparna Cinemas: Nallagandla",
-    "VenueAddress": "Nallagandla Road, HUDA Layout, Hyderabad, Telangana 500019, India",
-    "City": "Hyderabad",
-    "State": "Telangana",
-    "RegionCode": "HYD",
-    "SubRegionCode": "HYD",
-    "Latitude": "17.4669",
-    "Longitude": "78.3104",
-    "AvailableFormats": "2D"
-  },
-  "ACAS": {
-    "VenueCode": "ACAS",
-    "VenueName": "AAA Cinemas: Ameerpet",
-    "VenueAddress": "Asian Allu Arjun Cinemas, Satyam Theatre Road, X Road Kumar Basti, Ameerpet, Hyderabad, Telangana 500082, India",
-    "City": "Hyderabad",
-    "State": "Telangana",
-    "RegionCode": "HYD",
-    "SubRegionCode": "HYD",
-    "Latitude": "17.4371",
-    "Longitude": "78.4486",
-    "AvailableFormats": "2D"
   },
   "CTNR": {
     "VenueCode": "CTNR",
@@ -4785,6 +4749,78 @@
     "SubRegionCode": "MAJR",
     "Latitude": "11.1204",
     "Longitude": "76.1159",
+    "AvailableFormats": "2D"
+  },
+  "JBCA": {                                                                                                                      
+    "VenueCode": "JBCA",
+    "VenueName": "Thapasya Cine House: Attingal",
+    "VenueAddress": "Alamcode, Near - Vazhiyorakkada Restaurant, Trivandrum, Kerala 695102, India",
+    "City": "Kochi",
+    "State": "Kerala",
+    "RegionCode": "KOCH",
+    "SubRegionCode": "KOCH",
+    "Latitude": "8.71232",
+    "Longitude": "76.813",
+    "AvailableFormats": "2D"
+  },
+  "VCHA": {
+    "VenueCode": "VCHA",
+    "VenueName": "Vaishaka Cine House: Attingal",
+    "VenueAddress": "Kacheri Nada, Attingal, Near Police Station, Attingal, Kerala 695101, India",
+    "City": "Kochi",
+    "State": "Kerala",
+    "RegionCode": "KOCH",
+    "SubRegionCode": "KOCH",
+    "Latitude": "8.69875",
+    "Longitude": "76.8155",
+    "AvailableFormats": "2D"
+  },
+  "SCKO": {
+    "VenueCode": "SCKO",
+    "VenueName": "Sarita Cinema RGB Laser 4K 3D ATMOS: Kochi",
+    "VenueAddress": "41/32, Alberts College Road, Ernakulam, Near St Thomas College, Kochi, Kerala 680018, India",
+    "City": "Kochi",
+    "State": "Kerala",
+    "RegionCode": "KOCH",
+    "SubRegionCode": "KOCH",
+    "Latitude": "9.98489",
+    "Longitude": "76.2775",
+    "AvailableFormats": "2D"
+  },
+  "PCAT": {
+    "VenueCode": "PCAT",
+    "VenueName": "Palaxi Cinemas HiLITE Mall: Thrissur",
+    "VenueAddress": "HiLITE Mall, Hill Gardens Housing Colony, Kuttanellur, Thrissur, Kerala 680014, India",
+    "City": "Thrissur",
+    "State": "Kerala",
+    "RegionCode": "THSR",
+    "SubRegionCode": "THSR",
+    "Latitude": "10.4958",
+    "Longitude": "76.2571",
+    "AvailableFormats": "2D, EPIQ 3D"
+  },
+  "ACPV": {
+    "VenueCode": "ACPV",
+    "VenueName": "Aashirvad Cineplexx: Piravom",
+    "VenueAddress": "Kaduthuruthy Road, Kochi, Piravom, Kerala 686664, India",
+    "City": "Kochi",
+    "State": "Kerala",
+    "RegionCode": "KOCH",
+    "SubRegionCode": "KOCH",
+    "Latitude": "9.8722",
+    "Longitude": "76.4866",
+    "AvailableFormats": "2D"
+  },
+  "KRPM": {
+    "VenueCode": "KRPM",
+    "VenueName": "Kripa Movies 4K Dolby: Kurumassery",
+    "VenueAddress": "N Poovathusssery - Meladoor Road, Nearby Kaitharan Build Ware, Kurumaseri, Kerala 683579, India",
+    "City": "Kochi",
+    "State": "Kerala",
+    "RegionCode": "KOCH",
+    "SubRegionCode": "KOCH",
+    "Latitude": "10.1801",
+    "Longitude": "76.3312",
     "AvailableFormats": "2D"
   },
   "CPCN": {
