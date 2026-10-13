@@ -66,7 +66,19 @@ def _run_one_shard(mode, shard_id, date_code):
 
 
 def run_advance(date_code=None):
-    """Run advance booking scrapers (all 14 shards parallel + combine)."""
+    """Run advance booking scrapers (all 14 shards parallel + combine).
+
+    DATE_CODE may hold several dates separated by spaces/commas
+    (e.g. "20261015 20261016"); each is scraped in turn."""
+    import re
+    if not date_code:
+        codes = re.findall(r"\d{8}", os.environ.get("DATE_CODE", ""))
+        if len(codes) > 1:
+            results = []
+            for code in codes:
+                results.extend(run_advance(code) or [])
+            return results
+
     from scraper.config import get_config
 
     config = get_config("advance", date_code)
