@@ -1153,6 +1153,7 @@ def build_history(mode, per_date, out_dir):
         for d in days:
             run += d["gross"]
             d["cumulativeGross"] = round(run, 2)
+            d["indiaGross"] = d["cumulativeGross"]
         latest = entries[-1][1]
 
         # ---- tracked totals across CLOSED days ----
