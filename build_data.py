@@ -1222,6 +1222,47 @@ def build_history(mode, per_date, out_dir):
             json.dump(hist_obj, f, ensure_ascii=False, separators=(",", ":"))
 
 
+def stamp_india_gross(mode, per_date, mode_out):
+    """Add kpi.indiaGross (cumulative gross of every date of this mode up to and
+    including that date: Day 1 + Day 2 + ...) next to the day's own gross, in each
+    m/<slug>.json and in national.json. Today's live day is included so it
+    updates on every live-tracking run."""
+    run = defaultdict(float)
+    cum = {}                                     # (date, slug) -> running total
+    for d in sorted(per_date, key=lambda x: x["date"]):
+        for slug, movie in d["movies"].items():
+            run[slug] += movie["kpi"]["gross"] or 0
+            cum[(d["date"], slug)] = round(run[slug], 2)
+
+    for d in per_date:
+        date = d["date"]
+        for slug in d["movies"]:
+            fp = os.path.join(mode_out, date, "m", slug + ".json")
+            if not os.path.exists(fp):
+                continue
+            try:
+                with open(fp, encoding="utf-8") as f:
+                    mj = json.load(f)
+                mj["kpi"]["indiaGross"] = cum[(date, slug)]
+                with open(fp, "w", encoding="utf-8") as f:
+                    json.dump(mj, f, ensure_ascii=False, separators=(",", ":"))
+            except Exception as e:
+                print(f"    ! indiaGross not set for {mode}/{date}/{slug} ({e})")
+        np_ = os.path.join(mode_out, date, "national.json")
+        if not os.path.exists(np_):
+            continue
+        try:
+            with open(np_, encoding="utf-8") as f:
+                nj = json.load(f)
+            for it in nj.get("movies", []):
+                it["indiaGross"] = cum.get((date, it["slug"]), it["gross"])
+            nj["totals"]["indiaGross"] = round(sum(it["indiaGross"] for it in nj["movies"]), 2)
+            with open(np_, "w", encoding="utf-8") as f:
+                json.dump(nj, f, ensure_ascii=False, separators=(",", ":"))
+        except Exception as e:
+            print(f"    ! indiaGross not set in {mode}/{date}/national.json ({e})")
+
+
 def _slugify_post(s):
     s = (s or "").strip().lower()
     s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
@@ -1351,6 +1392,7 @@ def main(collector):
         if per_date:
             build_history(mode, per_date, os.path.join(OUT, mode))
             history_source[mode] = per_date
+            stamp_india_gross(mode, per_date, os.path.join(OUT, mode))
         manifest["modes"][mode] = {
             "label": meta["label"], "runsPerDay": meta["runsPerDay"],
             "runTimes": meta["runTimes"], "dates": dates,
