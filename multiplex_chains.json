@@ -4,14 +4,81 @@
   "_match_field": "'chain' (default) = chain/company name (falls back to venue if chain is Unknown/blank). 'venue' = the row's 'venue' string only, e.g. 'AMB Cinemas: Gachibowli'. 'location' = venue + address.",
   "_match_type": "'contains' (default) = substring match. 'exact' = the whole venue string must equal the match string (safest for venues).",
   "_split_by_venue": "'split_by_venue': true on a chain entry makes every distinct venue of that chain its own row in the report, no need to list venues by hand.",
-
   "chains": [
-    { "key": "amb-gachibowli", "label": "AMB Cinemas: Gachibowli", "match_field": "venue", "match_type": "exact", "match": ["AMB Cinemas: Gachibowli"] },
-    { "key": "amb-kapali-blr", "label": "AMB Cinemas Kapali: Bengaluru", "match_field": "venue", "match_type": "exact", "match": ["AMB Cinemas Kapali: Bengaluru"] },
-    { "key": "prasads-multiplex", "label": "Prasads Multiplex", "match_field": "venue", "match": ["prasads multiplex", "prasad's multiplex", "prasads"], "split_by_venue": true },
-    { "key": "art-cinemas",       "label": "Art Cinemas",       "match": ["art cinemas"], "split_by_venue": true },
-    { "key": "allu-cinemas",      "label": "Allu Cinemas",      "match": ["allu Cineplex"] },
-    { "key": "aaa-cinemas",       "label": "AAA Cinemas",       "match": ["aaa cinemas"] },
-    { "key": "aparna-cinemas",    "label": "Aparna Cinemas",    "match": ["APARNA CINEMAS PRIVATE LIMITED"] }
-  ] 
+    {
+      "key": "amb-gachibowli",
+      "label": "AMB Cinemas: Gachibowli",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "AMB Cinemas: Gachibowli"
+      ]
+    },
+    {
+      "key": "amb-kapali-blr",
+      "label": "AMB Cinemas Kapali: Bengaluru",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "AMB Cinemas Kapali: Bengaluru"
+      ]
+    },
+    {
+      "key": "prasads-multiplex",
+      "label": "Prasads Multiplex",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "Prasads Multiplex: Hyderabad"
+      ],
+      "split_by_venue": true
+    },
+    {
+      "key": "art-cinemas",
+      "label": "Art Cinemas",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "ART CINEMAS: Vanasthalipuram"
+      ],
+      "split_by_venue": true
+    },
+    {
+      "key": "allu-cinemas",
+      "label": "Allu Cinemas",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "ALLU Cinemas: Kokapet"
+      ]
+    },
+    {
+      "key": "aaa-cinemas",
+      "label": "AAA Cinemas",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "AAA Cinemas: Ameerpet"
+      ]
+    },
+    {
+      "key": "aparna-cinemas",
+      "label": "Aparna Cinemas",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "Aparna Cinemas: Nallagandla"
+      ]
+    },
+    {
+      "key": "aparna-cinemas",
+      "label": "Aparna Cinemas",
+      "match_field": "venue",
+      "match_type": "exact",
+      "match": [
+        "Aparna Cinemas: Shamshabad"
+      ],
+      "split_by_venue": true
+    }
+  ]
 }
