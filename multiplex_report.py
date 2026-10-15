@@ -50,11 +50,27 @@ def load_chain_config():
         # standalone single-screen theatres by area, e.g. all cinemas at one
         # crossroads/complex that aren't part of the same chain).
         match_field = str(entry.get("match_field", "chain")).strip().lower()
-        if match_field not in ("chain", "location"):
+        if match_field not in ("chain", "location", "venue"):
             match_field = "chain"
-        if key and match:
-            chains.append({"key": key, "label": label, "match": match, "match_field": match_field})
+        # "match_type": "contains" (default) or "exact" (whole-string match,
+        # useful for venues so "AMB Cinemas: Gachibowli" never catches
+        # "AMB Cinemas: Secunderabad").
+        match_type = str(entry.get("match_type", "contains")).strip().lower()
+        if match_type not in ("contains", "exact"):
+            match_type = "contains"
+        # "split_by_venue": true -> one report entry per distinct venue found
+        # for this chain (no need to list every venue by hand).
+        split = bool(entry.get("split_by_venue", False))
+        if key and (match or split):
+            chains.append({"key": key, "label": label, "match": match,
+                           "match_field": match_field, "match_type": match_type,
+                           "split_by_venue": split})
     return chains
+
+
+def _norm(text):
+    """Lowercase + collapse whitespace so spacing differences don't break matches."""
+    return " ".join(str(text or "").lower().split())
 
 
 def _match_chain(row, chains):
@@ -68,9 +84,20 @@ def _match_chain(row, chains):
     address_field = (row.get("address") or "").strip()
     location_hay = f"{venue_field} {address_field}".lower()
 
+    venue_hay = _norm(venue_field)
+
     for c in chains:
-        hay = location_hay if c["match_field"] == "location" else chain_hay
-        if any(m in hay for m in c["match"]):
+        if c["match_field"] == "venue":
+            hay = venue_hay
+        elif c["match_field"] == "location":
+            hay = location_hay
+        else:
+            hay = chain_hay
+        if c["match_type"] == "exact":
+            ok = any(_norm(m) == hay for m in c["match"])
+        else:
+            ok = any(_norm(m) in hay for m in c["match"])
+        if ok:
             return c
     return None
 
@@ -126,48 +153,52 @@ def build_report(mode, date_code):
     rows, source = _load_rows(base_dir)
     print(f"  loaded {len(rows)} row(s) from {source}")
 
-    # key -> movie -> {"gross": float, "shows": int}
-    buckets = {c["key"]: {} for c in chains}
-    by_key = {c["key"]: c for c in chains}
+    # bucket_id -> {"cfg", "label", "movies": {movie: {"gross", "shows"}}}
+    # bucket_id is the config key, or "<key>::<venue>" for split_by_venue entries.
+    buckets = {}
 
     for r in rows:
         c = _match_chain(r, chains)
         if not c:
             continue
+        venue = " ".join((r.get("venue") or "Unknown").split())
+        if c["split_by_venue"]:
+            bid, label = f"{c['key']}::{venue.lower()}", venue
+        else:
+            bid, label = c["key"], c["label"]
+        b = buckets.setdefault(bid, {"cfg": c, "key": bid, "label": label, "movies": {}})
         movie = r.get("movie", "Unknown")
         gross = float(r.get("grossRevenue", 0) or 0)
-        acc = buckets[c["key"]].setdefault(movie, {"gross": 0.0, "shows": 0})
+        acc = b["movies"].setdefault(movie, {"gross": 0.0, "shows": 0})
         acc["gross"] += gross
         acc["shows"] += 1
 
     theatres = []
     total_gross = 0.0
     total_shows = 0
-    for c in chains:
-        movies_map = buckets[c["key"]]
-        if not movies_map:
-            continue
+    for b in buckets.values():
+        movies_map = b["movies"]
         movie_list = [
             {"rank": i + 1, "movie": m, "gross": round(v["gross"], 2), "shows": v["shows"]}
             for i, (m, v) in enumerate(
                 sorted(movies_map.items(), key=lambda kv: kv[1]["gross"], reverse=True)
             )
         ]
-        chain_gross = round(sum(v["gross"] for v in movies_map.values()), 2)
-        chain_shows = sum(v["shows"] for v in movies_map.values())
+        gross = round(sum(v["gross"] for v in movies_map.values()), 2)
+        shows = sum(v["shows"] for v in movies_map.values())
         theatres.append({
-            "key": c["key"],
-            "label": c["label"],
-            "gross": chain_gross,
-            "shows": chain_shows,
+            "key": b["key"],
+            "label": b["label"],
+            "gross": gross,
+            "shows": shows,
             "movies": movie_list,
         })
-        total_gross += chain_gross
-        total_shows += chain_shows
+        total_gross += gross
+        total_shows += shows
 
-    # keep configured order, not alphabetical/sorted-by-gross
+    # keep configured order; venues inside a split_by_venue entry go alphabetically
     order = {c["key"]: i for i, c in enumerate(chains)}
-    theatres.sort(key=lambda t: order[t["key"]])
+    theatres.sort(key=lambda t: (order[t["key"].split("::")[0]], t["label"].lower()))
 
     report = {
         "mode": mode,

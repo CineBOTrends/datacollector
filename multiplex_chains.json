@@ -1,15 +1,17 @@
 {
-  "_comment": "Selected multiplex chains for the Multiplex Report (multiplex_report.py). Add/remove entries here without touching code.",
-  "_match": "'match' strings are matched case-insensitively as a substring against each row's 'chain' field (falls back to 'venue' if chain is 'Unknown'/blank). Add extra spellings/typos seen in real BMS data if a theatre isn't showing up.",
-  "_match_field": "'match_field': 'chain' (default) matches the theatre chain/company name. 'location' matches the venue name + address instead, useful for grouping several standalone/independent single-screen theatres that share one area/complex but aren't the same chain (e.g. all cinemas at one crossroads).",
+  "_comment": "Selected theatres for the Multiplex Report (multiplex_report.py). Add/remove entries here without touching code.",
+  "_match": "'match' strings are matched case-insensitively against the field chosen by 'match_field'. Whitespace differences are ignored.",
+  "_match_field": "'chain' (default) = chain/company name (falls back to venue if chain is Unknown/blank). 'venue' = the row's 'venue' string only, e.g. 'AMB Cinemas: Gachibowli'. 'location' = venue + address.",
+  "_match_type": "'contains' (default) = substring match. 'exact' = the whole venue string must equal the match string (safest for venues).",
+  "_split_by_venue": "'split_by_venue': true on a chain entry makes every distinct venue of that chain its own row in the report, no need to list venues by hand.",
 
   "chains": [
-    { "key": "prasads-multiplex", "label": "Prasads Multiplex", "match": ["prasads multiplex", "prasad's multiplex", "prasads"] },
-    { "key": "amb-cinemas",       "label": "AMB Cinemas",        "match": ["amb cinemas"] },
-    { "key": "art-cinemas",       "label": "Art Cinemas",        "match": ["art cinemas"] },
-    { "key": "allu-cinemas",      "label": "Allu Cinemas",       "match": ["allu Cineplex"] },
-    { "key": "aaa-cinemas",       "label": "AAA Cinemas",        "match": ["aaa cinemas"] },
-    { "key": "aparna-cinemas",    "label": "Aparna Cinemas",     "match": ["APARNA CINEMAS PRIVATE LIMITED"] },
-    { "key": "asian-cinepride",   "label": "Asian Lakshmikala Cinepride", "match": ["asian lakshmikala cinepride", "Asian Cinemas"] }
-  ]
+    { "key": "amb-gachibowli", "label": "AMB Cinemas: Gachibowli", "match_field": "venue", "match_type": "exact", "match": ["AMB Cinemas: Gachibowli"] },
+    { "key": "amb-kapali-blr", "label": "AMB Cinemas Kapali: Bengaluru", "match_field": "venue", "match_type": "exact", "match": ["AMB Cinemas Kapali: Bengaluru"] },
+    { "key": "prasads-multiplex", "label": "Prasads Multiplex", "match_field": "venue", "match": ["prasads multiplex", "prasad's multiplex", "prasads"], "split_by_venue": true },
+    { "key": "art-cinemas",       "label": "Art Cinemas",       "match": ["art cinemas"], "split_by_venue": true },
+    { "key": "allu-cinemas",      "label": "Allu Cinemas",      "match": ["allu Cineplex"] },
+    { "key": "aaa-cinemas",       "label": "AAA Cinemas",       "match": ["aaa cinemas"] },
+    { "key": "aparna-cinemas",    "label": "Aparna Cinemas",    "match": ["APARNA CINEMAS PRIVATE LIMITED"] }
+  ] 
 }
