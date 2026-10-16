@@ -1228,11 +1228,24 @@ def stamp_india_gross(mode, per_date, mode_out):
     including that date: Day 1 + Day 2 + ...) next to the day's own gross, in each
     m/<slug>.json and in national.json. Today's live day is included so it
     updates on every live-tracking run."""
+    overrides = {}
+    if mode == "advance":
+        override_path = os.path.join(HERE, "advance", "cumulative_gross_overrides.json")
+        if os.path.isfile(override_path):
+            with open(override_path, encoding="utf-8") as f:
+                overrides = json.load(f)
+            if not isinstance(overrides, dict) or any(
+                not isinstance(movies, dict) for movies in overrides.values()
+            ):
+                raise ValueError(f"Invalid cumulative gross overrides in {override_path}")
+
     run = defaultdict(float)
     cum = {}                                     # (date, slug) -> running total
     for d in sorted(per_date, key=lambda x: x["date"]):
         for slug, movie in d["movies"].items():
             run[slug] += movie["kpi"]["gross"] or 0
+            if slug in overrides.get(d["date"], {}):
+                run[slug] = float(overrides[d["date"]][slug])
             cum[(d["date"], slug)] = round(run[slug], 2)
 
     for d in per_date:
