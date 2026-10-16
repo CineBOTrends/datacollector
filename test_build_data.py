@@ -3,14 +3,14 @@ import os
 import tempfile
 import unittest
 
-from build_data import stamp_india_gross
+from build_data import apply_advance_snapshot_overrides, stamp_india_gross
 
 
 class StampIndiaGrossTests(unittest.TestCase):
     def test_advance_cumulative_override_flows_into_later_dates(self):
         dates = [
-            ("20261015", {"jailer-2": 407498497.78}),
-            ("20261016", {"jailer-2": 210594619.31, "ranabaali": 50404635.51}),
+            ("20261015", {"jailer-2": 80000000.0, "ranabaali": 10000000.0}),
+            ("20261016", {"jailer-2": 115000000.0, "ranabaali": 22000000.0}),
             ("20261017", {"jailer-2": 288814023.87, "ranabaali": 34006286.60}),
             ("20261018", {"jailer-2": 100.25, "ranabaali": 200.50}),
         ]
@@ -23,23 +23,47 @@ class StampIndiaGrossTests(unittest.TestCase):
                 national_movies = []
                 movie_data = {}
                 for slug, gross in movies.items():
-                    movie_data[slug] = {"kpi": {"gross": gross}}
-                    national_movies.append({"slug": slug, "gross": gross})
+                    movie_data[slug] = {
+                        "kpi": {"gross": gross, "sold": 0, "shows": 0}
+                    }
+                    national_movies.append(
+                        {"slug": slug, "gross": gross, "sold": 0, "shows": 0}
+                    )
                     with open(
                         os.path.join(out_dir, "m", slug + ".json"),
                         "w",
                         encoding="utf-8",
                     ) as f:
-                        json.dump({"kpi": {"gross": gross}}, f)
+                        json.dump(movie_data[slug], f)
                 with open(os.path.join(out_dir, "national.json"), "w", encoding="utf-8") as f:
                     json.dump(
-                        {"movies": national_movies, "totals": {}},
+                        {
+                            "movies": national_movies,
+                            "totals": {
+                                "movies": len(national_movies),
+                                "gross": sum(m["gross"] for m in national_movies),
+                                "sold": 0,
+                                "shows": 0,
+                            },
+                        },
                         f,
                     )
-                per_date.append({"date": date, "movies": movie_data})
+                result = {"date": date, "movies": movie_data}
+                apply_advance_snapshot_overrides("advance", result, mode_out)
+                per_date.append(result)
 
             stamp_india_gross("advance", per_date, mode_out)
 
+            with open(
+                os.path.join(mode_out, "20261015", "national.json"),
+                encoding="utf-8",
+            ) as f:
+                oct15 = json.load(f)
+            with open(
+                os.path.join(mode_out, "20261016", "national.json"),
+                encoding="utf-8",
+            ) as f:
+                oct16 = json.load(f)
             with open(
                 os.path.join(mode_out, "20261017", "national.json"),
                 encoding="utf-8",
@@ -51,6 +75,15 @@ class StampIndiaGrossTests(unittest.TestCase):
             ) as f:
                 oct18 = json.load(f)
 
+            self.assertEqual(oct15["totals"]["gross"], 407498497.78)
+            self.assertEqual(oct15["totals"]["movies"], 1)
+            self.assertEqual([m["slug"] for m in oct15["movies"]], ["jailer-2"])
+            self.assertFalse(
+                os.path.exists(
+                    os.path.join(mode_out, "20261015", "m", "ranabaali.json")
+                )
+            )
+            self.assertEqual(oct16["totals"]["gross"], 260999254.82)
             totals17 = {m["slug"]: m["indiaGross"] for m in oct17["movies"]}
             totals18 = {m["slug"]: m["indiaGross"] for m in oct18["movies"]}
             self.assertEqual(totals17["jailer-2"], 906907140.96)

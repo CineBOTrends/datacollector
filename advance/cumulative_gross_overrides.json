@@ -1,6 +1,55 @@
 {
-  "20261017": {
-    "jailer-2": 906907140.96,
-    "ranabaali": 84410922.11
+  "dates": {
+    "20261015": {
+      "exclude": ["ranabaali"],
+      "movies": {
+        "jailer-2": {
+          "gross": 407498497.78,
+          "sold": 1864253,
+          "occupancy": 36.49,
+          "totalSeats": 5109603,
+          "shows": 17740,
+          "theatres": 2826,
+          "cities": 1245,
+          "states": 35,
+          "housefull": 1160,
+          "fastfilling": 4381
+        }
+      }
+    },
+    "20261016": {
+      "movies": {
+        "jailer-2": {
+          "gross": 210594619.31,
+          "sold": 1067297,
+          "occupancy": 26.17,
+          "totalSeats": 4077767,
+          "shows": 13813,
+          "theatres": 2851,
+          "cities": 1278,
+          "states": 37,
+          "housefull": 303,
+          "fastfilling": 2477
+        },
+        "ranabaali": {
+          "gross": 50404635.51,
+          "sold": 289288,
+          "occupancy": 30.94,
+          "totalSeats": 935010,
+          "shows": 2728,
+          "theatres": 829,
+          "cities": 383,
+          "states": 21,
+          "housefull": 20,
+          "fastfilling": 517
+        }
+      }
+    }
+  },
+  "cumulative": {
+    "20261017": {
+      "jailer-2": 906907140.96,
+      "ranabaali": 84410922.11
+    }
   }
 }

@@ -1223,21 +1223,102 @@ def build_history(mode, per_date, out_dir):
             json.dump(hist_obj, f, ensure_ascii=False, separators=(",", ":"))
 
 
+def load_advance_gross_overrides():
+    path = os.path.join(HERE, "advance", "cumulative_gross_overrides.json")
+    if not os.path.isfile(path):
+        return {"dates": {}, "cumulative": {}}
+    with open(path, encoding="utf-8") as f:
+        overrides = json.load(f)
+    if not isinstance(overrides, dict):
+        raise ValueError(f"Invalid advance gross overrides in {path}")
+    for section in ("dates", "cumulative"):
+        values = overrides.get(section, {})
+        if not isinstance(values, dict):
+            raise ValueError(f"Invalid {section} overrides in {path}")
+        for date, movies in values.items():
+            if not re.fullmatch(r"\d{8}", str(date)) or not isinstance(movies, dict):
+                raise ValueError(f"Invalid {section} override for {date!r} in {path}")
+    return overrides
+
+
+def apply_advance_snapshot_overrides(mode, result, mode_out):
+    if mode != "advance":
+        return
+    date = result["date"]
+    snapshot = load_advance_gross_overrides()["dates"].get(date)
+    if not snapshot:
+        return
+
+    movies = result["movies"]
+    for slug in snapshot.get("exclude", []):
+        movies.pop(slug, None)
+        movie_path = os.path.join(mode_out, date, "m", slug + ".json")
+        if os.path.exists(movie_path):
+            os.remove(movie_path)
+
+    national_path = os.path.join(mode_out, date, "national.json")
+    with open(national_path, encoding="utf-8") as f:
+        national = json.load(f)
+    excluded = set(snapshot.get("exclude", []))
+    national["movies"] = [
+        movie for movie in national.get("movies", []) if movie["slug"] not in excluded
+    ]
+
+    field_map = {
+        "gross": "gross",
+        "sold": "sold",
+        "occupancy": "occupancy",
+        "totalSeats": "seats",
+        "shows": "shows",
+        "theatres": "theatres",
+        "cities": "cities",
+        "states": "states",
+        "housefull": "housefull",
+        "fastfilling": "fastfilling",
+    }
+    for slug, fields in snapshot.get("movies", {}).items():
+        movie = movies.get(slug)
+        if movie is None:
+            raise ValueError(f"Advance snapshot override {date}/{slug} has no source movie")
+        for key, value in fields.items():
+            if key not in field_map:
+                raise ValueError(f"Unknown advance snapshot field {key!r} in {date}/{slug}")
+            movie["kpi"][field_map[key]] = value
+
+        movie_path = os.path.join(mode_out, date, "m", slug + ".json")
+        with open(movie_path, encoding="utf-8") as f:
+            detail = json.load(f)
+        detail["kpi"].update(movie["kpi"])
+        with open(movie_path, "w", encoding="utf-8") as f:
+            json.dump(detail, f, ensure_ascii=False, separators=(",", ":"))
+
+        national_movie = next(
+            (item for item in national["movies"] if item["slug"] == slug), None
+        )
+        if national_movie is None:
+            raise ValueError(f"Advance snapshot override {date}/{slug} is absent from national data")
+        for key, value in fields.items():
+            national_movie[key] = value
+
+    national["totals"]["movies"] = len(national["movies"])
+    for key in ("gross", "sold", "shows"):
+        national["totals"][key] = round(
+            sum(movie.get(key, 0) for movie in national["movies"]), 2
+        )
+    with open(national_path, "w", encoding="utf-8") as f:
+        json.dump(national, f, ensure_ascii=False, separators=(",", ":"))
+
+
 def stamp_india_gross(mode, per_date, mode_out):
     """Add kpi.indiaGross (cumulative gross of every date of this mode up to and
     including that date: Day 1 + Day 2 + ...) next to the day's own gross, in each
     m/<slug>.json and in national.json. Today's live day is included so it
     updates on every live-tracking run."""
-    overrides = {}
-    if mode == "advance":
-        override_path = os.path.join(HERE, "advance", "cumulative_gross_overrides.json")
-        if os.path.isfile(override_path):
-            with open(override_path, encoding="utf-8") as f:
-                overrides = json.load(f)
-            if not isinstance(overrides, dict) or any(
-                not isinstance(movies, dict) for movies in overrides.values()
-            ):
-                raise ValueError(f"Invalid cumulative gross overrides in {override_path}")
+    overrides = (
+        load_advance_gross_overrides().get("cumulative", {})
+        if mode == "advance"
+        else {}
+    )
 
     run = defaultdict(float)
     cum = {}                                     # (date, slug) -> running total
@@ -1398,6 +1479,7 @@ def main(collector):
                 os.makedirs(out_dir, exist_ok=True)
                 res = build_date(mode, date, src, out_dir)
                 if res:
+                    apply_advance_snapshot_overrides(mode, res, OUT)
                     dates.append(date)
                     per_date.append(res)
                     for slug, mv in res["movies"].items():
