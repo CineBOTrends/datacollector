@@ -5,6 +5,7 @@ import unittest
 from unittest.mock import patch
 
 import build_data
+from preserve_advance_data import preserve_published_advance
 from build_data import (
     apply_advance_snapshot_overrides,
     freeze_past_advance_snapshots,
@@ -62,7 +63,8 @@ class StampIndiaGrossTests(unittest.TestCase):
                 apply_advance_snapshot_overrides("advance", result, mode_out)
                 per_date.append(result)
 
-            stamp_india_gross("advance", per_date, mode_out)
+            with patch.object(build_data, "persisted_advance_date_path", return_value=None):
+                stamp_india_gross("advance", per_date, mode_out)
 
             with open(
                 os.path.join(mode_out, "20261015", "national.json"),
@@ -177,7 +179,7 @@ class StampIndiaGrossTests(unittest.TestCase):
                 self.assertEqual(frozen_after_stamp["totals"]["gross"], 407498497.78)
                 self.assertEqual(newer["movies"][0]["indiaGross"], 407498597.78)
 
-    def test_latest_snapshot_is_promoted_when_its_date_passes(self):
+    def test_first_latest_snapshot_is_promoted_and_never_replaced(self):
         with tempfile.TemporaryDirectory() as root:
             out_root = os.path.join(root, "data")
             live_date_dir = os.path.join(out_root, "advance", "20261017")
@@ -221,22 +223,85 @@ class StampIndiaGrossTests(unittest.TestCase):
                     )
                 save_latest_advance_snapshots("20261017")
 
-                # The date rollover freezes the last published snapshot, not
-                # stale raw rows or a partial rebuild on the new day.
+                with open(os.path.join(latest_dir, "national.json"), encoding="utf-8") as f:
+                    latest = json.load(f)
+                self.assertEqual(latest["totals"]["gross"], 120)
+
+                # The date rollover freezes the first saved snapshot, not
+                # later raw rows or a later rebuild.
                 freeze_past_advance_snapshots("20261018")
                 frozen_dir = frozen_advance_date_path("20261017")
                 self.assertFalse(os.path.exists(latest_dir))
                 with open(os.path.join(frozen_dir, "national.json"), encoding="utf-8") as f:
                     frozen = json.load(f)
-                self.assertEqual(frozen["totals"]["gross"], 140)
+                self.assertEqual(frozen["totals"]["gross"], 120)
 
                 rebuilt_dir = os.path.join(root, "rebuilt", "20261017")
                 os.makedirs(rebuilt_dir)
                 result = load_frozen_advance_date("20261017", rebuilt_dir)
                 self.assertEqual(
                     result["movies"]["jailer-2"]["kpi"]["gross"],
-                    140,
+                    120,
                 )
+
+    def test_published_advance_date_is_restored_from_permanent_snapshot(self):
+        with tempfile.TemporaryDirectory() as root:
+            collector = os.path.join(root, "collector")
+            built = os.path.join(root, "built")
+            published = os.path.join(root, "published")
+            archive = os.path.join(
+                collector, "advance", "frozen_snapshots", "20261015"
+            )
+            built_date = os.path.join(built, "advance", "20261015")
+            published_date = os.path.join(published, "advance", "20261015")
+            for path in (archive, built_date, published_date):
+                os.makedirs(path)
+            for folder, gross in (
+                (archive, 500),
+                (built_date, 300),
+                (published_date, 100),
+            ):
+                with open(os.path.join(folder, "national.json"), "w", encoding="utf-8") as f:
+                    json.dump(
+                        {
+                            "totals": {"gross": gross, "indiaGross": gross},
+                            "movies": [
+                                {
+                                    "slug": "jailer-2",
+                                    "gross": gross,
+                                    "indiaGross": gross,
+                                }
+                            ],
+                        },
+                        f,
+                    )
+            os.makedirs(os.path.join(built, "advance", "20261016"))
+            with open(
+                os.path.join(built, "advance", "20261016", "national.json"),
+                "w",
+                encoding="utf-8",
+            ) as f:
+                json.dump({"totals": {}, "movies": []}, f)
+            with open(os.path.join(built, "manifest.json"), "w", encoding="utf-8") as f:
+                json.dump(
+                    {
+                        "modes": {"advance": {"dates": ["20261015", "20261016"]}},
+                        "movieDates": {"advance": {}},
+                    },
+                    f,
+                )
+
+            preserve_published_advance(built, published, collector)
+
+            with open(
+                os.path.join(built_date, "national.json"), encoding="utf-8"
+            ) as f:
+                result = json.load(f)
+            self.assertEqual(result["totals"]["gross"], 500)
+            with open(os.path.join(built, "manifest.json"), encoding="utf-8") as f:
+                manifest = json.load(f)
+            self.assertEqual(manifest["modes"]["advance"]["dates"], ["20261015", "20261016"])
+            self.assertEqual(manifest["movieDates"]["advance"]["jailer-2"], ["20261015"])
 
 
 if __name__ == "__main__":

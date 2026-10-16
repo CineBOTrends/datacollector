@@ -183,6 +183,14 @@ jobs:
       - name: Build data tree
         run: python build_data.py .
 
+      - name: Clone current dashboard data
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
+
+      - name: Preserve published advance dates
+        run: python preserve_advance_data.py data out/data .
+
       - name: Persist advance snapshots
         run: |
           git config user.name "cbt-bot"
@@ -207,10 +215,7 @@ jobs:
           fi
 
       - name: Publish data/ -> dashboard repo
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
           rm -rf out/data
           cp -r data out/data
           mkdir -p out/assets/posters

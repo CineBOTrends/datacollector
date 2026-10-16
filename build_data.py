@@ -1249,6 +1249,16 @@ def latest_advance_date_path(date):
     return os.path.join(HERE, "advance", "latest_snapshots", date)
 
 
+def persisted_advance_date_path(date):
+    frozen_dir = frozen_advance_date_path(date)
+    if os.path.isdir(frozen_dir):
+        return frozen_dir
+    latest_dir = latest_advance_date_path(date)
+    if os.path.isdir(latest_dir):
+        return latest_dir
+    return None
+
+
 def freeze_advance_snapshot(date, source_dir):
     frozen_dir = frozen_advance_date_path(date)
     if os.path.isdir(frozen_dir):
@@ -1273,6 +1283,8 @@ def save_latest_advance_snapshots(today):
         ):
             continue
         latest_dir = latest_advance_date_path(date)
+        if os.path.isdir(latest_dir):
+            continue
         temporary_dir = latest_dir + ".tmp"
         os.makedirs(os.path.dirname(latest_dir), exist_ok=True)
         if os.path.isdir(temporary_dir):
@@ -1284,8 +1296,10 @@ def save_latest_advance_snapshots(today):
 
 
 def load_frozen_advance_date(date, out_dir):
-    frozen_dir = frozen_advance_date_path(date)
-    shutil.copytree(frozen_dir, out_dir, dirs_exist_ok=True)
+    snapshot_dir = persisted_advance_date_path(date)
+    if snapshot_dir is None:
+        raise FileNotFoundError(f"Cannot load missing advance snapshot for {date}")
+    shutil.copytree(snapshot_dir, out_dir, dirs_exist_ok=True)
     national_path = os.path.join(out_dir, "national.json")
     with open(national_path, encoding="utf-8") as f:
         national = json.load(f)
@@ -1404,7 +1418,7 @@ def stamp_india_gross(mode, per_date, mode_out):
         {
             d["date"]
             for d in per_date
-            if os.path.isdir(frozen_advance_date_path(d["date"]))
+            if persisted_advance_date_path(d["date"]) is not None
         }
         if mode == "advance"
         else set()
@@ -1581,31 +1595,42 @@ def main(collector):
         data_root = os.path.join(collector, mode, "data")
         dates = []
         per_date = []
-        if os.path.isdir(data_root):
-            for date in sorted(os.listdir(data_root)):
-                src = os.path.join(data_root, date)
-                if not os.path.isdir(src) or not re.fullmatch(r"\d{8}", date):
-                    continue
-                out_dir = os.path.join(OUT, mode, date)
-                os.makedirs(out_dir, exist_ok=True)
-                is_frozen = (
-                    mode == "advance"
-                    and os.path.isdir(frozen_advance_date_path(date))
-                )
-                if is_frozen:
-                    res = load_frozen_advance_date(date, out_dir)
-                else:
-                    res = build_date(mode, date, src, out_dir)
-                if res:
-                    if not is_frozen:
-                        apply_advance_snapshot_overrides(
-                            mode, res, os.path.join(OUT, mode)
-                        )
-                    dates.append(date)
-                    per_date.append(res)
-                    for slug, mv in res["movies"].items():
-                        all_titles[mv["title"]] = bool(mv.get("poster"))
-                        slug_dates.setdefault(mode, {}).setdefault(slug, []).append(date)
+        if mode == "advance":
+            persisted_root = os.path.join(HERE, "advance")
+            persisted_dates = set()
+            for snapshot_dir in ("frozen_snapshots", "latest_snapshots"):
+                snapshot_root = os.path.join(persisted_root, snapshot_dir)
+                if os.path.isdir(snapshot_root):
+                    persisted_dates.update(os.listdir(snapshot_root))
+        else:
+            persisted_dates = set()
+        source_dates = set(os.listdir(data_root)) if os.path.isdir(data_root) else set()
+        for date in sorted(source_dates | persisted_dates):
+            src = os.path.join(data_root, date)
+            if not re.fullmatch(r"\d{8}", date):
+                continue
+            is_persisted = (
+                mode == "advance"
+                and persisted_advance_date_path(date) is not None
+            )
+            if not os.path.isdir(src) and not is_persisted:
+                continue
+            out_dir = os.path.join(OUT, mode, date)
+            os.makedirs(out_dir, exist_ok=True)
+            if is_persisted:
+                res = load_frozen_advance_date(date, out_dir)
+            else:
+                res = build_date(mode, date, src, out_dir)
+            if res:
+                if not is_persisted:
+                    apply_advance_snapshot_overrides(
+                        mode, res, os.path.join(OUT, mode)
+                    )
+                dates.append(date)
+                per_date.append(res)
+                for slug, mv in res["movies"].items():
+                    all_titles[mv["title"]] = bool(mv.get("poster"))
+                    slug_dates.setdefault(mode, {}).setdefault(slug, []).append(date)
         if per_date:
             build_history(mode, per_date, os.path.join(OUT, mode))
             history_source[mode] = per_date
@@ -1651,7 +1676,7 @@ def main(collector):
     for slug, open_day in upcoming.items():
         iso = f"{open_day[:4]}-{open_day[4:6]}-{open_day[6:8]}"
         for date in slug_dates["advance"][slug]:
-            if os.path.isdir(frozen_advance_date_path(date)):
+            if persisted_advance_date_path(date) is not None:
                 continue
             fp = os.path.join(OUT, "advance", date, "m", slug + ".json")
             if not os.path.exists(fp):
@@ -1705,9 +1730,7 @@ def main(collector):
                 continue
             for mode in ("advance", "daily"):
                 for date in slug_dates.get(mode, {}).get(slug, []):
-                    if mode == "advance" and os.path.isdir(
-                        frozen_advance_date_path(date)
-                    ):
+                    if mode == "advance" and persisted_advance_date_path(date) is not None:
                         continue
                     fp = os.path.join(OUT, mode, date, "m", slug + ".json")
                     if not os.path.exists(fp):
