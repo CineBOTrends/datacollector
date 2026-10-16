@@ -1241,6 +1241,51 @@ def load_advance_gross_overrides():
     return overrides
 
 
+def frozen_advance_date_path(date):
+    return os.path.join(HERE, "advance", "frozen_snapshots", date)
+
+
+def freeze_advance_snapshot(date, source_dir):
+    frozen_dir = frozen_advance_date_path(date)
+    if os.path.isdir(frozen_dir):
+        return frozen_dir
+    if not os.path.isdir(source_dir):
+        raise FileNotFoundError(f"Cannot freeze missing advance snapshot: {source_dir}")
+    os.makedirs(os.path.dirname(frozen_dir), exist_ok=True)
+    shutil.copytree(source_dir, frozen_dir)
+    return frozen_dir
+
+
+def load_frozen_advance_date(date, out_dir):
+    frozen_dir = frozen_advance_date_path(date)
+    shutil.copytree(frozen_dir, out_dir, dirs_exist_ok=True)
+    national_path = os.path.join(out_dir, "national.json")
+    with open(national_path, encoding="utf-8") as f:
+        national = json.load(f)
+
+    movies = {}
+    for item in national.get("movies", []):
+        movie_path = os.path.join(out_dir, "m", item["slug"] + ".json")
+        with open(movie_path, encoding="utf-8") as f:
+            movies[item["slug"]] = json.load(f)
+    return {
+        "date": date,
+        "last_updated": national.get("last_updated", ""),
+        "movies": movies,
+    }
+
+
+def freeze_past_advance_snapshots(today):
+    advance_out = os.path.join(OUT, "advance")
+    if not os.path.isdir(advance_out):
+        return
+    for date in sorted(os.listdir(advance_out)):
+        source_dir = os.path.join(advance_out, date)
+        if not re.fullmatch(r"\d{8}", date) or date >= today:
+            continue
+        freeze_advance_snapshot(date, source_dir)
+
+
 def apply_advance_snapshot_overrides(mode, result, mode_out):
     if mode != "advance":
         return
@@ -1319,10 +1364,34 @@ def stamp_india_gross(mode, per_date, mode_out):
         if mode == "advance"
         else {}
     )
+    frozen_dates = (
+        {
+            d["date"]
+            for d in per_date
+            if os.path.isdir(frozen_advance_date_path(d["date"]))
+        }
+        if mode == "advance"
+        else set()
+    )
 
     run = defaultdict(float)
     cum = {}                                     # (date, slug) -> running total
     for d in sorted(per_date, key=lambda x: x["date"]):
+        if d["date"] in frozen_dates:
+            national_path = os.path.join(mode_out, d["date"], "national.json")
+            with open(national_path, encoding="utf-8") as f:
+                national = json.load(f)
+            saved_totals = {
+                movie["slug"]: movie.get("indiaGross", movie["gross"])
+                for movie in national.get("movies", [])
+            }
+            for slug, movie in d["movies"].items():
+                run[slug] = float(
+                    saved_totals.get(slug, run[slug] + (movie["kpi"]["gross"] or 0))
+                )
+                cum[(d["date"], slug)] = round(run[slug], 2)
+            continue
+
         for slug, movie in d["movies"].items():
             run[slug] += movie["kpi"]["gross"] or 0
             if slug in overrides.get(d["date"], {}):
@@ -1331,6 +1400,8 @@ def stamp_india_gross(mode, per_date, mode_out):
 
     for d in per_date:
         date = d["date"]
+        if date in frozen_dates:
+            continue
         for slug in d["movies"]:
             fp = os.path.join(mode_out, date, "m", slug + ".json")
             if not os.path.exists(fp):
@@ -1454,6 +1525,10 @@ def build_editorial():
 
 
 def main(collector):
+    ist = _dt.timezone(_dt.timedelta(hours=5, minutes=30))
+    today = _dt.datetime.now(ist).strftime("%Y%m%d")
+    freeze_past_advance_snapshots(today)
+
     for d in (OUT,):
         if os.path.isdir(d):
             shutil.rmtree(d)
@@ -1477,11 +1552,19 @@ def main(collector):
                     continue
                 out_dir = os.path.join(OUT, mode, date)
                 os.makedirs(out_dir, exist_ok=True)
-                res = build_date(mode, date, src, out_dir)
+                is_frozen = (
+                    mode == "advance"
+                    and os.path.isdir(frozen_advance_date_path(date))
+                )
+                if is_frozen:
+                    res = load_frozen_advance_date(date, out_dir)
+                else:
+                    res = build_date(mode, date, src, out_dir)
                 if res:
-                    apply_advance_snapshot_overrides(
-                        mode, res, os.path.join(OUT, mode)
-                    )
+                    if not is_frozen:
+                        apply_advance_snapshot_overrides(
+                            mode, res, os.path.join(OUT, mode)
+                        )
                     dates.append(date)
                     per_date.append(res)
                     for slug, mv in res["movies"].items():
@@ -1532,6 +1615,8 @@ def main(collector):
     for slug, open_day in upcoming.items():
         iso = f"{open_day[:4]}-{open_day[4:6]}-{open_day[6:8]}"
         for date in slug_dates["advance"][slug]:
+            if os.path.isdir(frozen_advance_date_path(date)):
+                continue
             fp = os.path.join(OUT, "advance", date, "m", slug + ".json")
             if not os.path.exists(fp):
                 continue
@@ -1584,6 +1669,10 @@ def main(collector):
                 continue
             for mode in ("advance", "daily"):
                 for date in slug_dates.get(mode, {}).get(slug, []):
+                    if mode == "advance" and os.path.isdir(
+                        frozen_advance_date_path(date)
+                    ):
+                        continue
                     fp = os.path.join(OUT, mode, date, "m", slug + ".json")
                     if not os.path.exists(fp):
                         continue
@@ -1602,6 +1691,12 @@ def main(collector):
                         print(f"    ! could not set user releaseDate for {slug} ({e})")
         if touched:
             print(f"  releaseDate: {touched} file(s) set from tracked_movies.json")
+
+    for date in manifest["modes"].get("advance", {}).get("dates", []):
+        if date < today:
+            freeze_advance_snapshot(
+                date, os.path.join(OUT, "advance", date)
+            )
 
     # The "Historical" tab must always show what we ACTUALLY tracked day by day
     # (i.e. DAILY actuals), never the advance/pre-sales snapshot. Advance numbers

@@ -9,9 +9,12 @@ data-public/
 # collector run outputs / caches
 daily/
 advance/
+!advance/
+advance/*
+!advance/frozen_snapshots/
+!advance/frozen_snapshots/**
 __pycache__/
 *.pyc
 *.log
 .DS_Store
-
 

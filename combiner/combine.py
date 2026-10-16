@@ -17,19 +17,11 @@ TOTAL_SHARDS = 14
 
 
 def load_json(path):
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data if isinstance(data, list) else []
-    except FileNotFoundError:
-        print(f"\u26a0\ufe0f  MISSING: {path}")
-        return []
-    except json.JSONDecodeError as e:
-        print(f"\u274c CORRUPT JSON: {path} - {e}")
-        return []
-    except Exception as e:
-        print(f"\u274c ERROR reading {path}: {type(e).__name__}: {e}")
-        return []
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, list):
+        raise ValueError(f"Expected a list of shard rows in {path}")
+    return data
 
 
 def save_json(path, data):
@@ -125,20 +117,26 @@ def combine_shards(mode: str, date_code: str = None, upload_r2: bool = True):
     loaded_shards = 0
     missing_shards = []
 
-    for i in range(1, 15):
+    for i in range(1, TOTAL_SHARDS + 1):
         path = os.path.join(base_dir, f"detailed{i}.json")
-        data = load_json(path)
-        if data:
-            print(f"\u2705 detailed{i}.json \u2192 {len(data)} rows")
-            all_rows.extend(data)
-            loaded_shards += 1
-        else:
+        try:
+            data = load_json(path)
+        except FileNotFoundError:
+            print(f"\u26a0\ufe0f  MISSING: {path}")
             missing_shards.append(i)
+            continue
+
+        print(f"\u2705 detailed{i}.json \u2192 {len(data)} rows")
+        all_rows.extend(data)
+        loaded_shards += 1
 
     print(f"\U0001f4ca Raw rows: {len(all_rows)}")
-    print(f"\U0001f4e6 Loaded {loaded_shards}/14 shards")
+    print(f"\U0001f4e6 Loaded {loaded_shards}/{TOTAL_SHARDS} shards")
     if missing_shards:
-        print(f"\u26a0\ufe0f  Missing or empty shards: {missing_shards}")
+        raise RuntimeError(
+            f"Refusing to replace {mode} data for {dc}: missing shard files "
+            f"{missing_shards}"
+        )
 
     # Normalize all rows
     all_rows = [normalize_row(r, dc) for r in all_rows]
