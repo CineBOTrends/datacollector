@@ -1479,7 +1479,9 @@ def main(collector):
                 os.makedirs(out_dir, exist_ok=True)
                 res = build_date(mode, date, src, out_dir)
                 if res:
-                    apply_advance_snapshot_overrides(mode, res, OUT)
+                    apply_advance_snapshot_overrides(
+                        mode, res, os.path.join(OUT, mode)
+                    )
                     dates.append(date)
                     per_date.append(res)
                     for slug, mv in res["movies"].items():
