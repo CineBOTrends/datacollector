@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: combine
+  group: collect
   cancel-in-progress: false
 
 env:
@@ -95,6 +95,16 @@ jobs:
 
       - name: Build data tree
         run: python build_data.py .
+
+      - name: Persist advance snapshots
+        run: |
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f -A -- advance/frozen_snapshots advance/latest_snapshots
+          if ! git diff --cached --quiet; then
+            git commit -m "advance: persist immutable snapshots"
+            git push origin main
+          fi
 
       - name: Sanity check
         run: |

@@ -13,8 +13,9 @@ advance/
 advance/*
 !advance/frozen_snapshots/
 !advance/frozen_snapshots/**
+!advance/latest_snapshots/
+!advance/latest_snapshots/**
 __pycache__/
 *.pyc
 *.log
 .DS_Store
-

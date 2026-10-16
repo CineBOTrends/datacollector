@@ -120,6 +120,17 @@ jobs:
         if: ${{ inputs.dry_run == false }}
         run: python build_data.py .
 
+      - name: Persist advance snapshots
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          git config user.name "cbt-bot"
+          git config user.email "cinebotrends@users.noreply.github.com"
+          git add -f -A -- advance/frozen_snapshots advance/latest_snapshots
+          if ! git diff --cached --quiet; then
+            git commit -m "advance: persist immutable snapshots"
+            git push origin main
+          fi
+
       - name: Sanity check — did the build produce movies?
         if: ${{ inputs.dry_run == false }}
         run: |

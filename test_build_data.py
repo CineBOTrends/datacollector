@@ -10,6 +10,8 @@ from build_data import (
     freeze_past_advance_snapshots,
     frozen_advance_date_path,
     load_frozen_advance_date,
+    latest_advance_date_path,
+    save_latest_advance_snapshots,
     stamp_india_gross,
 )
 
@@ -174,6 +176,67 @@ class StampIndiaGrossTests(unittest.TestCase):
                     newer = json.load(f)
                 self.assertEqual(frozen_after_stamp["totals"]["gross"], 407498497.78)
                 self.assertEqual(newer["movies"][0]["indiaGross"], 407498597.78)
+
+    def test_latest_snapshot_is_promoted_when_its_date_passes(self):
+        with tempfile.TemporaryDirectory() as root:
+            out_root = os.path.join(root, "data")
+            live_date_dir = os.path.join(out_root, "advance", "20261017")
+            os.makedirs(os.path.join(live_date_dir, "m"))
+            national = {
+                "totals": {"gross": 120},
+                "movies": [{"slug": "jailer-2", "gross": 120, "indiaGross": 120}],
+            }
+            movie = {"slug": "jailer-2", "kpi": {"gross": 120, "indiaGross": 120}}
+            with open(os.path.join(live_date_dir, "national.json"), "w", encoding="utf-8") as f:
+                json.dump(national, f)
+            with open(os.path.join(live_date_dir, "m", "jailer-2.json"), "w", encoding="utf-8") as f:
+                json.dump(movie, f)
+
+            with patch.object(build_data, "HERE", root), patch.object(
+                build_data, "OUT", out_root
+            ):
+                save_latest_advance_snapshots("20261017")
+                latest_dir = latest_advance_date_path("20261017")
+                with open(os.path.join(live_date_dir, "national.json"), "w", encoding="utf-8") as f:
+                    json.dump(
+                        {
+                            "totals": {"gross": 140},
+                            "movies": [
+                                {"slug": "jailer-2", "gross": 140, "indiaGross": 140}
+                            ],
+                        },
+                        f,
+                    )
+                with open(
+                    os.path.join(live_date_dir, "m", "jailer-2.json"),
+                    "w",
+                    encoding="utf-8",
+                ) as f:
+                    json.dump(
+                        {
+                            "slug": "jailer-2",
+                            "kpi": {"gross": 140, "indiaGross": 140},
+                        },
+                        f,
+                    )
+                save_latest_advance_snapshots("20261017")
+
+                # The date rollover freezes the last published snapshot, not
+                # stale raw rows or a partial rebuild on the new day.
+                freeze_past_advance_snapshots("20261018")
+                frozen_dir = frozen_advance_date_path("20261017")
+                self.assertFalse(os.path.exists(latest_dir))
+                with open(os.path.join(frozen_dir, "national.json"), encoding="utf-8") as f:
+                    frozen = json.load(f)
+                self.assertEqual(frozen["totals"]["gross"], 140)
+
+                rebuilt_dir = os.path.join(root, "rebuilt", "20261017")
+                os.makedirs(rebuilt_dir)
+                result = load_frozen_advance_date("20261017", rebuilt_dir)
+                self.assertEqual(
+                    result["movies"]["jailer-2"]["kpi"]["gross"],
+                    140,
+                )
 
 
 if __name__ == "__main__":

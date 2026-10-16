@@ -1245,6 +1245,10 @@ def frozen_advance_date_path(date):
     return os.path.join(HERE, "advance", "frozen_snapshots", date)
 
 
+def latest_advance_date_path(date):
+    return os.path.join(HERE, "advance", "latest_snapshots", date)
+
+
 def freeze_advance_snapshot(date, source_dir):
     frozen_dir = frozen_advance_date_path(date)
     if os.path.isdir(frozen_dir):
@@ -1254,6 +1258,29 @@ def freeze_advance_snapshot(date, source_dir):
     os.makedirs(os.path.dirname(frozen_dir), exist_ok=True)
     shutil.copytree(source_dir, frozen_dir)
     return frozen_dir
+
+
+def save_latest_advance_snapshots(today):
+    advance_out = os.path.join(OUT, "advance")
+    if not os.path.isdir(advance_out):
+        return
+    for date in sorted(os.listdir(advance_out)):
+        source_dir = os.path.join(advance_out, date)
+        if (
+            not re.fullmatch(r"\d{8}", date)
+            or date < today
+            or os.path.isdir(frozen_advance_date_path(date))
+        ):
+            continue
+        latest_dir = latest_advance_date_path(date)
+        temporary_dir = latest_dir + ".tmp"
+        os.makedirs(os.path.dirname(latest_dir), exist_ok=True)
+        if os.path.isdir(temporary_dir):
+            shutil.rmtree(temporary_dir)
+        shutil.copytree(source_dir, temporary_dir)
+        if os.path.isdir(latest_dir):
+            shutil.rmtree(latest_dir)
+        os.replace(temporary_dir, latest_dir)
 
 
 def load_frozen_advance_date(date, out_dir):
@@ -1276,6 +1303,15 @@ def load_frozen_advance_date(date, out_dir):
 
 
 def freeze_past_advance_snapshots(today):
+    latest_root = os.path.join(HERE, "advance", "latest_snapshots")
+    if os.path.isdir(latest_root):
+        for date in sorted(os.listdir(latest_root)):
+            latest_dir = os.path.join(latest_root, date)
+            if not re.fullmatch(r"\d{8}", date) or date >= today:
+                continue
+            freeze_advance_snapshot(date, latest_dir)
+            shutil.rmtree(latest_dir)
+
     advance_out = os.path.join(OUT, "advance")
     if not os.path.isdir(advance_out):
         return
@@ -1697,6 +1733,7 @@ def main(collector):
             freeze_advance_snapshot(
                 date, os.path.join(OUT, "advance", date)
             )
+    save_latest_advance_snapshots(today)
 
     # The "Historical" tab must always show what we ACTUALLY tracked day by day
     # (i.e. DAILY actuals), never the advance/pre-sales snapshot. Advance numbers
