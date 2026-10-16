@@ -116,6 +116,7 @@ def publish(mode):
     )
     data_src = os.path.join(PROJECT_ROOT, "data")
     git_env = dict(os.environ, GIT_TERMINAL_PROMPT="0", GIT_EDITOR="true")
+    from preserve_advance_data import preserve_published_advance
 
     def git(*args, check=True):
         return subprocess.run(["git", "-C", pubdir, *args], check=check, env=git_env)
@@ -151,6 +152,9 @@ def publish(mode):
         stamp = datetime.now().isoformat(timespec="seconds")
         for attempt in range(1, 4):
             branch = sync_to_origin()
+            preserve_published_advance(
+                data_src, os.path.join(pubdir, "data"), PROJECT_ROOT
+            )
             stage_publish()
             if git("commit", "-m", f"data({mode}): {stamp}", check=False).returncode != 0:
                 logger.info("No data changes to publish")

@@ -120,6 +120,16 @@ jobs:
         if: ${{ inputs.dry_run == false }}
         run: python build_data.py .
 
+      - name: Clone current dashboard data
+        if: ${{ inputs.dry_run == false }}
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
+
+      - name: Preserve published advance dates
+        if: ${{ inputs.dry_run == false }}
+        run: python preserve_advance_data.py data out/data .
+
       - name: Persist advance snapshots
         if: ${{ inputs.dry_run == false }}
         run: |
@@ -147,10 +157,7 @@ jobs:
 
       - name: Republish data/ -> dashboard repo
         if: ${{ inputs.dry_run == false }}
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git clone --depth 1 https://x-access-token:${GH_PAT}@github.com/CineBOTrends/dashboard.git out
           rm -rf out/data
           cp -r data out/data
           mkdir -p out/assets/posters
