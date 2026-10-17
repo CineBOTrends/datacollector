@@ -1575,9 +1575,13 @@ def build_editorial():
 
 
 def main(collector):
+    from advance_snapshot_persist import restore, save_missing
+
+    restore()
     ist = _dt.timezone(_dt.timedelta(hours=5, minutes=30))
     today = _dt.datetime.now(ist).strftime("%Y%m%d")
     freeze_past_advance_snapshots(today)
+    save_missing()
 
     for d in (OUT,):
         if os.path.isdir(d):
